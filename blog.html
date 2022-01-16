@@ -90,7 +90,7 @@ let valSplit = val.split(/\r?\t/);
 let hed = valSplit[2];
 let copy = valSplit[1];
   $('<div class="blogitem" />').text("").appendTo('body');
-$(".blogitem").last().text(hed + copy);
+$(".blogitem").last().html("<h1>" + hed + "</h1>" + copy);
                       });
 
    arraylet.forEach(function(val, i) {
