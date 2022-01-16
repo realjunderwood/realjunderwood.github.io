@@ -87,9 +87,9 @@
    var arraylet = data.split(/\r?\n/);
                arraylet.forEach(function(val) {
 
-  $('<div class="blogitem" />').text("<h1>" + val + "</h1>").appendTo('body');
-
-   });
+  $('<div class="blogitem" />').text().appendTo('body');
+$("body").last().text(val);
+                      });
 
    arraylet.forEach(function(val, i) {
 console.log(arraylet[i]);
