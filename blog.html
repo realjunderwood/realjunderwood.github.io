@@ -88,9 +88,7 @@
 console.log(data);
                arraylet.forEach(function(val) {
 
-
-     $('<div class="post" />').text(val.slice(20, val.length)).appendTo('#container');
-
+  $('<div class="blogitem" />').text(val).appendTo('body');
 
    });
 
