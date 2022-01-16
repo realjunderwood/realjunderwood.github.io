@@ -84,8 +84,9 @@
           
           
            $.get("https://docs.google.com/spreadsheets/d/14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g/export?format=tsv&id=1sKIOtLnwtzp49gyhMLV-AJ7jZsNtmq9RAHiP0WsmA4E", function(data, status) {
-   var arraylet = data.split(/\r?\n/).shift();
-               arraylet.forEach(function(val) {
+   var arraylet = data.split(/\r?\n/);
+               let arrayletLet = arraylet.shift();
+               arrayletLet.forEach(function(val) {
 let valSplit = val.split(/\r?\t/);
 let hed = valSplit[2];
 let copy = valSplit[1];
@@ -93,9 +94,6 @@ let copy = valSplit[1];
 $(".blogitem").last().html("<h1>" + hed + "</h1>" + copy);
                       });
 
-   arraylet.forEach(function(val, i) {
-console.log(arraylet[i]);
-   });
 
 
  });
