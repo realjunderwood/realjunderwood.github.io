@@ -48,24 +48,7 @@
   <h1 id="flag">Blog</h1>
 
    <main class="px-3">
-    <div class="blogItem"><h1>Post Title</h1>
-        <h2>sdf</h2>
-        </div>
-      <div class="blogItem"><h1>Post Title</h1>
-       <h2>Dek</h2>
-        </div>
-          <div class="blogItem"><h1>Post Title</h1>
-       <h2>Dek</h2>
-        </div>
-        <div class="blogItem"><h1>Post Title</h1>
-       <h2>Dek</h2>
-        </div>
-        <div class="blogItem"><h1>Post Title</h1>
-       <h2>Dek</h2>
-        </div>
-        <div class="blogItem"><h1>Post Title</h1>
-       <h2>Dek</h2>
-        </div>
+       <div id="blogContainer"></div>
   </main>
 
   <footer class="mt-auto text-white-50">
@@ -90,7 +73,7 @@
 let valSplit = val.split(/\r?\t/);
 let hed = valSplit[2];
 let copy = valSplit[1];
-  $('<div class="blogitem" />').text("").appendTo('body');
+  $('<div class="blogitem" />').text("").appendTo('#blogContainer');
 $(".blogitem").last().html("<h1>" + hed + "</h1>" + copy);
                       });
 
