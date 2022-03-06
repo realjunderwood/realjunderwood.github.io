@@ -98,7 +98,6 @@ guestbook
 </div>
 	      <script src="jquery-3.6.0.min.js"></script>
 	<script>
-		function update() {
 $("#container").html("");
 $.get("https://docs.google.com/spreadsheets/d/14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g/export?format=csv&id=14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g", function(data, status) {
   var arraylet = data.split(/\r?\n/);
@@ -126,10 +125,9 @@ var arraylet2 = arraylet.filter(function(value, index, arr){
 
 });
 
-		}
 		
-		update();
-		setInterval(update(),10000);
+		
+		
 	</script>
 	
 </body>
