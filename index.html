@@ -1,76 +1,88 @@
-<html class="h-100" lang="en">
-	<head>
-		<title>James Underwood</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   
-	<link rel="stylesheet" href="https://use.typekit.net/mgh4ecz.css">
-    
-
-    <!-- Bootstrap core CSS -->
-<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
-
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
-  .linklet a {
-color: white;
-      text-decoration-thickness: 1px !important;
+<body>
+<head>
+	
+	<style>
+		body {
+  padding: 0;
+    font-family: 'Helvetica', 'Arial', sans-serif;
+    }
+#header {
+  background: #2b2b2b;
+  color: white;
+ padding: 15px;
 }
-        .linklet:hover {
-            font-weight:600 !important;
-font-size:19.2px;
-        }
-        .grayed {
-            
-            color: #c8c8c8;
-        }
-        .arrowlet {
-            filter: brightness(0) invert(1);
-            width:20px;
-        }
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
+#feed {
+  background:silver;
+  padding:10px;
+  display:inline-block;
+  line-height:1.5em;
+  width:50%;
+}
+.latestTag {
+  background:#2b2b2b;
+  color:white;
+  border-radius:5px;
+  padding:5px;
+  font-size:13px;
+}
 
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
+#subheader {
+  padding:4px;
+  background:#803630;
+  color:white;
+  height:40px;
+}
 
-    
-    <link href="cover.css" rel="stylesheet">
-  </head>
-  <body class="d-flex h-100 text-center text-white bg-dark">
-   
-<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-	
-	
-  <header class="mb-auto">
-
-  </header>
-
-  <main class="px-3">
-    <h1 style="font-size:55px;font-family:Inter;font-weight:900;">James Underwood<span style="font-size:30px;font-weight:600;" class="grayed"> .net</span></h1>
-    <h3 class="lead" style="font-family:Inter"><span class="linklet"><a style="" href="about.html">about me</a></span> /  <span class="linklet"><a href="about.html">projects & work</a></span> / <span class="linklet"><a href="blog.html" target="_BLANK">blog</a></span> / <span class="linklet"><a href="guestbook.html">guestbook</a></span></h3>
-<h4></h4>
-   
-  </main>
-
-  <footer class="mt-auto grayed">
-          <p>James Underwood 2022</p>
-
-  </footer>
+.smoldate {
+  font-size:11px;
+}
+#guestbook {
+  
+  background:#2b2b2b;
+  width:45%;
+  display:inline-block;
+  color:white;
+  vertical-align:top;
+}
+		
+	</style>
+	</head>
+<div id="header">
+  <h1 style="font-size:42px;font-weight:900;margin:0;">James Underwood<span style="font-size:24px;font-weight:600;color:silver;"> .net</span></h1>
 </div>
 
-
-    
+<div id="subheader">
+  <p style="margin:0;">
   
+  <a>old website</a> | <a>campaign website #1</a> | <a>campaign website #2</a> | <a>resume</a> | <a>github</a></p>
+</div>
 
-</body></html>
+<div id="feed">
+  <h5>
+    "feed"
+  </h5>
+  <ul>
+    <li>
+      <span class="latestTag">Blog</span> Making the Journalistic Sausage: A Case Study of an NY Times Op-Ed <span class="smoldate">3/8/22</span>
+    </li>
+   
+   
+   <li><span class="latestTag">Arlingtonian</span> Marching for Masks</li>
+   
+  </ul>
+</div>
+
+<div id="guestbook">
+<h3>
+guestbook
+</h3>
+
+
+ <details>
+  <summary>leave a message</summary>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScoxa2YJYzOS0vaU3kG18dBdJvw2OhoE6Kmic-Zzs9P1426zw/viewform?embedded=true" frameborder="0" style="width:100%;" marginheight="0" marginwidth="0">Loading…</iframe>
+</details> 
+
+
+</div>
+</body>
