@@ -100,7 +100,7 @@ guestbook
 	<script>
 		
 setInterval(function(){
-
+$("#container").html("");
 $.get("https://docs.google.com/spreadsheets/d/14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g/export?format=csv&id=14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g", function(data, status) {
   var arraylet = data.split(/\r?\n/);
   arraylet = arraylet.splice(1, arraylet.length);
@@ -127,7 +127,7 @@ var arraylet2 = arraylet.filter(function(value, index, arr){
 
 });
 
-},10000);
+},15000);
 	</script>
 	
 </body>
