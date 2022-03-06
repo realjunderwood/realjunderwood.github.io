@@ -11,6 +11,15 @@
   color: white;
  padding: 15px;
 }
+		
+.post {
+
+  margin:6px;
+  padding:6px;
+  background: orange;
+  color:black;
+}
+		
 #feed {
   background:silver;
   padding:10px;
@@ -82,7 +91,32 @@ guestbook
   <summary>leave a message</summary>
       <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScoxa2YJYzOS0vaU3kG18dBdJvw2OhoE6Kmic-Zzs9P1426zw/viewform?embedded=true" frameborder="0" style="width:100%;" marginheight="0" marginwidth="0">Loading…</iframe>
 </details> 
+<div id="container">
 
 
 </div>
+	      <script src="jquery-3.6.0.min.js"></script>
+	<script>
+		
+		
+           $.get("https://docs.google.com/spreadsheets/d/14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g/export?format=csv&id=14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g", function(data, status) {
+   var arraylet = data.split(/\r?\n/);
+   arraylet = arraylet.splice(9,arraylet.length);
+   arraylet.forEach(function(val) {
+
+let ttt =val.split(":")[2];
+     $('<div class="post" />').text( ttt ).appendTo('#container');
+
+
+   });
+
+   arraylet.forEach(function(val, i) {
+console.log(i);
+$(".post").eq(i).prepend("<small>" + val.slice(0, 19) + "</small><br>");
+   });
+
+
+ });
+	</script>
+	
 </body>
