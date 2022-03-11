@@ -1,0 +1,110 @@
+
+<?php
+file_put_contents("/live/campaigntraffic.txt", "**visit from " . $_SERVER['REMOTE_ADDR'] . " " . date("D M d, Y G:i") . "**\n", FILE_APPEND);
+?>
+
+<html>
+        <head>
+                <title>James Underwood for UAHS</title>
+                <meta charset="utf-8">
+                <meta name="keywords" content="James Underwood, James, Underwood, James Underwood President, President, UAHS, Upper Arlington, Upper Arlington High School, 2023, Golden Bears, Class of 2023, HMS, Hastings, Hastings Middle School, 8th grade, class, class president, president, presidency, office of the president, candidate, instagram">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="The official website of Underwood for UAHS">
+               <link rel="stylesheet" href="style2.css">
+                <link rel="shortcut icon" href="/favicon.ico?">
+
+<style>
+
+.container-redwhiteblue {
+  background: linear-gradient(
+    to bottom,
+    LightSkyBlue ,
+    white,
+white,
+    IndianRed 
+  );
+  background-size: 100%;
+}
+</style>
+
+        </head>
+        <body>
+		<div class="container container-redwhiteblue">
+			<h1 style="line-height:1em;font-family:arial;">James Underwood for Sophomore Class Communications Chair</h1>
+			<small><i>Upper Arlington High School</i></small>
+		</div>
+		<img src="/images/flag.gif" width="50px" style="">
+<!--		<div class="container">
+			<h1>Statement on the Election</h1>
+			<b>October 9th, 2018</b>
+			<p>In spite of popular demand, I have chosen to respect the results of the election and concede the race.</p>
+			<p>I may not have won the Presidency, but I will never stop fighting for you. That's why I'm announcing my candidacy for next year's race. I look forward to serving the class. Go Bears.</p>
+			<p style="letter-spacing:1px;margin-bottom:0">###</p>
+		</div> -->
+		<div class="container" id="countdown">
+			<p>Election day is May 7th! Vote for James Underwood in</p>
+			<h4 style="margin:0" id="countdownTimeTime">0 days, 0 hours, 0 minutes, 0 seconds</h4>
+
+		</div>
+
+<div class="container">
+                        <h2 style="margin:0">“I’ve got a plan for that!”</h2>
+                        <p style="margin-top:0;">I am working hard to craft a comprehensive policy plan for the election; it will be posted here when it is ready.</p>
+                </div>
+
+
+		<div class="container">
+			<!--<h2 style="margin:0">My campaign is on &lInstagram</h2>-->
+			<h2 style="margin:0">My campaign is on Instagram</h2>
+			<h4 style="margin-top:0;"><a href="//instagram.com/junderwoodjunderwood" target="_BLANK">@junderwoodjunderwood</a></h4>
+<!--			<p style="margin-top:0;">The account has been disabled until next year's election season when it will reopen as @UnderwoodForUAHS.</p>-->
+<p>Also check out the <a href="//instagram.com/uahs2023" target="_BLANK">@uahs2023</a> account.</p>
+	
+	</div>
+
+		<div class="container">
+			<h2 style="margin:0">Help Out</h2>
+			<h4 style="margin:0">My Pledge to you: I will not accept any donations from corporate Super PACs &ndash; I am the only candidate to make such a pledge.</h4>
+			<p style="margin:0">My grassroots campaign relies on We the People. If you are interested in volunteering your skills for the campaign, get in touch! My school email is jcunderwood.</p>
+		</div>
+
+		<div class="container">
+			<small>1650 Ridgeview Rd., Upper Arlington, OH 43221</small>
+		</div>
+<script>
+console.log("James Underwood for UAHS");
+console.log("The Campaign is in search of talented web developers. Please get in touch for more information.");
+
+function getTimeRemaining(endtime){
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor( (t/1000) % 60 );
+  var minutes = Math.floor( (t/1000/60) % 60 );
+  var hours = Math.floor( (t/(1000*60*60)) % 24 );
+  var days = Math.floor( t/(1000*60*60*24) );
+  return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime){
+  var clock = document.getElementById(id);
+  var timeinterval = setInterval(function(){
+    var t = getTimeRemaining(endtime);
+    clock.innerHTML = t.days + " days, " + t.hours + " hours, " + t.minutes + " minutes, " + t.seconds + " seconds";
+    if(t.total<=0){
+      clearInterval(timeinterval);
+    }
+  },1);
+}
+
+initializeClock("countdownTimeTime", "2021-5-07 11:00");
+</script>
+
+
+
+	</body>
+</html>
