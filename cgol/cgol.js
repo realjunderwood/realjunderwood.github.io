@@ -1,8 +1,8 @@
 render();
 
 function render(clear) {
-  var width = 24;
-  var height = 24;
+  var width = 64;
+  var height = 64;
 
   $("#table").empty();
   for (i = 0; i < height; i++) {
