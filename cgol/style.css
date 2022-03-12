@@ -1,0 +1,27 @@
+td {
+  width: 20px;
+  height: 20px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.alive {
+  background-color: grey !important;
+}
+
+input {
+  height: 16px;
+  padding: 5px;
+  font-size: 13px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #6db3fd;
+}
