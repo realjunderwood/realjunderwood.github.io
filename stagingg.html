@@ -81,6 +81,9 @@ border-radius:25px;
 margin-left:15%;
 margin-right:15%;
 }
+			.cryptedmail:after {
+  content: attr(data-name) "@" attr(data-domain) "." attr(data-tld); 
+}
 		
 	</style>
 	</head>
@@ -223,10 +226,14 @@ I8,      ,8'
 			<li><a href="#">ig</a></li>
 			<li><a href="#">letterboxd</a></li>
 			<li><a href="#">student journalism</a></li>
-
-
-			
 		</ul>
+		<h6>contact me</h6>
+		<a href="#" class="cryptedmail"
+   data-name="jcunderwood"
+   data-domain="pm"
+   data-tld="me"
+   onclick="window.location.href = 'mailto:' + this.dataset.name + '@' + this.dataset.domain + '.' + this.dataset.tld; return false;"></a>
+		
 				</div>
 				
 				
