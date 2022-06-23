@@ -70,8 +70,12 @@ margin-left: auto;
 }
 .sectionHeader {
   transform: rotate(-2deg) scale(1.25,1);
-font-family: "Comic Sans", "Comic Sans MS", "comicc", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
+font-family: "comicc", "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
 	}
+	.comicSans {
+				font-family: "Comic Sans", "Comic Sans MS", "comicc", "Chalkboard", "ChalkboardSE-Regular", sans-serif;
+		}
+			
 @font-face {
   font-family: 'comicc';
   src: url("/comic-sans-ms/COMIC.ttf");
@@ -95,7 +99,7 @@ margin-right:15%;
 	<body>
 			<table id="header">
 			<tr>
-			<td colspan="4" style="style:text-align:center;font-family: 'Comic Sans', 'Comic Sans MS', 'comicc', 'Chalkboard', 'ChalkboardSE-Regular', sans-serif;">
+			<td colspan="4" style="style:text-align:center;" class="comicSans">
 			welcome to
 			</td>
 			</tr>
@@ -128,7 +132,7 @@ I8,      ,8'
 					</td>
 					<td style="width:75px">
 						<marquee>
-							<span id="dotNet" style="font-size:24px;font-weight:600;color:white;font-family: 'Comic Sans', 'Comic Sans MS', 'Chalkboard', 'ChalkboardSE-Regular', sans-serif;">.net</span>
+							<span id="dotNet" style="font-size:24px;font-weight:600;color:white;" class="comicSans">.net</span>
 						</marquee>
 				
 					</td>
