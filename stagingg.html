@@ -83,9 +83,7 @@ font-family: "comicc", "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardS
   font-family: 'comicc';
   src: url("/comic-sans-ms/COMIC.TTF");
 }
-			#feedGuest {
 
-}
 
 			.cryptedmail:after {
   content: attr(data-name) "@" attr(data-domain) "." attr(data-tld); 
@@ -223,11 +221,17 @@ I8,      ,8'
 	</div>
 	
 		
-			<div class="feed" id="feedGuest">
-			<div id="feedGuestInside">
-				<h5 class="sectionHeader">
-~guestbook~</h5>
-</div>
+			<div class="feed" id="guestbook">
+				<h5 class="sectionHeader">~guestbook~</h5>
+				
+				<details>
+					<summary>leave a message</summary>
+					<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScoxa2YJYzOS0vaU3kG18dBdJvw2OhoE6Kmic-Zzs9P1426zw/viewform?embedded=true" frameborder="0" style="width:100%;height:560px;" marginheight="0" marginwidth="0">Loading…</iframe>
+				</details>
+				<div id="container"></div>
+				
+				
+				
 	</div>
 	
 	<div class="feed">
@@ -252,19 +256,7 @@ I8,      ,8'
 				
 	
 			
-			<div id="guestbook">
-				<h3>
-guestbook
-</h3>
-				<details>
-					<summary>leave a message</summary>
-					<iframe src="https://docs.google.com/forms/d/e/1FAIpQLScoxa2YJYzOS0vaU3kG18dBdJvw2OhoE6Kmic-Zzs9P1426zw/viewform?embedded=true" frameborder="0" style="width:100%;height:560px;" marginheight="0" marginwidth="0">Loading…</iframe>
-				</details>
-				<div id="container">
-
-
-</div>
-			</div>
+			
 			<div>
 				<div style="background:yellow;width:50%;">
 					<ul>
