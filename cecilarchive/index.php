@@ -1,0 +1,133 @@
+<?php
+session_start();
+if ($_SESSION["authenticated"] === true) {
+	header("Location:dashboard.php");
+	exit();
+}
+
+
+if ($_POST["action"] === "login") {
+
+
+
+$mysqli = new mysqli("localhost", "root", "password", "cecilfiles");
+
+$userqueryo = $mysqli->query("SELECT * FROM users WHERE username='" . $_POST["username"] . "' and password='" . hash("sha256",$_POST["passcode"]) . "'")->fetch_object();
+if ($userqueryo->activated == "0") {
+echo "Your account is not yet approved; you will receive an email when it is.";
+} else if ($userqueryo->activated == "1") {
+
+
+		$_SESSION["authenticated"] = true;
+		$_SESSION["firstname"] = $userqueryo->firstname;
+		$_SESSION["lastname"] = $userqueryo->lastname;
+		$_SESSION["username"] = $userqueryo->username;
+		$_SESSION["admin"] = $userqueryo->admin;
+		$_SESSION["id"] = $userqueryo->admin;
+
+
+		if (isset($_GET["redirect"])) {
+			header("Location:" . $_GET["redirect"]);
+		} else {
+			header("Location:dashboard.php");
+		}
+
+	} else {
+
+echo "Incorrent username or password.";
+	}
+
+exit();
+
+}
+?>
+
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Lester Cecil Archive &ndash; Log In</title>
+		<meta property="og:image" content="https://www.jamesunderwood.net/cecilarchive/graphics/logo.png">
+		<meta property="og:title" content="The Lester Cecil Lefevre Cecil Letter Archive">
+		<style>
+body {
+background: silver;
+background-image: url("graphics/paper.png");
+font-family:verdana;
+}
+.nicediv {
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(229,229,229,1) 100%); /* FF3.6-15 */
+border:1px solid black;
+padding:10px;
+margin:2px;
+}
+
+input {
+margin-bottom:2px;
+padding:8px;
+font-size:16px;
+border:1px solid black;
+display:block;
+}
+		</style>
+	</head>
+	<body>
+
+<div style="margin-left:50px;margin-right:50px;">
+<div class="nicediv">
+	<h3 style="margin:0;">Welcome to the Lester LeFevre Cecil Letter Archive Project</h3>
+	<p>under construction</p>
+  <img src="/construction.gif">
+</div>
+
+<div class="nicediv">
+<h3 style="margin:0;">Log in</h3>
+		<form method="POST" style="margin:0">
+					<input type="text" name="username" placeholder="username">
+					<input id="passcode" type="password" name="passcode" placeholder="password">
+				<input type="hidden" name="action" value="login">
+				<input type="hidden" name="redirect" value="<?= $_GET['redirect'] ?>">
+				<input style="" type="submit" value="submit">
+			</form>
+</div>
+<div class="nicediv">
+<h3 style="margin:0;">Request an account</h3>
+<p>You will receive an email once your request has been reviewed.</p>
+
+
+
+<form method="post" action="requestaccount.php" id="requestaccount">
+<input type="text" name="firstname" id="firstname" placeholder="first name">
+<input type="text" name="lastname" id="lastname" placeholder="last name">
+
+<input type="text" name="username" id="username" placeholder="username">
+
+<input type="text" name="email" id="email" placeholder="email">
+
+<input type="password" name="password" id="password" placeholder="password">
+
+<input type="submit" value="submit">
+</form>
+
+
+
+
+
+</div>
+
+<div class="nicediv">
+<h3 style="margin:0;">Contact</h3>
+<p id="emailaddr"></p>
+</div>
+
+</div>
+
+<script>
+var user = "cecilproject";
+var host = "jamesunderwood.net";
+document.getElementById("emailaddr").innerHTML = user + "@" + host;
+console.log(user + "@" + host);
+</script>
+
+
+	</body>
+</html>
