@@ -13,12 +13,12 @@
     </head>
     <body>
         
-    <img src="/assets/guestbook.gif" style="width:80px">
    <center>
-    <h1>~ jamesunderwood.net guestbook ~</h1>
-    <h3>welcome to my guestbook!</h3>
-       
-       
+    <img src="/assets/guestbook.gif" style="width:120px">
+
+       <h1>~ jamesunderwood.net guestbook ~</h1>
+				<button onclick="window.open('/guestbookpost.html','name','width=610,height=250')">leave a message</button>       
+       <div id="container">
        <div class="guestbooklisting">
            <h5><strong>date: </strong> 6/28/2022</h5>
            <p>content</p>
@@ -28,9 +28,39 @@
            <h5><strong>date: </strong> 6/28/2022</h5>
            <p>content</p>
        </div>
-       
+       </div>
     </center>
     
+    <script>
+        		<script>
+$("#container").html("");
+$.get("https://docs.google.com/spreadsheets/d/14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g/export?format=csv&id=14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g", function(data, status) {
+  var arraylet = data.split(/\r?\n/);
+  arraylet = arraylet.splice(1, arraylet.length);
+
+var arraylet2 = arraylet.filter(function(value, index, arr){ 
+        return value !== "0/0/0000 00:00:00,del";
+    });
     
+    
+  arraylet2.forEach(function(val) {
+
+    let ttt = val.substring(val.indexOf(":") + 7, val.length);
+    $('<div class="guestbooklisting" /><p class="postp" ').text(ttt).appendTo('#container');
+
+  });
+
+  arraylet2.forEach(function(val, i) {
+
+    $(".post").eq(i).prepend("<small>" + val.split(" ")[0] + "</small><br>");
+  });
+});
+
+	
+							 </script>
+        
+        
+        
+        </script>
     </body>
 </html>
