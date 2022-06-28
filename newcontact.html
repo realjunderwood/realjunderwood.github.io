@@ -1,3 +1,4 @@
+<button onclick="deed()">press</button>
 <script>
 
 function downloadVcf(data) {
@@ -9,7 +10,8 @@ function downloadVcf(data) {
     document.location.href = url;
 }
                  
- for (let i = 0; i < 10; i++) { 
+function deed() {
+
                  
                  downloadVcf(`BEGIN:VCARD
 VERSION:3.0
@@ -20,7 +22,8 @@ EMAIL;type=INTERNET;type=HOME;type=pref:email@gmail.com
 TEL;type=IPHONE;type=CELL;type=VOICE;type=pref:(614) ` + i + `9
 BDAY;X-APPLE-OMIT-YEAR=1604:1604-09-11
 END:VCARD`);
- 
+
 }
+
 
 </script>
