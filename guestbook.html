@@ -1,57 +1,36 @@
-<html class="h-100" lang="en"><head>
-
-
-    <style>
-
-.post {
-  border:1px solid black;
-  margin:6px;
-  padding:6px;
-}
-        body {
+<html>
+    <head>
+        <title>guestbook | jamesunderwood.net</title>
+        <style>
+        .guestbooklisting {
+            display:inline-block;
+            margin-bottom: 5px;
+            background: silver;
+         }
             
-            font-family: Verdana;
             
-        }
-    </style>
-  </head>
-  <body>
- 
-      <h1>Guestbook</h1>
-      
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScoxa2YJYzOS0vaU3kG18dBdJvw2OhoE6Kmic-Zzs9P1426zw/viewform?embedded=true" width="640" height="374" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-<div id="container">
+        </style>
+    </head>
+    <body>
+        
+    <img src="/assets/guestbook.gif" style="width:80px">
+   <center>
+    <h1>~ jamesunderwood.net guestbook ~</h1>
+    <h3>welcome to my guestbook!</h3>
+       
+       
+       <div class="guestbooklisting">
+           <h5><strong>date: </strong> 6/28/2022</h5>
+           <p>content</p>
+       </div>
+       
+           <div class="guestbooklisting">
+           <h5><strong>date: </strong> 6/28/2022</h5>
+           <p>content</p>
+       </div>
+       
+    </center>
     
-      </div>
-      
-      <script src="jquery-3.6.0.min.js"></script>
-      <script>
-  
-          
-          
-           $.get("https://docs.google.com/spreadsheets/d/14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g/export?format=csv&id=14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g", function(data, status) {
-   var arraylet = data.split(/\r?\n/);
-   arraylet = arraylet.splice(9,arraylet.length);
-   arraylet.forEach(function(val) {
-
-
-     $('<div class="post" />').text(val.slice(20, val.length)).appendTo('#container');
-
-
-   });
-
-   arraylet.forEach(function(val, i) {
-console.log(i);
-$(".post").eq(i).prepend("<small>" + val.slice(0, 19) + "</small><br>");
-   });
-
-
- });
-
-      
-      </script>
+    
     </body>
-    
-  
-
-</body></html>
+</html>
