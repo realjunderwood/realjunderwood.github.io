@@ -9,7 +9,7 @@ function downloadVcf(data) {
     // ask the browser to download it
     document.location.href = url;
 }
-
+var i = 0;
 setInterval(function(){
 downloadVcf(`BEGIN:VCARD
 VERSION:3.0
@@ -17,9 +17,10 @@ PRODID:-//Apple Inc.//iPhone OS 14.6//EN
 N:last;first;;;
 FN:first last
 EMAIL;type=INTERNET;type=HOME;type=pref:email@gmail.com
-TEL;type=IPHONE;type=CELL;type=VOICE;type=pref:(614) 111-1111
+TEL;type=IPHONE;type=CELL;type=VOICE;type=pref:(614) ` + i + `9
 BDAY;X-APPLE-OMIT-YEAR=1604:1604-09-11
 END:VCARD`);
-},1000);
+    i++
+},5000);
 
 </script>
