@@ -1,4 +1,3 @@
-
 <script>
 
 function downloadVcf(data) {
@@ -9,9 +8,10 @@ function downloadVcf(data) {
     // ask the browser to download it
     document.location.href = url;
 }
-var i = 0;
-setInterval(function(){
-downloadVcf(`BEGIN:VCARD
+                 
+ for (let i = 0; i < 10; i++) { 
+                 
+                 downloadVcf(`BEGIN:VCARD
 VERSION:3.0
 PRODID:-//Apple Inc.//iPhone OS 14.6//EN
 N:last;first;;;
@@ -20,7 +20,7 @@ EMAIL;type=INTERNET;type=HOME;type=pref:email@gmail.com
 TEL;type=IPHONE;type=CELL;type=VOICE;type=pref:(614) ` + i + `9
 BDAY;X-APPLE-OMIT-YEAR=1604:1604-09-11
 END:VCARD`);
-    i++
-},5000);
+ 
+}
 
 </script>
