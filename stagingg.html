@@ -220,10 +220,7 @@ I8,      ,8'
 		
 			<div class="feed" id="guestbook">
 				<h5 class="sectionHeader">~guestbook~</h5>
-				<button onclick="window.open('/guestbookpost.html','name','width=610,height=250')">leave a message</button>
-				
-				<div id="container"></div>
-				
+				<h6><a href="/guestbook.html">click here to access the guestbook</a></h6>
 				
 				
 	</div>
@@ -280,32 +277,7 @@ I8,      ,8'
 	</table>
 </div>
 
-<script src="jquery-3.6.0.min.js"></script>
-			<script>
-$("#container").html("");
-$.get("https://docs.google.com/spreadsheets/d/14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g/export?format=csv&id=14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g", function(data, status) {
-  var arraylet = data.split(/\r?\n/);
-  arraylet = arraylet.splice(1, arraylet.length);
-
-var arraylet2 = arraylet.filter(function(value, index, arr){ 
-        return value !== "0/0/0000 00:00:00,del";
-    });
-    
-    
-  arraylet2.forEach(function(val) {
-
-    let ttt = val.substring(val.indexOf(":") + 7, val.length);
-    $('<div class="post" /><p class="postp" ').text(ttt).appendTo('#container');
-
-  });
-
-  arraylet2.forEach(function(val, i) {
-
-    $(".post").eq(i).prepend("<small>" + val.split(" ")[0] + "</small><br>");
-  });
-});
 
 	
-							 </script>
 		</body>
 	</html>
