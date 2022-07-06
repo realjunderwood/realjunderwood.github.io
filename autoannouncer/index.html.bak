@@ -4,7 +4,7 @@
 <style>
 
 body {
-background-image: url("water.gif");
+background-image: url("/assets/water.gif");
   padding:45px;
 }
   #mainContainer {
