@@ -29,10 +29,10 @@ background-image: url("water.gif");
   			
   
   <select id="demoVersionSelect">
-  <option value="101" selected>v1.0.1</option>
-  <option value="100">v1.0.0</option>
+  <option value="1.0.1" selected>v1.0.1</option>
+  <option value="1.0.0">v1.0.0</option>
 </select>
-  <button onclick="window.open('./demo/AutoAnnouncerDemo1.0.0/index.html','AutoAnnouncer Demo','width=650,height=300,menubar=1,resizable=0')">LAUNCH DEMO</button>       
+  <button onclick="window.open('./demo/AutoAnnouncerDemo${document.getElementById("demoVersionSelect").value}/index.html','AutoAnnouncer Demo','width=650,height=300,menubar=1,resizable=0')">LAUNCH DEMO</button>       
   <h3>Changelog</h3>
   <ul>
     <li><strong>7/14/22: </strong>v1.0.1&mdash;updated audio recordings to be more "enthusiastic" (per request)</li>
