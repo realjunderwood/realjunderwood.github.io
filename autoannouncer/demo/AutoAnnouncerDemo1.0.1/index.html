@@ -1,0 +1,102 @@
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'">
+    <link href="./styles.css" rel="stylesheet">
+    <title>RRWP AutoAnnouncer</title>
+  </head>
+  <body>
+
+
+<div id="audios">
+ <audio id="hellorrwpAudio">
+  <source id="hellorrwp" src="" type="audio/wav">
+</audio> 
+
+ <audio id="REEnterAudio">
+  <source id="REEnter" src="" type="audio/wav">
+</audio> 
+ <audio id="leaveAudio">
+  <source id="leave" src="" type="audio/wav">
+</audio> 
+</div>
+
+
+     <div id="allContainer" class="aaOn">
+<div id="allContainerCover">
+
+    <h1>
+      RRWP AutoAnnouncer
+    </h1>
+
+
+<table style="margin-top:25px;">
+<tr>
+<td>
+      <p style="margin-top:0">AutoAnnouncer is <strong id="whetherOoO">on</strong>.</p>
+      <button class="button" id="toggleAnnouncements">turn off</button><br>
+<button class="buttonRev" id="manualBtn">manual announcement</button>
+
+      </td><td id="nextAnnounce">
+      <h5>
+        NEXT ANNOUNCEMENT
+      </h5>
+      <h3>
+        <span id="min"></span>:<span id="sec"></span>
+      </h3>
+     
+      </td>
+      </tr>
+      </table>
+      
+
+      <div id="bottomRight">
+      <p><small>RRWP AutoAnnouncer v1.0.1</small></p>
+            <p><small>&copy; James Underwood 2022</small></p>
+
+      </div>
+      
+     
+      
+</div>
+
+      
+  </div>
+
+<div id="manualModal" class="modal">
+
+  <!-- Modal content -->
+
+<button class="button" id="closeModal">< back</button>
+<h1>Manual Announcement</h1>
+
+<table>
+	<tr>
+		<td><h3>Rest period start</h3></td>
+		<td><h3>Rest period end</h3></td>
+	</tr>
+	<tr>
+		<td><small style="font-size:12px">Hello, Reed Road Water Park. The time is now <input style="width:40px;text-align:center;" id="manualTime">, and it is time for our 15-minute rest period. In a moment, the guards will blow their whistles, and everybody under the age of 18 must exit the water. Thank you.</small></td>
+		<td><small style="font-size:12px">The rest period is now over. In a moment, the guards will blow their whistles, and you may slowly re-enter the water.</small></td>
+	</tr>
+	<tr>
+		<td><button class="buttonRev" id="manualStartBtn">announce</button></td>
+		<td><button class="buttonRev" id="manualEndBtn" onclick="playEnd();">announce</button></td>
+	</tr>
+</table>
+
+
+  </div>
+
+
+
+    <!-- You can also require other files to run in this process -->
+    <script src="./renderer.js"></script>
+  </body>
+</html>
