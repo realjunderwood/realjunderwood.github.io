@@ -8,7 +8,7 @@ if ($_SESSION["authenticated"] !== true) {
 ?>
 <div style="background: #82e0aa ;width:600px">
 <h1 style="margin-bottom:0">Search</h1>
-<small><a href="dashboard.php"><< back</a></small>
+<small><a href="dashboard.html"><< back</a></small>
 
 <h3>This is a prototype for the search function. It is still makeshift and will be updated at a later time.</h3>
 <p>Get in touch with any suggestions. cecilproject@jamesunderwood.net <br> -- James
@@ -44,7 +44,7 @@ echo "RESULTS<br><br>";
         while ($row = $result->fetch_assoc()) {
 
 
-		echo "<strong><a href='view.php?id=" . $row["fileid"] . "'>" . $row["date"] . " FROM " . $row["author"] . " TO " . $row["recipient"] . "</a></strong>";
+		echo "<strong><a href='view.html?id=" . $row["fileid"] . "'>" . $row["date"] . " FROM " . $row["author"] . " TO " . $row["recipient"] . "</a></strong>";
                 echo "<li>" . highlight_word($row['content'], $_POST["keyword"]) . "</li>";
                 echo "<br>";
         }
