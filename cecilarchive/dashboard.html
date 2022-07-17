@@ -107,25 +107,22 @@ li > a{
 <hr>
 <h3>Welcome, </h3>
 <ul>
-<li><a href="browse.php">Browse</a></li>
-<li><a href="search.php">Search (WIP)</a></li>
+<li><a href="browse.html">Browse</a></li>
+<li><a href="search.html">Search (WIP)</a></li>
 </ul>
 
-<ul>
-	<li><a href="lounge.php">Volunteer Lounge</a></li>
-</ul>
 
 <ul>
 <li><a href="#">Account settings</a></li>
-<li><a href="logout.php">Log out</a></li>
+<li><a href="logout.html">Log out</a></li>
 </ul>
 
 <?php
 if ($_SESSION["admin"] == "1") {
 ?>
 <ul>
-<li><a href="admin.php">Admin</a></li>
-<li><a href="upload.php">Upload</a></li>
+<li><a href="admin.html">Admin</a></li>
+<li><a href="upload.html">Upload</a></li>
 </ul>
 
 
@@ -182,11 +179,11 @@ while($result = $query->fetch_assoc()) {
 <!--<?php
 $queryunt = $mysqli->query("SELECT publicid, date FROM files WHERE incomplete='1' ORDER BY RAND() LIMIT 10;");
 while($resultunt = $queryunt->fetch_assoc()) {
-echo "<li><a href='transcribe.php?id=" . $resultunt["publicid"] . "'>" . $resultunt["date"] . "</a></li>";
+echo "<li><a href='transcribe.html?id=" . $resultunt["publicid"] . "'>" . $resultunt["date"] . "</a></li>";
 }
 ?>-->
 </ul>
-<small>See more at the <a href="browse.php">browse</a> page.</small>
+<small>See more at the <a href="browse.html">browse</a> page.</small>
 </div>
 <div id='onthisday' class="nicediv">
 <h3 style="margin:0;padding:0;">On This Day</h3>
