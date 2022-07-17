@@ -1,0 +1,213 @@
+<!--
+<?php
+session_start();
+if ($_SESSION["authenticated"] !== true) {
+	header("Location:index.php");
+	exit();
+}
+?>
+
+<?php
+$mysqli = new mysqli("localhost", "root", "", "cecilfiles");
+?>
+-->
+<!DOCTYPE html>
+
+<html>
+	<head>
+<title>Lester Cecil Archive &ndash; Home</title>
+
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--	<link rel="stylesheet" href="/cecilarchive/css/style.css?">-->
+
+			<meta property="og:image" content="https://www.jamesunderwood.net/cecilarchive/graphics/logo.png">
+                <meta property="og:title" content="The Lester Cecil Lefevre Cecil Letter Archive">
+<style>
+body {
+background-image: url("graphics/brick.jpg");
+background-repeat: repeat !important;
+font-family: verdana;
+background-size: 100px;
+}
+.flexrow {
+display:flex;
+}
+#mainbody {
+width:100%;
+}
+
+#onthisday{
+vertical-align:top;
+}
+
+.nicediv {
+vertical-align:top;
+margin:5px;
+display: inline-block;
+padding:20px;
+background: rgba(192,192,192,0.95);
+border-radius:3px;
+
+}
+
+
+#indexdiv {
+border-radius: 3px;
+background:lightgray;
+padding:10px;
+margin:10px;
+}
+#special {
+vertical-align:top;
+color: white;
+font-family:comic sans ms;
+background:black;
+}
+hr {
+color:black;
+}
+
+#contribute {
+display:inline-block;
+}
+
+fieldset {
+border-color: black;
+}
+
+
+
+.tb {
+letter-spacing:1.5px;
+font-size:14px;
+margin:0;
+padding:0
+}
+
+.ulsmall {
+margin:5px
+}
+h3{
+margin:0;
+}
+
+li > a{
+//color: #1151ba;
+}
+
+</style>
+	</head>
+	<body>
+<div class="flexrow">
+<div id="mainbody" class="nicediv">
+		<!--<img src="graphics/logo.png" style="border:5px inset white;width:300px;">-->
+		<h1 style="margin-top:0">Lester LeFevre Cecil Letter Archive <span style="letter-spacing:2px;font-size:12px;color:darkgreen;">BETA</span></h1>
+		<h4 style="margin-bottom:0"><i>An initiative to scan, transcribe, and preserve the writings and correspondances of Judge Lester LeFevre Cecil</i></h4>
+		<small><i><a href="about.html">more about the project</a></i></small>
+<hr>
+<h3>Welcome, </h3>
+<ul>
+<li><a href="browse.php">Browse</a></li>
+<li><a href="search.php">Search (WIP)</a></li>
+</ul>
+
+<ul>
+	<li><a href="lounge.php">Volunteer Lounge</a></li>
+</ul>
+
+<ul>
+<li><a href="#">Account settings</a></li>
+<li><a href="logout.php">Log out</a></li>
+</ul>
+
+<?php
+if ($_SESSION["admin"] == "1") {
+?>
+<ul>
+<li><a href="admin.php">Admin</a></li>
+<li><a href="upload.php">Upload</a></li>
+</ul>
+
+
+<?php
+}
+?>
+
+<p>Contact me at jcunderwood@protonmail.com</p>
+
+	</div>
+
+
+<div id="special" class="nicediv" style="display:none;width:40%;background:white;color:black;font-family:verdana;">
+<h3 style="margin:0px">Project Updates & News</h3>
+<hr>
+<!--<?php
+$query = $mysqli->query("SELECT * FROM updates ORDER BY date desc");
+while($result = $query->fetch_assoc()) {
+?>-->
+<div class="container container-primary">
+
+<div style="border:1px solid black;padding:4px">
+<p><strong>$result["date"]</strong></p>
+<p><strong>$result["subject"]</strong></p>
+<p>$result["content"]</p>
+</div>
+<!--
+<?php
+}
+?>
+*/
+</div>-->
+
+
+
+<div class="container container-primary">
+
+	<div id="special" class="nicediv">
+		<center>
+			<h3 style="margin:0">Merry Christmas!</h3>
+		<img style="display:block" src="graphics/christmastree.gif" width="75px">
+		<img style="display:block" src="graphics/fireplace.gif" width="75px">
+		<p><small><a href="christmas.html" style="color:white">Learn about Earl Cecil's 1918 Christmas</a></small></p>
+		</center>
+	</div>
+</div>
+
+
+
+<div id="contribute" class="nicediv">
+<h3 style="margin:0;padding:0;">Transcribe</h3>
+<small>Here are some untranscribed documents:</small>
+<ul class="ulsmall">
+<!--<?php
+$queryunt = $mysqli->query("SELECT publicid, date FROM files WHERE incomplete='1' ORDER BY RAND() LIMIT 10;");
+while($resultunt = $queryunt->fetch_assoc()) {
+echo "<li><a href='transcribe.php?id=" . $resultunt["publicid"] . "'>" . $resultunt["date"] . "</a></li>";
+}
+?>-->
+</ul>
+<small>See more at the <a href="browse.php">browse</a> page.</small>
+</div>
+<div id='onthisday' class="nicediv">
+<h3 style="margin:0;padding:0;">On This Day</h3>
+<!-- <?php
+$query = $mysqli->query("SELECT publicid, date, author, recipient FROM files WHERE substring(date,6,7) = '" . date('m-d') . "';");
+if($query->fetch_array()){
+while ($result = $query->fetch_assoc()) {
+        echo "<div><a href='view.php?id=" . $result["publicid"] . "'>On this day in " . substr($result["date"], 0, 4) . ", " . $result["author"] . " wrote " . $result["recipient"] . " a letter.</a></div>";
+}
+} else {
+echo "No letters written on this day.";
+}
+?> -->
+</div>
+
+
+
+
+
+
+
+
+	</body>
+</html>
