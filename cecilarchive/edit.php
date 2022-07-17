@@ -1,0 +1,73 @@
+<?php
+session_start();
+if ($_SESSION["authenticated"] !== true) {
+        header("Location:index.php");
+        exit();
+}
+$mysqli = new mysqli("localhost", "root", "", "cecilfiles");
+
+$querydd = $mysqli->query("SELECT * FROM files WHERE publicid='" . $_GET["id"] . "'");
+$result = $querydd->fetch_assoc();
+if ($_POST["dogarg"] == true) {
+$mysqli->query("UPDATE files SET date='" . date("Y-m-d",strtotime($_POST["date"])) . "', notes='" . htmlspecialchars($mysqli->real_escape_string($_POST["notes"])) . "', author='" . htmlspecialchars($mysqli->real_escape_string($_POST["author"])) . "', recipient='" . htmlspecialchars($mysqli->real_escape_string($_POST["hamtower"])) . "' WHERE publicid='" . $_POST["id"] . "'");
+header("Location:view.php?id=" . $_POST["id"]);
+exit();
+}
+
+?>
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+	body {
+		background:lightgreen;
+		font-family: verdana;
+	}
+	td, th, table {
+		border: 2px solid darkblue;
+	}
+	input {
+		height: 100%;
+		font-size:16px;
+		padding:0px;
+		width: 100%;
+	}
+</style>
+</head>
+<body>
+<h1 style="margin-bottom:3.5px;display:inline-block;background:yellow;padding:2px;">edit a letter's information</h1>
+<a href="view.php?id=<?= $_GET["id"] ?>" style="display:inline-block">file page</a>
+<span>   |   </span>
+<a href="transcribe.php?id=<?= $_GET["id"] ?>" style="display:inline-block">edit transcription</a>
+<span>   |   </span>
+<a href="browse.php" style="display:inline-block">browse</a>
+<span>   |   </span>
+<a href="dashboard.php" style="display:inline-block">dashboard</a>
+<br>
+<small style="background:pink;color:brown">Only authorized individuals may use this webpage.</small>
+<br>
+<form method="POST" id="form">
+<table border="1" width="100%">
+        <tr>
+                <th>DATE</th>
+                <th>TO</th>
+                <th>FROM</th>
+                <th>NOTES</th>
+        </tr>
+        <tr>
+                <td><input name="date" value="<?= $result["date"] ?>" type="date"></td>
+                <td><input name="hamtower" value="<?= $result["recipient"] ?>"></td>
+                <td><input name="author" value="<?= $result["author"] ?>"></td>
+                <td width="600px" height="100px"><textarea style="width:100%;height:100%;" form="form" name="notes"><?= $result["notes"] ?></textarea></td>
+        </tr>
+</table>
+
+<input type="hidden" value="true" name="dogarg">
+<input type="hidden" value="<?= $_GET["id"] ?>" name="id">
+<input type="submit" value="submit" style="height:30px !important;width:100%;">
+</form>
+<fieldset style="width:600px;height:250px;">
+<legend>view the letter</legend>
+<iframe src="file.php?id=<?= $_GET["id"] ?>" width="100%" height="100%" style="display:inline-block;border:1px solid black;"></iframe>
+</fieldset>
+</body>

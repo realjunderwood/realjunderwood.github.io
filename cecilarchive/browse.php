@@ -1,0 +1,156 @@
+ 
+
+<?php
+session_start();
+if ($_SESSION["authenticated"] !== true) {
+        header("Location:index.php");
+        exit();
+}
+?>
+
+
+
+<html>
+	<head>
+
+		<link rel="stylesheet" href="/cecilarchive/css/style.css?">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:image" content="https://www.jamesunderwood.net/cecilarchive/graphics/logo.png">
+                <meta property="og:title" content="The Lester Cecil Lefevre Cecil Letter Archive">
+
+	<style>
+
+
+.contentRow:hover {
+background:silver;
+cursor:pointer;
+}
+
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 0.95;
+}
+
+
+body {
+/*background-image: url("https://images-na.ssl-images-amazon.com/images/I/61E-dGf3maL._SX466_.jpg");*/
+/*background-image: url("https://cdn.shopify.com/s/files/1/2658/1334/products/CM-D-1304_1024x1024.jpg?v=1513758095");*/
+background-image: url("graphics/books.jpeg");
+padding:15px;
+}
+table {
+background:darkgray;
+}
+
+#library::first-line {
+display:none;
+}
+
+#thecontainer {
+background: #424949;
+padding:15px;
+display:inline-block;
+box-shadow: 0 0 100px 20px black;
+}
+
+td {
+padding:2px;
+}
+	</style>
+
+	</head>
+	<body>
+<center>
+<div id="thecontainer">
+<table border="1">
+	<thead>
+		<tr id="rowtop11">
+			<th colspan="7" style="padding:10px;background:silver;"><h1 style="margin:0;font-size:1.25em;">browse</h1><small style="margin:0;font-size:10px"><a href="dashboard.php">back to dashboard</a></small></th>
+		</tr>
+		<tr>
+			<th data-class-name="priority">date</th>
+			<th>recipient</th>
+			<th>author</th>
+			<!--<th>transcription</th>-->
+			<!--<th>notes</th>-->
+			<!--<th colspan="3">actions</th>-->
+		</tr>
+	</thead>
+	<tbody>
+<?php
+
+
+
+$mysqli = new mysqli("localhost", "root", "", "cecilfiles");
+
+$querydd = $mysqli->query("SELECT * FROM files ORDER BY date");
+while($result = $querydd->fetch_assoc()) {
+?>
+<tr data-letterid='<?= $result["publicid"]?>' class="contentRow">
+	<td><?= $result["date"] ?></td>
+	<td><?= $result["recipient"] ?></td>
+        <td><?= $result["author"] ?></td>
+<!--	<td class="notestd"><div style="max-width:600px;max-height:25px;overflow:scroll;"><?= nl2br($result["notes"]) ?></div></td> -->
+	<!--<td><a href="transcribe.php?id=<?= $result["publicid"] ?>"><?= $result["incomplete"] == 1 ? "incomplete" : "complete" ?></a></td>-->
+	<!--
+	<td ><a  href='view.php?id=<?= $result["publicid"] ?>'><div class="tooltip"><img src="view.png" height="25px"><span class="tooltiptext">view</span></div></a></td>
+	<td ><a  href='file.php?id=<?= $result["publicid"] ?>&download=true'><div class="tooltip"><img src="download.png" height="25px"><span class="tooltiptext">download</span></div></a></td>
+	<td><a href="edit.php?id=<?= $result["publicid"] ?>"><div class="tooltip"><img src="graphics/pencil.png" height="25px"><span class="tooltiptext">edit</span></div></a></td>
+	<td ><a href="delete.php?id=<?= $result["publicid"] ?>" onclick="return confirm('Are you sure you want to DELETE this file? This action cannot be undone. Only James is allowed to do this!')"><div class="tooltip"><img src="graphics/delete.png" height="25px"><span class="tooltiptext">delete</span></div></a></td>
+	-->
+</tr>
+
+
+<?php
+}
+?>
+</tbody>
+</table>
+</div>
+</center>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function($) {
+    $(".contentRow").click(function() {
+        window.location = "view.php?id=" + $(this).data("letterid");
+    });
+});
+</script>
+
+
+</body>
