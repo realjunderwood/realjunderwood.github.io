@@ -1,3 +1,4 @@
+<!--
 <?php
 session_start();
 if ($_SESSION["authenticated"] !== true) {
@@ -18,7 +19,7 @@ $transcription =  $transcription->fetch_assoc()["content"];
 
 //echo $transcription;
 //echo "SELECT content FROM transcriptions WHERE fileid='" . $_GET["id"] . "' ORDER BY id ASC LIMIT 1";
-?>
+?>-->
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -38,9 +39,9 @@ color:green;
 <body>
 <h2 style="font-variant:small-caps;margin-bottom:0;">File View</h2>
 <small style="font-size:18"><a href="dashboard.php">home</a> | <a href="browse.php">browse</a></small>
-<h6 style="margin:0;margin-top:15px;font-variant:small-caps;font-size:11px;"><a href="delete.php?id=<?= $_GET["id"] ?>" onclick="return confirm('Do you really want to permanently DELETE this file? Only James is allowed to.')">Delete</a></h6>
+<h6 style="margin:0;margin-top:15px;font-variant:small-caps;font-size:11px;"><a href="delete.php?id=" onclick="return confirm('Do you really want to permanently DELETE this file?')">Delete</a></h6>
 <hr>
-<small style="font-size:24"><a href="transcribe.php?id=<?= $_GET["id"] ?>">edit transcription</a> | <a href="edit.php?id=<?= $_GET["id"] ?>">edit details</a></small>
+<small style="font-size:24"><a href="transcribe.php">edit transcription</a> | <a href="edit.php?id=">edit details</a></small>
 <hr>
 <table border="1">
 	<tr>
@@ -58,7 +59,7 @@ color:green;
 </table>
 <br>
 <fieldset style="padding-right:60px;padding-left:60px;">
-	<legend>Transcription <a href="downloadtranscription.php?id=<?= $_GET["id"] ?>" style="background:white;font-family:verdana;border:3px inset orange;padding-left:10px;padding-right:10px;font-size:0.6em;color:black;">download as .txt</a></legend>
+	<legend>Transcription <a href="downloadtranscription.php?id=" style="background:white;font-family:verdana;border:3px inset orange;padding-left:10px;padding-right:10px;font-size:0.6em;color:black;">download as .txt</a></legend>
 	<div>
 
 
