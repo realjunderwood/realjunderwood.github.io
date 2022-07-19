@@ -10,7 +10,7 @@ $querydd = $mysqli->query("SELECT * FROM files WHERE publicid='" . $_GET["id"] .
 $result = $querydd->fetch_assoc();
 if ($_POST["dogarg"] == true) {
 $mysqli->query("UPDATE files SET date='" . date("Y-m-d",strtotime($_POST["date"])) . "', notes='" . htmlspecialchars($mysqli->real_escape_string($_POST["notes"])) . "', author='" . htmlspecialchars($mysqli->real_escape_string($_POST["author"])) . "', recipient='" . htmlspecialchars($mysqli->real_escape_string($_POST["hamtower"])) . "' WHERE publicid='" . $_POST["id"] . "'");
-header("Location:view.php?id=" . $_POST["id"]);
+header("Location:view.html?id=" . $_POST["id"]);
 exit();
 }
 
@@ -36,13 +36,13 @@ exit();
 </head>
 <body>
 <h1 style="margin-bottom:3.5px;display:inline-block;background:yellow;padding:2px;">edit a letter's information</h1>
-<a href="view.php?id=<?= $_GET["id"] ?>" style="display:inline-block">file page</a>
+<a href="view.html?id=<?= $_GET["id"] ?>" style="display:inline-block">file page</a>
 <span>   |   </span>
-<a href="transcribe.php?id=<?= $_GET["id"] ?>" style="display:inline-block">edit transcription</a>
+<a href="transcribe.html?id=<?= $_GET["id"] ?>" style="display:inline-block">edit transcription</a>
 <span>   |   </span>
-<a href="browse.php" style="display:inline-block">browse</a>
+<a href="browse.html" style="display:inline-block">browse</a>
 <span>   |   </span>
-<a href="dashboard.php" style="display:inline-block">dashboard</a>
+<a href="dashboard.html" style="display:inline-block">dashboard</a>
 <br>
 <small style="background:pink;color:brown">Only authorized individuals may use this webpage.</small>
 <br>
@@ -68,6 +68,6 @@ exit();
 </form>
 <fieldset style="width:600px;height:250px;">
 <legend>view the letter</legend>
-<iframe src="file.php?id=<?= $_GET["id"] ?>" width="100%" height="100%" style="display:inline-block;border:1px solid black;"></iframe>
+<iframe src="file.html?id=<?= $_GET["id"] ?>" width="100%" height="100%" style="display:inline-block;border:1px solid black;"></iframe>
 </fieldset>
 </body>
