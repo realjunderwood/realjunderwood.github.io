@@ -171,36 +171,6 @@ while($result = $query->fetch_assoc()) {
 </div>
 
 
-<!--
-<div id="contribute" class="nicediv">
-<h3 style="margin:0;padding:0;">Transcribe</h3>
-<small>Here are some untranscribed documents:</small>
-<ul class="ulsmall">
-<!--<?php
-$queryunt = $mysqli->query("SELECT publicid, date FROM files WHERE incomplete='1' ORDER BY RAND() LIMIT 10;");
-while($resultunt = $queryunt->fetch_assoc()) {
-echo "<li><a href='transcribe.html?id=" . $resultunt["publicid"] . "'>" . $resultunt["date"] . "</a></li>";
-}
-?>-->
-</ul>
-<!--<small>See more at the <a href="browse.html">browse</a> page.</small>-->
-</div>
-<div id='onthisday' class="nicediv">
-<h3 style="margin:0;padding:0;">On This Day</h3>
-<!-- <?php
-$query = $mysqli->query("SELECT publicid, date, author, recipient FROM files WHERE substring(date,6,7) = '" . date('m-d') . "';");
-if($query->fetch_array()){
-while ($result = $query->fetch_assoc()) {
-        echo "<div><a href='view.php?id=" . $result["publicid"] . "'>On this day in " . substr($result["date"], 0, 4) . ", " . $result["author"] . " wrote " . $result["recipient"] . " a letter.</a></div>";
-}
-} else {
-echo "No letters written on this day.";
-}
-?> -->
-</div>
-	-->
-
-
 
 
 
