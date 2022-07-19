@@ -38,10 +38,10 @@ color:green;
 </head>
 <body>
 <h2 style="font-variant:small-caps;margin-bottom:0;">File View</h2>
-<small style="font-size:18"><a href="dashboard.php">home</a> | <a href="browse.php">browse</a></small>
-<h6 style="margin:0;margin-top:15px;font-variant:small-caps;font-size:11px;"><a href="delete.php?id=" onclick="return confirm('Do you really want to permanently DELETE this file?')">Delete</a></h6>
+<small style="font-size:18"><a href="dashboard.html">home</a> | <a href="browse.html">browse</a></small>
+<h6 style="margin:0;margin-top:15px;font-variant:small-caps;font-size:11px;"><a href="delete.html?id=" onclick="return confirm('Do you really want to permanently DELETE this file?')">Delete</a></h6>
 <hr>
-<small style="font-size:24"><a href="transcribe.php">edit transcription</a> | <a href="edit.php?id=">edit details</a></small>
+<small style="font-size:24"><a href="transcribe.html">edit transcription</a> | <a href="edit.html?id=">edit details</a></small>
 <hr>
 <table border="1">
 	<tr>
@@ -59,18 +59,18 @@ color:green;
 </table>
 <br>
 <fieldset style="padding-right:60px;padding-left:60px;">
-	<legend>Transcription <a href="downloadtranscription.php?id=" style="background:white;font-family:verdana;border:3px inset orange;padding-left:10px;padding-right:10px;font-size:0.6em;color:black;">download as .txt</a></legend>
+	<legend>Transcription <a href="downloadtranscription.html?id=" style="background:white;font-family:verdana;border:3px inset orange;padding-left:10px;padding-right:10px;font-size:0.6em;color:black;">download as .txt</a></legend>
 	<div>
 
 
-		<pre style="word-wrap:break-word;white-space:pre-wrap;line-height:1.15em;"><?= strlen($transcription) > 0 ? nl2br($transcription) : "</pre><p>This file has no transcription. <a href='transcribe.php?id=" . $_GET["id"] . "'>Add one?</a></p>" ?>
+		<pre style="word-wrap:break-word;white-space:pre-wrap;line-height:1.15em;"><?= strlen($transcription) > 0 ? nl2br($transcription) : "</pre><p>This file has no transcription. <a href='transcribe.html?id=" . $_GET["id"] . "'>Add one?</a></p>" ?>
 
 
 	</div>
 </fieldset>
 <fieldset style="padding-right:60px;padding-left:60px;">
 	<legend>View</legend>
-	<iframe src="file.php?id=<?= $_GET["id"] ?>" width="100%" height="580px"></iframe>
+	<iframe src="file.html?id=<?= $_GET["id"] ?>" width="100%" height="580px"></iframe>
 </fieldset>
 <br>
 <center><small style="font-size:13;letter-spacing:2px;"><a href="#">TOP</a></small></center>
