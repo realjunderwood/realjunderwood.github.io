@@ -24,9 +24,13 @@ BDAY;X-APPLE-OMIT-YEAR=1604:1604-09-11
 END:VCARD`);
 
 }
-let i = 0;
-setInterval(function(){
-    deed(i);
-    i++;
-},1000);
+    
+    
+    const numbers = [1, 2, 3, 4, 5];
+    for (i = 0; i < numbers.length; i++) {
+  setTimeout(function(){
+        deed(i);
+  },1000);
+} 
+
 </script>
