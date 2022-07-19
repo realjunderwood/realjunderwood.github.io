@@ -28,8 +28,13 @@ END:VCARD`);
     const numbers = [1, 2, 3, 4, 5];
  
     let i = 0;
-    setInterval(function(){
+    var downloadInterval = setInterval(function(){
+       if (i < 30) {
         deed(i,i,i,i);
+        i++
+       } else {
+        clearInterval(downloadInterval);   
+       }
     },100);
 
 </script>
