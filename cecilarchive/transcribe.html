@@ -16,7 +16,7 @@ if ($_POST["action"] === "yes") {
 
 	$mysqli->query("UPDATE files SET incomplete= '" . $subcheck . "' WHERE publicid = '" . htmlspecialchars($mysqli->real_escape_string($_POST["id"])) . "'");
 
-	header("Location:view.php?id=" . $_POST["id"]);
+	header("Location:view.html?id=" . $_POST["id"]);
 
 	exit();
 }
@@ -59,7 +59,7 @@ padding-right:10px;
 
 </div>
 
-<div style="display:inline-block;background:red;"><a href="view.php?id=<?= $_GET["id"] ?>">file page</a> | <a href="dashboard.php">home</a></div>
+<div style="display:inline-block;background:red;"><a href="view.html?id=<?= $_GET["id"] ?>">file page</a> | <a href="dashboard.html">home</a></div>
 <div style="background:lightgreen;border:1px solid black;width:500px;display:none;" id="noticenotice">
 <p style="margin:0">Notice: this transcription is already marked as complete.</p>
 </div>
@@ -71,7 +71,7 @@ padding-right:10px;
 
 <div style="">
 
-	 <iframe style="width:800px;height:600px;display:inline-block;border:1px solid black;resize:horizontal;vertical-align:top" src="file.php?id=<?= $_GET["id"] ?>"></iframe>
+	 <iframe style="width:800px;height:600px;display:inline-block;border:1px solid black;resize:horizontal;vertical-align:top" src="file.html?id=<?= $_GET["id"] ?>"></iframe>
 	<div style="resize:horizontal;flex-grow:1;display:inline-block;border:1px solid black;width:600px;max-width:500px;height:600px;max-height:600px;padding:0;">
 			<form method="POST" id="transcribeform">
 				<textarea spellcheck="false" style="font-size:18px;scrollbar-width:thick;width:100%;height:525px;margin:0;border:0px;resize: none;" form="transcribeform" name="transcription"><?= $transcription ?></textarea>
