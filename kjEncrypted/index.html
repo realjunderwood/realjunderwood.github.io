@@ -12,7 +12,7 @@
    <script src="jsaes.js"></script>
 
 <textarea id="textarea"></textarea>
-   <input type="text" placeholder="Key">
+   <input type="text" placeholder="Key" id="key">
   <button id="decrypt">Decrypt</button>
   <button id="encrypt">Encrypt</button>
  
@@ -27,9 +27,9 @@
   }
    
    
-   function encrypt ( inputStr,key ) {
+   function encrypt () {
 var block = string2Bin(document.getElementById("textarea").value);
-AES_Encrypt(block, key);
+AES_Encrypt(block, document.getElementById("key").value);
 var data=bin2String(block);
 return data;
       window.alert(data);
