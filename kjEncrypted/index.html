@@ -40,6 +40,8 @@
    
    function encrypt () {
 var textBytes = aesjs.utils.utf8.toBytes(document.getElementById("textarea").value);
+     var aesCtr = new aesjs.ModeOfOperation.ctr(key, new aesjs.Counter(5));
+var encryptedBytes = aesCtr.encrypt(textBytes);
       var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
 console.log(encryptedHex);
       document.getElementById("outputP").innerHTML = encryptedHex;
