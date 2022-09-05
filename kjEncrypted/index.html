@@ -34,7 +34,7 @@
    
    
    function encrypt () {
-var textBytes = aesjs.utils.utf8.toBytes(document.getElementById("value").text);
+var textBytes = aesjs.utils.utf8.toBytes(document.getElementById("textarea").value);
       var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
 console.log(encryptedHex);
 }
