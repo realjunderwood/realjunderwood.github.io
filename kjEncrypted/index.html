@@ -31,9 +31,19 @@
 var block = string2Bin(document.getElementById("textarea").value);
 AES_Encrypt(block, document.getElementById("key").value);
 var data=bin2String(block);
-return data;
       window.alert(data);
 }
+   
+   
+   
+   function bin2String(array) {
+var result = "";
+for (var i = 0; i < array.length; i++) {
+result += String.fromCharCode(parseInt(array[i], 2));
+}
+return result;
+}
+   
   
 </script>
     </body>
