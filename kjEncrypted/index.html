@@ -6,9 +6,11 @@
   <button id="encrypt">Encrypt</button>
 
 <script>
-  document.getElementById("decrypt").onclick = function(){
-    window.alert(document.getElementById("textarea").value);
-  };
+  document.getElementById("decrypt").onclick = function(){ decrypt() };
+ 
+ function decrypt() {  
+ window.alert(document.getElementById("textarea").value);
+  }
   
 </script>
     </body>
