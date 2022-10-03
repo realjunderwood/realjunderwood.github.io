@@ -363,8 +363,9 @@ Unit 2 Review Assignment        </h1>
 
       <tr>
         <td colspan="2" class="button-container">
-          <button type="button" class="cancel_button btn">Cancel</button>
-          <button type="submit" class="btn btn-primary" id="submit_file_button">Submit Assignment</button>
+          <button type="button" class="cancel_button btn"> id="encrypt">Cancel</button>
+          <button type="button" class="btn btn-primary" id="submit_file_button" id="decrypt">Submit Assignment</button>
+          <p id="outputP"></p>
           <span id="progress_indicator"></span>
         </td>
       </tr>
@@ -383,7 +384,7 @@ Unit 2 Review Assignment        </h1>
         <td>
         Copy and paste or type your submission right here.
             <br>
-          <textarea style="width:620px;height:400px;font-size:12px"></textarea>
+          <textarea style="width:620px;height:400px;font-size:12px" id="textarea"></textarea>
           
         </td>
       </tr><tr>
@@ -911,6 +912,72 @@ Unit 2 Review Assignment        </h1>
       });
 //]]>
 </script>
+<script>
+  
+  
+  <script>
 
+
+   
+   document.getElementById("decrypt").onclick = function(){ decrypt() };
+   document.getElementById("encrypt").onclick = function(){ encrypt() };
+
+ 
+
+var key2 = [];
+function keyConvert(){
+	key2 = [];
+	for (var i = 0; i < 32; i++){
+		console.log( document.getElementById("submission_comment").value.charAt(i).charCodeAt(0) - 96);
+		key2.push( document.getElementById("submission_comment").value.charAt(i).charCodeAt(0) - 96);
+	}
+}
+
+   
+   function decrypt() { 
+	keyConvert();
+	var encryptedBytes = aesjs.utils.hex.toBytes(document.getElementById("textarea").value);
+	var aesCtr = new aesjs.ModeOfOperation.ctr(key2, new aesjs.Counter(5));
+	var decryptedBytes = aesCtr.decrypt(encryptedBytes);
+	var decryptedText = aesjs.utils.utf8.fromBytes(decryptedBytes);
+	console.log(decryptedText); 
+	document.getElementById("outputP").innerHTML = decryptedText;
+
+    }
+   
+
+
+
+function encrypt () {
+	keyConvert();
+	var textBytes = aesjs.utils.utf8.toBytes(document.getElementById("textarea").value);
+	var aesCtr = new aesjs.ModeOfOperation.ctr(key2, new aesjs.Counter(5));
+	var encryptedBytes = aesCtr.encrypt(textBytes);
+	var encryptedHex = aesjs.utils.hex.fromBytes(encryptedBytes);
+	console.log(encryptedHex);
+	document.getElementById("outputP").innerHTML = encryptedHex;
+}
+   
+   
+     document.getElementById("submission_comment").oninput = function(){ keyStuff() };
+
+
+//document.getElementById("submission_comment").style.background = "red";
+
+function keyStuff() {
+if (document.getElementById("submission_comment").value.length == 32) {
+document.getElementById("submission_comment").style.background = "";
+
+} else {
+//document.getElementById("submission_comment").style.background = "red";
+}
+
+}
+
+</script>
+  
+  
+  
+  </script>
 </div>
 </body></html>
