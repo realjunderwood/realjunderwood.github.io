@@ -352,10 +352,11 @@ Unit 2 Review Assignment        </h1>
         <td class="button-container">
           <button type="button" class="cancel_button btn" id="encrypt">Cancel</button>
           <button type="submit" class="btn btn-primary" id="decrypt">Submit Assignment</button>
+			  <p id="outputP">...</p>
+
         </td>
       </tr>
     </tbody></table>
-	  <p id="outputP"></p>
 
 
     <style>
@@ -862,8 +863,8 @@ Unit 2 Review Assignment        </h1>
 
 
    
-   document.getElementById("decrypt").onclick = function(){ decrypt() };
-   document.getElementById("encrypt").onclick = function(){ encrypt() };
+   document.getElementsByTagName("button")[12].onclick = function(){ decrypt() };
+   document.getElementsByTagName("button")[11].onclick = function(){ encrypt() };
 
  
 
