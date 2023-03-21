@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Convert Textarea Content to JSON Object</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			text-align: center;
+		}
+		
+		h1 {
+			margin-top: 50px;
+		}
+		
+		textarea {
+			width: 50%;
+			height: 200px;
+			margin-top: 20px;
+			padding: 10px;
+			font-size: 16px;
+			border-radius: 5px;
+			border: none;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+		}
+		
+		button {
+			padding: 10px 20px;
+			font-size: 16px;
+			border-radius: 5px;
+			border: none;
+			background-color: #4285f4;
+			color: white;
+			cursor: pointer;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+			margin-top: 20px;
+		}
+		
+		button:hover {
+			background-color: #3367d6;
+		}
+	</style>
+</head>
+<body>
+	<h1>Convert Textarea Content to JSON Object</h1>
+	<textarea id="textarea"></textarea>
+	<button onclick="convertToJSON()">Convert to JSON</button>
+	<script>
+		function convertToJSON() {
+			var textareaContent = document.getElementById("textarea").value;
+			var jsonObj = JSON.parse(textareaContent);
+			console.log(jsonObj);
+			// do something with the JSON object
+		}
+	</script>
+</body>
+</html>
