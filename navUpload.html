@@ -106,6 +106,7 @@
 		masterDB.forEach(function(curVal,ind){
 			if (curVal.ACT == laVruc.ACT && curVal.SAT == laVruc.SAT && curVal.wGPA == laVruc.wGPA) {
 				duplicate = true;
+				masterDB[ind]["decision" + colName] = laVruc["decision" + colName]
 			}
 		    });
 		if (!duplicate) {
