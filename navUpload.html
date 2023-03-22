@@ -97,6 +97,19 @@
 	    
 	    document.getElementById("working").style.display = "none";
 	    console.log(studentsHolding);
+	   masterDB.forEach(function(curVal,ind){
+		studentsHolding.forEach(function(laVruc,dni){
+			if (curVal.ACT == laVruc.ACT && curVal.SAT == laVruc.SAT && curVal.wGPA == laVruc.wGPA) {
+			console.log ("duplicate");	
+			} else {
+			masterDB.push(laVruc);	
+			}
+			
+			
+		});
+		   
+		   
+	   });
 	    masterDB.push(studentsHolding);
 	    console.log("done");
     }
