@@ -98,29 +98,23 @@
 	    document.getElementById("working").style.display = "none";
 	   
 	    console.log(studentsHolding);
-	    masterDB.forEach(function(curVal,ind){
-		   let lecurVal = curVal;
-		   console.log("pure lercurval");
-		   console.log(curVal);
-		   let leind = ind;
-		studentsHolding.forEach(function(laVruc,dni){
-			console.log("lecruval");
-			console.log(lecurVal);
-						console.log("lavruc");
-
-			console.log(laVruc);
+	  
+	    
+	    
+	    studentsHolding.forEach(function(laVruc,dni){
+		let duplicate = false;
+		masterDB.forEach(function(curVal,ind){
 			if (lecurVal.ACT == laVruc.ACT && lecurVal.SAT == laVruc.SAT && lecurVal.wGPA == laVruc.wGPA) {
-			console.log ("duplicate");	
-			} else {
-			masterDB.push(laVruc);	
+				duplicate = true;
 			}
-			
-			
-		});
-
-		   
-		   
-	   });
+		    });
+		if (!duplicate) {
+			masterDB.push(laVruc);
+		}
+	    });
+	    
+	    
+	   
 	    
 	    if (masterDB[0] == 0) {
 		masterDB.shift();    
