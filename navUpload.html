@@ -183,16 +183,29 @@ array2.push(toAdd);
 		
 		
 		
-  // convert JSON to CSV
  function downloadCSVFromJson(filename,data) {
-  // Extract column headers from the first item in the array
-  const headers = Object.keys(data[0]);
 
-  // Build CSV string
-  let csv = headers.join(",") + "\n";
-  data.forEach((item) => {
-    csv += headers.map((header) => item[header] ?? "").join(",") + "\n";
-  });
+	 
+	
+	 const headers = Object.keys(data[0]);
+  const csvRows = [];
+
+  csvRows.push(headers.join(','));
+
+  for (const item of data) {
+    const values = headers.map(header => {
+      if (item.hasOwnProperty(header)) {
+        return item[header];
+      }
+      return '';
+    });
+
+    csvRows.push(values.join(','));
+  }
+
+  const csvString = csvRows.join('\n');
+	 const csv = csvString;
+	 
 
 
 
