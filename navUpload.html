@@ -65,7 +65,7 @@
 	<script>
 		
 		
-		var masterDB = [];
+		var masterDB = [[]];
     var studentsHolding = [];
 		
 
@@ -97,7 +97,8 @@
 	    
 	    document.getElementById("working").style.display = "none";
 	    console.log(studentsHolding);
-	   masterDB.forEach(function(curVal,ind){
+	  masterDB = masterDB[0];
+	    masterDB.forEach(function(curVal,ind){
 		   let lecurVal = curVal;
 		   console.log("pure lercurval");
 		   console.log(curVal);
