@@ -99,7 +99,7 @@
 	    console.log(studentsHolding);
 	   masterDB.forEach(function(curVal,ind){
 		studentsHolding.forEach(function(laVruc,dni){
-			console.log(curVal);
+			console.log(curVal[ind]);
 			console.log(laVruc);
 			if (curVal.ACT == laVruc.ACT && curVal.SAT == laVruc.SAT && curVal.wGPA == laVruc.wGPA) {
 			console.log ("duplicate");	
