@@ -58,6 +58,8 @@
 <div style="background:silver">
 		<h3 style="margin:0">masterDB live</h3>
 		<button onclick="clearStorage()">clear storage</button>
+			<button onclick="updateStorage()">update storage</button>
+
 <br>
 		<pre id="masterDB" style="white-space:pre-wrap"></pre>
 			<button onclick="downloadCSVFromJson("download",masterDB)">download as CSV</button>
@@ -160,11 +162,15 @@ array2.push(toAdd);
 		}
 		setInterval(function(){
 		document.getElementById("masterDB").innerHTML = JSON.stringify(masterDB).toString();	
-			localStorage.setItem("master",JSON.stringify(masterDB).toString());
 		},2000);
 		
 		
 		
+		function updateStorage() {
+			
+						localStorage.setItem("master",JSON.stringify(masterDB).toString());
+
+		}
 		
 		function clearStorage() {
 			var masterDB = [[0]];
