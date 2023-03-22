@@ -62,9 +62,22 @@
 	    var textareaContent = document.getElementById("textarea").value;
 	    var jsonObj = JSON.parse(textareaContent);
 	    
-	    console.log(runThrough("hahvad","deniedRD",jsonObj));
+	    studentsHolding.push(runThrough("hahvad","deniedRD",jsonObj));
+	    studentsHolding.push(runThrough("hahvad","deniedEA",jsonObj));
+	    studentsHolding.push(runThrough("hahvad","deniedED",jsonObj));
+	    studentsHolding.push(runThrough("hahvad","denied",jsonObj));
+	    studentsHolding.push(runThrough("hahvad","acceptedRD",jsonObj));
+	    studentsHolding.push(runThrough("hahvad","acceptedEA",jsonObj));
+	    studentsHolding.push(runThrough("hahvad","acceptedED",jsonObj));
+	    studentsHolding.push(runThrough("hahvad","accepted",jsonObj));
+	    studentsHolding.push(runThrough("hahvad","waitlistedUnknownEA",jsonObj));
+	    studentsHolding.push(runThrough("hahvad","waitlistedUnknownRD",jsonObj));
+
+
+
 	    
 	    document.getElementById("working").style.display = "none";
+	    console.log(studentsHolding);
 	    console.log("done");
     }
 		
