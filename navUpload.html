@@ -51,26 +51,24 @@
 	
 	<script>
 		
-    
-    	    	        var studentsHolding = [];
+    var studentsHolding = [];
 
     function convertToJSON() {
 	    console.log("working");
 	    document.getElementById("working").style.display = "block";
 	    
-studentsHolding.length = 0;
+	    studentsHolding.length = 0;
+	   
+	    var textareaContent = document.getElementById("textarea").value;
+	    var jsonObj = JSON.parse(textareaContent);
 	    
-			var textareaContent = document.getElementById("textarea").value;
-			var jsonObj = JSON.parse(textareaContent);
+	    console.log(runThrough("hahvad","deniedRD",jsonObj));
+	    
+	    document.getElementById("working").style.display = "none";
+	    console.log("done");
+    }
 		
-
-console.log(runThrough("hahvad","deniedRD",jsonObj));
-
-	    
-	    	    document.getElementById("working").style.display = "none";
-
-console.log("done");
-}
+		
 		
 		
 		function runThrough(name,decisionType,OBJ){
