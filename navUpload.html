@@ -67,7 +67,7 @@
 		if (localStorage.getItem("master") === null) {
 					var masterDB = [[0]];
 		} else {
-			var masterDB = localStorage.getItem("master")
+			var masterDB = JSON.parse(localStorage.getItem("master"));
 		}
     var studentsHolding = [];
 		
@@ -147,7 +147,7 @@ array2.push(toAdd);
 		}
 		setInterval(function(){
 		document.getElementById("masterDB").innerHTML = JSON.stringify(masterDB).toString();	
-			localStorage.setItem("master",masterDB);
+			localStorage.setItem("master",JSON.stringify(masterDB).toString());
 		},1000);
 		
 		
