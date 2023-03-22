@@ -63,10 +63,14 @@
 	
 	
 	<script>
-		
-		if (localStorage.getItem("master") === null) {
+		console.log("storage string content");
+		console.log(localStorage.getItem("master"));
+		if (localStorage.getItem("master") == null) {
+			console.log("no storage found");
 					var masterDB = [[0]];
 		} else {
+						console.log("storage found");
+
 			var masterDB = JSON.parse(localStorage.getItem("master"));
 		}
     var studentsHolding = [];
