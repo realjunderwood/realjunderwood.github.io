@@ -62,16 +62,20 @@
 	    var textareaContent = document.getElementById("textarea").value;
 	    var jsonObj = JSON.parse(textareaContent);
 	    
-"deniedRD" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"deniedRD",jsonObj)) : void 1;
-"deniedEA" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"deniedEA",jsonObj)) : void 1;
-"deniedED" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"deniedED",jsonObj)) : void 1;
-"denied" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"denied",jsonObj)) : void 1;
-"acceptedRD" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"acceptedRD",jsonObj)) : void 1;
-"acceptedEA" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"acceptedEA",jsonObj)) : void 1;
-"acceptedED" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"acceptedED",jsonObj)) : void 1;
-"accepted" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"accepted",jsonObj)) : void 1;
-"waitlistedUnknownEA" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"waitlistedUnknownEA",jsonObj)) : void 1;
-"waitlistedUnknownRD" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"waitlistedUnknownRD",jsonObj)) : void 1;
+	    
+	    let colName = document.getElementById("colnameInput").value;
+	    
+	    
+"deniedRD" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(...runThrough(colName,"deniedRD",jsonObj)) : void 1;
+"deniedEA" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(...runThrough(colName,"deniedEA",jsonObj)) : void 1;
+"deniedED" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(...runThrough(colName,"deniedED",jsonObj)) : void 1;
+"denied" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(...runThrough(colName,"denied",jsonObj)) : void 1;
+"acceptedRD" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(...runThrough(colName,"acceptedRD",jsonObj)) : void 1;
+"acceptedEA" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(...runThrough(colName,"acceptedEA",jsonObj)) : void 1;
+"acceptedED" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(...runThrough(colName,"acceptedED",jsonObj)) : void 1;
+"accepted" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(...runThrough(colName,"accepted",jsonObj)) : void 1;
+"waitlistedUnknownEA" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(...runThrough(colName,"waitlistedUnknownEA",jsonObj)) : void 1;
+"waitlistedUnknownRD" in jsonObj.scattergrams.weightedGpa.act.apps ? studentsHolding.push(...runThrough(colName,"waitlistedUnknownRD",jsonObj)) : void 1;
 
 
 	    
