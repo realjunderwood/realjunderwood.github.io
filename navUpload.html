@@ -124,7 +124,10 @@
 			}
 		    });
 		if (!duplicate) {
-			masterDB.push(laVruc);
+			let laVrucMod = laVruc;
+			laVrucMod["decision" + colName] = "";
+			masterDB.push(laVrucMod);
+			
 		}
 	    });
 	    
