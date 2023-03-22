@@ -62,16 +62,16 @@
 	    var textareaContent = document.getElementById("textarea").value;
 	    var jsonObj = JSON.parse(textareaContent);
 	    
-	    studentsHolding.push(runThrough("hahvad","deniedRD",jsonObj));
-	    studentsHolding.push(runThrough("hahvad","deniedEA",jsonObj));
-	    studentsHolding.push(runThrough("hahvad","deniedED",jsonObj));
-	    studentsHolding.push(runThrough("hahvad","denied",jsonObj));
-	    studentsHolding.push(runThrough("hahvad","acceptedRD",jsonObj));
-	    studentsHolding.push(runThrough("hahvad","acceptedEA",jsonObj));
-	    studentsHolding.push(runThrough("hahvad","acceptedED",jsonObj));
-	    studentsHolding.push(runThrough("hahvad","accepted",jsonObj));
-	    studentsHolding.push(runThrough("hahvad","waitlistedUnknownEA",jsonObj));
-	    studentsHolding.push(runThrough("hahvad","waitlistedUnknownRD",jsonObj));
+	    studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"deniedRD",jsonObj));
+	    studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"deniedEA",jsonObj));
+	    studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"deniedED",jsonObj));
+	    studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"denied",jsonObj));
+	    studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"acceptedRD",jsonObj));
+	    studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"acceptedEA",jsonObj));
+	    studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"acceptedED",jsonObj));
+	    studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"accepted",jsonObj));
+	    studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"waitlistedUnknownEA",jsonObj));
+	    studentsHolding.push(runThrough(document.getElementById("colnameInput").value,"waitlistedUnknownRD",jsonObj));
 
 
 
