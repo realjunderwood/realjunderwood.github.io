@@ -53,13 +53,13 @@
 	<h3 id="working" style="display:none;color:red">Working...</h3>
 	
 	
-	<div style="background:silver">
+	<div style="display:inline-block;background:silver;">
 		<h5>Pre-input masterDB</h5><textarea id="preInput"></textarea>
-<div style="background:white">
+								  </div>
+<div style="display:inline-block;background:gray">
 		<h3>masterDB live</h3>
 		<pre id="masterDB"></pre>
 		</div>
-	</div>
 	
 	<script>
 		
@@ -119,7 +119,7 @@ array2.push(toAdd);
 			
 		}
 		setInterval(function(){
-		document.getElementById("masterDB").innerHTML = masterDB.toString();	
+		document.getElementById("masterDB").innerHTML = JSON.stringify(masterDB).toString();	
 			
 		},1000);
 		
