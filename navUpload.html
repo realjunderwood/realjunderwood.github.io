@@ -45,12 +45,22 @@
 	<textarea id="textarea"></textarea>
 	<button onclick="convertToJSON()">Convert to JSON</button>
 	<script>
-		function convertToJSON() {
+		
+    
+    var studentsHolding = [];
+    
+    function convertToJSON() {
 			var textareaContent = document.getElementById("textarea").value;
 			var jsonObj = JSON.parse(textareaContent);
-			console.log(jsonObj);
-			// do something with the JSON object
-		}
+		
+const array1 = jsonObj.scattergrams.weightedGpa.act.apps.deniedRD; 
+array1.forEach(function(element){
+studentsHolding.push(element.actCompositeStudent);
+});
+
+
+
+}
 	</script>
 </body>
 </html>
