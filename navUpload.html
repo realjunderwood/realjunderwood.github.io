@@ -183,7 +183,6 @@ array2.push(toAdd);
 		
 		
 		
-		downloadCSVFromJson = (filename, data) => {
   // convert JSON to CSV
  function convertToCSV(data) {
   // Extract column headers from the first item in the array
@@ -195,8 +194,6 @@ array2.push(toAdd);
     csv += headers.map((header) => item[header] ?? "").join(",") + "\n";
   });
 
-  return csv;
-}
 
 
   // Create link and download
