@@ -63,11 +63,8 @@ studentsHolding.length = 0;
 			var textareaContent = document.getElementById("textarea").value;
 			var jsonObj = JSON.parse(textareaContent);
 		
-const array1 = jsonObj.scattergrams.weightedGpa.act.apps.deniedRD; 
-array1.forEach(function(element){
-studentsHolding.push([element.actCompositeStudent, element.gpa]);
-});
 
+console.log(runThrough("hahvad","deniedRD",jsonObj);
 
 	    
 	    	    document.getElementById("working").style.display = "none";
@@ -76,7 +73,16 @@ console.log("done");
 }
 		
 		
-		function runThrough(name,decision){
+		function runThrough(name,decisionType,OBJ){
+			
+			let array1 = OBJ.scattergrams.weightedGpa.act.apps[decisionType]; 
+array1.forEach(function(element){
+studentsHolding.push([element.actCompositeStudent, element.gpa, element.studentSAT1600Composite]);
+	return array1;
+	
+});
+			
+			
 			
 		}
 		
