@@ -57,7 +57,7 @@
 	
 <div style="background:silver">
 		<h3>masterDB live</h3>
-		<button onclick="clearStorage()">Push to masterDB</button>
+		<button onclick="clearStorage()">clear storage</button>
 <br>
 		<pre id="masterDB" style="white-space:pre-wrap"></pre>
 		</div>
@@ -161,8 +161,7 @@ array2.push(toAdd);
 		
 		
 		function clearStorage() {
-			
-		localStorage.setItem("master","[[0]]");	
+								var masterDB = [[0]];
 		}
 	</script>
 </body>
