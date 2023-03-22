@@ -64,8 +64,11 @@
 	
 	<script>
 		
-		
-		var masterDB = [[0]];
+		if (localStorage.getItem("masterDB") === null) {
+					var masterDB = [[0]];
+		} else {
+			var masterDB = localStorage.getItem("masterDB")
+		}
     var studentsHolding = [];
 		
 
@@ -144,7 +147,7 @@ array2.push(toAdd);
 		}
 		setInterval(function(){
 		document.getElementById("masterDB").innerHTML = JSON.stringify(masterDB).toString();	
-			
+			localStorage.setItem("master",masterDB);
 		},1000);
 		
 		
