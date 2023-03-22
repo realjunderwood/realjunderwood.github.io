@@ -49,9 +49,18 @@
 	
 	<h3 id="working" style="display:none;color:red">Working...</h3>
 	
+	
+	<div style="background:silver">
+		<h3>masterDB live</h3>
+		<pre id="masterDB"></pre>
+	</div>
+	
 	<script>
 		
+		
+		var masterDB = [];
     var studentsHolding = [];
+		
 
     function convertToJSON() {
 	    console.log("working");
@@ -81,6 +90,7 @@
 	    
 	    document.getElementById("working").style.display = "none";
 	    console.log(studentsHolding);
+	    masterDB.push(studentsHolding);
 	    console.log("done");
     }
 		
@@ -102,7 +112,10 @@ array2.push(toAdd);
 			
 			
 		}
-		
+		setInterval(function(){
+		document.getElementById("masterDB").innerHTML = masterDB.toString();	
+			
+		});
 		
 		
 	</script>
