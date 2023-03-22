@@ -51,11 +51,14 @@
 	<br>
 	<button onclick="convertToJSON()">Push to masterDB</button>
 	<br><br>
+	
 	<h3 id="working" style="display:none;color:red">Working...</h3>
 	
 	
-<div style="background:gray">
+<div style="background:silver">
 		<h3>masterDB live</h3>
+		<button onclick="clearStorage()">Push to masterDB</button>
+<br>
 		<pre id="masterDB" style="white-space:pre-wrap"></pre>
 		</div>
 	
@@ -155,6 +158,12 @@ array2.push(toAdd);
 		},1000);
 		
 		
+		
+		
+		function clearStorage() {
+			
+		localStorage.setItem("master","[[0]]");	
+		}
 	</script>
 </body>
 </html>
