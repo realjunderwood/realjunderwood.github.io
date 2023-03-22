@@ -43,7 +43,10 @@
 <body>
 	<h1>Convert Textarea Content to JSON Object</h1>
 	
+	
 	<input placeholder="collegename" style="width:200px;height:50px" id="colnameInput">
+	
+	
 	<textarea id="textarea"></textarea>
 	<button onclick="convertToJSON()">Convert to JSON</button>
 	
@@ -51,8 +54,11 @@
 	
 	
 	<div style="background:silver">
+		<h5>Pre-input masterDB</h5><textarea id="preInput"></textarea>
+<div style="background:white">
 		<h3>masterDB live</h3>
 		<pre id="masterDB"></pre>
+		</div>
 	</div>
 	
 	<script>
