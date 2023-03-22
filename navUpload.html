@@ -56,10 +56,12 @@
 	
 	
 <div style="background:silver">
-		<h3>masterDB live</h3>
+		<h3 style="margin:0">masterDB live</h3>
 		<button onclick="clearStorage()">clear storage</button>
 <br>
 		<pre id="masterDB" style="white-space:pre-wrap"></pre>
+			<button onclick="downloadCSVFromJson("download",masterDB)">download as CSV</button>
+
 		</div>
 	
 	
@@ -163,6 +165,31 @@ array2.push(toAdd);
 		function clearStorage() {
 								var masterDB = [[0]];
 		}
+		
+		
+		
+		
+		downloadCSVFromJson = (filename, arrayOfJson) => {
+  // convert JSON to CSV
+  const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
+  const header = Object.keys(arrayOfJson[0])
+  let csv = arrayOfJson.map(row => header.map(fieldName => 
+  JSON.stringify(row[fieldName], replacer)).join(','))
+  csv.unshift(header.join(','))
+  csv = csv.join('\r\n')
+
+  // Create link and download
+  var link = document.createElement('a');
+  link.setAttribute('href', 'data:text/csv;charset=utf-8,%EF%BB%BF' + encodeURIComponent(csv));
+  link.setAttribute('download', filename);
+  link.style.visibility = 'hidden';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
+		
+		
 	</script>
 </body>
 </html>
