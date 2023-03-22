@@ -50,13 +50,13 @@
 	<script>
 		
     
-    
+    	    	        var studentsHolding = [];
+
     function convertToJSON() {
 	    console.log("working");
 	    document.getElementById("working").style.display = "block";
 	    
-	    	        var studentsHolding = [];
-
+studentsHolding.length = 0;
 	    
 			var textareaContent = document.getElementById("textarea").value;
 			var jsonObj = JSON.parse(textareaContent);
