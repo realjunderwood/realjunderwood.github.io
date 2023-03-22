@@ -97,7 +97,8 @@
 	    
 	    document.getElementById("working").style.display = "none";
 	    console.log(studentsHolding);
-	   masterDB[0].forEach(function(curVal,ind){
+	    let masterDB = masterDB[0];
+	   masterDB.forEach(function(curVal,ind){
 		   let lecurVal = curVal;
 		   console.log("pure lercurval");
 		   console.log(curVal);
