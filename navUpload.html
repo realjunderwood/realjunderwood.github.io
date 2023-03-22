@@ -98,10 +98,12 @@
 	    document.getElementById("working").style.display = "none";
 	    console.log(studentsHolding);
 	   masterDB.forEach(function(curVal,ind){
+		   let lecurVal = curVal;
+		   let leind = ind;
 		studentsHolding.forEach(function(laVruc,dni){
-			console.log(curVal[ind]);
+			console.log(lecurVal);
 			console.log(laVruc);
-			if (curVal.ACT == laVruc.ACT && curVal.SAT == laVruc.SAT && curVal.wGPA == laVruc.wGPA) {
+			if (lecurVal.ACT == laVruc.ACT && lecurVal.SAT == laVruc.SAT && lecurVal.wGPA == laVruc.wGPA) {
 			console.log ("duplicate");	
 			} else {
 			masterDB.push(laVruc);	
