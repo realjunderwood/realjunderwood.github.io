@@ -104,7 +104,7 @@
 	    studentsHolding.forEach(function(laVruc,dni){
 		let duplicate = false;
 		masterDB.forEach(function(curVal,ind){
-			if (lecurVal.ACT == laVruc.ACT && lecurVal.SAT == laVruc.SAT && lecurVal.wGPA == laVruc.wGPA) {
+			if (curVal.ACT == laVruc.ACT && curVal.SAT == laVruc.SAT && curVal.wGPA == laVruc.wGPA) {
 				duplicate = true;
 			}
 		    });
