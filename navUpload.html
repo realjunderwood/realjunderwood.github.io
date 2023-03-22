@@ -71,9 +71,9 @@
 		
 		
 		
-		function runThrough(name,decisionType,OBJ){
+		function runThrough(name,decisionType,obby){
 			
-			let array1 = OBJ.scattergrams.weightedGpa.act.apps[decisionType]; 
+			let array1 = obby.scattergrams.weightedGpa.act.apps[decisionType]; 
 array1.forEach(function(element){
 studentsHolding.push([element.actCompositeStudent, element.gpa, element.studentSAT1600Composite]);
 	return array1;
