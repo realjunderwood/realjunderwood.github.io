@@ -185,25 +185,38 @@ array2.push(toAdd);
 		
  function downloadCSVFromJson(filename,data) {
 
-	 
 	
-	 const headers = Object.keys(data[0]);
-  const csvRows = [];
+	 
+	 
+	  const allKeys = data.reduce((keys, item) => {
+    Object.keys(item).forEach(key => {
+      if (!keys.includes(key)) {
+        keys.push(key);
+      }
+    });
+    return keys;
+  }, []);
 
-  csvRows.push(headers.join(','));
+  // Sort keys alphabetically
+  allKeys.sort();
 
-  for (const item of data) {
-    const values = headers.map(header => {
-      if (item.hasOwnProperty(header)) {
-        return item[header];
+  // Create header row with all keys
+  const headerRow = allKeys.join(',') + '\n';
+
+  // Create CSV rows
+  const csvRows = data.map(item => {
+    const values = allKeys.map(key => {
+      if (item.hasOwnProperty(key)) {
+        return item[key];
       }
       return '';
     });
+    return values.join(',');
+  });
 
-    csvRows.push(values.join(','));
-  }
-
-  const csvString = csvRows.join('\n');
+  // Join rows into CSV string
+  const csvString = headerRow + csvRows.join('\n');
+	 
 	 const csv = csvString;
 	 
 
