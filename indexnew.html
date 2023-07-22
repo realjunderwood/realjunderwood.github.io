@@ -54,11 +54,29 @@ font-family: "comicc", "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardS
 	  figure {
     display: inline-block;
 	  }
+
+
+
+.guestbooklisting {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 15px;
+  background: lightblue;
+  padding: 5px;
+  border: 1.5px solid black;
+  border-radius: 4px;
+
+         }
+
+	  
   </style>
 
   
 </head>
 <body>
+
+    <script src="jquery-3.6.0.min.js"></script>
+	
   <div id="maincontainer">
 <h1 id="hpageWelcome">Welcome!</h1>
     <h2 id="intrograph" style="font-weight:300">I'm a high school senior and a rising freshman at Dartmouth College. Among other things, I'm interested in computer science, public affairs, AI, law, linguistics, and journalism.</h2>
@@ -78,6 +96,15 @@ font-family: "comicc", "Comic Sans", "Comic Sans MS", "Chalkboard", "ChalkboardS
 					</li>
 	</ul>
 <hr>
+
+
+	  <h2>Guestbook</h2>
+		       <div id="gbContainer"></div>
+
+
+
+
+	  <hr>
   <h2>Email me <span id="emailmea">something to read</span></h2>
 <p>I love a good email (<a href="https://en.wikipedia.org/wiki/BlitzMail">called a &ldquo;blitz&rdquo; in Dartmouth lingo</a>). You can get touch in at <code>jcunderwood [at] protonmail [dot] com</code>.</p>
   
@@ -153,9 +180,37 @@ window.setInterval(function(){
         cureindex = 0;
         shuffleArray(emailmearray);
     }
-document.getElementById("emailmea").innerHTML = emailmearray[cureindex];
+$("#emailmea").html(emailmearray[cureindex]);
 
 },1000);
+
+
+
+
+$("#gbContainer").html("");
+$.get("https://docs.google.com/spreadsheets/d/14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g/export?format=csv&id=14ZEKnnMLlv9dS8nNlgRI70Ine9_eWFMErjOehHpp2-g", function(data, status) {
+  var arraylet = data.split(/\r?\n/);
+  arraylet = arraylet.splice(1, arraylet.length);
+
+var arraylet2 = arraylet.filter(function(value, index, arr){ 
+        return value !== "0/0/0000 00:00:00,del";
+    });
+    
+    
+  arraylet2.forEach(function(val) {
+
+    let ttt = val.substring(val.indexOf(":") + 7, val.length);
+    $('<div class="guestbooklisting" /><p class="postp" ').text(ttt).appendTo('#container');
+
+  });
+
+  arraylet2.forEach(function(val, i) {
+
+    $(".guestbooklisting").eq(i).prepend("<small>" + val.split(" ")[0] + "</small><br>");
+  });
+});
+
+	
 </script>
 
 
