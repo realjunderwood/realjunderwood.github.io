@@ -54,10 +54,10 @@ color:white;
 </tr>
       <tr id="inputRow">
 
-        <td class="inputTd blueTd"></td>
-        <td class="inputTd redTd"></td>
-        <td class="inputTd bsTd"></td>
-        <td class="inputTd AssTd"></td>
+        <td class="inputTd" id="blueTd"></td>
+        <td class="inputTd" id="redTd"></td>
+        <td class="inputTd" id="bsTd"></td>
+        <td class="inputTd" id="assTd"></td>
 
       </tr>
     </table>
@@ -71,7 +71,9 @@ color:white;
   </div>
 <script>
 $(".inputTd").each(function(){
-  this.append("input")
+ for (let i = 0; i < 8; i++) {
+    this.append("<input type='text'>");
+ }
 });
 
 
