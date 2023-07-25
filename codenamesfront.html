@@ -50,19 +50,17 @@ color:white;
   <th>Assassin</th>
 
 </tr>
-      <tr>
+      <tr id="inputRow">
 
         <td>
-          <textarea></textarea>
+
+          
         </td>
         <td>
-          <textarea></textarea>
         </td>
         <td>
-          <textarea></textarea>
         </td>
         <td>
-          <textarea></textarea>
         </td>
       </tr>
     </table>
@@ -74,7 +72,14 @@ color:white;
 <button id="generate">Generate clues</button>
     
   </div>
+<script>
+("#inputRow td").each(function(){
+  this.append("input")
+});
 
+
+  
+</script>
   
 </body>
   
