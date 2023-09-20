@@ -13,6 +13,18 @@
         datsplit = dat.split(" - ");
         
         left = datsplit[0].split(", ")[1].replace(" @","/2023")
+
+
+
+        const event = new Date(left);
+    console.log(event.toString());
+// Expected output: "Wed Oct 05 2011 16:48:00 GMT+0200 (CEST)"
+// Note: your timezone may vary
+
+console.log(event.toISOString());
+
+
+
         
         document.getElementById('addToCalendarButton').addEventListener('click', function() {
             // Generate the .ics content dynamically (replace with your data)
