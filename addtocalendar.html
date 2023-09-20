@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add to Calendar</title>
+</head>
+<body>
+    <button id="addToCalendarButton">Add to Calendar</button>
+
+    <script>
+        document.getElementById('addToCalendarButton').addEventListener('click', function() {
+            // Generate the .ics content dynamically (replace with your data)
+            var icsContent = "BEGIN:VCALENDAR\n" +
+                             "VERSION:2.0\n" +
+                             "PRODID:-//My Calendar//EN\n" +
+                             "BEGIN:VEVENT\n" +
+                             "UID:123456\n" +
+                             "DTSTAMP:20230921T093000Z\n" +
+                             "DTSTART:20230921T093000Z\n" +
+                             "DTEND:20230921T103000Z\n" +
+                             "SUMMARY:Sample Event\n" +
+                             "END:VEVENT\n" +
+                             "END:VCALENDAR";
+
+            // Create a Blob containing the .ics content
+            var blob = new Blob([icsContent], { type: 'text/calendar' });
+
+            // Create a temporary URL for the Blob
+            var url = window.URL.createObjectURL(blob);
+
+            // Create a link element and trigger the download
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'event.ics';
+            a.click();
+
+            // Clean up the temporary URL
+            window.URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>
