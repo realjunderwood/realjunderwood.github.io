@@ -7,6 +7,15 @@
     <button id="addToCalendarButton">Add to Calendar</button>
 
     <script>
+
+        var dat = "Sat, 9/23 @ 9:30 AM - Sun, 9/24 @ 6:00 PM";
+
+        datsplit = dat.split(" - ");
+        
+        left = datsplit[0].split(", ")[1].split(" @ ");
+        leftdate = left[0];
+        lefttime = left[1];
+        
         document.getElementById('addToCalendarButton').addEventListener('click', function() {
             // Generate the .ics content dynamically (replace with your data)
             var icsContent = "BEGIN:VCALENDAR\n" +
