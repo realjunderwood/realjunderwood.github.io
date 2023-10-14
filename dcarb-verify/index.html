@@ -37,7 +37,7 @@
 			<table id="verificationtable">
 				<tr>
 					<th>Action info</th>
-					<th>Proof</th>
+					<th width="50%">Proof</th>
 					<th width="10%">Verify</th>
 				</tr>
 
@@ -181,7 +181,7 @@ $("#verificationtable").append(`
 		<td>
 			<p><strong>${item.transactionType}</strong></p>
 			<p>Email: ${item.email}</p>
-			<p>Date: ${0}</p>
+			<p>Date: ${item.transactionDate.seconds}</p>
 			<p>CO<sub>2</sub> saved: 0.2kg</p>
 		</td>
 
