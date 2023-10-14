@@ -1,0 +1,112 @@
+@font-face {
+  font-family: 'National';
+  font-style: normal;
+  font-weight: normal;
+  src: url('natl2/National2-Regular.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'National';
+  font-style: bold;
+  font-weight: bold;
+  src: url('natl2/National2-Medium.otf') format('opentype');
+}
+
+
+
+
+body {
+	margin-left:10%;
+	margin-right:10%;
+	margin-top:30px;
+	font-family:"National";
+	background:rgb(0,105,62);
+}
+#maindiv {
+	background:white;
+	padding:25px;
+	border-radius:15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+margin:10px;
+}
+
+
+#verificationtable {
+	width:100%;
+	
+
+}
+
+td, th {
+		border:1px solid black;
+		text-align:center;
+
+}
+
+#headertitle {
+	font-size:2.2em;
+	text-align:center
+}
+
+.receiptimg {
+	max-height:200px;
+	border:0.1px solid black;
+margin-top:10px;
+}
+
+p {
+margin:5px;
+
+}
+
+
+.approdeny:hover{
+cursor: pointer;
+background:silver;
+}
+
+.button:hover {
+cursor: pointer;
+background:silver;
+}
+
+#bigimagediv {
+text-align:center;
+background:silver;
+position:absolute;
+
+height:90%;
+width:80%;
+
+display:none;
+}
+
+#bigimage {
+display:block;
+margin:auto;
+}
+
+
+
+#closebigimage {
+
+padding:10px
+}
+
+
+
+#initializing {
+text-align:center;
+background:rgb(18, 49, 43);
+position:absolute;
+color:white;
+
+height:90%;
+width:80%;
+
+font-size:4em;
+letter-spacing:-8px;
+
+}

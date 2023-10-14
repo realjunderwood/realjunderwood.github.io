@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="stylesheet" href="style.css"></link>
+
+	</head>
+	<body>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore-compat.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+
+		<div id="initializing">
+			<h1>Initializing...</h1>
+		</div>
+
+
+		<div id="bigimagediv">
+			<img src="" id="bigimage">
+			<button id="closebigimage">Close</button>
+		</div>
+
+
+
+
+		<div id="maindiv">
+
+			<h1 id="headertitle">D-Carb verification system</h1>
+			<p style="text-align:center;">For authorized personnel only</p>
+			
+			<p></p>
+
+
+			<table id="verificationtable">
+				<tr>
+					<th>Action info</th>
+					<th>Proof</th>
+					<th width="10%">Verify</th>
+				</tr>
+
+
+			
+
+			</table>
+
+		</div>
+	
+
+
+
+<script>
+
+
+function approvee(id) {
+
+	db.collection("transactions").doc(doc.id).update({progress: "approved"});
+
+}
+
+function denyy(id) {
+	db.collection("transactions").doc(doc.id).update({progress: "denied"});
+
+}
+
+
+</script>
+
+<script type="module">
+
+
+
+
+
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js'
+
+    // If you enabled Analytics in your project, add the Firebase SDK for Google Analytics
+    import { getAnalytics } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js'
+
+    // Add Firebase products that you want to use
+    import { getAuth } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-auth.js'
+    import { getFirestore } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js'
+
+    import { collection, getDocs } from 'https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js'
+
+ 
+
+
+
+
+
+const firebaseConfig = {
+
+    apiKey: "AIzaSyD03kinjHayqGwFhdrsO7A9_T3xz9lwVmA",
+
+    authDomain: "dcarb-e7f4c.firebaseapp.com",
+
+    projectId: "dcarb-e7f4c",
+
+    storageBucket: "dcarb-e7f4c.appspot.com",
+
+    messagingSenderId: "576774600585",
+
+    appId: "1:576774600585:web:a756086e03ef6fbb5ed358",
+
+    measurementId: "G-KT2WJ1PHKV"
+
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+
+
+
+
+
+
+
+
+
+const collectionName = 'transactions'; // Change this to your actual collection name
+
+// Function to fetch data from the Firestore collection as JSON
+async function getTransactionsAsJSON() {
+  const transactionsCollection = collection(db, collectionName);
+  const transactionsSnapshot = await getDocs(transactionsCollection);
+
+  const transactionsData = [];
+
+  transactionsSnapshot.forEach((doc) => {
+    transactionsData.push({ id: doc.id, ...doc.data() });
+  });
+
+  return JSON.stringify(transactionsData, null, 2);
+}
+
+
+
+
+function updatee(){
+console.log("update ran");
+	getTransactionsAsJSON()
+  	.then((jsonData) => {
+   	 console.log(JSON.parse(jsonData));
+		
+
+		$("#verificationtable").find("tr:gt(0)").remove();
+
+
+		var datar = JSON.parse(jsonData);
+
+
+		datar.forEach(eachaction);
+
+
+  })
+
+
+
+  .catch((error) => {
+    console.error("Error getting users:", error);
+  });
+
+}
+
+
+
+
+
+
+function eachaction(item){
+console.log(item)
+$("#verificationtable").append(`
+	<tr>
+		<td>
+			<p><strong>${item.transactionType}</strong></p>
+			<p>Email: ${item.email}</p>
+			<p>Date: ${0}</p>
+			<p>CO<sub>2</sub> saved: 0.2kg</p>
+		</td>
+
+		<td><img src="${item.imagePath1}" class="receiptimg"><img src="magnify.png" width="30px" class="button"></td>
+		
+		<td>
+			<img class="approdeny" src="approve.png" width="25px" onclick="approvee(${item.id})">
+			<img class="approdeny" src="deny.png" width="25px" onclick="denyy(${item.id})">
+		</td>
+	</tr>
+
+`);
+
+}
+
+
+
+
+
+ document.body.addEventListener('click', function(event) {
+            var clickedElement = event.target;
+            
+            // Check if the clicked element is a button
+            if (clickedElement.className === 'button') {
+                // Find the preceding image element
+                var precedingImage = clickedElement.previousElementSibling;
+
+                if (precedingImage && precedingImage.tagName === 'IMG') {
+                    var src = precedingImage.getAttribute('src');
+                    //alert('The SRC of the preceding image is: ' + src);
+		    document.getElementById("bigimagediv").style.display = "block";
+			document.getElementById("bigimage").src = src;
+                } else {
+                    console.log('No preceding image found.');
+                }
+            } else if (clickedElement.id === "closebigimage") {
+		 document.getElementById("bigimagediv").style.display = "none";
+
+	    }
+        });
+
+
+
+updatee();
+setInterval(function(){
+updatee();
+
+},10000);
+
+
+setTimeout(function(){
+
+	document.getElementById("initializing").style.display = "none";
+},500);
+
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+	</body>
+</html>
