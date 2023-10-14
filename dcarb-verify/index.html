@@ -181,12 +181,13 @@ document.getElementsByTagName("img")[0].src = "dartmouthcoach.jpg";
 
 function eachaction(item){
 console.log(item)
+	const formattedDate = new Date(item.transactionDate.seconds * 1000).toISOString().slice(0, 19).replace('T', ' ');
 $("#verificationtable").append(`
 	<tr>
 		<td>
 			<p><strong>${item.transactionType}</strong></p>
 			<p>Email: ${item.email}</p>
-			<p>Date: ${item.transactionDate.seconds}</p>
+			<p>Date: ${formattedDate}</p>
 			<p>CO<sub>2</sub> saved: 0.2kg</p>
 		</td>
 
