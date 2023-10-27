@@ -21,8 +21,10 @@ cells horizontally, vertically, or diagonally adjacent):
 * Live cells with two or three live neighbors survive
 * Dead cells with three live neighbors become alive
 * All other cells are dead, even if they were previously alive
+  
 The course of the game is entirely predetermined by the starting
 conditions.
+  
 My implementation uses a class called Cell to simulate CGOL. The class
 contains methods to draw itself as either dead (white) or alive
 (black), to invert its alive state, to set its alive state for the
@@ -31,18 +33,31 @@ Cells are stored in a list; each generation, main.py iterates through
 the list, counts the number of alive neighbors for each cell,
 determines whether the cell should change its alive/dead status in the
 next generation, and finally pushes these changes.
+  
 Window dimensions, cell size, and frame rate can be easily customized.
 The program will only simulate the cells that are on-screen, so
 "border activity" will not be rendered properly.
+  
 Controls: in the start phase, click on cells to activate/deactivate
 them. Press space to begin "gameplay." Press R to reset the board and
 return to the start phase.
+  
 =====
+  
 More about Conway's Game of Life: https://en.wikipedia.org/wiki/
 Conway's_Game_of_Life
 
 </pre>
 
+   <video width="320" height="240" controls>
+  <source src="Demo1.mov" type="video/mov">
+Your browser does not support the video tag.
+</video> 
+<video width="320" height="240" controls>
+  <source src="Demo2.mov" type="video/mov">
+Your browser does not support the video tag.
+</video> 
+  
 
 </body>
 
