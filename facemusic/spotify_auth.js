@@ -77,7 +77,10 @@ const getToken = async code => {
             redirect_uri: redirectUri,
             code_verifier: codeVerifier,
         }),
-    }
+    };
+
+    console.log("le payload is");
+    console.log(payload);
 
     const body = await fetch("https://accounts.spotify.com/api/token", payload);
     const response = await body.json();
