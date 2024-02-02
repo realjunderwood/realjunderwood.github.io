@@ -11,7 +11,7 @@
 <h2>FaceMusic solves this by identifying how happy or sad you are from a picture of your face -- no emotional intelligence required. From there, FaceMusic identifies your favorite songs and makes a playlist of those songs that best match your mood.</h2>
 
 
-<h1 onclick="connect()">Connect with spotify to get started.</h1>
+<h1 onclick="generateCodeChallenge(64)">Connect with spotify to get started.</h1>
 
 
 
@@ -20,18 +20,22 @@
 
 <script src="spotify_auth.js"></script>
 <script>
-    function connect() {
-        if (localStorage(""))
-        generateCodeChallenge(64);
+    const clientId = 'b5ac45b92b3243668cdb8390ab51a04d';
+    const redirectUri = 'https://www.jamesunderwood.net/facemusic';
 
-    }
+    const scope = 'user-read-private user-read-email';
+    const authUrl = new URL("https://accounts.spotify.com/authorize")
+
+
+
+  
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("code")) {
         let code = urlParams.get("code");
         let codeVerifier = localStorage.getItem('code_verifier');
         getToken(code);
-        window.location.href();
+        window.location.href = "https://www.jamesunderwood.net/facemusic";
 
     }
 
