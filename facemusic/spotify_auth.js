@@ -55,8 +55,8 @@ async function generateCodeChallenge(length) {
       window.location.href = authUrl.toString()
 
 
-      const urlParams = new URLSearchParams(window.location.search);
-      console.log("uhhhhhh")
+      //const urlParams = new URLSearchParams(window.location.search);
+      //console.log("uhhhhhh")
 
 
 
