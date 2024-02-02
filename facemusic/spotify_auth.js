@@ -80,7 +80,7 @@ const getToken = async code => {
     }
 
     const body = await fetch("https://accounts.spotify.com/api/token", payload);
-    const response =await body.json();
+    const response = await body.json();
     localStorage.setItem('access_token', response.access_token);
 }
 
