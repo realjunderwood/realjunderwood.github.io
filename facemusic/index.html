@@ -11,7 +11,7 @@
 <h2>FaceMusic solves this by identifying how happy or sad you are from a picture of your face -- no emotional intelligence required. From there, FaceMusic identifies your favorite songs and makes a playlist of those songs that best match your mood.</h2>
 
 
-<h1 onclick="generateCodeChallenge(64)">Connect with spotify to get started.</h1>
+<h1 onclick="connect()">Connect with spotify to get started.</h1>
 
 
 
@@ -19,5 +19,32 @@
 <p>Explain the tech very briefly</p>
 
 <script src="spotify_auth.js"></script>
+<script>
+    function connect() {
+        if (localStorage(""))
+        generateCodeChallenge(64);
+
+    }
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("code")) {
+        let code = urlParams.get("code");
+        let codeVerifier = localStorage.getItem('code_verifier');
+        getToken(code);
+        window.location.href();
+
+    }
+
+
+
+    if (urlParams.get("error")) {
+        // say there was an error and remove url param
+    }
+    if (localStorage.getItem("access_token")) {
+        console.log("YOOO there is an acecss token and it is " + localStorage.getItem("access_token"));
+    }
+
+
+</script>
 
 </html>
