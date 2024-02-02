@@ -1,0 +1,10 @@
+
+ @font-face {
+    font-family: jakartaSans;
+    src: url("JakartaSans/ttf/PlusJakartaSans-Regular.ttf")
+}
+
+
+body {
+    font-family: jakartaSans
+}
