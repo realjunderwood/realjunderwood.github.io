@@ -24,8 +24,20 @@ body {
 }
 
 #videoElement {
-	width: 500px;
-	height: 375px;
+	width:100%;
+    height:100%;
 	background-color: #666;
     transform: scaleX(-1);
+}
+
+#videoContainer {
+    width: 500px;
+	height: 375px;
+}
+
+#snappic {
+    background:silver;
+    border:1px solid black;
+    width:500px;
+    text-align:center;
 }
