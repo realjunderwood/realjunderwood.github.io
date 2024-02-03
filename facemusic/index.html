@@ -64,12 +64,15 @@
 
 
         for (i = 0; i < 5; i++) {
-            let top = getTopTracks(accessToken,49*i);
-            console.log("offset is" + 49*i)
-            console.log(top);
-            top.foreach(function(val){
-                console.log(val);
-            })
+            getTopTracks(accessToken,49*i).then((value){
+                console.log(value);
+
+
+            });
+         
+            // top.foreach(function(val){
+            //     console.log(val);
+            // })
 
 
         }
