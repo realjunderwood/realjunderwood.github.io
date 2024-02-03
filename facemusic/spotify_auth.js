@@ -100,6 +100,6 @@ async function getTopTracks(accessToken,offsetVal) {
     });
   
     const data = await response.json();
-    return(data);
+    return(data.items);
   }
 
