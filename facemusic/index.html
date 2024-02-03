@@ -177,18 +177,19 @@
     }
 
 
-
-
-    async function face() {
-        const input = document.getElementById('myImg');
+    async function loadModels() {
         console.log("it's");
         await faceapi.loadFaceExpressionModel('/facemusic/models');
         await faceapi.loadSsdMobilenetv1Model('/facemusic/models')
         console.log("it is");
-        window.setTimeout(async function(){
-            const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
-            console.log(detectionWithExpressions);
-        },5000);
+    }
+
+
+    async function face() {
+        const input = document.getElementById('myImg');
+        
+        const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
+        console.log(detectionWithExpressions);
 
     }
     face();
@@ -212,7 +213,7 @@
     
 
 
-
+    loadModels();
 
 </script>
 </body>
