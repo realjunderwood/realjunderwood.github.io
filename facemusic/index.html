@@ -143,6 +143,7 @@
         const input = document.getElementById('myImg');
         console.log("it's");
         await faceapi.loadFaceExpressionModel('/facemusic/models');
+        await faceapi.loadSsdMobilenetv1Model('/models')
         console.log("it is");
         window.setTimeout(async function(){
             const detectionsWithExpressions = await faceapi.detectAllFaces(input).withFaceExpressions()
