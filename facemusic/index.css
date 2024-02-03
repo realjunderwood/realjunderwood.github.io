@@ -42,7 +42,7 @@ body {
     text-align:center;
 }
 
-button {
+#connectspot {
     font-size:25px;
     background:#1ED760;
     border:2px solid black;
@@ -54,7 +54,7 @@ button {
 
 }
 
-button:hover {
+#connectspot:hover {
     cursor: pointer;
     box-shadow: 0px 2px 5px black;
     background:lightgreen;
