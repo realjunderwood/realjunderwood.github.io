@@ -61,7 +61,7 @@ async function generateCodeChallenge(length) {
 }
 
 
-const getToken = async code => {
+async function getToken(code) {
 
     let codeVerifier = localStorage.getItem('code_verifier');
 
