@@ -103,3 +103,37 @@ async function getTopTracks(accessToken,offsetVal) {
     return(data.items);
   }
 
+
+
+
+  async function getTopArtists(accessToken,offsetVal) {
+  
+    const response = await fetch('https://api.spotify.com/v1/me/top/artists?limit=50&offset=' + offsetVal, {
+    method:'GET',  
+    headers: {
+        Authorization: 'Bearer ' + accessToken
+      },
+      //mode: 'cors'
+
+    });
+  
+    const data = await response.json();
+    return(data.items);
+  }
+
+
+
+  async function getTopTracks(accessToken,offsetVal) {
+  
+    const response = await fetch('https://api.spotify.com/v1/me/top/tracks?limit=50&offset=' + offsetVal, {
+    method:'GET',  
+    headers: {
+        Authorization: 'Bearer ' + accessToken
+      },
+      //mode: 'cors'
+
+    });
+  
+    const data = await response.json();
+    return(data.items);
+  }
