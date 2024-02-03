@@ -90,7 +90,7 @@ async function getToken(code) {
 
 async function getTopTracks(accessToken,offsetVal) {
   
-    const response = await fetch('https://api.spotify.com/v1/me/top?limit=50&offset=' + offsetVal, {
+    const response = await fetch('https://api.spotify.com/v1/me/top/artists?limit=50&offset=' + offsetVal, {
     method:'GET',  
     headers: {
         Authorization: 'Bearer ' + accessToken
