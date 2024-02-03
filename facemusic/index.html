@@ -34,11 +34,13 @@
     const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
-
+    if (localStorage.get("access_token") == null) {
+        localStorage.clear();
+    }
   
 
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("code")) {
+    if (urlParams.get("code") && !localStorage.get("access_token")) {
         console.log("It has been detected that you needa login rn")
         let code = urlParams.get("code");
         let codeVerifier = localStorage.getItem('code_verifier');
