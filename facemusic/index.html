@@ -57,28 +57,12 @@
         
 
 
-
-
-
-        
         tracksPool = [];
+        await generateTrackPool(tracksPool);
+        console.log("awaited and now");
+        console.log(tracksPool);
+        
 
-        for (i = 0; i < 2; i++) {
-            getTopArtists(accessToken,49*i).then((value) => {
-                console.log(value);
-                // To implement: add to tracksPool top 5 songs of all the top artists
-
-            });
-
-            getTopTracks(accessToken,49*i).then((value) => {
-                console.log(value);
-                for (i=0;i<50;i++) {
-                    tracksPool.push(value[i]);
-                }
-
-
-            });
-        }
 
         comSepList = "";
         for (i=0; i<25; i++) {
@@ -97,6 +81,32 @@
 
 
     }
+
+
+
+async function generateTrackPool(tracksPool) {
+
+
+        for (i = 0; i < 2; i++) {
+            getTopArtists(accessToken,49*i).then((value) => {
+                console.log(value);
+                // To implement: add to tracksPool top 5 songs of all the top artists
+
+         
+
+                getTopTracks(accessToken,49*i).then((value) => {
+                    console.log(value);
+                    for (i=0;i<50;i++) {
+                        tracksPool.push(value[i]);
+                    }
+
+
+                });
+            });
+        }
+
+
+}
 
 
 </script>
