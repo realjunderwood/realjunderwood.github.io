@@ -110,8 +110,8 @@
 
         tracksPool = [];
 
-        for (i = 0; i < 2; i++) {
-            console.log("uhhh hey " + i );
+        for (i = 0; i < 3; i++) {
+            console.log("uhhh hey its " + i );
             await getTopArtists(accessToken,49*i).then((value) => {
                 //console.log(value);
                 // To implement: add to tracksPool top 5 songs of all the top artists
@@ -125,11 +125,11 @@
                 }
 
             });
-
+        }
 
 
             
-        }
+        
 
 
         
