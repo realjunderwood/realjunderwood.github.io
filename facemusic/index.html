@@ -37,9 +37,9 @@
         console.log("It has been detected that you needa login rn")
         let code = urlParams.get("code");
         let codeVerifier = localStorage.getItem('code_verifier');
-        getToken(code);
+        await getToken(code);
         console.log("uhhh hey");
-        //window.location.href = "https://www.jamesunderwood.net/facemusic";
+        window.location.href = "https://www.jamesunderwood.net/facemusic";
 
     }
 
