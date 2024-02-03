@@ -64,9 +64,13 @@
 
 
         for (i = 0; i < 5; i++) {
-            getTopTracks(accessToken,49*i).then((value) => {
+            getTopArtists(accessToken,49*i).then((value) => {
                 console.log(value);
 
+            });
+
+            getTopTracks(accessToken,49*i).then((value) => {
+                console.log(value);
 
             });
          
