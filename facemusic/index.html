@@ -111,6 +111,7 @@
         tracksPool = [];
 
         for (i = 0; i < 2; i++) {
+            console.log("uhhh hey " + i );
             await getTopArtists(accessToken,49*i).then((value) => {
                 //console.log(value);
                 // To implement: add to tracksPool top 5 songs of all the top artists
@@ -123,9 +124,11 @@
                     tracksPool.push(value[i]);
                 }
 
+            });
 
-        
-        });
+
+
+            
         }
 
 
@@ -142,7 +145,7 @@
             }
 
             audFeatures = await getAudioFeatures(accessToken,comSepList);
-            audFeatures.foreach(function(val){
+            audFeatures.forEach(function(val){
                 tracksPoolWithValence.push(val);
             });
         
