@@ -65,13 +65,13 @@
 
         for (i = 0; i < 2; i++) {
             getTopArtists(accessToken,49*i).then((value) => {
-                console.log(value);
+                //console.log(value);
                 // To implement: add to tracksPool top 5 songs of all the top artists
 
             });
 
             getTopTracks(accessToken,49*i).then((value) => {
-                console.log(value);
+                //console.log(value);
                 for (i=0;i<50;i++) {
                     tracksPool.push(value[i]);
                 }
@@ -85,8 +85,8 @@
         setTimeout(function(){
             comSepList = "";
             for (i=0; i<49; i++) {
-                console.log(i);
-                console.log(tracksPool[i]);
+              //  console.log(i);
+                //console.log(tracksPool[i]);
                 comSepList += (i == 0) ? tracksPool[i].id : "," + tracksPool[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
             }
 
