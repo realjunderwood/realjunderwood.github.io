@@ -30,6 +30,11 @@ body {
     transform: scaleX(-1);
 }
 
+#canvas {
+    transform: scaleX(-1);
+
+}
+
 #videoContainer {
     width: 500px;
 	height: 375px;
