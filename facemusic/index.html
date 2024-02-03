@@ -58,22 +58,8 @@
 
 
 
-        let topArtistsPayload = {
-            method: 'GET',
-            headers: {
-                'Authorization': 'Bearer ' + accessToken
-            },
-            body: new URLSearchParams({
-             //   client_id: clientId,
-        
-            })
-        };
-
     
-
-        const topArtistsBody = fetch("https://api.spotify.com/v1/me/top/artists", topArtistspayload).then((value) => {
-            console.log(value);
-        });
+        console.log(getProfile(accessToken));
 
 
 
