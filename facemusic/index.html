@@ -50,7 +50,39 @@
         // say there was an error and remove url param
     }
     if (localStorage.getItem("access_token")) {
-        console.log("YOOO there is an acecss token and it is " + localStorage.getItem("access_token"));
+        let accessToken = localStorage.getItem("access_token");
+        console.log("YOOO there is an acecss token and it is " + accessToken);
+        
+
+
+
+
+
+        const topArtistsPayload = {
+            method: 'GET',
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            body: new URLSearchParams({
+             //   client_id: clientId,
+        
+            })
+        };
+
+    
+
+        const topArtistsBody = await fetch("https://api.spotify.com/v1/me/top/artists", payload);
+
+        console.log(topArtistsBody)
+
+
+
+
+
+
+
+
+
     }
 
 
