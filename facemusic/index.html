@@ -21,6 +21,7 @@
 
 <h1>How it works</h1>
 <p>Explain the tech very briefly</p>
+<img id="myImg" src="moi.jpeg">
 
 
 <script src="face-api.min.js"></script>
@@ -139,9 +140,14 @@
 
 
     async function face() {
+        const input = document.getElementById('myImg');
         await faceapi.loadFaceExpressionModel('/facemusic/models');
+        const detectionsWithExpressions = await faceapi.detectAllFaces(input).withFaceExpressions()
+
     }
     face();
+
+    
 
 
 
