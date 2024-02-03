@@ -35,7 +35,7 @@
     const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
-    if (localStorage.get("access_token") == null) {
+    if (localStorage.getItem("access_token") == null) {
         localStorage.clear();
     }
   
