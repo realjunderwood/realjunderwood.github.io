@@ -144,7 +144,7 @@
         await faceapi.loadFaceExpressionModel('/facemusic/models');
         window.setTimeout(async function(){
         const detectionsWithExpressions = await faceapi.detectAllFaces(input).withFaceExpressions()
-        },1000)
+        },5000)
 
     }
     face();
