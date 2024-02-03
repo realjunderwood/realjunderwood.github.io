@@ -84,11 +84,13 @@
 
         setTimeout(function(){
             comSepList = "";
-            for (i=0; i<25; i++) {
+            for (i=0; i<49; i++) {
                 console.log(i);
                 console.log(tracksPool[i]);
-                comSepList += "," + tracksPool[i].id;
+                comSepList += (i == 0) ? tracksPool[i].id : "," + tracksPool[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
             }
+
+            getAudioFeatures(accessToken,comSepList)
            
         },1000);
 
