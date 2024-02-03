@@ -34,6 +34,7 @@ async function generateCodeChallenge(length) {
     const codeVerifier  = generateRandomString(length);
     const hashed = await sha256(codeVerifier)
     const codeChallenge = base64encode(hashed);
+    console.log("codeChallenge: " + codeChallenge);
   
     window.localStorage.setItem('code_verifier', codeVerifier);
 
