@@ -71,9 +71,10 @@
 
     
 
-        const topArtistsBody = await fetch("https://api.spotify.com/v1/me/top/artists", payload);
+        const topArtistsBody = await fetch("https://api.spotify.com/v1/me/top/artists", payload).then((value) => {
+            console.log(value);
+        });
 
-        console.log(topArtistsBody)
 
 
 
