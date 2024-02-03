@@ -64,12 +64,12 @@
         tracksPool = [];
 
         for (i = 0; i < 5; i++) {
-            getTopArtists(accessToken,50*i).then((value) => {
+            getTopArtists(accessToken,49*i).then((value) => {
                 console.log(value);
 
             });
 
-            getTopTracks(accessToken,50*i).then((value) => {
+            getTopTracks(accessToken,49*i).then((value) => {
                 console.log(value);
                 tracks.push(value);
 
