@@ -44,5 +44,7 @@ videoElement.addEventListener(
   
       const data = canvas.toDataURL("image/png");
       myImg.setAttribute("src", data);
+
+    
  
   }
