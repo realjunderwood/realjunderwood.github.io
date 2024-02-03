@@ -63,21 +63,27 @@
         
         tracksPool = [];
 
-        for (i = 0; i < 5; i++) {
+        for (i = 0; i < 2; i++) {
             getTopArtists(accessToken,49*i).then((value) => {
                 console.log(value);
+                // To implement: add to tracksPool top 5 songs of all the top artists
 
             });
 
             getTopTracks(accessToken,49*i).then((value) => {
                 console.log(value);
-                tracksPool.push(value);
+                for (i=0;i<50;i++) {
+                    tracksPool.push(value[i]);
+                }
 
             });
          
-            // top.foreach(function(val){
-            //     console.log(val);
-            // })
+
+            comSepList = "";
+            
+            for (i=0; i<50; i++) {
+                comSepList += "," + tracksPool[i].id;
+            }
 
 
         }
