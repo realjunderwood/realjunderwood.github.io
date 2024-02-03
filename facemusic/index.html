@@ -146,8 +146,9 @@
         await faceapi.loadSsdMobilenetv1Model('/facemusic/models')
         console.log("it is");
         window.setTimeout(async function(){
-            const detectionsWithExpressions = await faceapi.detectAllFaces(input).withFaceExpressions()
-        },5000)
+            const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
+            console.log(detectionWithExpressions);
+        },5000);
 
     }
     face();
