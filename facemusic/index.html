@@ -143,7 +143,6 @@
         const input = document.getElementById('myImg');
         console.log("it's");
         await faceapi.loadFaceExpressionModel('/facemusic/models');
-        await faceapi.nets.faceExpressionModel.loadFromWeightMap(weightMap);
         console.log("it is");
         window.setTimeout(async function(){
             const detectionsWithExpressions = await faceapi.detectAllFaces(input).withFaceExpressions()
