@@ -95,7 +95,7 @@ async function getTopTracks(accessToken,offsetVal) {
     headers: {
         Authorization: 'Bearer ' + accessToken
       },
-      mode: 'cors'
+      //mode: 'cors'
 
     });
   
