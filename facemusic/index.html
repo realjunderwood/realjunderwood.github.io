@@ -36,6 +36,9 @@
 </div>
 <button id="snappic" onclick="takepicParent()"><h3 style="display:inline-block">snap picture</h3><img src="camsvg.svg" style="margin-left:10px;vertical-align:middle;" width="30px"></button>
 
+<canvas id="canvas"> </canvas>
+<p>You're looking pretty <span id="happiness"></span></p>
+
 
 
 
@@ -43,7 +46,6 @@
 
 <h1>How it works</h1>
 <p>Explain the tech very briefly</p>
-<canvas id="canvas"> </canvas>
 <img id="myImg" src="sad.jpeg" width="100px">
 
 
@@ -190,6 +192,8 @@
         
         const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
         console.log(detectionWithExpressions);
+        console.log(detectionWithExpressions.expressions.happy);
+        document.getElementById("happiness").innerText = detectionWithExpressions.expressions.happy;
 
     }
     face();
