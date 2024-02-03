@@ -88,11 +88,14 @@ async function getToken(code) {
 }
 
 
-async function getProfile(accessToken) {
+async function getTopTracks(accessToken) {
   
-    const response = await fetch('https://api.spotify.com/v1/me', {
+    const response = await fetch('https://api.spotify.com/v1/me/top', {
       headers: {
         Authorization: 'Bearer ' + accessToken
+      },
+      body: {
+        Limit: 50
       }
     });
   
