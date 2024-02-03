@@ -140,7 +140,7 @@ async function getTopTracks(accessToken,offsetVal) {
 
 
   async function getAudioFeatures(accessToken,comSepList) {
-    const response = await fetch('https://api.spotify.com/v1/audio-features?ids' + comSepList, {
+    const response = await fetch('https://api.spotify.com/v1/audio-features?ids=' + comSepList, {
     method:'GET',  
     headers: {
         Authorization: 'Bearer ' + accessToken
