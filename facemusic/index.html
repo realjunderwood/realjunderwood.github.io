@@ -145,7 +145,8 @@
                     //console.log(tracksPool[i]);
                 comSepList += (i == 0) ? tracksPool[i].id : "," + tracksPool[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
             }
-
+            console.log(comSepList);
+            console.log("that was comSepList");
             audFeatures = await getAudioFeatures(accessToken,comSepList);
             audFeatures.forEach(function(val){
                 tracksPoolWithValence.push(val);
