@@ -22,3 +22,10 @@ body {
     padding:10px;
     margin:10px;
 }
+
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+    transform: scaleX(-1);
+}
