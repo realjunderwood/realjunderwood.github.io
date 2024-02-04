@@ -11,6 +11,7 @@ function startVideo() {
         .then(function (stream) {
             videoElement.srcObject = stream;
             document.getElementById("step2point1").style.display = "block";
+            document.getElementById("webcamButton").style.display = "none";
         })
         .catch(function (err0r) {
         console.log("Couldn't get webcam");
