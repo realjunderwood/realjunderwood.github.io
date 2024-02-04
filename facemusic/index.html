@@ -193,14 +193,14 @@
     }
 
 
-    async function face() {
+    async function face() { //Convert expression confidence scores to happiness level
         const input = document.getElementById('myImg');
         
         const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
         console.log(detectionWithExpressions);
         console.log("Happy / sad : " + detectionWithExpressions.expressions.happy/detectionWithExpressions.expressions.sad);
         console.log(detectionWithExpressions.expressions.happy);
-        hapsadneutSum = detectionWithExpressions.expressions.happy + 0.75*detectionWithExpressions.expressions.sad + 0.25*detectionWithExpressions.expressions.angry + detectionWithExpressions.expressions.neutral;
+        hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
         happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
         happy = (happy*0.75)+(1/12)
         // sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
