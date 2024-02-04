@@ -55,10 +55,15 @@ videoElement.addEventListener(
 function initCanvas() {
     const context = canvas.getContext("2d");
    
-    canvas.width = 500;
-    canvas.height = 375;
-    context.drawImage(myImg, 0, 0, 500, 375);
-
-
+    //canvas.width = 500;
+    //canvas.height = 375;
+    //context.drawImage(myImg, 0, 0, 500, 375);
+    console.log("init c")
+    
+    base_image = new Image();
+    base_image.src = myImage.src;
+    base_image.onload = function(){
+      context.drawImage(base_image, 0, 0);
+    }
 
 }
