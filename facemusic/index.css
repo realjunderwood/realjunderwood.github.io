@@ -193,8 +193,8 @@ html {
     width:175px;
     background:silver;
     border:2px solid black;
-    max-height:300px;
-    min-height:300px;
+    max-height:200px;
+    min-height:200px;
     margin:25px;
 
 }
