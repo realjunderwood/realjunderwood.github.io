@@ -74,3 +74,7 @@ body {
 #step2 {
     visibility: hidden;
 }
+
+#step1 {
+    visibility:visible;
+}

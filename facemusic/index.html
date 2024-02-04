@@ -18,11 +18,13 @@
 
 
 
-
+<div id="step1">
 <h2>
 <strong>To start: </strong> connect your Spotify.
 </h2>
 <button id="connectspot" onclick="generateCodeChallenge(64)">Connect with Spotify to get started</button>
+</div>
+
 
 <br>
 <br>
@@ -85,6 +87,8 @@
 
 
         document.getElementById("step2").style.visibility = "visible";
+        document.getElementById("step1").style.visibility = "hidden";
+
 
         let accessToken = localStorage.getItem("access_token");
         console.log("YOOO there is an acecss token and it is " + accessToken);
