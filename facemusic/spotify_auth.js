@@ -102,7 +102,6 @@ async function getTopTracks(accessToken,offsetVal) {
     });
   
 
-    getProfile(accessToken);
 
 
     const data = await response.json();
@@ -171,7 +170,7 @@ async function getTopTracks(accessToken,offsetVal) {
   }
 
 
-  async function createPlaylist(accessToken,howFeeling,userID) {
+  async function createPlaylist(accessToken,howFeeling) {
 
     const payload = {
         method: 'POST',
@@ -187,8 +186,10 @@ async function getTopTracks(accessToken,offsetVal) {
 
     console.log("le payload is");
     console.log(payload);
+    
+    const userID = await getProfile(accessToken).id
 
-    const body = await fetch("https://accounts.spotify.com/api/token", payload);
+    const body = await fetch("https://api.spotify.com/v1/users/" + userID + "/playlists", payload);
     const response = await body.json();
     localStorage.setItem('access_token', response.access_token);
     localStorage.setItem('refresh_token', response.refresh_token);
@@ -209,6 +210,5 @@ async function getTopTracks(accessToken,offsetVal) {
     });
   
     const data = await response.json();
-    console.log("profile");
-    console.log(data);
+    return(data)
   }
