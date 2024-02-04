@@ -19,9 +19,9 @@
     <div class="introTextDiv" style="margin-top:5vh;">
         <h4>Scroll to continue ↓</h4>
     </div>
-    <div class="introTextDiv" style="margin-top:100vh;">
+    <!--<div class="introTextDiv" style="margin-top:100vh;">
         <h1>But there's a problem:</h1>
-    </div>
+    </div>-->
     <div class="introTextDiv" style="margin-top:5vh;">
         <h1>It's hard to remember all the songs you like, and how they sound.</h1>
     </div>
@@ -412,7 +412,7 @@ if (isMobile) {
     async function createPlaylistParent() {
         comSepTracksList = "";
         for (i=0; i<10; i++) {
-            comSepTracksList += (i == 0) ? tracksPool[i].id : "," + tracksPool[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
+            comSepTracksList += (i == 0) ? tracksPool[i].uri : "," + tracksPool[i].uri; //append id to comSepList, with a comma preceding it if it's not the first element
         }
         createPlaylist(accessToken,"pretty sad",comSepTracksList)
     }
