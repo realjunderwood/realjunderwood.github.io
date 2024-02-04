@@ -70,3 +70,7 @@ body {
     margin-top:2px;
     margin-bottom:-2px;
 }
+
+#step2 {
+    visibility: hidden;
+}
