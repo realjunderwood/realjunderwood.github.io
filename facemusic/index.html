@@ -183,7 +183,6 @@
         
         const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
         console.log(detectionWithExpressions);
-        console.log("Happy / sad : " + detectionWithExpressions.expressions.happy/detectionWithExpressions.expressions.sad);
         console.log(detectionWithExpressions.expressions.happy);
         hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
         happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
@@ -191,6 +190,10 @@
         // sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
         neutral = detectionWithExpressions.expressions.neutral / hapsadneutSum;
         //neutral = (neutral*0.75)+(1/12)
+        console.log("Happy / happy + sad : " + happy/(happy+sad));
+        console.log("Sad / happy + sad : " + sad/(happy+sad));
+
+
         document.getElementById("happiness").innerText = happy + 0.5*neutral;
 
     }
