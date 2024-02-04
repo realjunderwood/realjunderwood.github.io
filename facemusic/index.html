@@ -59,6 +59,7 @@
 
 
     <div id="step2">
+        <h2 id="loading">Loading...</h2>
         <p id="sucesssaccess">Successfully accessed Spotify.</p>
         <button class="roundButton" onclick="startVideo()" id="webcamButton">Click to enable webcam</button>
         <div id="step2point1">
@@ -314,6 +315,7 @@ if (isMobile) {
         musicGotten = true;
         console.log("music obtained");
 
+        document.getElementById("loading").style.visibility = "hidden";
         document.getElementById("step2").style.visibility = "visible";
 
            
