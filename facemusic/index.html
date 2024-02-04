@@ -168,6 +168,8 @@ if (isMobile) {
     async function getMusic(accessToken) {
 
         tracksPool = [];
+        const terms = ["short_term","medium_term","long_term"];
+
 
         for (i = 0; i < 2; i++) {
            // await getTopArtists(accessToken,49*i).then((value) => {
@@ -175,8 +177,7 @@ if (isMobile) {
             //});
 
 
-            const terms = ["short_term","medium_term","long_term"];
-            for (i=0;terms.length;i++) { //Loop through short term, medium term, and long term top songs
+            for (i=0;i<terms.length;i++) { //Loop through short term, medium term, and long term top songs
                 await getTopTracks(accessToken,49*i,terms[i]).then((value) => {
                     for (j=0;j<50;j++) {
                         if (!value in tracksPool) {
