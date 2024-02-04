@@ -58,10 +58,10 @@ videoElement.addEventListener(
       canvas.width = 500;
       canvas.height = 375;
 
-      context.translate(500, 0);
-      context.scale(-1, 1);
-      context.drawImage(videoElement, 0, 0,500,375);
-      context.restore();
+     // context.translate(500, 0);
+     // context.scale(-1, 1);
+     context.drawImage(videoElement, 0, 0,500,375);
+     // context.restore();
   
   
       const data = canvas.toDataURL("image/png");
