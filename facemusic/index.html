@@ -361,7 +361,7 @@ if (isMobile) {
             happinessCalcedWord = "very happy";
         }
 
-        happinessCalced = Math.min(happinessCalced,0.92)
+        happinessCalced = Math.min(happinessCalced,0.92) // songs above this valence are rare so the user will always get the same first song(s) if they are very happy
 
         document.getElementById("happiness").innerText = happinessCalcedWord;
 
