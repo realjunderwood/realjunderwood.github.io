@@ -378,7 +378,7 @@ if (isMobile) {
         i = 0;
         while (audPreviewUrlNull  && i<10) {
             if (tracksPool[0].preview_url != null) {
-                audSnippet.src = tracksPool[0].preview_url;
+                audSnippet.src = tracksPool[i].preview_url;
                 audPreviewUrlNull = false;
             }
             i++
