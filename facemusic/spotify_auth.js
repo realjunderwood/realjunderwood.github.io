@@ -205,7 +205,7 @@ async function getTopTracks(accessToken,offsetVal) {
         },
         body: JSON.stringify({
           
-            uris:[comSepTracks]
+            uris:comSepTracks
         })
     };
     
