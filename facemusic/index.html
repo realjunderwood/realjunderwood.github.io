@@ -327,6 +327,8 @@ if (isMobile) {
 
 
     async function face() { //Convert expression confidence scores to happiness level
+        audSnippet.pause();
+        
         const input = document.getElementById('myImg');
         
         const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
@@ -368,17 +370,17 @@ if (isMobile) {
         }
         
 
-        // previewUrlNull = true;
-        // i = 0;
-        // while (previewUrlNull) {
-        //     if (tracksPool[0].preview_url != null) {
-        //         audSnippet.src = tracksPool[0].preview_url;
-        //         previewUrlNull = false;
-        //     }
-        //     i++
-        // }
+        previewUrlNull = true;
+        i = 0;
+        while (previewUrlNull) {
+            if (tracksPool[0].preview_url != null) {
+                audSnippet.src = tracksPool[0].preview_url;
+                previewUrlNull = false;
+            }
+            i++
+        }
        
-        // audSnippet.play();
+        audSnippet.play();
         
 
 
