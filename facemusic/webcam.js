@@ -9,6 +9,7 @@ function startVideo() {
     if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
         .then(function (stream) {
+            initCanvas();
             videoElement.srcObject = stream;
             document.getElementById("step2point1").style.display = "block";
             document.getElementById("webcamButton").style.display = "none";
@@ -50,3 +51,14 @@ videoElement.addEventListener(
     
  
   }
+
+function initCanvas() {
+    const context = canvas.getContext("2d");
+   
+    canvas.width = 500;
+    canvas.height = 375;
+    context.drawImage(myImg, 0, 0, 500, 375);
+
+
+
+}
