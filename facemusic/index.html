@@ -154,6 +154,7 @@
    
             </div>
             <button class="roundButton" onclick="createPlaylistParent()">Click to add playlist to Spotify</button>
+            <small><i>Don't worry: the playlist will be private by default</i></small>
         </div>
             
 
@@ -419,7 +420,7 @@ if (isMobile) {
         for (i=0; i<10; i++) {
             trackURIsToAddToPlaylist.push(tracksPool[i].uri);
         }
-        createPlaylist(accessToken,happinessCalcedWord,trackURIsToAddToPlaylist)
+        createPlaylistAndAddItemsAndSetPhoto(accessToken,happinessCalcedWord,trackURIsToAddToPlaylist)
     }
 
 
