@@ -6,6 +6,16 @@ canvas = document.getElementById("canvas");
 streaming = false;
 
 function startVideo() {
+
+
+    context.drawImage(myImg, 0, 0,500,375);
+
+
+
+
+
+
+
     document.getElementById("sucesssaccess").style.visibility = "hidden";
     if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
@@ -54,4 +64,3 @@ videoElement.addEventListener(
 
 
 
-}
