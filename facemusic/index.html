@@ -181,7 +181,7 @@
         }
 
 
-        //tracksPoolWithValence.sort(compareSongs)
+
            
  
 
@@ -250,6 +250,13 @@
 
         document.getElementById("happiness").innerText = happinessCalcedWord + " " + happinessCalced;
 
+
+
+
+        tracksPoolWithValence.sort(compareSongs);
+        for (i=0; i<10;i++) { // For tracksPoolWithValence, pull names from tracksPool 
+            tracksPoolWithValence[i].name = tracksPool[i].name;
+        }
     }
    // face();
 
