@@ -253,10 +253,12 @@
 
 
 
-        tracksPoolWithValence.sort(compareSongs);
-        for (i=0; i<10;i++) { // For tracksPoolWithValence, pull names from tracksPool 
+        for (i=0; i<tracksPool.length;i++) { // For tracksPoolWithValence, pull names from tracksPool 
             tracksPoolWithValence[i].name = tracksPool[i].name;
         }
+
+        tracksPoolWithValence.sort(compareSongs);
+
     }
    // face();
 
