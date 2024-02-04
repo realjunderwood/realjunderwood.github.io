@@ -175,6 +175,9 @@
 <script src="webcam.js"></script>
 <script>
 
+let accessToken = localStorage.getItem("access_token");
+
+
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
   window.alert("mobile scum");
@@ -214,7 +217,7 @@ if (isMobile) {
         });
     } else if (urlParams.get("error")) {
         // say there was an error and remove url param
-    } else if (localStorage.getItem("access_token")) { //
+    } else if (accessToken) { //
 
        
 
@@ -224,9 +227,10 @@ if (isMobile) {
 
 
 
-            let accessToken = localStorage.getItem("access_token");
             
             getMusic(accessToken);
+
+            
         
 
     } else {
