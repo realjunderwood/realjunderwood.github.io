@@ -10,6 +10,7 @@ function startVideo() {
     navigator.mediaDevices.getUserMedia({ video: true })
         .then(function (stream) {
             videoElement.srcObject = stream;
+            document.getElementById("step2point1").style.display = "block";
         })
         .catch(function (err0r) {
         console.log("Couldn't get webcam");
