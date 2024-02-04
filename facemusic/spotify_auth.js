@@ -175,7 +175,7 @@ async function getTopTracks(accessToken,offsetVal) {
     const payload = {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
+          Authorization: 'Bearer ' + accessToken
         },
         body: new URLSearchParams({
             name: "feeling " + howFeeling,
