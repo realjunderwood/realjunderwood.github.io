@@ -6,6 +6,7 @@ canvas = document.getElementById("canvas");
 streaming = false;
 
 function startVideo() {
+    document.getElementById("sucesssaccess").style.visibility = "hidden";
     if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
         .then(function (stream) {
