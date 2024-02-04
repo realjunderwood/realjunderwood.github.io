@@ -170,7 +170,7 @@ async function getTopTracks(accessToken,offsetVal) {
   }
 
 
-  async function createPlaylist(accessToken,howFeeling,comSepTracks) {
+  async function createPlaylist(accessToken,howFeeling,uriArray) {
 
     const payload = {
         method: 'POST',
@@ -205,7 +205,8 @@ async function getTopTracks(accessToken,offsetVal) {
         },
         body: JSON.stringify({
           
-            uris:comSepTracks
+           // uris:comSepTracks
+           uris:uriArray
         })
     };
     

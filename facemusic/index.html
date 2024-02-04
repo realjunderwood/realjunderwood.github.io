@@ -410,11 +410,15 @@ if (isMobile) {
 
 
     async function createPlaylistParent() {
-        comSepTracksList = "";
+        //comSepTracksList = "";
+        //for (i=0; i<10; i++) {
+        //    comSepTracksList += (i == 0) ? tracksPool[i].uri : "," + tracksPool[i].uri; //append id to comSepList, with a comma preceding it if it's not the first element
+        //}
+        trackURIsToAddToPlaylist = [];
         for (i=0; i<10; i++) {
-            comSepTracksList += (i == 0) ? tracksPool[i].uri : "," + tracksPool[i].uri; //append id to comSepList, with a comma preceding it if it's not the first element
+            trackURIsToAddToPlaylist.push(tracksPool[i]);
         }
-        createPlaylist(accessToken,"pretty sad",comSepTracksList)
+        createPlaylist(accessToken,"pretty sad",trackURIsToAddToPlaylist)
     }
 
 
