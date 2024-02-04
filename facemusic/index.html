@@ -239,7 +239,6 @@ if (isMobile) {
 
 
         let accessToken = localStorage.getItem("access_token");
-        console.log("YOOO there is an acecss token and it is " + accessToken);
         
         getMusic(accessToken);
 
@@ -273,12 +272,8 @@ if (isMobile) {
                 // To implement: add to tracksPool top 5 songs of all the top artists
             //});
 
-            console.log("terms length is " + terms.length);
             for (k=0;k<terms.length;k++) { // Loop through short term, medium term, and long term top songs
-                console.log("on term " + terms[k])
                 await getTopTracks(accessToken,49*i,terms[k]).then((value) => {
-                    console.log("got top tracks");
-                    console.log(value);
                     for (j=0;j<50;j++) {
                         const alreadyInTracksPool = tracksPool.some(el => el.id === value[j].id);
                         if (!alreadyInTracksPool) {
@@ -295,11 +290,9 @@ if (isMobile) {
 
         
         tracksPoolWithValence = [];
-        console.log("I'm about to do the trackspool with valence stuff, hopefully this is happening at right time");
         for (j=0;j<tracksPool.length/50;j++) {
             comSepList = "";
             for (i=j*50; i<Math.min(j*50+50,tracksPool.length); i++) {
-                console.log("gonna get trackspool at " + i);
                 comSepList += (i%50 == 0) ? tracksPool[i].id : "," + tracksPool[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
             }
             audFeatures = await getAudioFeatures(accessToken,comSepList);
@@ -313,7 +306,6 @@ if (isMobile) {
             tracksPool[i].valence = tracksPoolWithValence[i].valence;
         }
 
-        console.log("just assigned names")
 
 
 
@@ -349,8 +341,6 @@ if (isMobile) {
         const input = document.getElementById('myImg');
         
         const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
-        console.log(detectionWithExpressions);
-        console.log(detectionWithExpressions.expressions.happy);
         hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
         happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
         sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
@@ -384,7 +374,7 @@ if (isMobile) {
 
         tracksPool.sort(compareSongs);
 
-        for (i=0;i<20;i++) {
+        for (i=0;i<15;i++) {
             document.getElementsByClassName("songrec")[i].innerHTML = "<img src='" + tracksPool[i].album.images[0].url + "' width='150px'><h6>" + tracksPool[i].name + "</h6>";
         }
         
