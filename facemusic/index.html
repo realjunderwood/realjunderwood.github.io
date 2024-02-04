@@ -153,6 +153,7 @@
          
    
             </div>
+            <button class="roundButton" onclick="createPlaylistParent()">Click to add playlist to Spotify</button>
         </div>
             
 
@@ -189,7 +190,7 @@ if (isMobile) {
 
 
     
-
+    var happinessCalcedWord = "";
     var audSnippet = new Audio();
     audSnippet.loop = true;
   
@@ -418,7 +419,7 @@ if (isMobile) {
         for (i=0; i<10; i++) {
             trackURIsToAddToPlaylist.push(tracksPool[i].uri);
         }
-        createPlaylist(accessToken,"pretty sad",trackURIsToAddToPlaylist)
+        createPlaylist(accessToken,happinessCalcedWord,trackURIsToAddToPlaylist)
     }
 
 
