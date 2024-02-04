@@ -89,6 +89,8 @@ html {
 
 #canvas {
     transform: scaleX(-1);
+    width:500px;
+    height:375px;
 
 }
 
