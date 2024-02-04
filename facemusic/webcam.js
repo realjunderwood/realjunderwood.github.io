@@ -25,6 +25,7 @@ function startVideo() {
         .then(function (stream) {
             videoElement.srcObject = stream;
             document.getElementById("step2point1").style.display = "block";
+            document.getElementById("loading").visibility = "hidden";
             
         })
         .catch(function (err0r) {
