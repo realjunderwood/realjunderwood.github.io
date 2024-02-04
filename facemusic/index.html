@@ -343,7 +343,16 @@ if (isMobile) {
             document.getElementsByClassName("songrec")[i].innerHTML = "<img src='" + tracksPool[i].album.images[0] + "' width='20px'><h6>" + tracksPool[i].name + "</h6>";
         }
         
-        audSnippet.src = tracksPool[0].preview_url;
+        previewUrlNull = True;
+        i = 0;
+        while (previewUrlNull) {
+            if (tracksPool[0].preview_url) {
+                audSnippet.src = tracksPool[0].preview_url;
+                previewUrlNull = false;
+            }
+            i++
+        }
+       
         audSnippet.play();
 
 
