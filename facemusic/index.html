@@ -79,23 +79,57 @@
         <div id="step2point2">
             <div id="songRecContainer">
                 <div class="songrec">
-                    <p>Yesterday</p>
-                    <p>The Beatles</p>
-
+                    <p></p>
+                    <p></p>
                 </div>
                 <div class="songrec">
-                    <p>Yesterday</p>
-                    <p>The Beatles</p>
+                    <p></p>
+                    <p></p>
                     
                 </div>
                 <div class="songrec">
-                    <p>Yesterday</p>
-                    <p>The Beatles</p>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
                     
                 </div>
                 <div class="songrec">
-                    <p>Yesterday</p>
-                    <p>The Beatles</p>
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                    
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                    
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                    
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
                     
                 </div>
             </div>
@@ -306,15 +340,14 @@ if (isMobile) {
             happinessCalcedWord = "very happy";
         }
 
-
         document.getElementById("happiness").innerText = happinessCalcedWord;
 
 
-
-
-    
-
         tracksPool.sort(compareSongs);
+
+        for (i=0;i<10;i++) {
+            document.getElementsByClassName("songrec")[i].innerHTML = tracksPool[i].name;
+        }
 
     }
    // face();
