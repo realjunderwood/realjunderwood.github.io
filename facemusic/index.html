@@ -154,7 +154,7 @@
    
             </div>
             <button class="roundButton" onclick="createPlaylistParent()">Click to add playlist to Spotify</button>
-            <small><i>Don't worry: the playlist will be private by default</i></small>
+            <p><small><i>Don't worry: the playlist will be private by default</i></small></p>
         </div>
             
 
@@ -405,6 +405,7 @@ if (isMobile) {
 
 
     async function takepicParent() {
+        document.getElementById("step2point2").display = "block;"
         await takepicture();
         face();
     }
