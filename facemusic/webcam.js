@@ -2,6 +2,7 @@
 videoElement = document.getElementById("videoElement");
 myImg = document.getElementById("myImg");
 canvas = document.getElementById("canvas");
+var context = canvas.getContext("2d");
 
 streaming = false;
 
@@ -49,7 +50,7 @@ videoElement.addEventListener(
   
 
   function takepicture() {
-    const context = canvas.getContext("2d");
+    
    
       canvas.width = 500;
       canvas.height = 375;
