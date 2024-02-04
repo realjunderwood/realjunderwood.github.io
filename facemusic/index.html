@@ -22,7 +22,7 @@
 <h2>
 <strong>To start: </strong> connect your Spotify.
 </h2>
-<button id="connectspot" onclick="generateCodeChallenge(64)">Connect with Spotify to get started</button>
+<button id="connectspotButton" class="roundButton" onclick="generateCodeChallenge(64)">Connect with Spotify to get started</button>
 </div>
 
 
@@ -32,14 +32,14 @@
 
 <div id="step2">
 
-    <button onclick="startVideo()">Next, enable webcamnessssss</button>
+    <button onclick="startVideo()" id="webcamButton">Next, enable webcamnessssss</button>
     <h2>Give permission to webcam</h2>
     <div id="videoContainer">
     <video autoplay="true" id="videoElement">
         
     </video>
     </div>
-    <button id="snappic" onclick="takepicParent()"><h3 style="display:inline-block">snap picture</h3><img src="camsvg.svg" style="margin-left:10px;vertical-align:middle;" width="30px"></button>
+    <button id="snappicButton" onclick="takepicParent()"><h3 style="display:inline-block">snap picture</h3><img src="camsvg.svg" style="margin-left:10px;vertical-align:middle;" width="30px"></button>
 
     <canvas id="canvas"> </canvas>
     <p>You're looking pretty <span id="happiness"></span></p>
