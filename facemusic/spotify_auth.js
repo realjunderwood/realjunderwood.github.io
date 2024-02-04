@@ -223,7 +223,7 @@ async function getTopTracks(accessToken,offsetVal) {
     headers: {
         Authorization: 'Bearer ' + accessToken
       },
-      body: jpegUrl
+      body: JSON.stringify(jpegUrl)
     });
   
     const data = await uploadImage.json();
