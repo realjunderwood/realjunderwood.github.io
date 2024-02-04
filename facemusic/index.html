@@ -187,15 +187,15 @@
         console.log(detectionWithExpressions.expressions.happy);
         hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
         happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
-       // happy = (happy*0.75)+(1/12)
         sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
         neutral = detectionWithExpressions.expressions.neutral / hapsadneutSum;
-        //neutral = (neutral*0.75)+(1/12)
-        console.log("Happy / happy + sad : " + happy/(happy+sad));
-        console.log("Sad / happy + sad : " + sad/(happy+sad));
+        
+        constant = 0;
+        if (neutral > happy && neutral > sad) {
+            constant = (happy/(happy+sad)-0.5)/6
+        }
 
-
-        document.getElementById("happiness").innerText = happy + 0.5*neutral;
+        document.getElementById("happiness").innerText = happy + 0.5*neutral + constant;
 
     }
    // face();
