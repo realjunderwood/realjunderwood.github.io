@@ -346,7 +346,7 @@ if (isMobile) {
         previewUrlNull = True;
         i = 0;
         while (previewUrlNull) {
-            if (tracksPool[0].preview_url) {
+            if (tracksPool[0].preview_url != null) {
                 audSnippet.src = tracksPool[0].preview_url;
                 previewUrlNull = false;
             }
