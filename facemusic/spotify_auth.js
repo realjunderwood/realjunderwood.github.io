@@ -218,7 +218,7 @@ async function getTopTracks(accessToken,offsetVal) {
     const jpegUrl = canvas.toDataURL("image/jpeg"); 
 
   
-    const uploadImage = await fetch('https://api.spotify.com/v1/me', {
+    const uploadImage = await fetch('https://api.spotify.com/v1/playlists/' + newPlayListID + "/images", {
       method: "PUT",  
     headers: {
         Authorization: 'Bearer ' + accessToken
