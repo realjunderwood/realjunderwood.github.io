@@ -289,11 +289,11 @@ if (isMobile) {
 
 
     function compareSongs(a,b) {
-
-        if (Math.abs(a.valence-happinessCalced) > Math.abs(b.valence-happinessCalced)) {
+        const aconst = (Math.random()-0.5)/5
+        if (Math.abs(a.valence+aconst-happinessCalced) > Math.abs(b.valence-happinessCalced)) {
             return 1;
         }
-        if (Math.abs(a.valence-happinessCalced) < Math.abs(b.valence-happinessCalced)) {
+        if (Math.abs(a.valence+aconst-happinessCalced) < Math.abs(b.valence-happinessCalced)) {
             return -1;
         }
         return 0;
