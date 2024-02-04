@@ -209,7 +209,7 @@ async function getTopTracks(accessToken,offsetVal) {
         })
     };
     
-    const addToPlaylist = await fetch("https://api.spotify.com/v1/playlists/" + newPlaylistID + "/tracks", payload);
+    const addToPlaylist = await fetch("https://api.spotify.com/v1/playlists/" + newPlaylistID + "/tracks", payload2);
     console.log(addToPlaylist);
     
 
