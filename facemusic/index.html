@@ -197,10 +197,10 @@
         console.log(detectionWithExpressions.expressions.happy);
         hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
         happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
-        happy = (happy + (1/3))/2;
-        sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
+        happy = (happy*0.75)+(1/12)
+        // sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
         neutral = detectionWithExpressions.expressions.neutral / hapsadneutSum;
-        neutral = (neutral + (1/3))/2;
+        neutral = (neutral*0.75)+(1/12)
         document.getElementById("happiness").innerText = happy + 0.5*neutral;
 
     }
