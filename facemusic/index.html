@@ -416,7 +416,7 @@ if (isMobile) {
         //}
         trackURIsToAddToPlaylist = [];
         for (i=0; i<10; i++) {
-            trackURIsToAddToPlaylist.push(tracksPool[i]);
+            trackURIsToAddToPlaylist.push(tracksPool[i].uri);
         }
         createPlaylist(accessToken,"pretty sad",trackURIsToAddToPlaylist)
     }
