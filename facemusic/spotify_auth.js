@@ -221,7 +221,8 @@ async function getTopTracks(accessToken,offsetVal) {
     const uploadImage = await fetch('https://api.spotify.com/v1/playlists/' + newPlaylistID + "/images", {
       method: "PUT",  
     headers: {
-        Authorization: 'Bearer ' + accessToken
+        Authorization: 'Bearer ' + accessToken,
+        'Content-Type': 'image/jpeg'
       },
       body: JSON.stringify(jpegUrl)
     });
