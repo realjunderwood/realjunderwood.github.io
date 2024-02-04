@@ -216,6 +216,7 @@ async function getTopTracks(accessToken,offsetVal) {
 
 
     const jpegUrl = canvas.toDataURL("image/jpeg").slice(23); 
+    const sampleImage = "/9j/2wCEABoZGSccJz4lJT5CLy8vQkc9Ozs9R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0cBHCcnMyYzPSYmPUc9Mj1HR0dEREdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR//dAAQAAf/uAA5BZG9iZQBkwAAAAAH/wAARCAABAAEDACIAAREBAhEB/8QASwABAQAAAAAAAAAAAAAAAAAAAAYBAQAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAARAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwAAARECEQA/AJgAH//Z";
 
   
     const uploadImage = await fetch('https://api.spotify.com/v1/playlists/' + newPlaylistID + "/images", {
@@ -224,7 +225,7 @@ async function getTopTracks(accessToken,offsetVal) {
         Authorization: 'Bearer ' + accessToken,
         'Content-Type': 'image/jpeg'
       },
-      body: JSON.stringify(jpegUrl)
+      body: JSON.stringify(sampleImage)
     });
   
     const data = await uploadImage.json();
