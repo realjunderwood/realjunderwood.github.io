@@ -12,10 +12,8 @@
 
 
 <div id="intro">
+
     <div class="introTextDiv" style="margin-top:30vh;">
-        <h1>This is a work in progress!!.</h1>
-    </div>
-    <div class="introTextDiv" style="margin-top:100vh;">
         <h1>We like to listen to music that matches our mood.</h1>
     </div>
     <div class="introTextDiv" style="margin-top:100vh;">
@@ -98,6 +96,21 @@
 <script src="spotify_auth.js"></script>
 <script src="webcam.js"></script>
 <script>
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+  window.alert("mobile scum");
+  
+}
+
+
+
+
+
+
+
+
+
     const clientId = 'b5ac45b92b3243668cdb8390ab51a04d';
     const redirectUri = 'https://www.jamesunderwood.net/facemusic';
 
