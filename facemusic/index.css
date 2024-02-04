@@ -193,5 +193,6 @@ html {
     width:200px;
     background:silver;
     border:2px solid black;
-
+    max-height:300px;
+    min-height:300px;
 }
