@@ -101,6 +101,10 @@ async function getTopTracks(accessToken,offsetVal) {
 
     });
   
+
+    getProfile(accessToken);
+
+
     const data = await response.json();
     return(data.items);
   }
@@ -155,8 +159,6 @@ async function getTopTracks(accessToken,offsetVal) {
     const data = await response.json();
 
 
-
-    getProfile(accessToken);
 
     return(data.audio_features);
 
