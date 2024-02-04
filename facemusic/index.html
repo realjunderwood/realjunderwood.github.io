@@ -283,7 +283,7 @@ if (isMobile) {
 
 
     function compareSongs(a,b) {
-        const aconst = (Math.random()-0.5)/5
+        const aconst = (Math.random()-0.5)/7
         if (Math.abs(a.valence+aconst-happinessCalced) > Math.abs(b.valence-happinessCalced)) {
             return 1;
         }
@@ -340,7 +340,7 @@ if (isMobile) {
         tracksPool.sort(compareSongs);
 
         for (i=0;i<10;i++) {
-            document.getElementsByClassName("songrec")[i].innerHTML = tracksPool[i].name;
+            document.getElementsByClassName("songrec")[i].innerHTML = "<img src='" + tracksPool[i].album.images[0] + "' width='20px'><h6>" + tracksPool[i].name + "</h6>";
         }
         
         audSnippet.src = tracksPool[0].preview_url;
