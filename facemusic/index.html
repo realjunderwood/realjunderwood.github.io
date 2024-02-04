@@ -167,7 +167,9 @@ if (isMobile) {
 
 
 
-
+    var audSnippet = new Audio();
+    audSnippet.loop = true;
+  
 
     const clientId = 'b5ac45b92b3243668cdb8390ab51a04d';
     const redirectUri = 'https://www.jamesunderwood.net/facemusic';
@@ -348,10 +350,11 @@ if (isMobile) {
         for (i=0;i<10;i++) {
             document.getElementsByClassName("songrec")[i].innerHTML = tracksPool[i].name;
         }
-
-        const audSnippet = new Audio(tracksPool[0].preview_url);
-        audSnippet.loop = true;
+        
+        audSnippet.url = tracksPool[0].preview_url;
         audSnippet.play();
+
+
 
 
     }
