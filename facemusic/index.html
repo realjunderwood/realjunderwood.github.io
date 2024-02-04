@@ -405,7 +405,13 @@ if (isMobile) {
 
 
 
-
+    async function createPlaylistParent() {
+        comSepTracksList = "";
+        for (i=0; i<10; i++) {
+            comSepTracksList += (i == 0) ? tracksPool[i].id : "," + tracksPool[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
+        }
+        createPlaylist(accessToken,"pretty sad",comSepTracksList)
+    }
 
 
 
