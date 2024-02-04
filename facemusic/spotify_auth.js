@@ -125,9 +125,9 @@ async function getTopTracks(accessToken,offsetVal) {
 
 
 
-  async function getTopTracks(accessToken,offsetVal) {
+  async function getTopTracks(accessToken,offsetVal,timerange) {
   
-    const response = await fetch('https://api.spotify.com/v1/me/top/tracks?limit=50&offset=' + offsetVal, {
+    const response = await fetch('https://api.spotify.com/v1/me/top/tracks?limit=50&offset=' + offsetVal + "&time_range=" + timerange, {
     method:'GET',  
     headers: {
         Authorization: 'Bearer ' + accessToken
