@@ -68,4 +68,5 @@ body {
 #connectspot:active {
     background:green;
     margin-top:2px;
+    margin-bottom:-2px;
 }
