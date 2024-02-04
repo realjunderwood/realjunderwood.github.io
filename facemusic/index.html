@@ -180,6 +180,11 @@
         
         }
 
+        for (i=0; i<tracksPool.length;i++) { // For tracksPoolWithValence, pull names from tracksPool 
+            tracksPoolWithValence[i].name = tracksPool[i].name;
+            console.log("uhh hi " + i);
+        }
+
 
 
            
@@ -250,10 +255,7 @@
 
 
 
-        for (i=0; i<tracksPool.length;i++) { // For tracksPoolWithValence, pull names from tracksPool 
-            tracksPoolWithValence[i].name = tracksPool[i].name;
-            console.log("uhh hi " + i);
-        }
+    
 
         tracksPoolWithValence.sort(compareSongs);
 
