@@ -170,7 +170,7 @@ async function getTopTracks(accessToken,offsetVal) {
   }
 
 
-  async function createPlaylistAndAddItemsAndSetPhoto(accessToken,howFeeling,uriArray) {
+  async function createPlaylistEtc(accessToken,howFeeling,uriArray) {
 
     const payload = {
         method: 'POST',
