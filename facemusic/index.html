@@ -193,10 +193,7 @@
 
 
     function compareSongs(a,b) {
-        console.log("hey this is compare songs with a and b andd calcedsong as respectively ");
-        console.log(a);
-        console.log(b);
-        console.log(happinessCalcedWord);
+
         if (Math.abs(a.valence-happinessCalced) > Math.abs(b.valence-happinessCalced)) {
             return 1;
         }
@@ -255,6 +252,7 @@
 
         for (i=0; i<tracksPool.length;i++) { // For tracksPoolWithValence, pull names from tracksPool 
             tracksPoolWithValence[i].name = tracksPool[i].name;
+            console.log("uhh hi " + i);
         }
 
         tracksPoolWithValence.sort(compareSongs);
