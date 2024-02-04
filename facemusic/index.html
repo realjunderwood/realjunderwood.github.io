@@ -191,7 +191,7 @@ if (isMobile) {
     const clientId = 'b5ac45b92b3243668cdb8390ab51a04d';
     const redirectUri = 'https://www.jamesunderwood.net/facemusic';
 
-    const scope = 'user-top-read';
+    const scope = 'user-top-read playlist-modify-private';
     const authUrl = new URL("https://accounts.spotify.com/authorize")
 
     var musicGotten = false;
@@ -215,7 +215,7 @@ if (isMobile) {
 
        
 
-            document.getElementById("step1").display = "none";
+            document.getElementById("step1").style.display = "none";
             document.getElementById("postIntro").scrollIntoView();
             document.getElementById("intro").scrollTop = document.getElementById("intro").scrollHeight;
 
