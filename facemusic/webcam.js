@@ -19,13 +19,13 @@ function startVideo() {
 
     document.getElementById("sucesssaccess").style.visibility = "hidden";
     document.getElementById("webcamButton").style.display = "none";
-    document.getElementById("loading").style.visibility = "visible";
+    document.getElementById("loading").style.display = "block";
     if (navigator.mediaDevices.getUserMedia) {
     navigator.mediaDevices.getUserMedia({ video: true })
         .then(function (stream) {
             videoElement.srcObject = stream;
             document.getElementById("step2point1").style.display = "block";
-            document.getElementById("loading").style.visibility = "hidden";
+            document.getElementById("loading").style.display = "none";
             
         })
         .catch(function (err0r) {
