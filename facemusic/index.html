@@ -349,6 +349,10 @@ if (isMobile) {
             document.getElementsByClassName("songrec")[i].innerHTML = tracksPool[i].name;
         }
 
+        const audSnippet = new Audio(tracksPool[0].preview_url);
+        audSnippet.play();
+
+
     }
    // face();
 
