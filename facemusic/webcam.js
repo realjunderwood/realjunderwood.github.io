@@ -9,7 +9,7 @@ streaming = false;
 function startVideo() {
 
 
-    context.drawImage(myImg, 0, 0);
+    context.drawImage(myImg, 0, 0,500,375);
 
 
 

@@ -204,7 +204,7 @@ if (isMobile) {
         }
 
         for (i=0; i<tracksPool.length;i++) { // For tracksPoolWithValence, pull names from tracksPool 
-            tracksPoolWithValence[i].name = tracksPool[i].name;
+            tracksPool[i].valence = tracksPoolWithValence[i].valence;
         }
 
         console.log("just assigned names")
@@ -281,7 +281,7 @@ if (isMobile) {
 
     
 
-        tracksPoolWithValence.sort(compareSongs);
+        tracksPool.sort(compareSongs);
 
     }
    // face();
