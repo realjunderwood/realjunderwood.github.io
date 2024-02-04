@@ -74,34 +74,32 @@
             <div id="howyourelooking">
                 <p>You're looking  <span id="happiness"></span></p>
             </div>
+        </div>
 
+        <div id="step2point2">
+            <div id="songRecContainer">
+                <div class="songrec">
+                    <p>Yesterday</p>
+                    <p>The Beatles</p>
 
-            <div id="step2point2">
-                <div id="songRecContainer">
-                    <div class="songrec">
-                        <p>Yesterday</p>
-                        <p>The Beatles</p>
-
-                    </div>
-                    <div class="songrec">
-                        <p>Yesterday</p>
-                        <p>The Beatles</p>
-                        
-                    </div>
-                    <div class="songrec">
-                        <p>Yesterday</p>
-                        <p>The Beatles</p>
-                        
-                    </div>
-                    <div class="songrec">
-                        <p>Yesterday</p>
-                        <p>The Beatles</p>
-                        
-                    </div>
+                </div>
+                <div class="songrec">
+                    <p>Yesterday</p>
+                    <p>The Beatles</p>
+                    
+                </div>
+                <div class="songrec">
+                    <p>Yesterday</p>
+                    <p>The Beatles</p>
+                    
+                </div>
+                <div class="songrec">
+                    <p>Yesterday</p>
+                    <p>The Beatles</p>
+                    
                 </div>
             </div>
         </div>
-
             
 
         </div>
@@ -209,9 +207,9 @@ if (isMobile) {
                     console.log("got top tracks");
                     console.log(value);
                     for (j=0;j<50;j++) {
-                        if (!value[j] in tracksPool) {
+                        //if (!value[j] in tracksPool) {
                             tracksPool.push(value[j]);
-                        }
+                       // }
                     }
                 });
             }
