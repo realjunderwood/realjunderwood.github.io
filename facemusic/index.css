@@ -162,22 +162,16 @@ html {
 }
 
 
-
-
-
-
-
-
+#step2 {
+    visibility: hidden;
+    text-align:center;
+}
 
 #step2point1 {
     display:none;
 }
 
 
-#step2 {
-    visibility: hidden;
-}
 
-#step1 {
-    visibility:visible;
-}
+
+
