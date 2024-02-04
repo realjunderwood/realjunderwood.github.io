@@ -176,7 +176,11 @@ html {
     display:none;
 }
 
-
-
+#canvasPlusHappiness {
+    vertical-align:top;
+}
+#howyourelooking {
+    height:25px;
+}
 
 
