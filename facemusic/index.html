@@ -233,9 +233,8 @@ if (isMobile) {
         // say there was an error and remove url param
     } else if (localStorage.getItem("access_token")) { //
 
-        if (musicGotten) {
+       
 
-            document.getElementById("step2").style.visibility = "visible";
             document.getElementById("step1").style.visibility = "hidden";
             document.getElementById("postIntro").scrollIntoView();
 
@@ -244,7 +243,7 @@ if (isMobile) {
             let accessToken = localStorage.getItem("access_token");
             
             getMusic(accessToken);
-        }
+        
 
     } else {
 
@@ -265,6 +264,7 @@ if (isMobile) {
 
 
     async function getMusic(accessToken) {
+        
 
         tracksPool = [];
         const terms = ["short_term","medium_term","long_term"];
@@ -313,6 +313,8 @@ if (isMobile) {
         
         musicGotten = true;
         console.log("music obtained");
+
+        document.getElementById("step2").style.visibility = "visible";
 
            
  
