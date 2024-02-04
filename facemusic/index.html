@@ -192,6 +192,7 @@ if (isMobile) {
 
     
     var happinessCalcedWord = "";
+    var emoticon = "";
     var audSnippet = new Audio();
     audSnippet.loop = true;
   
@@ -356,18 +357,25 @@ if (isMobile) {
         happinessCalcedWord = "";
         if (happinessCalced<0.2) {
             happinessCalcedWord = "very sad";
+            emoticon = ":,("
         } else if (happinessCalced<0.42) {
             happinessCalcedWord = "fairly sad";
+            emoticon = ":("
         } else if (happinessCalced<0.48) {
             happinessCalcedWord = "slightly sad";
+            emoticon = ":/"
         } else if (happinessCalced<0.58) {
             happinessCalcedWord = "pretty neutral";
+            emoticon = ":|"
         } else if (happinessCalced<0.65) {
             happinessCalcedWord = "slightly happy";
+            emoticon = ":)"
         } else if (happinessCalced<0.93) {
             happinessCalcedWord = "fairly happy";
+            emoticon = ":))"
         } else {
             happinessCalcedWord = "very happy";
+            emoticon = ":DD"
         }
 
         happinessCalced = Math.min(happinessCalced,0.92) // songs above this valence are rare so the user will always get the same first song(s) if they are very happy
@@ -421,7 +429,7 @@ if (isMobile) {
         for (i=0; i<10; i++) {
             trackURIsToAddToPlaylist.push(tracksPool[i].uri);
         }
-        createPlaylistEtc(accessToken,happinessCalcedWord,trackURIsToAddToPlaylist)
+        createPlaylistEtc(accessToken,happinessCalcedWord + " " + emoticon,trackURIsToAddToPlaylist)
     }
 
 
