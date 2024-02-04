@@ -123,15 +123,7 @@
                     <p></p>
                     
                 </div>
-                <div class="songrec">
-                    <p></p>
-                    <p></p>
-                </div>
-                <div class="songrec">
-                    <p></p>
-                    <p></p>
-                    
-                </div>
+  
             </div>
         </div>
             
@@ -351,7 +343,7 @@ if (isMobile) {
             document.getElementsByClassName("songrec")[i].innerHTML = tracksPool[i].name;
         }
         
-        audSnippet.url = tracksPool[0].preview_url;
+        audSnippet.src = tracksPool[0].preview_url;
         audSnippet.play();
 
 
