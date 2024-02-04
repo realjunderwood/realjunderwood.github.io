@@ -59,7 +59,7 @@
 
 
     <div id="step2">
-        <p>Successfully accessed Spotify.</p>
+        <p id="sucesssaccess">Successfully accessed Spotify.</p>
         <button class="roundButton" onclick="startVideo()" id="webcamButton">Click to enable webcam</button>
         <div id="step2point1">
             <div id="videoPlusSnapButton">
@@ -100,7 +100,7 @@
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
   window.alert("mobile scum");
-  
+
 }
 
 
@@ -274,7 +274,7 @@ if (isMobile) {
         }
 
 
-        document.getElementById("happiness").innerText = happinessCalcedWord + " " + happinessCalced;
+        document.getElementById("happiness").innerText = happinessCalcedWord;
 
 
 
