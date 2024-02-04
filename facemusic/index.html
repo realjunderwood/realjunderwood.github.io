@@ -204,7 +204,9 @@ if (isMobile) {
 
             console.log("terms length is " + terms.length);
             for (k=0;k<terms.length;k++) { //Loop through short term, medium term, and long term top songs
+                console.log("on term " + terms[k])
                 await getTopTracks(accessToken,49*i,terms[k]).then((value) => {
+                    console.log(value);
                     for (j=0;j<50;j++) {
                         if (!value in tracksPool) {
                             tracksPool.push(value[j]);
