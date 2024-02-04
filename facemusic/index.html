@@ -114,6 +114,8 @@
 
         document.getElementById("step2").style.visibility = "visible";
         document.getElementById("step1").style.visibility = "hidden";
+        document.getElementById("postIntro").scrollIntoView();
+
 
 
         let accessToken = localStorage.getItem("access_token");
@@ -235,7 +237,7 @@
             happinessCalcedWord = "fairly sad";
         } else if (happinessCalced<0.48) {
             happinessCalcedWord = "slightly sad";
-        } else if (happinessCalced<0.59) {
+        } else if (happinessCalced<0.584) {
             happinessCalcedWord = "pretty neutral";
         } else if (happinessCalced<0.65) {
             happinessCalcedWord = "slightly happy";
