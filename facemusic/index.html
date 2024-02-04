@@ -203,8 +203,8 @@ if (isMobile) {
             //});
 
             console.log("terms length is " + terms.length);
-            for (i=0;i<terms.length;i++) { //Loop through short term, medium term, and long term top songs
-                await getTopTracks(accessToken,49*i,terms[i]).then((value) => {
+            for (k=0;k<terms.length;k++) { //Loop through short term, medium term, and long term top songs
+                await getTopTracks(accessToken,49*i,terms[k]).then((value) => {
                     for (j=0;j<50;j++) {
                         if (!value in tracksPool) {
                             tracksPool.push(value[j]);
