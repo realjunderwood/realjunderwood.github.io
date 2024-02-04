@@ -197,14 +197,18 @@
 
         happinessCalced = happy + 0.5*neutral + constant;
         happinessCalcedWord = "";
-        if (happinessCalced<0.1) {
+        if (happinessCalced<0.2) {
             happinessCalcedWord = "very sad";
-        } else if (happinessCalced<0.45) {
-            happinessCalcedWord = "sad";
-        } else if (happinessCalced<0.59) {
+        } else if (happinessCalced<0.42) {
+            happinessCalcedWord = "fairly sad";
+        } else if (happinessCalced<0.48) {
+            happinessCalcedWord = "slightly sad";
+        } else if (happinessCalced<0.583) {
             happinessCalcedWord = "pretty neutral";
-        } else if (happinessCalced<0.9) {
-            happinessCalcedWord = "happy";
+        } else if (happinessCalced<0.65) {
+            happinessCalcedWord = "slightly happy";
+        } else if (happinessCalced<0.93) {
+            happinessCalcedWord = "fairly happy";
         } else {
             happinessCalcedWord = "very happy";
         }
