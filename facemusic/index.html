@@ -350,6 +350,7 @@ if (isMobile) {
         }
 
         const audSnippet = new Audio(tracksPool[0].preview_url);
+        audSnippet.loop = true;
         audSnippet.play();
 
 
