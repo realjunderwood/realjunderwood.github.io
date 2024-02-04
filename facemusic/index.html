@@ -197,15 +197,16 @@ if (isMobile) {
         const terms = ["short_term","medium_term","long_term"];
 
 
-        for (i = 0; i < 2; i++) {
+        for (i = 0; i < 2; i++) { // Loop through twice: once to get top 50 songs, then again to get next 50 songs
            // await getTopArtists(accessToken,49*i).then((value) => {
                 // To implement: add to tracksPool top 5 songs of all the top artists
             //});
 
             console.log("terms length is " + terms.length);
-            for (k=0;k<terms.length;k++) { //Loop through short term, medium term, and long term top songs
+            for (k=0;k<terms.length;k++) { // Loop through short term, medium term, and long term top songs
                 console.log("on term " + terms[k])
                 await getTopTracks(accessToken,49*i,terms[k]).then((value) => {
+                    console.log("got top tracks");
                     console.log(value);
                     for (j=0;j<50;j++) {
                         if (!value in tracksPool) {
