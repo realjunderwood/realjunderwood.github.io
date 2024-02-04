@@ -209,7 +209,7 @@ if (isMobile) {
                     console.log("got top tracks");
                     console.log(value);
                     for (j=0;j<50;j++) {
-                        if (!value in tracksPool) {
+                        if (!value[j] in tracksPool) {
                             tracksPool.push(value[j]);
                         }
                     }
