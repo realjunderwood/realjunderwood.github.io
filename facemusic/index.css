@@ -178,6 +178,8 @@ html {
 
 #canvasPlusHappiness {
     vertical-align:top;
+    display:inline-block;
+
 }
 #howyourelooking {
     height:25px;
