@@ -52,43 +52,49 @@ body {
     border-radius:30px;
     padding:10px;
     font-size:25px;
-    transition: box-shadow 0.1s ease-in-out;
-    transition: background 0.1s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
+
     border:2px solid black;
 
 }
-
 .roundButton:hover {
     cursor: pointer;
-    box-shadow: 0px 2px 5px black;
+    box-shadow: 0px 1px 3px black;
 }
-
 .roundButton:active {
     margin-top:2px;
     margin-bottom:-2px;
-    background:var(--activeBg);
+    
 }
 
 
 
 
 #connectspotButton {
-    --activeBg: yellow;
-    background:#1ED760;
-
-
-
-
+    background:#26ed6c;
+    
 }
-
 #connectspotButton:hover {
-    background:lightgreen;
+    background:#21db62;
+}
+#connectspotButton:active {
+    background:#1bb551;
 }
 
-#connectspotButton:active {
-    background:green;
-   
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #webcamButton {
     background:silver;
