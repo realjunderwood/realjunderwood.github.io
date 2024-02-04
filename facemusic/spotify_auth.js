@@ -187,12 +187,12 @@ async function getTopTracks(accessToken,offsetVal) {
     console.log("le payload is");
     console.log(payload);
     
-    const userID = await getProfile(accessToken).id
+    const user = await getProfile(accessToken);
+    const userID = user.id;
 
     const body = await fetch("https://api.spotify.com/v1/users/" + userID + "/playlists", payload);
     const response = await body.json();
-    localStorage.setItem('access_token', response.access_token);
-    localStorage.setItem('refresh_token', response.refresh_token);
+
 
 
 
