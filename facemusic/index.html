@@ -187,7 +187,7 @@
         hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
         happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
        // happy = (happy*0.75)+(1/12)
-        // sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
+        sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
         neutral = detectionWithExpressions.expressions.neutral / hapsadneutSum;
         //neutral = (neutral*0.75)+(1/12)
         console.log("Happy / happy + sad : " + happy/(happy+sad));
