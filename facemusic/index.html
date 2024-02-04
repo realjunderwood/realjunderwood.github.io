@@ -214,6 +214,8 @@ if (isMobile) {
     const scope = 'user-top-read';
     const authUrl = new URL("https://accounts.spotify.com/authorize")
 
+    var musicGotten = false;
+
 
     if (localStorage.getItem("access_token") == null) {
         //localStorage.clear();
@@ -231,17 +233,18 @@ if (isMobile) {
         // say there was an error and remove url param
     } else if (localStorage.getItem("access_token")) { //
 
+        if (musicGotten) {
 
-        document.getElementById("step2").style.visibility = "visible";
-        document.getElementById("step1").style.visibility = "hidden";
-        document.getElementById("postIntro").scrollIntoView();
+            document.getElementById("step2").style.visibility = "visible";
+            document.getElementById("step1").style.visibility = "hidden";
+            document.getElementById("postIntro").scrollIntoView();
 
 
 
-        let accessToken = localStorage.getItem("access_token");
-        
-        getMusic(accessToken);
-
+            let accessToken = localStorage.getItem("access_token");
+            
+            getMusic(accessToken);
+        }
 
     } else {
 
@@ -307,7 +310,9 @@ if (isMobile) {
         }
 
 
-
+        
+        musicGotten = true;
+        console.log("music obtained");
 
            
  
