@@ -170,7 +170,7 @@ async function getTopTracks(accessToken,offsetVal) {
   }
 
 
-  async function createPlaylist(accessToken,howFeeling,uriArray) {
+  async function createPlaylistAndAddItemsAndSetPhoto(accessToken,howFeeling,uriArray) {
 
     const payload = {
         method: 'POST',
@@ -215,21 +215,24 @@ async function getTopTracks(accessToken,offsetVal) {
     
 
 
-
+    const jpegUrl = canvas.toDataURL("image/jpeg"); 
 
   
-  }
-
-
-
-  async function getProfile(accessToken) {
-  
-    const response = await fetch('https://api.spotify.com/v1/me', {
-      headers: {
+    const uploadImage = await fetch('https://api.spotify.com/v1/me', {
+      method: "PUT",  
+    headers: {
         Authorization: 'Bearer ' + accessToken
-      }
+      },
+      body: jpegUrl
     });
   
-    const data = await response.json();
-    return(data)
-  }
+    const data = await uploadImage.json();
+
+
+
+
+
+  
+    
+  
+}
