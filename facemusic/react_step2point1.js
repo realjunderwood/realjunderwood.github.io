@@ -76,12 +76,12 @@ async function face() {
         
     const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
 
-    hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
-    happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
-    sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
-    neutral = detectionWithExpressions.expressions.neutral / hapsadneutSum;
+    const hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
+    const happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
+    const sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
+    const neutral = detectionWithExpressions.expressions.neutral / hapsadneutSum;
     
-    constant = 0;
+    var constant = 0;
     if (neutral > happy && neutral > sad) {
         constant = (happy/(happy+sad)-0.5)/6
     }
