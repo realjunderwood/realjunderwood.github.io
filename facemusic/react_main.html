@@ -34,6 +34,12 @@
 
   // Your React code goes here
 
+if (!localStorage.getItem("curState")) {
+  localStorage.setItem("curState",0);
+}
+
+  var curState = localStorage.getItem("curState");
+var toDisplay = <p></p>;
 
   const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("code") && !localStorage.getItem("access_token")) { //Back from spotify
@@ -52,8 +58,7 @@
 
 
 
-  var curState = localStorage.getItem("curState");
-var toDisplay = <p></p>;
+
 
   if (curState == 0) {
     toDisplay = (
