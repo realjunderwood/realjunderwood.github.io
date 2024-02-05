@@ -6,7 +6,7 @@ console.log("spotify_auth.js loaded");
 
 // 
 
-async function generateCodeChallenge(length) {
+async function generateCodeChallenge(length=64) {
 
     function generateRandomString(length) {
         const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-~';
