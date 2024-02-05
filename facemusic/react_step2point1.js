@@ -2,13 +2,13 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
 
 
 
-  
+    const canvas = (<canvas id="canvas"></canvas>);
+
 
     async function takepicParent() {
 
-        const canvas = document.getElementById("canvas");
         const context = canvas.getContext("2d");
-        const myImg = document.getElementById("myImg");
+        //const myImg = document.getElementById("myImg");
         
         
         console.log("pic taken");
@@ -56,7 +56,7 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
         <button id="snappicButton" onClick={takepicParent}><h3 style={{display:'inline-block'}}>snap picture</h3><img src="camsvg.svg" id="camImg" /></button>
     </div>
     <div id="canvasPlusHappiness">
-    <canvas id="canvas"></canvas>
+    {canvas}
     <div id="howyourelooking">
         <p>You're looking  <span id="happiness"></span></p>
     </div>
