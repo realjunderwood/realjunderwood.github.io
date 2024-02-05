@@ -7,7 +7,8 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
     loadModels();
 
 
-
+var happinessCalcedWord = "";
+var emoticon = "";
     const { useRef, useEffect } = React;
 
     const canvasRef = useRef(null);
@@ -74,6 +75,49 @@ async function face() {
     const input = myImg.ref.current;
         
     const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
+
+    hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
+    happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
+    sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
+    neutral = detectionWithExpressions.expressions.neutral / hapsadneutSum;
+    
+    constant = 0;
+    if (neutral > happy && neutral > sad) {
+        constant = (happy/(happy+sad)-0.5)/6
+    }
+
+    happinessCalced = happy + 0.5*neutral + constant;
+    happinessCalcedWord = "";
+    if (happinessCalced<0.2) {
+        happinessCalcedWord = "very sad";
+        emoticon = ":,("
+    } else if (happinessCalced<0.42) {
+        happinessCalcedWord = "fairly sad";
+        emoticon = ":("
+    } else if (happinessCalced<0.48) {
+        happinessCalcedWord = "slightly sad";
+        emoticon = ":/"
+    } else if (happinessCalced<0.58) {
+        happinessCalcedWord = "pretty neutral";
+        emoticon = ":|"
+    } else if (happinessCalced<0.65) {
+        happinessCalcedWord = "slightly happy";
+        emoticon = ":)"
+    } else if (happinessCalced<0.93) {
+        happinessCalcedWord = "fairly happy";
+        emoticon = ":))"
+    } else {
+        happinessCalcedWord = "very happy";
+        emoticon = ":DD"
+    }
+
+    happinessCalced = Math.min(happinessCalced,0.92)
+
+
+
+
+
+
 }
 
 
@@ -101,7 +145,7 @@ async function face() {
     <div id="canvasPlusHappiness">
     {theCanvas}
     <div id="howyourelooking">
-        <p>You're looking  <span id="happiness"></span></p>
+        <p>You're looking  <span id="happiness">{happinessCalcedWord}</span></p>
     </div>
     <p>hidden image</p>
     {myImg}
