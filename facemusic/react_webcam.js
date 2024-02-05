@@ -16,7 +16,7 @@ function startVideo() {
 
 
 
-
+    
     document.getElementById("sucesssaccess").style.visibility = "hidden";
     document.getElementById("webcamButton").style.display = "none";
     document.getElementById("loading").style.display = "block";

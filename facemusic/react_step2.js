@@ -3,11 +3,13 @@ const Reactstep2 = () => {
 
 <div id="step2">
 <p id="sucesssaccess">Successfully accessed Spotify.</p>
-<button className="roundButton" onClick={startVideo} id="webcamButton">Click to enable webcam</button>
 
-<Reactstep2point1 />
+{curState == 1 && <button className="roundButton" onClick={startVideo} id="webcamButton">Click to enable webcam</button>}
 
-<Reactstep2point2 />
+{curState > 1 && <Reactstep2point1 /> }
+
+
+{curState == 3 && <Reactstep2point2 /> }
     
 
 </div>
