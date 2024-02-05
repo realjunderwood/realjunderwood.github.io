@@ -35,12 +35,29 @@
   // Your React code goes here
 
 
+  const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("code") && !localStorage.getItem("access_token")) { //Back from spotify
+        localStorage.setItem("curState",1)
+        let code = urlParams.get("code");
+        let codeVerifier = localStorage.getItem('code_verifier');
+        getToken(code).then((value) => {
+            window.location.href = "https://www.jamesunderwood.net/facemusic";
+        });
+    }
+
+
+
+
+
+
+
+
   curState = localStorage.getItem("curState");
 
   if (curState == 0) {
-    toDisplay = <Reactintro />
+    toDisplay = (<><Reactintro /><Reactstep1 /></>);
   } else {
-    toDisplay = <p>Please log in.</p>;
+    toDisplay = <p></p>;
   }
 
 
