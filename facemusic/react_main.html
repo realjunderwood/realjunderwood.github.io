@@ -66,6 +66,7 @@ var toDisplay = <p></p>;
         let code = urlParams.get("code");
         let codeVerifier = localStorage.getItem('code_verifier');
         getToken(code).then((value) => {
+            
             window.location.href = "https://www.jamesunderwood.net/facemusic/react_main.html";
         });
     }
