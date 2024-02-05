@@ -214,7 +214,7 @@ async function getTopTracks(accessToken,offsetVal) {
     console.log(addToPlaylist);
     
 
-
+    setTimeout(function(){
     const jpegUrl = canvas.toDataURL("image/jpeg").slice(23); 
     //const sampleImage = "/9j/2wCEABoZGSccJz4lJT5CLy8vQkc9Ozs9R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0cBHCcnMyYzPSYmPUc9Mj1HR0dEREdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR//dAAQAAf/uAA5BZG9iZQBkwAAAAAH/wAARCAABAAEDACIAAREBAhEB/8QASwABAQAAAAAAAAAAAAAAAAAAAAYBAQAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAARAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwAAARECEQA/AJgAH//Z";
 
@@ -229,6 +229,7 @@ async function getTopTracks(accessToken,offsetVal) {
     });
   
     const data = await uploadImage.json();
+  },500);
 
 
 }
