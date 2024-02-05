@@ -76,8 +76,12 @@ var toDisplay = <p></p>;
       <Reactstep1 />
       </React.Fragment>
       );
-  } else {
-    toDisplay = <p></p>;
+  } else if (curstate == 1) {
+    toDisplay = (
+      <React.Fragment>     
+      <Reactstep2 />
+      </React.Fragment>
+      );
   }
 
 
