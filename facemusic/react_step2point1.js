@@ -1,4 +1,10 @@
 const Reactstep2point1 = () => {
+
+    async function takepicParent() {
+        console.log("pic taken");
+    }
+
+
     return (
 
 <div id="step2point1">

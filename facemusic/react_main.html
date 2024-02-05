@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simple React App</title>
 
-  <link rel="stylesheet" href="react_main.css">
+   <link rel="stylesheet" href="react_main.css">
 
 </head>
 <body>
@@ -22,14 +22,14 @@
 <script type="text/babel" src="react_step1.js"></script>
 <script type="text/babel" src="react_step2.js"></script>
 <script type="text/babel" src="react_step2point1.js"></script>
-<script type="text/babel" src="react_step2point2.js"></script>
+<script type="text/babel" src="react_step2point2.js"></script> -->
 
 
 
 <!-- FUNCTIONAL SCRIPTS -->
 <!-- <script src="face-api.min.js"></script> -->
-<script src="spotify_auth.js"></script>
- <script src="react_webcam.js"></script>
+ <script src="spotify_auth.js"></script>
+<!-- <script src="react_webcam.js"></script> -->
 
 
 
@@ -45,31 +45,31 @@ const redirectUri = 'https://www.jamesunderwood.net/facemusic/react_main.html';
 const scope = 'user-top-read playlist-modify-private ugc-image-upload';
 const authUrl = new URL("https://accounts.spotify.com/authorize")
 
-var musicGotten = false;
-var curState = localStorage.getItem("curState");
+// var musicGotten = false;
+// var curState = localStorage.getItem("curState");
 
 
 
 
   // Your React code goes here
 
-if (!localStorage.getItem("curState")) {
-  setState(0)
-}
+// if (!localStorage.getItem("curState")) {
+//   setState(0)
+// }
 
 
-var toDisplay = <p></p>;
+// var toDisplay = <p></p>;
 
-  const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("code") && !localStorage.getItem("access_token")) { //Back from spotify
-        setState(0.5)
-        let code = urlParams.get("code");
-        let codeVerifier = localStorage.getItem('code_verifier');
-        getToken(code).then((value) => {
+//   const urlParams = new URLSearchParams(window.location.search);
+//     if (urlParams.get("code") && !localStorage.getItem("access_token")) { //Back from spotify
+//         setState(0.5)
+//         let code = urlParams.get("code");
+//         let codeVerifier = localStorage.getItem('code_verifier');
+//         getToken(code).then((value) => {
             
-            window.location.href = "https://www.jamesunderwood.net/facemusic/react_main.html";
-        });
-    }
+//             window.location.href = "https://www.jamesunderwood.net/facemusic/react_main.html";
+//         });
+//     }
 
 
 
@@ -79,23 +79,39 @@ var toDisplay = <p></p>;
 
 
 
-
-if (accessToken && curState==0.5) {
-    setState(1);
-    //getMusic(accessToken);
-  }
+// if (accessToken && curState==0.5) {
+//     setState(1);
+//     //getMusic(accessToken);
+//   }
 
 
 
 
 
   const App = () => {
+    const { useEffect, useState } = React;
+    const [curState, setCurState] = useState(() => {
+    // Initialize state from local storage or use a default value
+    return parseInt(localStorage.getItem('curState')) || 0;
+  });
+  useEffect(() => {
+    // Update local storage whenever curState changes
+    localStorage.setItem('curState', curState.toString());
+  }, [curState]);
+
+    async function sendToSpotify() {
+      setCurState(1)
+    }
+
     return (
       <div>
         <Reactintro />
         <div id="postIntro">
-            { curState == 0 && <Reactstep1 /> }
-            { curState >= 1 && <Reactstep2 /> }
+          { curState }
+          { curState == 0 && <Reactstep1 curState={curState} setCurState={setCurState} /> }
+          { curState >= 1 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
+          <button
+          onClick={sendToSpotify}>hi</button>
         </div>
       </div>
     );
@@ -104,25 +120,26 @@ if (accessToken && curState==0.5) {
   ReactDOM.render(<App />, document.getElementById('root'));
 
 
+    // { curState == 0 && <Reactstep1 /> }
+            // { curState >= 1 && <Reactstep2 /> }
 
 
 
 
 
-
-function setState(num) {
-  localStorage.setItem("curState",num);
-  curState = num;
-}
-
+// function setState(num) {
+//   localStorage.setItem("curState",num);
+//   curState = num;
+// }
 
 
 
-  async function takepicParent() {
-    setState(3)
-        await takepicture();
-        face();
-    }
+
+  // async function takepicParent() {
+  //   setState(3)
+  //       await takepicture();
+  //       face();
+  //   }
 
   
 </script>
