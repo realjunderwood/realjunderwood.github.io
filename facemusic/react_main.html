@@ -79,21 +79,9 @@ var toDisplay = <p></p>;
 
 
 
-  if (curState == 0) {
-    toDisplay = (
-      <React.Fragment>     
-      <Reactstep1 />
-      </React.Fragment>
-      );
-  } else if (accessToken && curState==0.5) {
+if (accessToken && curState==0.5) {
     setState(1);
     //getMusic(accessToken);
-  } else {
-    toDisplay = (
-      <React.Fragment>     
-      <Reactstep2 />
-      </React.Fragment>
-      );
   }
 
 
@@ -105,7 +93,8 @@ var toDisplay = <p></p>;
       <div>
         <Reactintro />
         <div id="postIntro">
-            { toDisplay }
+            { curState == 0 && <Reactstep1 /> }
+            { curState >= 1 && <Reactstep2 /> }
         </div>
       </div>
     );
