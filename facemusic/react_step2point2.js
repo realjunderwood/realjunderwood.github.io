@@ -1,4 +1,4 @@
-const Reactstep2point1 = () => {
+const Reactstep2point2 = () => {
     return (
 
 <div id="step2point2">

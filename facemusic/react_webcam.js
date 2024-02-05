@@ -9,6 +9,7 @@ streaming = false;
 function startVideo() {
 
 
+    curState = 2;
     context.drawImage(myImg, 0, 0,500,375);
 
 
@@ -16,7 +17,7 @@ function startVideo() {
 
 
 
-    
+
     document.getElementById("sucesssaccess").style.visibility = "hidden";
     document.getElementById("webcamButton").style.display = "none";
     document.getElementById("loading").style.display = "block";
