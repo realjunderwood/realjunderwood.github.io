@@ -1,7 +1,51 @@
 const Reactstep2 = ( {curState, setCurState }) => {
     
-    async function startVideo()  {
+
+    if (curState == 2) {
+        startVideo();
+    }
+
+    const videoElement = (
+    <video autoPlay={true} id="videoElement" />
+    );
+        // const myImg = document.getElementById("myImg");
+        // const canvas = document.getElementById("canvas");
+        // const context = canvas.getContext("2d");
+
+
+    async function startVideoParent() {
         setCurState(2);
+    }
+
+    async function startVideo()  {
+
+
+        //context.drawImage(myImg, 0, 0,500,375);
+
+
+
+        console.log("start video friend get videoelement" + videoElement);
+
+
+
+
+        // document.getElementById("sucesssaccess").style.visibility = "hidden";
+        // document.getElementById("webcamButton").style.display = "none";
+        // document.getElementById("loading").style.display = "block";
+        
+        if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(function (stream) {
+                videoElement.srcObject = stream;
+                
+
+            })
+            .catch(function (err0r) {
+            console.log("Couldn't get webcam");
+            console.log(err0r);
+            });
+        }
+
 
     }
     
@@ -15,12 +59,13 @@ const Reactstep2 = ( {curState, setCurState }) => {
     <p>uhh hey it's step2 and curstate is {curState} </p>
 <p id="sucesssaccess">Successfully accessed Spotify.</p>
 
-{curState == 1 && <button className="roundButton" onClick={startVideo} id="webcamButton">Click to enable webcam</button>}
+{curState == 1 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
-{curState > 1 && <Reactstep2point1 curState={curState} setCurState={setCurState} /> }
+{/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState}  videoElement={videoElement} myImg={myImg} canvas={canvas} context={context}/> } */}
+{ curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} />  }
 
 
-{curState == 3 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
+{curState >= 2 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
     
 
 </div>
