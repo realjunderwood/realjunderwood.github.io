@@ -53,7 +53,7 @@ var musicGotten = false;
   // Your React code goes here
 
 if (!localStorage.getItem("curState")) {
-  localStorage.setItem("curState",0);
+  setState(0)
 }
 
 
@@ -62,7 +62,7 @@ var toDisplay = <p></p>;
 
   const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("code") && !localStorage.getItem("access_token")) { //Back from spotify
-        localStorage.setItem("curState",1);
+        setState(0.5)
         let code = urlParams.get("code");
         let codeVerifier = localStorage.getItem('code_verifier');
         getToken(code).then((value) => {
@@ -112,6 +112,24 @@ var toDisplay = <p></p>;
 
 
 
+
+
+
+
+
+function setState(num) {
+  localStorage.setState(num);
+  curState = num;
+}
+
+
+
+
+  async function takepicParent() {
+    setState(3)
+        await takepicture();
+        face();
+    }
 
   
 </script>
