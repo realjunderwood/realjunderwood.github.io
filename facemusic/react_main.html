@@ -85,6 +85,9 @@ var toDisplay = <p></p>;
       <Reactstep1 />
       </React.Fragment>
       );
+  } else if (accessToken && curState==0.5) {
+    setState(1);
+    //getMusic(accessToken);
   } else {
     toDisplay = (
       <React.Fragment>     
