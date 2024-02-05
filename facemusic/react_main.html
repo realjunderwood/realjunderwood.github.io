@@ -46,6 +46,7 @@ const scope = 'user-top-read playlist-modify-private ugc-image-upload';
 const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 var musicGotten = false;
+var curState = localStorage.getItem("curState");
 
 
 
@@ -57,7 +58,6 @@ if (!localStorage.getItem("curState")) {
 }
 
 
-  var curState = localStorage.getItem("curState");
 var toDisplay = <p></p>;
 
   const urlParams = new URLSearchParams(window.location.search);
