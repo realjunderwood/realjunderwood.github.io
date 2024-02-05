@@ -1,14 +1,35 @@
 const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
 
+    async function loadModels() {
+        await faceapi.loadFaceExpressionModel('/facemusic/models');
+        await faceapi.loadSsdMobilenetv1Model('/facemusic/models')
+    }
+    loadModels();
 
 
-    const canvas = (<canvas id="canvas"></canvas>);
 
+    const { useRef, useEffect } = React;
+
+    const canvasRef = useRef(null);
+
+    const theCanvas = (
+    <canvas id="canvas"
+    ref={canvasRef}></canvas>
+    );
+
+    const imgRef = useRef(null);
+
+const myImg = (
+<img
+ref={imgRef} />
+);
+console.log(myImg.ref)
 
     async function takepicParent() {
+        
 
-        const context = canvas.getContext("2d");
-        //const myImg = document.getElementById("myImg");
+        const context = canvasRef.current.getContext("2d");
+        
         
         
         console.log("pic taken");
@@ -19,17 +40,20 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
 
     
    
-            canvas.width = 500;
-            canvas.height = 375;
+        canvasRef.current.width = 500;
+        canvasRef.current.height = 375;
       
-           // context.translate(500, 0);
-           // context.scale(-1, 1);
-           context.drawImage(videoElement, 0, 0,500,375);
+           context.translate(500, 0);
+           context.scale(-1, 1);
+           console.log(videoElement.ref.current);
+           context.drawImage(videoElement.ref.current, 0, 0,500,375);
            // context.restore();
         
         
-            const data = canvas.toDataURL("image/png");
+            const data = canvasRef.current.toDataURL("image/png");
+            myImg.ref.current.setAttribute("src",data);
             //myImg.setAttribute("src", data);
+            //imgSrc = data;
       
       
           
@@ -45,6 +69,25 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
 
     }
 
+async function face() {
+
+    const input = myImg.ref.current;
+        
+    const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return (
 
@@ -56,10 +99,12 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
         <button id="snappicButton" onClick={takepicParent}><h3 style={{display:'inline-block'}}>snap picture</h3><img src="camsvg.svg" id="camImg" /></button>
     </div>
     <div id="canvasPlusHappiness">
-    {canvas}
+    {theCanvas}
     <div id="howyourelooking">
         <p>You're looking  <span id="happiness"></span></p>
     </div>
+    <p>hidden image</p>
+    {myImg}
 </div>
 </div>
 

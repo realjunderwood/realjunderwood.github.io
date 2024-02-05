@@ -2,11 +2,11 @@ const Reactstep2 = ( {curState, setCurState }) => {
     
     const { useEffect, useRef } = React;
 
-function logout() {
-    localStorage.clear();
-    setCurState(0);
-    //window.location.reload();
-}
+    function logout() {
+        localStorage.clear();
+        setCurState(0);
+        //window.location.reload();
+    }
 
     // if (curState == 2) {
     //     startVideo();
@@ -27,7 +27,7 @@ function logout() {
     async function startVideoParent() {
         setCurState(2);
         console.log("about to startvideo");
-        startVideo();
+        //startVideo();
     }
 
 
