@@ -30,13 +30,16 @@
 
 
 <script type="text/babel">
+
+
+  var curState = 0;
   // Your React code goes here
   const App = () => {
     return (
       <div>
         <Reactintro />
         <div id="postIntro">
-          <Reactstep1 />
+            { curState === 0 && <Reactstep1 />}
         </div>
       </div>
     );
