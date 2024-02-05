@@ -17,10 +17,10 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
 {curState == 1 && <button className="roundButton" onClick={startVideo} id="webcamButton">Click to enable webcam</button>}
 
-{curState > 1 && <Reactstep2point1 /> }
+{curState > 1 && <Reactstep2point1 curState={curState} setCurState={setCurState} /> }
 
 
-{curState == 3 && <Reactstep2point2 /> }
+{curState == 3 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
     
 
 </div>

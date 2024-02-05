@@ -90,3 +90,11 @@ html {
     margin-left:100px;
     margin-right:100px;
 }
+
+
+#camImg {
+
+   margin-left:10px;
+   vertical-align:middle;
+   width:30px;
+}

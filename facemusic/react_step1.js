@@ -6,7 +6,7 @@ const Reactstep1 = ( { curState, setCurState } ) => {
     return (
         <div id="step1">
             <p>This is step1 and teh cur state is { curState }</p>
-            <button id="connectspotButton" activeColor="#00ff00" className="roundButton" onClick={connectSpot}>Connect to Spotify to get started</button>
+            <button id="connectspotButton" className="roundButton" onClick={connectSpot}>Connect to Spotify to get started</button>
         </div>
     );
   };

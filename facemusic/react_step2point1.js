@@ -1,7 +1,9 @@
-const Reactstep2point1 = () => {
+const Reactstep2point1 = ({curState, setCurState }) => {
 
     async function takepicParent() {
         console.log("pic taken");
+        setCurState(3);
+
     }
 
 
@@ -10,10 +12,10 @@ const Reactstep2point1 = () => {
 <div id="step2point1">
     <div id="videoPlusSnapButton">
         <div id="videoContainer">
-            <video autoPlay="true" id="videoElement">
+            <video autoPlay={true} id="videoElement">
             </video>
         </div>
-        <button id="snappicButton" onClick={takepicParent}><h3 style={{display:inline-block}}>snap picture</h3><img src="camsvg.svg" style="margin-left:10px;vertical-align:middle;" width="30px" /></button>
+        <button id="snappicButton" onClick={takepicParent}><h3 style={{display:'inline-block'}}>snap picture</h3><img src="camsvg.svg" id="camImg" /></button>
     </div>
     <div id="canvasPlusHappiness">
     <canvas id="canvas"></canvas>
