@@ -1,8 +1,8 @@
 const Reactstep1 = ( { curState, setCurState } ) => {
     async function connectSpot() {
-        
+
+        setCurState(0.5);
         generateCodeChallenge();
-        setCurState(1);
     }
     return (
         <div id="step1">

@@ -7,6 +7,9 @@ console.log("spotify_auth.js loaded");
 // 
 
 async function generateCodeChallenge(length=64) {
+    // curState has just been set to 0.5
+
+    console.log("This is generate codechallenge");
 
     function generateRandomString(length) {
         const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-~';
@@ -48,17 +51,10 @@ async function generateCodeChallenge(length=64) {
       }
       
       authUrl.search = new URLSearchParams(params).toString();
+      console.log("about to send to spotify")
       window.location.href = authUrl.toString()
 
-
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('error')) {
-        console.log("an error was returned");
-      }
-      let code = urlParams.get('code');
-
-      // NOte this might break the nonreact 
-       getToken(code)
+   
 
 }
 

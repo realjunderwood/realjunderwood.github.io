@@ -45,6 +45,27 @@ const redirectUri = 'https://www.jamesunderwood.net/facemusic/react_main.html';
 const scope = 'user-top-read playlist-modify-private ugc-image-upload';
 const authUrl = new URL("https://accounts.spotify.com/authorize")
 
+
+
+
+if (curState == 0) {
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('error')) {
+        console.log("an error was returned");
+      } else if (urlParams.get('code')) {
+        
+        let code = urlParams.get('code');
+
+ getToken(code);
+ setCurState(1);
+
+
+      }
+}
+
+
+
+
 // var musicGotten = false;
 // var curState = localStorage.getItem("curState");
 
