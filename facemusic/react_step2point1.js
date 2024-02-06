@@ -4,6 +4,8 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
         await faceapi.loadFaceExpressionModel('/facemusic/models');
         await faceapi.loadSsdMobilenetv1Model('/facemusic/models')
     }
+
+    console.log("Hi my name is reactstep2point1")
     loadModels();
 
     getMusic(accessToken);
