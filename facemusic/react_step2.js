@@ -1,13 +1,13 @@
 const Reactstep2 = ( {curState, setCurState }) => {
     
-    const { useEffect, useRef } = React;
+    const { useEffect, useRef, useState } = React;
     accessToken = localStorage.getItem("access_token")
 
     const [loading, setLoading] = useState(() => {
 
 
-    return true;
-});
+        return true;
+    });
 
     console.log("about to call getmusic with access token " + accessToken)
     if (curState == 2) {
