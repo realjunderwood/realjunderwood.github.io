@@ -114,7 +114,8 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
 
     async function startVideoParent() {
-        setCurState(12);
+        setCurState(12); // try to ensure tracksPool gets updated inline
+        console.log("it was 12 right there..")
 
         setCurState(8);
         console.log("about to startvideo");
