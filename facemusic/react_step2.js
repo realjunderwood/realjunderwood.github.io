@@ -4,9 +4,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
     accessToken = localStorage.getItem("access_token")
 
 
-    const [tracksPoolDone, setTracksPoolDone] = useState(() => {
-        return false;
-    });
+    const [tracksPoolDone, setTracksPoolDone] = useState(false);
 
 
     const [loading, setLoading] = useState(() => {
