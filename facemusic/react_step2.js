@@ -12,9 +12,10 @@ const Reactstep2 = ( {curState, setCurState }) => {
     console.log("about to call getmusic with access token " + accessToken)
     if (curState == 2) {
         getMusic();
-        setLoading( false );
+       // setLoading( false );
     }
 
+    var tracksPool = [];
 
     async function getMusic() {
         console.log("hi it's getmusic with accesstoken" + accessToken);
@@ -22,7 +23,6 @@ const Reactstep2 = ( {curState, setCurState }) => {
         
     
         const terms = ["short_term","medium_term","long_term"];
-        var tracksPool = [];
     
         for (let i = 0; i < 2; i++) { // Loop through twice: once to get top 50 songs, then again to get next 50 songs
            // await getTopArtists(accessToken,49*i).then((value) => {
@@ -178,7 +178,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 {curState == 2 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
 {/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState}  videoElement={videoElement} myImg={myImg} canvas={canvas} context={context}/> } */}
-{ curState >= 3 && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} />  }
+{ curState >= 3 && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} tracksPool={tracksPool} />  }
 
 
 {curState >= 3 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
