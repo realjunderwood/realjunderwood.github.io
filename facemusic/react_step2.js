@@ -2,6 +2,45 @@ const Reactstep2 = ( {curState, setCurState }) => {
     
     const { useEffect, useRef } = React;
 
+    console.log("about to call getmusic with access token " + accessToken)
+    getMusic(accessToken);
+
+
+
+    async function getMusic(accessToken) {
+        console.log("hi it's getmusic with accesstoken" + accessToken);
+        //document.getElementById("loading").style.display="block";
+        
+    
+        const terms = ["short_term","medium_term","long_term"];
+    
+    
+        for (let i = 0; i < 2; i++) { // Loop through twice: once to get top 50 songs, then again to get next 50 songs
+           // await getTopArtists(accessToken,49*i).then((value) => {
+                // To implement: add to tracksPool top 5 songs of all the top artists
+            //});
+    
+            for (let k=0;k<terms.length;k++) { // Loop through short term, medium term, and long term top songs
+                console.log("abouta do a getTopTracks");
+                await getTopTracks(accessToken,49*i,terms[k]).then((value) => {
+                    console.log(value)
+                    for (let j=0;j<50;j++) {
+                        const alreadyInTracksPool = tracksPool.some(el => el.id === value[j].id || (el.artists[0].name === value[j].artists[0].name && el.name === value[j].name)); //Make sure we don't have duplicate songs. Duplicates have same track ID, or both same name and same artist
+                        if (!alreadyInTracksPool) {
+                            tracksPool.push(value[j]);
+                       }
+                    }
+                });
+            }
+        
+        }
+    }
+
+
+
+
+
+
     function logout() {
         localStorage.clear();
         setCurState(0);
