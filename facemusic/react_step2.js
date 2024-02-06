@@ -13,7 +13,7 @@ const Reactstep2 = ( {curState, setCurState, accessToken }) => {
         
     
         const terms = ["short_term","medium_term","long_term"];
-    
+        var tracksPool = [];
     
         for (let i = 0; i < 2; i++) { // Loop through twice: once to get top 50 songs, then again to get next 50 songs
            // await getTopArtists(accessToken,49*i).then((value) => {
