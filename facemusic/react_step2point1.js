@@ -1,4 +1,4 @@
-const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
+const Reactstep2point1 = ({curState, setCurState, videoElement, tracksPool }) => {
 
     const { useRef, useEffect, useState } = React;
 
@@ -25,7 +25,6 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
 
 
 
-    var tracksPool = [];
 
 var happinessCalced = 0;
 var emoticon = "";
@@ -89,6 +88,19 @@ console.log(myImg.ref)
 
     }
 
+
+    function compareSongs(a,b) {
+        const aconst = (Math.random()-0.5)/5
+        if (Math.abs(a.valence+aconst-happinessCalced) > Math.abs(b.valence-happinessCalced)) {
+            return 1;
+        }
+        if (Math.abs(a.valence+aconst-happinessCalced) < Math.abs(b.valence-happinessCalced)) {
+            return -1;
+        }
+        return 0;
+    }
+
+    
 async function face() {
 
     const input = myImg.ref.current;
@@ -131,6 +143,8 @@ console.log(detectionWithExpressions);
 
     console.log(happinessCalcedWord);
     happinessCalced = Math.min(happinessCalced,0.92)
+
+    tracksPool.sort(compareSongs);
 
 }
 
