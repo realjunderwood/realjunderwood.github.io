@@ -18,7 +18,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
     console.log("about to call getmusic with access token " + accessToken)
     if (curState == 2 && !tracksPoolDone) {
         getMusic();
-        //setTracksPoolDone(true);
+        setTracksPoolDone(true);
        // setLoading( false );
     }
 
@@ -187,7 +187,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 {curState == 2 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
 {/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState}  videoElement={videoElement} myImg={myImg} canvas={canvas} context={context}/> } */}
-{ ( (curState >= 3 && tracksPoolDone) ) && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} tracksPool={tracksPool} />  }
+{ ( (curState >= 3 && tracksPoolDone == true) ) && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} tracksPool={tracksPool} />  }
 
 
 {curState >= 3 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
