@@ -23,12 +23,12 @@ const Reactstep2 = ( {curState, setCurState }) => {
     }
 
 
+    var tracksPool = [];
 
         const tracksPoolReal = useMemo(() => {
           return tracksPool;
         }, [curState]);
 
-    var tracksPool = [];
 
     async function getMusic() {
         console.log("hi it's getmusic with accesstoken" + accessToken);
