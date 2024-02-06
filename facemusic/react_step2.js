@@ -1,6 +1,8 @@
+
+
 const Reactstep2 = ( {curState, setCurState }) => {
     
-    const { useEffect, useRef, useState } = React;
+    const { useEffect, useRef, useState, useMemo } = React;
     accessToken = localStorage.getItem("access_token")
 
 
@@ -19,6 +21,12 @@ const Reactstep2 = ( {curState, setCurState }) => {
         //setTracksPoolDone(true);
        // setLoading( false );
     }
+
+
+
+        const tracksPoolReal = useMemo(() => {
+          return tracksPool;
+        }, [curState]);
 
     var tracksPool = [];
 
@@ -172,7 +180,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 {/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState} myImg={myImg} canvas={canvas} context={context}/> } */}
 <p>tracksPoolDone {tracksPoolDone}</p>
 <p>Is it true? {tracksPoolDone === true}</p>
-{ ( (curState == 8 || curState == 7) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPool} />  }
+{ ( (curState == 8 || curState == 7) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
 
 
 {curState == 6 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
