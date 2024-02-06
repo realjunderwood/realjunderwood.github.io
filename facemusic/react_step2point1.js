@@ -89,7 +89,7 @@ console.log(myImg.ref)
         
         
         console.log("pic taken");
-        setCurState(3);
+        setCurState(7);
 
 
         
