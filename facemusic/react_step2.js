@@ -7,7 +7,7 @@ const Reactstep2 = ( {curState, setCurState, accessToken }) => {
 
 
 
-    async function getMusic(accessToken) {
+    async function getMusic() {
         console.log("hi it's getmusic with accesstoken" + accessToken);
         //document.getElementById("loading").style.display="block";
         
