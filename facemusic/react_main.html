@@ -152,7 +152,9 @@ async function runGetToken(code) {
 
         console.log("Here is where eventually i will replace href and then setcurstate =2")
       window.history.replaceState(null, '', window.location.pathname);
-     setCurState(2);
+     setTimeout(function(){
+      setCurState(2);
+    },1000);
 }
 
   
@@ -167,7 +169,7 @@ async function runGetToken(code) {
         <div id="postIntro" ref={postIntroRef}>
           { curState }
           { curState == 0 && <Reactstep1 curState={curState} setCurState={setCurState} /> }
-          { curState >= 2 && <Reactstep2 curState={curState} setCurState={setCurState} accessToken={accessToken} /> }
+          { curState >= 2 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
           <button
           onClick={sendToSpotify}>hi</button>
         </div>
