@@ -11,10 +11,17 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
 
 
 
+    const [happinessCalcedWord, setHappinessCalcedWord] = useState(() => {
+        // Initialize state from local storage or use a default value
+        return "";
+      });
+    
+
+
+
     var tracksPool = [];
 
 var happinessCalced = 0;
-var happinessCalcedWord = "";
 var emoticon = "";
     const { useRef, useEffect } = React;
 
@@ -94,27 +101,26 @@ console.log(detectionWithExpressions);
     }
 
     happinessCalced = happy + 0.5*neutral + constant;
-    happinessCalcedWord = "";
     if (happinessCalced<0.2) {
-        happinessCalcedWord = "very sad";
+        setHappinessCalcedWord("very sad");
         emoticon = ":,("
     } else if (happinessCalced<0.42) {
-        happinessCalcedWord = "fairly sad";
+        setHappinessCalcedWord("fairly sad");
         emoticon = ":("
     } else if (happinessCalced<0.48) {
-        happinessCalcedWord = "slightly sad";
+        setHappinessCalcedWord("slightly sad");
         emoticon = ":/"
     } else if (happinessCalced<0.58) {
-        happinessCalcedWord = "pretty neutral";
+        setHappinessCalcedWord("pretty neutral");
         emoticon = ":|"
     } else if (happinessCalced<0.65) {
-        happinessCalcedWord = "slightly happy";
+        setHappinessCalcedWord("slightly happy");
         emoticon = ":)"
     } else if (happinessCalced<0.93) {
-        happinessCalcedWord = "fairly happy";
+        setHappinessCalcedWord("fairly happy");
         emoticon = ":))"
     } else {
-        happinessCalcedWord = "very happy";
+        setHappinessCalcedWord("very happy");
         emoticon = ":DD"
     }
 
