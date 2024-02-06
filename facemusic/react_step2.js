@@ -17,25 +17,28 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
     console.log("about to call getmusic with access token " + accessToken)
     if (curState == 2 && !tracksPoolDone) {
-        getMusic();
+        tracksPoolLegacy = getMusic();
+        
         //setTracksPoolDone(true);
        // setLoading( false );
     }
 
 
-    var tracksPool = [];
+    var tracksPoolLegacy = [];
 
         const tracksPoolReal = useMemo(() => {
             console.log("This is the memo thing apparently i just got called");
-            console.log("tracks pool is length " + tracksPool.length)
-            console.log("tracksPool:")
-            console.log(tracksPool)
+            console.log("tracks pool legacy is length " + tracksPoolLegacy.length)
+            console.log("tracksPoollegacy:")
+            console.log(tracksPoolLegacy)
 
           return tracksPool;
         }, [curState]);
 
 
     async function getMusic() {
+        var tracksPool = [];
+        
         console.log("hi it's getmusic with accesstoken" + accessToken);
         //document.getElementById("loading").style.display="block";
         
@@ -97,7 +100,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
         console.log(tracksPoolDone);
         setCurState(9)
         console.log("just set curstate to 9");
-
+return(tracksPool);
 
 
 
