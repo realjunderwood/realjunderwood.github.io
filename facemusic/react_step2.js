@@ -1,7 +1,7 @@
 const Reactstep2 = ( {curState, setCurState }) => {
     
     const { useEffect, useRef } = React;
-    accessToken = localStorage.getItem("accessToken")
+    accessToken = localStorage.getItem("access_token")
 
     
 
