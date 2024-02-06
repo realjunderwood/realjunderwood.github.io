@@ -1,5 +1,8 @@
 const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
 
+    const { useRef, useEffect, useState } = React;
+
+
     async function loadModels() {
         await faceapi.loadFaceExpressionModel('/facemusic/models');
         await faceapi.loadSsdMobilenetv1Model('/facemusic/models')
@@ -23,7 +26,6 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
 
 var happinessCalced = 0;
 var emoticon = "";
-    const { useRef, useEffect } = React;
 
     const canvasRef = useRef(null);
 
