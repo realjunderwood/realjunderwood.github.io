@@ -130,7 +130,7 @@ async function getMusic(accessToken) {
     //document.getElementById("loading").style.display="block";
     
 
-    tracksPool = [];
+    var tracksPool = [];
     const terms = ["short_term","medium_term","long_term"];
 
 
