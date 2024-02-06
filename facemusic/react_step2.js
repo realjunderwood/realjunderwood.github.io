@@ -185,8 +185,8 @@ const Reactstep2 = ( {curState, setCurState }) => {
 <p>tracksPoolDone {tracksPoolDone}</p>
 <p>Is it true? {tracksPoolDone === true}</p>
 { ( (curState == 8 || curState == 7) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
-<p>{tracksPoolReal}</p>
-<p>p above is trrakspollroeal</p>
+<p>{tracksPoolReal[0].name}</p>
+<p>p above is trrakspollroeal[0].name</p>
 
 {curState == 6 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
 
