@@ -107,14 +107,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
     // if (curState == 2) {
     //     startVideo();
     // }
-    const videoRef = useRef(null);
-    const videoElement = (
-    <video
-    autoPlay={true}
-    id="videoElement" 
-    ref={videoRef}
-    />
-    );
+ 
         // const myImg = document.getElementById("myImg");
         // const canvas = document.getElementById("canvas");
         // const context = canvas.getContext("2d");
@@ -126,24 +119,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
         //startVideo();
     }
 
-
-
-    useEffect(() => {
-        console.log("this is useeffect and cur state is " + curState);
-        const startVideo = async () => {
-          try {
-            const stream = await navigator.mediaDevices.getUserMedia({video: true});
-            videoRef.current.srcObject = stream;
-          } catch (err) {
-            console.log(err);
-            console.log("Above: webcam error")
-          }
-        };
-        if (curState == 3) {
-        startVideo();
-        }
-      }, [curState]);
-
+    
     // async function startVideo()  {
 
 
@@ -190,7 +166,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
 {curState == 2 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
-{/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState}  videoElement={videoElement} myImg={myImg} canvas={canvas} context={context}/> } */}
+{/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState} myImg={myImg} canvas={canvas} context={context}/> } */}
 <p>tracksPoolDone {tracksPoolDone}</p>
 <p>Is it true? {tracksPoolDone === true}</p>
 { ( (curState >= 3 && tracksPoolDone === true) ) && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} tracksPool={tracksPool} />  }

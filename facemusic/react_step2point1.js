@@ -25,6 +25,34 @@ const Reactstep2point1 = ({curState, setCurState, videoElement, tracksPool }) =>
 
 
 
+    const videoRef = useRef(null);
+    const videoElement = (
+    <video
+    autoPlay={true}
+    id="videoElement" 
+    ref={videoRef}
+    />
+    );
+
+    useEffect(() => {
+        console.log("this is useeffect and cur state is " + curState);
+        const startVideo = async () => {
+          try {
+            const stream = await navigator.mediaDevices.getUserMedia({video: true});
+            videoRef.current.srcObject = stream;
+          } catch (err) {
+            console.log(err);
+            console.log("Above: webcam error")
+          }
+        };
+        if (curState == 3) {
+        startVideo();
+        }
+      }, [curState]);
+
+
+
+
 
     const [happinessCalcedWord, setHappinessCalcedWord] = useState(() => {
         // Initialize state from local storage or use a default value
