@@ -5,7 +5,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
     
 
-    console.log("about to call getmusic with access token " + accessToken))
+    console.log("about to call getmusic with access token " + accessToken)
     if (curState == 2) {
         getMusic();
     }
