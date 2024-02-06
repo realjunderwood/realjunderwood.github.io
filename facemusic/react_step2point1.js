@@ -7,6 +7,7 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
     loadModels();
 
 
+var happinessCalced = 0;
 var happinessCalcedWord = "";
 var emoticon = "";
     const { useRef, useEffect } = React;
