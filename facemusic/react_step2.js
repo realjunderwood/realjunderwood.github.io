@@ -32,7 +32,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
             console.log("tracksPoollegacy:")
             console.log(tracksPoolLegacy)
 
-          return tracksPool;
+          return tracksPoolLegacy;
         }, [curState]);
 
 
