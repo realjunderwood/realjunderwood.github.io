@@ -135,12 +135,13 @@ if (urlParams.get('error')) {
         let code = urlParams.get('code');
 console.log(code);
 console.log("that was the code");
-      getToken(code);
+console.log("about to run gettoken")      
+getToken(code);
       console.log("just ran gettoken on code");
 
-        setCurState(2);
+        
       window.history.replaceState(null, '', window.location.pathname);
-
+      setCurState(2);
 
       }
 }
