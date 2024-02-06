@@ -154,3 +154,16 @@ html {
     width:500px;
     text-align:center;
 }
+
+
+
+
+#canvasPlusHappiness {
+    vertical-align:top;
+    display:inline-block;
+
+}
+#howyourelooking {
+    height:25px;
+    font-size:25px;
+}
