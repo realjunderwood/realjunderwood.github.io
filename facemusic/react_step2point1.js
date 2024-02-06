@@ -141,7 +141,9 @@ async function getMusic(accessToken) {
         //});
 
         for (let k=0;k<terms.length;k++) { // Loop through short term, medium term, and long term top songs
+            console.log("abouta do a getTopTracks");
             await getTopTracks(accessToken,49*i,terms[k]).then((value) => {
+                console.log(value)
                 for (let j=0;j<50;j++) {
                     const alreadyInTracksPool = tracksPool.some(el => el.id === value[j].id || (el.artists[0].name === value[j].artists[0].name && el.name === value[j].name)); //Make sure we don't have duplicate songs. Duplicates have same track ID, or both same name and same artist
                     if (!alreadyInTracksPool) {
