@@ -1,6 +1,6 @@
 // step2point1:
 
-const Reactstep2point1 = ({curState, setCurState, videoElement, tracksPool }) => {
+const Reactstep2point1 = ({curState, setCurState, tracksPool }) => {
 
     const { useRef, useEffect, useState } = React;
 
