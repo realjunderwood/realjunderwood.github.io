@@ -33,6 +33,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
 
     useEffect(() => {
+        console.log("this is useeffect and cur state is " + curState);
         const startVideo = async () => {
           try {
             const stream = await navigator.mediaDevices.getUserMedia({video: true});
@@ -41,8 +42,10 @@ const Reactstep2 = ( {curState, setCurState }) => {
             console.log(err);
           }
         };
+        if (curState == 2) {
         startVideo();
-      }, []);
+        }
+      }, [curState]);
 
     // async function startVideo()  {
 
