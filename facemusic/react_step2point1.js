@@ -8,6 +8,9 @@ const Reactstep2point1 = ({curState, setCurState, videoElement, tracksPool }) =>
     // if no trackspool passed through, then try getting it from local storage
     // meaning, also set it into local storage in react_step2
 
+    console.log("The trackspool i have:")
+    console.log(tracksPool);
+
 
     async function loadModels() {
         console.log("Loading models...")
