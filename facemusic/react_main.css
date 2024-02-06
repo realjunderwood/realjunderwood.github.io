@@ -167,3 +167,16 @@ html {
     height:25px;
     font-size:25px;
 }
+
+
+
+.songrec {
+    display:inline-block;
+    width:175px;
+    background:silver;
+    border:2px solid black;
+    max-height:200px;
+    min-height:200px;
+    margin:10px;
+
+}
