@@ -9,10 +9,9 @@ function Song({ title, artist, albumCoverUrl }) {
   );
 }
 
-function SongList({ songs }) {
   return (
     <div className="song-list">
-      {songs.map(song => (
+      {tracksPool.map(song => (
         <Song
           title={song.name}
           albumCoverUrl={song.album.images[0].url}
@@ -20,6 +19,7 @@ function SongList({ songs }) {
       ))}
     </div>
   );
-}
+
+
 
 }
