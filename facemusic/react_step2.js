@@ -78,6 +78,8 @@ const Reactstep2 = ( {curState, setCurState }) => {
         // musicGotten = true;
         console.log(tracksPool);
         console.log("music obtained; that up there was tracksPool");
+        console.log("is trackspoooldone true or false")
+        console.log(tracksPoolDone);
         //setTracksPoolDone(true);
 
 
