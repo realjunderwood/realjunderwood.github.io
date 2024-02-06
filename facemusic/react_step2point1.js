@@ -234,6 +234,8 @@ console.log(detectionWithExpressions);
     </div>
     <p>hidden image</p>
     {myImg}
+    <p>and now, songs</p>
+    { curState == 7 && <Reactsong tracksPool={tracksPool} /> }
 </div>
 </div>
 
