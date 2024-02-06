@@ -157,7 +157,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
     return (
 
 <div id="step2">
-    <p>uhh hey it's step2 and curstate is {curState} </p>
+    <p>uhh hey it's step2 and curstate is {curState} and tracksPoolDone is {tracksPoolDone}</p>
 <p id="sucesssaccess">Successfully accessed Spotify.</p>
 
 {loading && <p>loading</p>}
