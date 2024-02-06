@@ -3,6 +3,12 @@ const Reactstep2 = ( {curState, setCurState }) => {
     const { useEffect, useRef, useState } = React;
     accessToken = localStorage.getItem("access_token")
 
+
+    const [tracksPoolDone, setTracksPoolDone] = useState(() => {
+        return false;
+    });
+
+
     const [loading, setLoading] = useState(() => {
 
 
@@ -71,10 +77,10 @@ const Reactstep2 = ( {curState, setCurState }) => {
         // musicGotten = true;
         console.log(tracksPool);
         console.log("music obtained; that up there was tracksPool");
+        setTracksPoolDone(true);
 
 
 
-        setCurState(4);
 
 
 
@@ -178,10 +184,10 @@ const Reactstep2 = ( {curState, setCurState }) => {
 {curState == 2 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
 {/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState}  videoElement={videoElement} myImg={myImg} canvas={canvas} context={context}/> } */}
-{ curState >= 4 && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} tracksPool={tracksPool} />  }
+{ ( curState >= 3 && tracksPoolDone ) && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} tracksPool={tracksPool} />  }
 
 
-{curState >= 4 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
+{curState >= 3 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
 
 
 <button className="roundButton" onClick={logout}>Log out</button>
