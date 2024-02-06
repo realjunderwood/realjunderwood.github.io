@@ -4,8 +4,11 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
 
 
     async function loadModels() {
+        console.log("Loading models...")
         await faceapi.loadFaceExpressionModel('/facemusic/models');
+        console.log("Loaded faceexpressionmodel")
         await faceapi.loadSsdMobilenetv1Model('/facemusic/models')
+        console.log("loaded ssdmobilenet model")
     }
 
     console.log("Hi my name is reactstep2point1")
