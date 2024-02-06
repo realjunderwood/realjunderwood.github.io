@@ -25,7 +25,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
 
 
-
+    console.log("about to instatniate trackspool as []")
     var tracksPool = [];
 
     setTimeout(function(){
