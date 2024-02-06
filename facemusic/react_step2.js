@@ -82,6 +82,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
         setTracksPoolDone(true);
         console.log("now");
         console.log(tracksPoolDone);
+        setCurState(9)
 
 
 
@@ -167,7 +168,8 @@ const Reactstep2 = ( {curState, setCurState }) => {
 {/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState} myImg={myImg} canvas={canvas} context={context}/> } */}
 <p>tracksPoolDone {tracksPoolDone}</p>
 <p>Is it true? {tracksPoolDone === true}</p>
-{ ( (curState >= 3 && tracksPoolDone === true) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPool} />  }
+/* { ( (curState >= 3 && tracksPoolDone === true) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPool} />  } */
+{ ( (curState == 9) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPool} />  }
 
 
 {curState >= 3 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
