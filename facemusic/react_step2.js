@@ -16,7 +16,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
     });
 
     console.log("about to call getmusic with access token " + accessToken)
-    if (curState == 2) {
+    if (curState == 2 && !notTracksPoolDone) {
         getMusic();
        // setLoading( false );
     }
