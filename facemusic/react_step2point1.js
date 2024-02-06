@@ -10,6 +10,8 @@ const Reactstep2point1 = ({curState, setCurState, tracksPool }) => {
 
     console.log("The trackspool i have:")
     console.log(tracksPool);
+    console.log("The localstorage version");
+    console.log(localStorage.getItem("tracksPool"));
 
 
     async function loadModels() {
