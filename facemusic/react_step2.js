@@ -41,7 +41,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
             console.log(tracksPool)
 
           return tracksPool;
-        }, [curState]);
+        }, [tracksPool]);
 
 
     async function getMusic() {
