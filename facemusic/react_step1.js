@@ -1,7 +1,6 @@
 const Reactstep1 = ( { curState, setCurState } ) => {
     async function connectSpot() {
 
-        await setCurState(1);
 
         generateCodeChallenge();
     }

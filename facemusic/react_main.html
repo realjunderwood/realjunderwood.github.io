@@ -125,12 +125,16 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
 
-if (curState == 1) {
-  console.log("looks like curStaet is 1!!!")
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get('error')) {
+   setCurState(1);
+
         console.log("an error was returned");
       } else if (urlParams.get('code')) {
+         setCurState(1);
+        console.log("looks like curStaet is 1!!!")
+
+
         
         let code = urlParams.get('code');
 console.log(code);
@@ -143,7 +147,7 @@ getToken(code);
       window.history.replaceState(null, '', window.location.pathname);
      // setCurState(2);
 
-      }
+      
 }
 
   
