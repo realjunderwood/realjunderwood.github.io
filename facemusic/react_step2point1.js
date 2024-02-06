@@ -24,7 +24,6 @@ const Reactstep2point1 = ({curState, setCurState, tracksPool }) => {
     }
 
     console.log("Hi my name is reactstep2point1")
-    loadModels();
 
 
 
@@ -54,7 +53,10 @@ const Reactstep2point1 = ({curState, setCurState, tracksPool }) => {
         }
       }, [curState]);
 
+      useEffect(() => {
+        loadModels();
 
+      }, []);
 
 
 
