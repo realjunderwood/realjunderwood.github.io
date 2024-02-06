@@ -31,18 +31,18 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
     setTimeout(function(){
         console.log("here is trackspool");
-        console.log(tracksPool);
+        console.log(tracksPool.current);
 
     },15000)
 
     const tracksPoolReal = useMemo(() => {
             console.log("This is the memo thing apparently i just got called");
-            console.log("tracks pool  is length " + tracksPool.length)
+            console.log("tracks pool  is length " + tracksPool.current.length)
             console.log("tracksPool:")
-            console.log(tracksPool)
+            console.log(tracksPool.current)
 
-          return tracksPool;
-        }, [tracksPool]);
+          return tracksPool.current;
+        }, [curState]);
 
 
     async function getMusic() {
@@ -63,9 +63,9 @@ const Reactstep2 = ( {curState, setCurState }) => {
                 await getTopTracks(accessToken,49*i,terms[k]).then((value) => {
                     console.log(value)
                     for (let j=0;j<50;j++) {
-                        const alreadyInTracksPool = tracksPool.some(el => el.id === value[j].id || (el.artists[0].name === value[j].artists[0].name && el.name === value[j].name)); //Make sure we don't have duplicate songs. Duplicates have same track ID, or both same name and same artist
+                        const alreadyInTracksPool = tracksPool.current.some(el => el.id === value[j].id || (el.artists[0].name === value[j].artists[0].name && el.name === value[j].name)); //Make sure we don't have duplicate songs. Duplicates have same track ID, or both same name and same artist
                         if (!alreadyInTracksPool) {
-                            tracksPool.push(value[j]);
+                            tracksPool.current.push(value[j]);
                        }
                     }
                 });
@@ -79,10 +79,10 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
         
         var tracksPoolWithValence = [];
-        for (let j=0;j<tracksPool.length/50;j++) {
+        for (let j=0;j<tracksPool.current.length/50;j++) {
             let comSepList = "";
-            for (let i=j*50; i<Math.min(j*50+50,tracksPool.length); i++) {
-                comSepList += (i%50 == 0) ? tracksPool[i].id : "," + tracksPool[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
+            for (let i=j*50; i<Math.min(j*50+50,tracksPool.current.length); i++) {
+                comSepList += (i%50 == 0) ? tracksPool.current[i].id : "," + tracksPool.current[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
             }
             let audFeatures = await getAudioFeatures(accessToken,comSepList);
             audFeatures.forEach(function(val){
@@ -91,8 +91,8 @@ const Reactstep2 = ( {curState, setCurState }) => {
         
         }
 
-        for (let i=0; i<tracksPool.length;i++) { // For tracksPoolWithValence, pull names from tracksPool 
-            tracksPool[i].valence = tracksPoolWithValence[i].valence;
+        for (let i=0; i<tracksPool.current.length;i++) { // For tracksPoolWithValence, pull names from tracksPool 
+            tracksPool.current[i].valence = tracksPoolWithValence[i].valence;
         }
 
 
@@ -109,12 +109,12 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
 
         
-        console.log(tracksPool);
+        console.log(tracksPool.current);
         console.log("that was tracksPool")
 
         setCurState(9)
         console.log("just set curstate to 9");
-return(tracksPool);
+return(tracksPool.current);
 
 
 
