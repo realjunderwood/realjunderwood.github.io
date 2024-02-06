@@ -148,7 +148,7 @@ runGetToken(code);
 async function runGetToken(code) {
   console.log("hi");
   await getToken(code);
-      console.log("just ran gettoken on code");
+      console.log("just ran gettoken onthe  code and now accesstoken is " + localStorage.getItem("access_token"));
 
         console.log("Here is where eventually i will replace href and then setcurstate =2")
       window.history.replaceState(null, '', window.location.pathname);
