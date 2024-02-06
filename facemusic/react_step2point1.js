@@ -146,7 +146,7 @@ console.log(detectionWithExpressions);
     <div id="canvasPlusHappiness">
     {theCanvas}
     <div id="howyourelooking">
-        <p>You're looking  <span id="happiness">{happinessCalcedWord}</span></p>
+        <p>You're looking  {<span id="happiness">happinessCalcedWord</span>}</p>
     </div>
     <p>hidden image</p>
     {myImg}
