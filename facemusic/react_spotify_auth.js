@@ -54,12 +54,13 @@ async function generateCodeChallenge(length=64) {
       console.log("about to send to spotify")
       window.location.href = authUrl.toString()
 
-   
+      
 
 }
 
 
 async function getToken(code) {
+    console.log("hey it's getToken with code " + code)
 
     let codeVerifier = localStorage.getItem('code_verifier');
 
