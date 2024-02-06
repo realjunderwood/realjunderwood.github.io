@@ -172,7 +172,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 { ( (curState == 8 || curState == 7) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPool} />  }
 
 
-{curState >= 3 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
+{curState == 6 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
 
 
  <button className="roundButton" onClick={logout}>Log out</button> 
