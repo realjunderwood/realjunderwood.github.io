@@ -177,7 +177,6 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
 {curState == 9 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
-{/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState} myImg={myImg} canvas={canvas} context={context}/> } */}
 <p>tracksPoolDone {tracksPoolDone}</p>
 <p>Is it true? {tracksPoolDone === true}</p>
 { ( (curState == 8 || curState == 7) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }

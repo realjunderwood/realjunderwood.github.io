@@ -7,6 +7,7 @@ const Reactstep2point1 = ({curState, setCurState, tracksPool }) => {
 
     // if no trackspool passed through, then try getting it from local storage
     // meaning, also set it into local storage in react_step2
+    // nm
 
     console.log("The trackspool i have:")
     console.log(tracksPool);
