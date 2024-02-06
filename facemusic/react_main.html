@@ -125,7 +125,7 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
 
-if (curState == 0) {
+if (curState == 0.5) {
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get('error')) {
         console.log("an error was returned");
