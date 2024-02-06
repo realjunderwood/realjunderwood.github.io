@@ -2,9 +2,12 @@ const Reactstep2 = ( {curState, setCurState, accessToken }) => {
     
     const { useEffect, useRef } = React;
 
-    console.log("about to call getmusic with access token " + accessToken)
-    getMusic();
+    
 
+    console.log("about to call getmusic with access token " + accessToken)
+    if (curState == 2) {
+        getMusic();
+    }
 
 
     async function getMusic() {
