@@ -76,7 +76,7 @@ async function face() {
     const input = myImg.ref.current;
         
     const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
-
+console.log(detectionWithExpressions);
     const hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
     const happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
     const sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
