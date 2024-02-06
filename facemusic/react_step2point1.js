@@ -1,6 +1,12 @@
+// step2point1:
+
 const Reactstep2point1 = ({curState, setCurState, videoElement, tracksPool }) => {
 
     const { useRef, useEffect, useState } = React;
+
+
+    // if no trackspool passed through, then try getting it from local storage
+    // meaning, also set it into local storage in react_step2
 
 
     async function loadModels() {
