@@ -1,4 +1,4 @@
-const Reactstep2 = ( {curState, setCurState }) => {
+const Reactstep2 = ( {curState, setCurState, accessToken }) => {
     
     const { useEffect, useRef } = React;
 

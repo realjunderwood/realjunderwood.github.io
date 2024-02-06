@@ -162,7 +162,7 @@ getToken(code);
         <div id="postIntro" ref={postIntroRef}>
           { curState }
           { curState == 0 && <Reactstep1 curState={curState} setCurState={setCurState} /> }
-          { curState >= 2 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
+          { curState >= 2 && <Reactstep2 curState={curState} setCurState={setCurState} accessToken={accessToken} /> }
           <button
           onClick={sendToSpotify}>hi</button>
         </div>
