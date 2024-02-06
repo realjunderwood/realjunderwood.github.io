@@ -46,7 +46,7 @@ const Reactstep2point1 = ({curState, setCurState, tracksPool }) => {
             console.log("Above: webcam error")
           }
         };
-        if (curState == 3) {
+        if (curState == 7) {
         startVideo();
         }
       }, [curState]);
