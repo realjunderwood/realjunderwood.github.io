@@ -26,6 +26,11 @@ const Reactstep2 = ( {curState, setCurState }) => {
     var tracksPool = [];
 
         const tracksPoolReal = useMemo(() => {
+            console.log("This is the memo thing apparently i just got called");
+            console.log("tracks pool is length " + tracksPool.length)
+            console.log("tracksPool:")
+            console.log(tracksPool)
+
           return tracksPool;
         }, [curState]);
 
