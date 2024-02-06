@@ -146,6 +146,9 @@ console.log(detectionWithExpressions);
 
     tracksPool.sort(compareSongs);
 
+    console.log("trackspool sorted");
+    console.log(tracksPool);
+
 }
 
 
