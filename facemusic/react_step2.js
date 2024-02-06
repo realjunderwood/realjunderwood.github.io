@@ -3,11 +3,16 @@ const Reactstep2 = ( {curState, setCurState }) => {
     const { useEffect, useRef } = React;
     accessToken = localStorage.getItem("access_token")
 
-    
+    const [loading, setLoading] = useState(() => {
+
+
+    return true;
+});
 
     console.log("about to call getmusic with access token " + accessToken)
     if (curState == 2) {
         getMusic();
+        setLoading( false );
     }
 
 
@@ -132,6 +137,8 @@ const Reactstep2 = ( {curState, setCurState }) => {
 <div id="step2">
     <p>uhh hey it's step2 and curstate is {curState} </p>
 <p id="sucesssaccess">Successfully accessed Spotify.</p>
+
+{loading && <p>loading</p>}
 
 {curState == 2 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
