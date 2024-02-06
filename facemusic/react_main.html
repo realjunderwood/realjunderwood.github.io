@@ -48,22 +48,6 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
 
-if (curState == 0) {
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('error')) {
-        console.log("an error was returned");
-      } else if (urlParams.get('code')) {
-        
-        let code = urlParams.get('code');
-
- getToken(code);
-
- setCurState(1);
- window.history.replaceState(null, '', window.location.pathname);
-
-
-      }
-}
 
 
 
@@ -137,9 +121,26 @@ if (urlParams.get('error')) {
 
   }
 
-
-
   }, [curState,postIntroRef]);
+
+
+
+if (curState == 0) {
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('error')) {
+        console.log("an error was returned");
+      } else if (urlParams.get('code')) {
+        
+        let code = urlParams.get('code');
+
+ getToken(code);
+
+ setCurState(1);
+ window.history.replaceState(null, '', window.location.pathname);
+
+
+      }
+}
 
   
 
