@@ -125,7 +125,7 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
 
-if (curState == 0.5) {
+if (curState == 1) {
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get('error')) {
         console.log("an error was returned");
@@ -135,7 +135,7 @@ if (urlParams.get('error')) {
 
  getToken(code);
 
- setCurState(1);
+ setCurState(2);
  window.history.replaceState(null, '', window.location.pathname);
 
 
@@ -145,7 +145,7 @@ if (urlParams.get('error')) {
   
 
     async function sendToSpotify() {
-      setCurState(1)
+      setCurState(2)
     }
 
     return (
@@ -154,7 +154,7 @@ if (urlParams.get('error')) {
         <div id="postIntro" ref={postIntroRef}>
           { curState }
           { curState == 0 && <Reactstep1 curState={curState} setCurState={setCurState} /> }
-          { curState >= 1 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
+          { curState >= 2 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
           <button
           onClick={sendToSpotify}>hi</button>
         </div>

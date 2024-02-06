@@ -64,7 +64,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
 
     async function startVideoParent() {
-        setCurState(2);
+        setCurState(3);
         console.log("about to startvideo");
         //startVideo();
     }
@@ -82,7 +82,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
             console.log("Above: webcam error")
           }
         };
-        if (curState == 2 || curState == 3) {
+        if (curState == 3 || curState == 4) {
         startVideo();
         }
       }, [curState]);
@@ -129,13 +129,13 @@ const Reactstep2 = ( {curState, setCurState }) => {
     <p>uhh hey it's step2 and curstate is {curState} </p>
 <p id="sucesssaccess">Successfully accessed Spotify.</p>
 
-{curState == 1 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
+{curState == 2 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
 {/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState}  videoElement={videoElement} myImg={myImg} canvas={canvas} context={context}/> } */}
-{ curState >= 2 && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} />  }
+{ curState >= 3 && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} />  }
 
 
-{curState >= 2 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
+{curState >= 3 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
 
 
 <button className="roundButton" onClick={logout}>Log out</button>
