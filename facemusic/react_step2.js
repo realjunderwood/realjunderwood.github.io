@@ -17,6 +17,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
     console.log("about to call getmusic with access token " + accessToken)
     if (curState == 2 && !tracksPoolDone) {
+        console.log("actually di dcall getmusic tho")
         getMusic();
         
         //setTracksPoolDone(true);
