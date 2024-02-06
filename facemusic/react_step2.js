@@ -74,7 +74,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
 
 
-
+        setCurState(4);
 
 
 
@@ -126,7 +126,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
             console.log("Above: webcam error")
           }
         };
-        if (curState == 3 || curState == 4) {
+        if (curState == 3) {
         startVideo();
         }
       }, [curState]);
@@ -178,10 +178,10 @@ const Reactstep2 = ( {curState, setCurState }) => {
 {curState == 2 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
 {/* {curState >= 1 && <Reactstep2point1 curState={curState} setCurState={setCurState}  videoElement={videoElement} myImg={myImg} canvas={canvas} context={context}/> } */}
-{ curState >= 3 && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} tracksPool={tracksPool} />  }
+{ curState >= 4 && <Reactstep2point1 curState={curState} setCurState={setCurState} videoElement={videoElement} tracksPool={tracksPool} />  }
 
 
-{curState >= 3 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
+{curState >= 4 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
 
 
 <button className="roundButton" onClick={logout}>Log out</button>
