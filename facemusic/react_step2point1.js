@@ -7,6 +7,7 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
     loadModels();
 
     getMusic(accessToken);
+    console.log("about to call getmusic with access token " + accessToken)
 
 
 
