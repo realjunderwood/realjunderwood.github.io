@@ -140,14 +140,18 @@ if (urlParams.get('error')) {
 console.log(code);
 console.log("that was the code");
 console.log("about to run gettoken")      
-getToken(code);
+runGetToken(code);
+
+      
+}
+
+async function runGetToken(code) {
+  await getToken(code);
       console.log("just ran gettoken on code");
 
         
       window.history.replaceState(null, '', window.location.pathname);
      setCurState(2);
-
-      
 }
 
   
