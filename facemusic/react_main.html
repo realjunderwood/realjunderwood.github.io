@@ -89,15 +89,36 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
   const App = () => {
-    const { useEffect, useState } = React;
+
+    const { useEffect, useState, useRef } = React;
+    const postIntroRef = useRef(null);
+
     const [curState, setCurState] = useState(() => {
     // Initialize state from local storage or use a default value
     return parseInt(localStorage.getItem('curState')) || 0;
   });
+
+
+
+
+
+
   useEffect(() => {
     // Update local storage whenever curState changes
     localStorage.setItem('curState', curState.toString());
-  }, [curState]);
+
+
+    console.log("hmmm curstate is " + curState)
+  if (curState > 0 ) {
+   postIntroRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
+
+  }
+
+
+
+  }, [curState,postIntroRef]);
+
+  
 
     async function sendToSpotify() {
       setCurState(1)
@@ -106,7 +127,7 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
     return (
       <div>
         <Reactintro />
-        <div id="postIntro">
+        <div id="postIntro" ref={postIntroRef}>
           { curState }
           { curState == 0 && <Reactstep1 curState={curState} setCurState={setCurState} /> }
           { curState >= 1 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
@@ -118,6 +139,10 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
   };
 
   ReactDOM.render(<App />, document.getElementById('root'));
+
+
+
+
 
 
     // { curState == 0 && <Reactstep1 /> }

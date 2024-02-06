@@ -40,9 +40,10 @@ const Reactstep2 = ( {curState, setCurState }) => {
             videoRef.current.srcObject = stream;
           } catch (err) {
             console.log(err);
+            console.log("Above: webcam error")
           }
         };
-        if (curState == 2) {
+        if (curState == 2 || curState == 3) {
         startVideo();
         }
       }, [curState]);
