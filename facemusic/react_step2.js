@@ -100,7 +100,9 @@ const Reactstep2 = ( {curState, setCurState }) => {
         console.log(tracksPoolDone);
 
 
-        tracksPoolLegacy = tracksPool
+        tracksPoolLegacy = tracksPool;
+        console.log(tracksPoolLegacy);
+        console.log("i just set trackspoollegacy to trackspool and that is what it was that happened")
 
         setCurState(9)
         console.log("just set curstate to 9");
