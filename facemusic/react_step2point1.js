@@ -36,6 +36,7 @@ const Reactstep2point1 = ({curState, setCurState, tracksPool }) => {
 
     useEffect(() => {
         console.log("this is useeffect and cur state is " + curState);
+        console.log("tryna activate camera rn...")
         const startVideo = async () => {
           try {
             const stream = await navigator.mediaDevices.getUserMedia({video: true});
