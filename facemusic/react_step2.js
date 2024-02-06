@@ -81,7 +81,10 @@ const Reactstep2 = ( {curState, setCurState }) => {
         console.log("is trackspoooldone true or false")
         console.log(tracksPoolDone);
         console.log(tracksPoolDone === true)
-        //setTracksPoolDone(true);
+        setTracksPoolDone(true);
+        console.log("now");
+        console.log(tracksPoolDone);
+
 
 
 
