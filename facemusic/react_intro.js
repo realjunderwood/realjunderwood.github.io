@@ -17,7 +17,7 @@ const Reactintro = () => {
     </div>
 
     <div className="introTextDiv" style={{marginTop:5+'vh'}}>
-        <h1>Plus, self-identifying whether you are happy or sad requires too much emotional intelligence.</h1>
+        <h1>Plus, self-identifying whether you are happy or sad requires a lot of emotional intelligence.</h1>
 
     </div>
 

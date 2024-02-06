@@ -55,7 +55,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
             for (let i=j*50; i<Math.min(j*50+50,tracksPool.length); i++) {
                 comSepList += (i%50 == 0) ? tracksPool[i].id : "," + tracksPool[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
             }
-            audFeatures = await getAudioFeatures(accessToken,comSepList);
+            let audFeatures = await getAudioFeatures(accessToken,comSepList);
             audFeatures.forEach(function(val){
                 tracksPoolWithValence.push(val);
             });
