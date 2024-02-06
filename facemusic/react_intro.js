@@ -12,7 +12,7 @@ const Reactintro = () => {
     {/* <!--<div class="introTextDiv" style="margin-top:100vh;">
         <h1>But there's a problem:</h1>
     </div>--> */}
-    <div className="introTextDiv" style={{marginTop:100+'vh'}}>
+    <div className="introTextDiv" style={{marginTop:50+'vh'}}>
         <h1>But it's hard to remember all the songs you like, and how they sound.</h1>
     </div>
 
