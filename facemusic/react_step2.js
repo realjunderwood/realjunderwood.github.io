@@ -43,6 +43,41 @@ const Reactstep2 = ( {curState, setCurState }) => {
             }
         
         }
+
+
+
+
+
+        
+        var tracksPoolWithValence = [];
+        for (let j=0;j<tracksPool.length/50;j++) {
+            let comSepList = "";
+            for (let i=j*50; i<Math.min(j*50+50,tracksPool.length); i++) {
+                comSepList += (i%50 == 0) ? tracksPool[i].id : "," + tracksPool[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
+            }
+            audFeatures = await getAudioFeatures(accessToken,comSepList);
+            audFeatures.forEach(function(val){
+                tracksPoolWithValence.push(val);
+            });
+        
+        }
+
+        for (let i=0; i<tracksPool.length;i++) { // For tracksPoolWithValence, pull names from tracksPool 
+            tracksPool[i].valence = tracksPoolWithValence[i].valence;
+        }
+
+
+        
+        // musicGotten = true;
+        console.log(tracksPool);
+        console.log("music obtained");
+
+
+
+
+
+
+
     }
 
 
