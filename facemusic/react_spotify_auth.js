@@ -85,6 +85,7 @@ async function getToken(code) {
     const response = await body.json();
     localStorage.setItem('access_token', response.access_token);
     localStorage.setItem('refresh_token', response.refresh_token);
+    console.log("This is the end of gettoken i think)");
 }
 
 
