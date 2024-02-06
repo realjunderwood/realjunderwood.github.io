@@ -57,7 +57,8 @@ async function generateCodeChallenge(length=64) {
       }
       let code = urlParams.get('code');
 
-      getToken(code)
+      // NOte this might break the nonreact 
+      // getToken(code)
 
 }
 
