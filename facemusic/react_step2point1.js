@@ -11,6 +11,7 @@ const Reactstep2point1 = ({curState, setCurState, videoElement }) => {
 
 
 
+    var tracksPool = [];
 
 var happinessCalced = 0;
 var happinessCalcedWord = "";
@@ -131,7 +132,6 @@ async function getMusic(accessToken) {
     //document.getElementById("loading").style.display="block";
     
 
-    var tracksPool = [];
     const terms = ["short_term","medium_term","long_term"];
 
 
