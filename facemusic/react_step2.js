@@ -17,7 +17,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
     console.log("about to call getmusic with access token " + accessToken)
     if (curState == 2 && !tracksPoolDone) {
-        tracksPoolLegacy = getMusic();
+        getMusic();
         
         //setTracksPoolDone(true);
        // setLoading( false );
@@ -26,7 +26,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
     var tracksPoolLegacy = [];
 
-        const tracksPoolReal = useMemo(() => {
+    const tracksPoolReal = useMemo(() => {
             console.log("This is the memo thing apparently i just got called");
             console.log("tracks pool legacy is length " + tracksPoolLegacy.length)
             console.log("tracksPoollegacy:")
@@ -98,6 +98,10 @@ const Reactstep2 = ( {curState, setCurState }) => {
         setTracksPoolDone(true);
         console.log("now");
         console.log(tracksPoolDone);
+
+
+        tracksPoolLegacy = tracksPool
+
         setCurState(9)
         console.log("just set curstate to 9");
 return(tracksPool);
