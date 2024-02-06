@@ -117,6 +117,7 @@ console.log(detectionWithExpressions);
         emoticon = ":DD"
     }
 
+    console.log(happinessCalcedWord);
     happinessCalced = Math.min(happinessCalced,0.92)
 
 }
@@ -184,7 +185,7 @@ async function getMusic(accessToken) {
     <div id="canvasPlusHappiness">
     {theCanvas}
     <div id="howyourelooking">
-        <p>You're looking  {<span id="happiness">happinessCalcedWord</span>}</p>
+        <p>You're looking  <span id="happiness">{happinessCalcedWord}</span>}</p>
     </div>
     <p>hidden image</p>
     {myImg}
