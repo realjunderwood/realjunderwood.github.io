@@ -80,7 +80,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
         }
 
 
-        localStorage.setItem("tracksPool",tracksPool);
+       // localStorage.setItem("tracksPool",tracksPool);
         // musicGotten = true;
         console.log(tracksPool);
         console.log("music obtained; that up there was tracksPool");
@@ -181,7 +181,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 <p>tracksPoolDone {tracksPoolDone}</p>
 <p>Is it true? {tracksPoolDone === true}</p>
 { ( (curState == 8 || curState == 7) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
-
+<p>{tracksPoolReal}</p>
 
 {curState == 6 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
 
