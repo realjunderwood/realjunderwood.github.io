@@ -83,6 +83,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
         console.log("now");
         console.log(tracksPoolDone);
         setCurState(9)
+        console.log("just set curstate to 9");
 
 
 
