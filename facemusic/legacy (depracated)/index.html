@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div id="header">
+<h1 id="header">
+    FaceMusic
+</h1>
+</div>
+
+
+<div id="intro">
+
+    <div class="introTextDiv" style="margin-top:30vh;">
+        <h1>We like to listen to music that matches our mood.</h1>
+    </div>
+    <div class="introTextDiv" style="margin-top:3vh;">
+        <h4>Scroll to continue ↓</h4>
+    </div>
+    <!--<div class="introTextDiv" style="margin-top:100vh;">
+        <h1>But there's a problem:</h1>
+    </div>-->
+    <div class="introTextDiv" style="margin-top:100vh;">
+        <h1>But it's hard to remember all the songs you like, and how they sound.</h1>
+    </div>
+
+    <div class="introTextDiv" style="margin-top:5vh;">
+        <h1>Plus, self-identifying whether you are happy or sad requires too much emotional intelligence.</h1>
+
+    </div>
+
+    <div class="introTextDiv" style="margin-top:50vh;">
+        <h1>FaceMusic solves this problem.</h1>
+    </div>
+
+    <div class="introTextDiv" style="margin-top:5vh;">
+        <h1>First, we take a picture of your face.</h1>
+    </div>
+
+    <div class="introTextDiv" style="margin-top:5vh;margin-bottom:30vh;">
+        <h1>Then, based on songs and artists you like, we'll make a playlist that matches your detected mood.</h1>
+    </div>
+
+
+</div>
+
+
+
+
+<div id="postIntro">
+
+
+    <div id="step1">
+    <!--<h2>
+    <strong>To start: </strong> connect your Spotify.
+    </h2>-->
+    <button id="connectspotButton" activeColor="#00ff00" class="roundButton" onclick="generateCodeChallenge(64)">Connect to Spotify to get started</button>
+    </div>
+
+    <h1 id="loading" style="text-align:center;display:none;">Loading...</h1>
+
+
+    <div id="step2">
+        <p id="sucesssaccess">Successfully accessed Spotify.</p>
+        <button class="roundButton" onclick="startVideo()" id="webcamButton">Click to enable webcam</button>
+        <div id="step2point1">
+            <div id="videoPlusSnapButton">
+                <div id="videoContainer">
+                    <video autoplay="true" id="videoElement">
+                    </video>
+                </div>
+                <button id="snappicButton" onclick="takepicParent()"><h3 style="display:inline-block">snap picture</h3><img src="camsvg.svg" style="margin-left:10px;vertical-align:middle;" width="30px"></button>
+            </div>
+            <div id="canvasPlusHappiness">
+            <canvas id="canvas"></canvas>
+            <div id="howyourelooking">
+                <p>You're looking  <span id="happiness"></span></p>
+            </div>
+        </div>
+
+        <div id="step2point2">
+            <div id="songRecContainer">
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                    
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                    
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                    
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                    
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                    
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                    
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                    
+                </div>
+                <div class="songrec">
+                    <p></p>
+                    <p></p>
+                </div>
+    
+         
+   
+            </div>
+            <button class="roundButton" onclick="createPlaylistParent()">Click to add playlist to Spotify</button>
+            <p><small><i>Don't worry: the playlist will be private by default</i></small></p>
+        </div>
+            
+
+        </div>
+    </div>
+    </div>
+
+
+
+<h1>How it works</h1>
+<p>Explain the tech very briefly</p>
+
+
+
+<img id="myImg" src="clickSnapPicture.png" width="100px" style="display:none;">
+
+<script src="face-api.min.js"></script>
+
+<script src="spotify_auth.js"></script>
+<script src="webcam.js"></script>
+<script>
+
+let accessToken = localStorage.getItem("access_token");
+
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+  window.alert("mobile scum");
+
+}
+
+
+
+
+
+    
+    var happinessCalcedWord = "";
+    var emoticon = "";
+    var audSnippet = new Audio();
+    audSnippet.loop = true;
+  
+
+    const clientId = 'b5ac45b92b3243668cdb8390ab51a04d';
+    const redirectUri = 'https://www.jamesunderwood.net/facemusic/';
+
+    const scope = 'user-top-read playlist-modify-private ugc-image-upload';
+    const authUrl = new URL("https://accounts.spotify.com/authorize")
+
+    var musicGotten = false;
+
+
+    if (localStorage.getItem("access_token") == null) {
+        //localStorage.clear();
+    }
+  
+
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("code") && !localStorage.getItem("access_token")) { //Back from spotify
+        let code = urlParams.get("code");
+        let codeVerifier = localStorage.getItem('code_verifier');
+        getToken(code).then((value) => {
+            window.location.href = "https://www.jamesunderwood.net/facemusic";
+        });
+    } else if (urlParams.get("error")) {
+        // say there was an error and remove url param
+    } else if (accessToken) { //
+
+       
+
+            document.getElementById("step1").style.display = "none";
+            document.getElementById("postIntro").scrollIntoView();
+            document.getElementById("intro").scrollTop = document.getElementById("intro").scrollHeight;
+
+
+
+            
+            getMusic(accessToken);
+
+            
+        
+
+    } else {
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    async function getMusic(accessToken) {
+        document.getElementById("loading").style.display="block";
+        
+
+        tracksPool = [];
+        const terms = ["short_term","medium_term","long_term"];
+
+
+        for (i = 0; i < 2; i++) { // Loop through twice: once to get top 50 songs, then again to get next 50 songs
+           // await getTopArtists(accessToken,49*i).then((value) => {
+                // To implement: add to tracksPool top 5 songs of all the top artists
+            //});
+
+            for (k=0;k<terms.length;k++) { // Loop through short term, medium term, and long term top songs
+                await getTopTracks(accessToken,49*i,terms[k]).then((value) => {
+                    for (j=0;j<50;j++) {
+                        const alreadyInTracksPool = tracksPool.some(el => el.id === value[j].id || (el.artists[0].name === value[j].artists[0].name && el.name === value[j].name)); //Make sure we don't have duplicate songs. Duplicates have same track ID, or both same name and same artist
+                        if (!alreadyInTracksPool) {
+                            tracksPool.push(value[j]);
+                       }
+                    }
+                });
+            }
+        
+        }
+
+
+
+
+        
+        tracksPoolWithValence = [];
+        for (j=0;j<tracksPool.length/50;j++) {
+            comSepList = "";
+            for (i=j*50; i<Math.min(j*50+50,tracksPool.length); i++) {
+                comSepList += (i%50 == 0) ? tracksPool[i].id : "," + tracksPool[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
+            }
+            audFeatures = await getAudioFeatures(accessToken,comSepList);
+            audFeatures.forEach(function(val){
+                tracksPoolWithValence.push(val);
+            });
+        
+        }
+
+        for (i=0; i<tracksPool.length;i++) { // For tracksPoolWithValence, pull names from tracksPool 
+            tracksPool[i].valence = tracksPoolWithValence[i].valence;
+        }
+
+
+        
+        musicGotten = true;
+        console.log("music obtained");
+
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("step2").style.visibility = "visible";
+
+           
+ 
+
+
+
+    }
+
+
+
+
+    function compareSongs(a,b) {
+        const aconst = (Math.random()-0.5)/5
+        if (Math.abs(a.valence+aconst-happinessCalced) > Math.abs(b.valence-happinessCalced)) {
+            return 1;
+        }
+        if (Math.abs(a.valence+aconst-happinessCalced) < Math.abs(b.valence-happinessCalced)) {
+            return -1;
+        }
+        return 0;
+    }
+
+
+    async function loadModels() {
+        await faceapi.loadFaceExpressionModel('/facemusic/models');
+        await faceapi.loadSsdMobilenetv1Model('/facemusic/models')
+    }
+
+
+    async function face() { //Convert expression confidence scores to happiness level
+    
+
+        const input = document.getElementById('myImg');
+        
+        const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
+        hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
+        happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
+        sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
+        neutral = detectionWithExpressions.expressions.neutral / hapsadneutSum;
+        
+        constant = 0;
+        if (neutral > happy && neutral > sad) {
+            constant = (happy/(happy+sad)-0.5)/6
+        }
+
+        happinessCalced = happy + 0.5*neutral + constant;
+        happinessCalcedWord = "";
+        if (happinessCalced<0.2) {
+            happinessCalcedWord = "very sad";
+            emoticon = ":,("
+        } else if (happinessCalced<0.42) {
+            happinessCalcedWord = "fairly sad";
+            emoticon = ":("
+        } else if (happinessCalced<0.48) {
+            happinessCalcedWord = "slightly sad";
+            emoticon = ":/"
+        } else if (happinessCalced<0.58) {
+            happinessCalcedWord = "pretty neutral";
+            emoticon = ":|"
+        } else if (happinessCalced<0.65) {
+            happinessCalcedWord = "slightly happy";
+            emoticon = ":)"
+        } else if (happinessCalced<0.93) {
+            happinessCalcedWord = "fairly happy";
+            emoticon = ":))"
+        } else {
+            happinessCalcedWord = "very happy";
+            emoticon = ":DD"
+        }
+
+        happinessCalced = Math.min(happinessCalced,0.92) // songs above this valence are rare so the user will always get the same first song(s) if they are very happy
+
+        document.getElementById("happiness").innerText = happinessCalcedWord;
+
+
+        tracksPool.sort(compareSongs);
+
+        for (i=0;i<15;i++) {
+            document.getElementsByClassName("songrec")[i].innerHTML = "<img src='" + tracksPool[i].album.images[0].url + "' width='150px'><h6 style='margin:0'>" + tracksPool[i].name + "</h6>";
+        }
+        
+
+        audSnippet.pause();
+        audPreviewUrlNull = true;
+        i = 0;
+        while (audPreviewUrlNull  && i<10) {
+            if (tracksPool[i].preview_url != null) {
+                audSnippet.src = tracksPool[i].preview_url;
+                audPreviewUrlNull = false;
+            }
+            i++
+        }
+       
+        audSnippet.play();
+        
+
+
+        context.font = "28px Impact";
+        context.fillStyle = "#FFFFFF";
+        context.fillText("WHEN YOU'RE FEELING " + happinessCalcedWord.toUpperCase(), 10, 50); 
+        context.fillText("SO YOU LISTEN TO " + tracksPool[0].artists[0].name.toUpperCase(), 10, 350); 
+
+
+
+
+
+    }
+   // face();
+
+
+
+    async function takepicParent() {
+        document.getElementById("step2point2").style.display = "block";
+        await takepicture();
+        face();
+    }
+
+
+
+    async function createPlaylistParent() {
+        //comSepTracksList = "";
+        //for (i=0; i<10; i++) {
+        //    comSepTracksList += (i == 0) ? tracksPool[i].uri : "," + tracksPool[i].uri; //append id to comSepList, with a comma preceding it if it's not the first element
+        //}
+        trackURIsToAddToPlaylist = [];
+        for (i=0; i<10; i++) {
+            trackURIsToAddToPlaylist.push(tracksPool[i].uri);
+        }
+        createPlaylistEtc(accessToken,happinessCalcedWord + " " + emoticon,trackURIsToAddToPlaylist)
+    }
+
+
+
+
+
+
+    
+
+
+    loadModels();
+
+</script>
+</body>
+</html>

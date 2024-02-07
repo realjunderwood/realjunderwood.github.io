@@ -1,0 +1,208 @@
+
+ @font-face {
+    font-family: jakartaSans;
+    src: url("JakartaSans/ttf/PlusJakartaSans-Regular.ttf")
+}
+
+
+body {
+    font-family: jakartaSans;
+   /* padding-left:60px;
+    padding-right:60px; */
+    margin: 0;
+    overflow:auto;
+   height:100%; 
+}
+html {
+    overflow: hidden;
+    height: 100%;
+    background:black;
+}
+
+
+
+#header h1 {
+    font-size:64px;
+    text-align:center;
+}
+
+#header {
+    background:silver;
+    border-radius: 12px;
+    padding:10px;
+    margin:10px;
+    display:none;
+}
+
+
+
+
+#intro {
+    height: 80vh;
+    background-image:url("musik.png");
+    background-size:cover;
+    box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.68);
+    color:white;
+    padding:100px;
+    overflow:scroll;
+
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none; 
+}
+
+#intro::-webkit-scrollbar {
+  display: none;
+}
+
+#intro .introTextDiv {
+    width:63%;
+}
+
+
+#postIntro {
+    background:white;
+    min-height:100vh;
+}
+
+
+
+#videoPlusSnapButton {
+    display:inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+#videoElement {
+	width:100%;
+    height:100%;
+	background-color: #666;
+    transform: scaleX(-1);
+}
+
+#canvas {
+    
+    width:500px;
+    height:375px;
+
+}
+
+#videoContainer {
+    width: 500px;
+	height: 375px;
+}
+
+#snappicButton {
+    background:silver;
+    border:1px solid black;
+    width:500px;
+    text-align:center;
+}
+
+
+
+.roundButton {
+    border-radius:30px;
+    padding:10px;
+    font-size:25px;
+    transition: box-shadow 0.2s ease-in-out;
+    transition: background 0.2s ease-in-out;
+
+    border:2px solid black;
+
+}
+.roundButton:hover {
+    cursor: pointer;
+    box-shadow: 0px 1px 3px black;
+}
+.roundButton:active {
+    margin-top:2px;
+    margin-bottom:-2px;
+    
+}
+
+
+
+
+#connectspotButton {
+    background:#26ed6c;
+    
+}
+#connectspotButton:hover {
+    background:#21db62;
+}
+#connectspotButton:active {
+    background:#1bb551;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#webcamButton {
+    background:silver;
+
+}
+
+
+
+#step1 {
+    text-align:center;
+    padding:30px;
+}
+
+
+#step2 {
+    visibility: hidden;
+    text-align:center;
+    margin-left:100px;
+    margin-right:100px;
+}
+
+#step2point1 {
+    display:none;
+}
+
+#canvasPlusHappiness {
+    vertical-align:top;
+    display:inline-block;
+
+}
+#howyourelooking {
+    height:25px;
+    font-size:25px;
+}
+
+
+.songrec {
+    display:inline-block;
+    width:175px;
+    background:silver;
+    border:2px solid black;
+    max-height:200px;
+    min-height:200px;
+    margin:10px;
+
+}
+
+#step2point2 {
+    display:none;
+}
+
