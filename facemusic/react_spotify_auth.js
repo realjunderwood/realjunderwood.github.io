@@ -80,7 +80,7 @@ async function getToken(code) {
     await localStorage.setItem('access_token', response.access_token);
     await localStorage.setItem('refresh_token', response.refresh_token);
     localStorage.setItem("expiresIn", response.expires_in)
-    localStorage.setItem("curTime",Math.floor(Date.now()/60));
+    localStorage.setItem("curTime",Math.floor(Date.now()/1000));
 
 }
 
