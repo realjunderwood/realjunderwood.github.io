@@ -180,12 +180,13 @@ if (urlParams.get('error')) {
 
 async function runGetToken(code) {
   console.log("hi");
+  setCurState(2);
   await getToken(code);
       console.log("just ran gettoken onthe  code and now accesstoken is " + localStorage.getItem("access_token") + " mm and what is curstate" + curState);
 
         console.log("Here is where eventually i will replace href and then setcurstate =2")
       //window.history.replaceState(null, '', window.location.pathname);
-      setCurState(2);
+      
       //window.location.reload();
 }
 
