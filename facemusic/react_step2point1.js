@@ -117,7 +117,11 @@ ref={imgRef} />
             const data = canvasRef.current.toDataURL("image/png");
             myImg.ref.current.setAttribute("src",data);
 
+            try {
         face();
+            } catch(error) {
+                window.alert("Couldn't find a face. Try again.")
+            }
 
     }
 
