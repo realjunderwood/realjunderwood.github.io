@@ -129,7 +129,8 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
   const [loaded, setLoaded] = useState(false);
 
 
-useEffect(() => { // to implement: get trackslist from local storage and set not to 2 but to 9 (i think?)
+useEffect(() => {
+  console.log(loaded); // to implement: get trackslist from local storage and set not to 2 but to 9 (i think?)
   if (!loaded && curState == 7 || curState == 6) { // If we just loaded the page and the curstate is one of these
 
     setCurState(2);
