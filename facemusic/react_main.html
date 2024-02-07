@@ -112,6 +112,8 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
   useEffect(() => {
     // Update local storage whenever curState changes
+    console.log("just got trigerred :(( into setting local storage curstate))");
+    console.log(curState);
     localStorage.setItem('curState', curState.toString());
 
 
@@ -136,13 +138,12 @@ useEffect(() => {
   console.log(curState);
   
   console.log("are conditions right for me to setcurstate to 2?")
-  console.log (!loaded && ( curState == 7 || curState == 6))
+  console.log (!loaded && ( curState == 7 || curState == 6) )
   if (!loaded && ( curState == 7 || curState == 6)) { // If we just loaded the page and the curstate is one of these
     console.log("this is me setting cur state to 2")
     setCurState(2);
     console.log("it is now curstate " + curState);
 
-  
 }
   setLoaded(true); // Set loaded to true when the component mounts
 }, []);
