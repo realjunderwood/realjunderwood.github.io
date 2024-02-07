@@ -189,7 +189,7 @@ html {
     position: absolute;
 
     white-space: nowrap;
-    animation: scrollTiles 10s linear infinite;
+    animation: scrollTiles 40s linear infinite;
 
 
 }
