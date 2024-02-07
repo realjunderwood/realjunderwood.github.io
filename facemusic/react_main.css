@@ -219,3 +219,18 @@ html {
     display:none;
 }
 
+
+
+
+#connectspotButton {
+    background:#26ed6c;
+    
+}
+#connectspotButton:hover {
+    background:#21db62;
+}
+#connectspotButton:active {
+    background:#1bb551;
+}
+
+
