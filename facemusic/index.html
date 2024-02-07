@@ -98,7 +98,9 @@ useEffect(() => { // Set loaded to true, but first check localstorage to see if 
     console.log("localstorage expires: " + localStorage.getItem("expiresIn"))
     console.log("now / 1000 " + Date.now()/1000)
     if (localStorage.getItem("curTime") + localStorage.getItem("expiresIn") > Math.floor(Date.now()/1000)) {
-        runGetRefreshToken();
+        localStorage.setItem("curState",0)
+        
+        //runGetRefreshToken();
        // window.location.reload();
     }
     
