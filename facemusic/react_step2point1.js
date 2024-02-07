@@ -247,6 +247,7 @@ canvasRef.current.getContext("2d").drawImage(myImg.ref.current, 0, 0,300,150);
     </div>
     <p><b>How it works</b></p>
     <p><small>FaceMusic uses the <a href="https://developer.spotify.com/documentation/web-api">Spotify API</a> as well as <a href="https://justadudewhohacks.github.io/face-api.js/docs/index.html">Face-API</a>, which is a client-side JavaScript API.</small></p>
+        <p><small>The Spotify API provides a user's favorite songs (top 100 songs of past month, past 6 months, and all time, with duplicated removed), as well as happiness scores from 0 to 1. Face-API then provides confidence scores for different emotions a user might be showing. FaceMusic combines these two APIs to give 15 songs that match a user's mood.</small></p>
 </div>
     )}
 
