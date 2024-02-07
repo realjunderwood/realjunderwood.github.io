@@ -141,8 +141,10 @@ useEffect(() => {
   console.log (!loaded && ( curState == 7 || curState == 6) )
   if (!loaded && ( curState == 7 || curState == 6)) { // If we just loaded the page and the curstate is one of these
     console.log("this is me setting cur state to 2")
-    setCurState(2);
+    //setCurState(2);
     console.log("it is now curstate " + curState);
+    localStorage.setItem("curState",2)
+    window.location.reload();
 
 }
   setLoaded(true); // Set loaded to true when the component mounts
