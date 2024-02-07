@@ -100,7 +100,6 @@ const audSnippet = (
 
 
 var happinessCalced = 0;
-var emoticon = "";
 
     const canvasRef = useRef(null);
 
@@ -194,25 +193,18 @@ console.log(detectionWithExpressions);
     happinessCalced = happy + 0.5*neutral + constant;
     if (happinessCalced<0.2) {
         setHappinessCalcedWord("very sad");
-        emoticon = ":,("
     } else if (happinessCalced<0.42) {
         setHappinessCalcedWord("fairly sad");
-        emoticon = ":("
     } else if (happinessCalced<0.48) {
         setHappinessCalcedWord("slightly sad");
-        emoticon = ":/"
     } else if (happinessCalced<0.58) {
         setHappinessCalcedWord("pretty neutral");
-        emoticon = ":|"
     } else if (happinessCalced<0.65) {
         setHappinessCalcedWord("slightly happy");
-        emoticon = ":)"
     } else if (happinessCalced<0.93) {
         setHappinessCalcedWord("fairly happy");
-        emoticon = ":))"
     } else {
         setHappinessCalcedWord("very happy");
-        emoticon = ":DD"
     }
 
     console.log(happinessCalcedWord);
@@ -243,7 +235,22 @@ async function createPlaylistParent() {
     for (let i=0; i<10; i++) {
         trackURIsToAddToPlaylist.push(tracksPool[i].uri);
     }
-
+    let emoticon = "";
+    if (happinessCalcedWord == "very sad")  {
+        emoticon = ":,("
+    } else if (happinessCalcedWord == "fairly sad")  {
+emoticon = ":("
+    } else if (happinessCalcedWord == "slightly sad")  {
+emoticon = ":/"
+    } else if (happinessCalcedWord == "pretty neutral")  {
+emoticon = ":|"
+    } else if (happinessCalcedWord == "slightly happy")  {
+emoticon = ":)"
+    } else if (happinessCalcedWord == "fairly happy")  {
+emoticon = ":))"
+    } else if (happinessCalcedWord == "very happy")  {
+emoticon = ":DD"
+    }
     // Future work: Maybe access_token should be a param to the component rather than just getting from localstorage
     createPlaylistEtc(localStorage.getItem("access_token"),happinessCalcedWord + " " + emoticon,trackURIsToAddToPlaylist)
 }
