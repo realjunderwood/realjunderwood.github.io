@@ -293,6 +293,8 @@ emoticon = ":DD"
 <p>and now, songs</p>
     { curState == 6 && <Reactsong myTracksPool={tracksPool.slice(0,15).concat(tracksPool.slice(0,15))} /> }
     { curState == 6 && <button className="roundButton" onClick={createPlaylistParent}>Click to add playlist to Spotify</button>}
+    { curState == 6 && <p><small><i>Don't worry: the playlist will be private by default</i></small></p> }
+
 </div>
 
 )
