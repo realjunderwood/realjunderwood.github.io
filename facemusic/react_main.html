@@ -25,14 +25,9 @@
 <script type="text/babel" src="react_step2point2.js"></script>
 <script type="text/babel" src="react_song.js"></script>
 
-
-
-<!-- FUNCTIONAL SCRIPTS -->
+<!-- FUNCTIONAL/HELPER SCRIPTS -->
  <script src="face-api.min.js"></script> 
  <script src="react_spotify_auth.js"></script>
-<!-- <script src="react_webcam.js"></script> -->
-
-
 
 
 <script type="text/babel">
@@ -48,53 +43,6 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
 
-
-
-
-
-// var musicGotten = false;
-// var curState = localStorage.getItem("curState");
-
-
-
-
-  // Your React code goes here
-
-// if (!localStorage.getItem("curState")) {
-//   setState(0)
-// }
-
-
-// var toDisplay = <p></p>;
-
-//   const urlParams = new URLSearchParams(window.location.search);
-//     if (urlParams.get("code") && !localStorage.getItem("access_token")) { //Back from spotify
-//         setState(0.5)
-//         let code = urlParams.get("code");
-//         let codeVerifier = localStorage.getItem('code_verifier');
-//         getToken(code).then((value) => {
-            
-//             window.location.href = "https://www.jamesunderwood.net/facemusic/react_main.html";
-//         });
-//     }
-
-
-
-
-
-
-
-
-
-// if (accessToken && curState==0.5) {
-//     setState(1);
-//     //getMusic(accessToken);
-//   }
-
-
-
-
-
   const App = () => {
     console.log("const App within react_main.html ")
 
@@ -102,25 +50,21 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
     const postIntroRef = useRef(null);
 
     const [curState, setCurState] = useState(() => {
-    // Initialize state from local storage or use a default value
+    
+      // Initialize state from local storage or use a default value
     return parseInt(localStorage.getItem('curState')) || 0;
   });
 
 
-
-
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false); //loaded is false only on first load, while loading/constructing DOM
 
 
   useEffect(() => {
     // Update local storage whenever curState changes
-    console.log("just got trigerred :(( into setting local storage curstate))");
-    console.log(curState);
     localStorage.setItem('curState', curState.toString());
 
 
-    console.log("hmmm curstate is " + curState)
-  if (curState > 0 && !loaded) {
+  if (curState > 0 && !loaded) { //If this is our first loading of the 
    postIntroRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
    //should this be through a ref?
@@ -130,7 +74,8 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
   }, [curState,postIntroRef]);
 
-useEffect(() => {
+
+useEffect(() => { //Forbid scrolling of the intro when postintro is still on screen / "anchoring" user
 const myBody = document.getElementsByTagName("body")[0]
     myBody.addEventListener('scroll', function() {
 
@@ -145,9 +90,7 @@ const myBody = document.getElementsByTagName("body")[0]
 }, []);
 
 
-
-
-useEffect(() => {
+useEffect(() => { // Set loaded to true, but first check localstorage to see if user was previously further along
   
   if (!loaded && ( curState == 7 || curState == 6)) { // If we just loaded the page and the curstate is one of these
     console.log("it is now curstate " + curState);
@@ -161,49 +104,36 @@ useEffect(() => {
     window.location.reload();
 
 }
-  setLoaded(true); // Set loaded to true when the component mounts
+  setLoaded(true);
 }, []);
 
 
 const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('error')) {
-   //setCurState(1);
+if (urlParams.get('error')) { // Spotify gave an error
+  // For future work: better error handling
+        console.log("an error was returned.");
+        window.alert("An error was given; try refreshing.")
+        localStorage.clear();
+      } else if (urlParams.get('code') && curState == 0) { // If there is a code URL param and curState is 0, then we are returning from Spotify ready to generate access token
 
-        console.log("an error was returned");
-      } else if (urlParams.get('code')) {
-         //setCurState(1);
-        //console.log("looks like curStaet is 1!!!")
-
-
-        if (curState == 0) {
         let code = urlParams.get('code');
         console.log(code);
         console.log("that was the code");
         console.log("about to run gettoken and curstate is " + curState)      
 
         runGetToken(code);
-        }
       
 }
 
 async function runGetToken(code) {
-  console.log("hi");
   setCurState(2);
   await getToken(code);
   setCurState(3);
-
-      console.log("just ran gettoken onthe  code and now accesstoken is " + localStorage.getItem("access_token") + " mm and what is curstate" + curState);
-
-      window.history.replaceState(null, '', window.location.pathname);
-      
-      //window.location.reload();
+  window.history.replaceState(null, '', window.location.pathname); // Get rid of ?code=SDIOFIO90uSDF from the URL
 }
 
   
 
-    async function sendToSpotify() {
-      setCurState(3)
-    }
 
     return (
       <div>
@@ -213,8 +143,7 @@ async function runGetToken(code) {
           <h1>Welcome to FaceMusic</h1>
           { curState == 0 && <Reactstep1 curState={curState} setCurState={setCurState} /> }
           { curState >= 3 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
-          <button
-          onClick={sendToSpotify}>hi</button>
+         
         </div>
       </div>
     );
@@ -222,40 +151,7 @@ async function runGetToken(code) {
 
   ReactDOM.render(<App />, document.getElementById('root'));
 
-
-
-
-
-
-    // { curState == 0 && <Reactstep1 /> }
-            // { curState >= 1 && <Reactstep2 /> }
-
-
-
-
-
-// function setState(num) {
-//   localStorage.setItem("curState",num);
-//   curState = num;
-// }
-
-
-
-
-  // async function takepicParent() {
-  //   setState(3)
-  //       await takepicture();
-  //       face();
-  //   }
-
   
-</script>
-
-
-<script>
-
-
-
 </script>
 
 </body>
