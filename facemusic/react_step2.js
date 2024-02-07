@@ -201,10 +201,10 @@ return(tracksPool.current);
 
 <p>tracksPoolDone {tracksPoolDone}</p>
 <p>Is it true? {tracksPoolDone === true}</p>
-{ ( (curState == 8 || curState == 7) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
+{ ( (curState == 8 || curState == 7 || curState == 6) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
 <p>p above is trrakspollroeal[0].name nevermind joke</p>
 
-{curState == 7 && <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
+{ (curState == 7 || curState == 6 )&& <Reactstep2point2 curState={curState} setCurState={setCurState} /> }
 
 
  <button className="roundButton" onClick={logout}>Log out</button> 
