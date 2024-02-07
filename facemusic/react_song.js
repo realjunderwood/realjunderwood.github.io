@@ -7,7 +7,7 @@ function Song({ title, artist, albumCoverUrl, keyy, extUrl }) {
   return (
     <div className="songrec" key={keyy}>
       <img className="songrecimg" src={albumCoverUrl} alt="Album Cover" />
-      <h5 className="songrectitle"><a href="{extUrl}">{title}</a></h5>
+      <h5 className="songrectitle"><a href={extUrl}>{title}</a></h5>
       <h6 classname="songrecartist">{artist}</h6>
 
     </div>
