@@ -3,7 +3,7 @@
 const Reactstep2 = ( {curState, setCurState }) => {
     
     const { useEffect, useRef, useState, useMemo } = React;
-    accessToken = localStorage.getItem("access_token")
+    accessToken = localStorage.getItem("access_token");
 
 
     const [tracksPoolDone, setTracksPoolDone] = useState(false);
