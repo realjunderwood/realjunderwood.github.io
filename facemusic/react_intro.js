@@ -7,7 +7,7 @@ const Reactintro = () => {
         <h1>We like to listen to music that matches our mood.</h1>
     </div>
     <div className="introTextDiv" style={{marginTop:3+'vh'}}>
-        <h4>Scroll to continue ↓</h4>
+        <h3>Scroll to continue ↓</h3>
     </div>
     {/* <!--<div class="introTextDiv" style="margin-top:100vh;">
         <h1>But there's a problem:</h1>
@@ -36,7 +36,7 @@ const Reactintro = () => {
 
     <div className="introTextDiv" style={{marginTop:5+'vh',marginBottom:20+'vh'}}>
         {/* margin-bottom:30vh; */}
-        <h4>Keep going to try it out ↓</h4>
+        <h4>Keep going to try it out!</h4>
     </div>
 
 
