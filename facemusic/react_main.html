@@ -135,7 +135,8 @@ useEffect(() => {
   console.log ("and my curstate is")
   console.log(curState);
   
-  
+  console.log("are conditions right for me to setcurstate to 2?")
+  console.log (!loaded && ( curState == 7 || curState == 6))
   if (!loaded && ( curState == 7 || curState == 6)) { // If we just loaded the page and the curstate is one of these
 
     setCurState(2);
