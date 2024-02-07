@@ -62,8 +62,8 @@ var newSong = 0;
         var audSnippet = new Audio();
         audSnippet.loop = true;
         audSnippet.pause();
-        audPreviewUrlNull = true;
-        i = 0;
+        let audPreviewUrlNull = true;
+        let i = 0;
         while (audPreviewUrlNull  && i<10) {
             if (tracksPool[i].preview_url != null) {
                 audSnippet.src = tracksPool[i].preview_url;
