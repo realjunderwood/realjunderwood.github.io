@@ -98,7 +98,7 @@ useEffect(() => { // Set loaded to true, but first check localstorage to see if 
     console.log("localstorage expires: " + localStorage.getItem("expiresIn"))
     console.log("now / 1000 " + Date.now()/1000)
     if (localStorage.getItem("curTime") + localStorage.getItem("expiresIn") > Math.floor(Date.now()/1000)) {
-        getRefreshToken();
+        runGetRefreshToken();
        // window.location.reload();
     }
     
@@ -138,6 +138,10 @@ async function runGetToken(code) {
   window.history.replaceState(null, '', window.location.pathname); // Get rid of ?code=SDIOFIO90uSDF from the URL
 }
 
+
+async function runGetRefreshToken() {
+  await getRefreshToken();
+}
   
 
 
