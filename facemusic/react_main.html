@@ -52,7 +52,6 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
 
-
 // var musicGotten = false;
 // var curState = localStorage.getItem("curState");
 
@@ -124,6 +123,21 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
   }, [curState,postIntroRef]);
 
+
+
+
+  const [loaded, setLoaded] = useState(false);
+
+
+useEffect(() => {
+  if (!loaded && curState == 7 || curState == 6) {
+
+    setCurState(8);
+
+  
+}
+  setLoaded(true); // Set loaded to true when the component mounts
+}, []);
 
 
 const urlParams = new URLSearchParams(window.location.search);
