@@ -22,6 +22,10 @@ html {
 #postIntro {
     background:#c2f2d2;
     min-height:100vh;
+    padding-top:25px;
+    box-sizing: border-box;
+
+
 }
 
 #welcome {
