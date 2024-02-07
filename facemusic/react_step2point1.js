@@ -291,7 +291,7 @@ emoticon = ":DD"
   
 </div>
 <p>and now, songs</p>
-    { curState == 6 && <Reactsong myTracksPool={tracksPool.slice(0,15)} /> }
+    { curState == 6 && <Reactsong myTracksPool={tracksPool.slice(0,15).concat(tracksPool.slice(0,15))} /> }
     { curState == 6 && <button className="roundButton" onClick={createPlaylistParent}>Click to add playlist to Spotify</button>}
 </div>
 
