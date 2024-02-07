@@ -6,8 +6,8 @@ const Reactsong = ({ myTracksPool }) => {
 function Song({ title, artist, albumCoverUrl, keyy }) {
   return (
     <div className="songrec" key={keyy}>
-      <img class="songrecimg" src={albumCoverUrl} alt="Album Cover" />
-      <h5 class="songrectitle">{title}</h5>
+      <img className="songrecimg" src={albumCoverUrl} alt="Album Cover" />
+      <h5 className="songrectitle">{title}</h5>
 
     </div>
   );
