@@ -93,7 +93,7 @@ useEffect(() => { // Set loaded to true, but first check localstorage to see if 
   
 
 // FUTURE DEVELOPMENT: make it pull up the exact stage you were just at if you refresh/leave the page on accident
-  if (!loaded && ( curState == 7 || curState == 6)) { // If we just loaded the page and the curstate is one of these
+  if (!loaded && ( curState == 7 || curState == 6 || curState == 8 || curState == 9)) { // If we just loaded the page and the curstate is one of these
     if (localStorage.getItem("access_token") !== undefined && localStorage.getItem("access_token") !== null) {
       // include a check here that the access_token isn't expired?
     localStorage.setItem("curState",3)
