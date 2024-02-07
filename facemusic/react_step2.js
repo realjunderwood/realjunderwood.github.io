@@ -92,7 +92,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 { ( (curState == 8 || curState == 7 || curState == 6) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
 
 
-<div>
+<div id="logoutDiv">
  <button id="logout" className="roundButton" onClick={logout}>Log out</button> 
  </div>
 
