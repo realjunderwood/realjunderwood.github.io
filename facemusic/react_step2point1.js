@@ -1,4 +1,4 @@
-// step2point1:
+// step2point1: facemodel, webcam stuff, canvas, sort songs by happiness and display them with react_song.js
 
 const Reactstep2point1 = ({curState, setCurState, tracksPool  }) => {
 
@@ -218,7 +218,7 @@ async function createPlaylistParent() {
     <div id="canvasPlusHappiness">
     {theCanvas}
     <div id="howyourelooking">
-        <p>You're looking  <span id="happiness">{happinessCalcedWord}</span>.</p>
+        { curState == 6 && <p>You're looking  <span id="happiness">{happinessCalcedWord}</span>.</p> }
     </div>
     {myImg}
   

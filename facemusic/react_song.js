@@ -1,3 +1,5 @@
+// Song tiles with surrounding marquee wrapper divs :))
+
 const Reactsong = ({ myTracksPool }) => {
 
     console.log("hiii it's reactsong with trackspool" + myTracksPool)
