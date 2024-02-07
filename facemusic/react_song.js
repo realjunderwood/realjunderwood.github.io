@@ -14,7 +14,7 @@ function Song({ title, artist, albumCoverUrl, keyy }) {
 }
 
   return (
-    <div>
+    <div id="marque">
       {myTracksPool.map(song => (
         <Song
           title={song.name}

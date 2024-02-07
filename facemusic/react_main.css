@@ -179,7 +179,23 @@ html {
     min-height:200px;
     margin:10px;
 
+
+    display: inline-block;
+    padding-left: 10%;
+    animation: marquee 15s linear infinite;
+
 }
+
+
+#marquee {
+
+    white-space: nowrap;
+    overflow: hidden;
+    /* box-sizing: border-box; */
+
+}
+
+
 
 .songrecimg {
     width:150px;
@@ -192,3 +208,5 @@ html {
 #myImg {
     display:none;
 }
+
+
