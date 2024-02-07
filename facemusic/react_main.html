@@ -130,7 +130,19 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
   }, [curState,postIntroRef]);
 
+useEffect(() => {
+const myBody = document.getElementsByTagName("body")[0]
+    myBody.addEventListener('scroll', function() {
 
+      
+      if (document.getElementById("intro").getBoundingClientRect().bottom  > document.documentElement.clientHeight) {
+        document.getElementById("intro").style.overflow = "scroll";
+      } else {
+        document.getElementById("intro").style.overflow = "hidden";
+      }
+  });
+
+}, []);
 
 
 
