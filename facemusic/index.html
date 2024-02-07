@@ -107,7 +107,7 @@ console.log(loaded);
 console.log(localStorage.getItem("access_token"));
 console.log("undefiend?")
 
-console.log(localStorage.getItem("access_token") === undefined || localStorage.getItem("access_token") === null)
+console.log(localStorage.getItem("access_token") === "undefined" || localStorage.getItem("access_token") === null)
   if (!loaded && curState == 3 && (localStorage.getItem("access_token") === undefined || localStorage.getItem("access_token") === null)) {
     console.log("setting curstate to 0")
     setCurState(0);
