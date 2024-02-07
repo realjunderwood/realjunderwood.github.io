@@ -210,7 +210,7 @@ async function runGetToken(code) {
         <Reactintro />
         <div id="postIntro" ref={postIntroRef}>
           { curState }
-          <h1>FaceMusic</h1>
+          <h1>Welcome to FaceMusic</h1>
           { curState == 0 && <Reactstep1 curState={curState} setCurState={setCurState} /> }
           { curState >= 3 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
           <button
