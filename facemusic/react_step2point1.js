@@ -59,6 +59,7 @@ var newSong = 0;
       }, []);
 
       useEffect(() => {
+        if (curState == 6) {
         var audSnippet = new Audio();
         audSnippet.loop = true;
         audSnippet.pause();
@@ -73,9 +74,10 @@ var newSong = 0;
         }
        
         audSnippet.play();
-
+    }
 
       },[newSong]);
+      
 
 
 
