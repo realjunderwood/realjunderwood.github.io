@@ -84,8 +84,8 @@ const audSnippet = (
        
         audioRef.current.play();
     }
-//should set something down there.
-      },[]);
+// better to not use curstate
+      },[curState]);
       
 
 
@@ -253,6 +253,7 @@ console.log(detectionWithExpressions);
     return (
 
 <div id="step2point1">
+    {audSnippet}
     <div id="videoPlusSnapButton">
         <div id="videoContainer">
             {videoElement}
