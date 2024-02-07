@@ -102,7 +102,12 @@ useEffect(() => { // Set loaded to true, but first check localstorage to see if 
 
 // FUTURE DEVELOPMENT: make it pull up the exact stage you were just at if you refresh/leave the page on accident
 // This decision tree could be more clear / logical / efficient
+console.log("laoded")
+console.log(loaded);
+console.log("undefiend?")
+console.log(localStorage.getItem("access_token") === undefined || localStorage.getItem("access_token") === null)
   if (!loaded && curState == 3 && (localStorage.getItem("access_token") === undefined || localStorage.getItem("access_token") === null)) {
+    console.log("setting curstate to 0")
     setCurState(0);
     
   }
