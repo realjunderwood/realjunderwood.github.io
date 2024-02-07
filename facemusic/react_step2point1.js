@@ -70,18 +70,18 @@ const audSnippet = (
 
       useEffect(() => {
         if (curState == 6) {
-        audSnippet.pause();
+            audioRef.current.pause();
         let audPreviewUrlNull = true;
         let i = 0;
         while (audPreviewUrlNull  && i<10) {
             if (tracksPool[i].preview_url != null) {
-                audSnippet.src = tracksPool[i].preview_url;
+                audioRef.current.src = tracksPool[i].preview_url;
                 audPreviewUrlNull = false;
             }
             i++
         }
        
-        audSnippet.play();
+        audioRef.current.play();
     }
 
       },[curState]);
