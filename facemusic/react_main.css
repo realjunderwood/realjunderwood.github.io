@@ -182,7 +182,7 @@ html {
 
     display: inline-block;
     padding-left: 10%;
-    animation: marquee 15s linear infinite;
+    animation: marquee 10s linear infinite;
 
 }
 
