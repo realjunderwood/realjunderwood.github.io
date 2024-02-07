@@ -218,8 +218,8 @@ html {
 
 #logoutDiv {
     position: fixed;
-  width: 50%;
   height: 100px;
-  margin-left: -25%;
   bottom: 0px;
+  margin-right:25px;
+  right:0;
 }
