@@ -1,3 +1,5 @@
+// Has connect to Spotify button
+
 const Reactstep1 = ( { curState, setCurState } ) => {
     async function connectSpot() {
 
