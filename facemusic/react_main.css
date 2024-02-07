@@ -195,7 +195,7 @@ html {
 }
 
 #marqueecontainer {
-    position:relative
+    position:relative;
 
 }
 @keyframes scrollTiles {
