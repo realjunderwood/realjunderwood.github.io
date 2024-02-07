@@ -76,7 +76,7 @@ var newSong = 0;
         audSnippet.play();
     }
 
-      },[newSong]);
+      },[curState]);
       
 
 
