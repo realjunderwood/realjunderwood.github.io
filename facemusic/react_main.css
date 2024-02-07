@@ -188,3 +188,7 @@ html {
 .songrectitle {
     margin:0;
 }
+
+#myImg {
+    display:none;
+}

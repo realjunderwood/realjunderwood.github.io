@@ -26,7 +26,7 @@ const Reactstep2point1 = ({curState, setCurState, tracksPool }) => {
     console.log("Hi my name is reactstep2point1")
 
 
-
+var newSong = 0;
     const videoRef = useRef(null);
     const videoElement = (
     <video
@@ -58,6 +58,25 @@ const Reactstep2point1 = ({curState, setCurState, tracksPool }) => {
 
       }, []);
 
+      useEffect(() => {
+        var audSnippet = new Audio();
+        audSnippet.loop = true;
+        audSnippet.pause();
+        audPreviewUrlNull = true;
+        i = 0;
+        while (audPreviewUrlNull  && i<10) {
+            if (tracksPool[i].preview_url != null) {
+                audSnippet.src = tracksPool[i].preview_url;
+                audPreviewUrlNull = false;
+            }
+            i++
+        }
+       
+        audSnippet.play();
+
+
+      },[newSong]);
+
 
 
     const [happinessCalcedWord, setHappinessCalcedWord] = useState(() => {
@@ -83,6 +102,7 @@ var emoticon = "";
 
 const myImg = (
 <img
+id="myImg"
 ref={imgRef} />
 );
 console.log(myImg.ref)
