@@ -2,11 +2,7 @@ console.log("spotify_auth.js loaded");
 
 
 
-
-
-// 
-
-async function generateCodeChallenge(length=64) {
+async function generateCodeChallenge(length=64) { // Adapted from spotify api documentation
 
     function generateRandomString(length) {
         const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-~';
@@ -50,16 +46,6 @@ async function generateCodeChallenge(length=64) {
       authUrl.search = new URLSearchParams(params).toString();
       window.location.href = authUrl.toString()
 
-
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('error')) {
-        console.log("an error was returned");
-      }
-      let code = urlParams.get('code');
-
-      // NOte this might break the nonreact 
-      // getToken(code)
-
 }
 
 
@@ -81,9 +67,6 @@ async function getToken(code) {
         }),
     };
 
-    console.log("le payload is");
-    console.log(payload);
-
     const body = await fetch("https://accounts.spotify.com/api/token", payload);
     const response = await body.json();
     localStorage.setItem('access_token', response.access_token);
@@ -101,16 +84,10 @@ async function getTopTracks(accessToken,offsetVal) {
       //mode: 'cors'
 
     });
-  
-
-
 
     const data = await response.json();
     return(data.items);
   }
-
-
-
 
   async function getTopArtists(accessToken,offsetVal) {
   
@@ -146,27 +123,18 @@ async function getTopTracks(accessToken,offsetVal) {
   }
 
 
-  async function getAudioFeatures(accessToken,comSepList) {
+  async function getAudioFeatures(accessToken,comSepList) { // Take a comseplist and get audiofeatures (specifically interested in valence/happiness) of the songs
     const response = await fetch('https://api.spotify.com/v1/audio-features?ids=' + comSepList, {
     method:'GET',  
     headers: {
         Authorization: 'Bearer ' + accessToken
       },
       //mode: 'cors'
-
     });
   
     const data = await response.json();
 
-
-
     return(data.audio_features);
-
-
-
-
-
-
 
   }
 
@@ -186,9 +154,6 @@ async function getTopTracks(accessToken,offsetVal) {
             
         })
     };
-
-    console.log("le payload is");
-    console.log(payload);
     
     const user = await getProfile(accessToken);
     const userID = user.id;
@@ -217,9 +182,7 @@ async function getTopTracks(accessToken,offsetVal) {
     
 
     setTimeout(async function(){
-    const jpegUrl = canvas.toDataURL("image/jpeg").slice(23); 
-    //const sampleImage = "/9j/2wCEABoZGSccJz4lJT5CLy8vQkc9Ozs9R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0cBHCcnMyYzPSYmPUc9Mj1HR0dEREdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR//dAAQAAf/uAA5BZG9iZQBkwAAAAAH/wAARCAABAAEDACIAAREBAhEB/8QASwABAQAAAAAAAAAAAAAAAAAAAAYBAQAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAARAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwAAARECEQA/AJgAH//Z";
-
+    const jpegUrl = canvas.toDataURL("image/jpeg").slice(23); // first 23 characters are junk / break things
   
     const uploadImage = await fetch('https://api.spotify.com/v1/playlists/' + newPlaylistID + "/images", {
       method: "PUT",  
@@ -231,12 +194,12 @@ async function getTopTracks(accessToken,offsetVal) {
     });
   
     const data = await uploadImage.json();
-  },500);
-
+  },500); // Little delay to make sure the playlist has been properly created on Spotify's end, even though we use async functions/await
 
 }
 
-async function getProfile(accessToken) {
+
+async function getProfile(accessToken) { //Helper function for createPlaylist: it requires User ID
   
   const response = await fetch('https://api.spotify.com/v1/me', {
     headers: {

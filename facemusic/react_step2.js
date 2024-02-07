@@ -71,50 +71,9 @@ const Reactstep2 = ( {curState, setCurState }) => {
     }
 
     async function startVideoParent() {
-        //setCurState(12); // try to ensure tracksPool gets updated inline
-        //console.log("it was 12 right there..")
-
         setCurState(8);
-        console.log("about to startvideo");
-        //startVideo();
     }
 
-    
-    // async function startVideo()  {
-
-
-    //     //context.drawImage(myImg, 0, 0,500,375);
-
-
-
-    //     console.log("start video friend get videoelement" + videoElement);
-
-
-
-
-    //     // document.getElementById("sucesssaccess").style.visibility = "hidden";
-    //     // document.getElementById("webcamButton").style.display = "none";
-    //     // document.getElementById("loading").style.display = "block";
-        
-    //     if (navigator.mediaDevices.getUserMedia) {
-    //     navigator.mediaDevices.getUserMedia({ video: true })
-    //         .then(function (stream) {
-    //             videoElement.srcObject = stream;
-                
-
-    //         })
-    //         .catch(function (err0r) {
-    //         console.log("Couldn't get webcam");
-    //         console.log(err0r);
-    //         });
-    //     }
-
-
-    // }
-    
-    
-    
-    
     
     return (
 
@@ -126,8 +85,6 @@ const Reactstep2 = ( {curState, setCurState }) => {
 {curState == 9 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
 { ( (curState == 8 || curState == 7 || curState == 6) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
-
-{/* { (curState == 7 || curState == 6 )&& <Reactstep2point2 curState={curState} setCurState={setCurState} /> } */}
 
 
  <button className="roundButton" onClick={logout}>Log out</button> 
