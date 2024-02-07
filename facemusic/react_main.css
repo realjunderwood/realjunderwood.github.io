@@ -197,6 +197,7 @@ html {
 #marqueecontainer {
     position:relative;
     height:250px;
+    overflow:hidden;
 
 }
 @keyframes scrollTiles {
