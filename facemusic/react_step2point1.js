@@ -59,13 +59,14 @@ var newSong = 0;
       }, []);
 
 
+
+
 const audioRef = useRef(null);
 const audSnippet = (
     <audio loop="true"
     ref={audioRef}
     />
 )
-
 
 
       useEffect(() => {
@@ -83,8 +84,8 @@ const audSnippet = (
        
         audioRef.current.play();
     }
-
-      },[curState]);
+//should set something down there.
+      },[]);
       
 
 
