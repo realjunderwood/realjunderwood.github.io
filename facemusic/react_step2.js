@@ -73,6 +73,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
     function logout() {
         localStorage.clear();
         setCurState(0);
+        window.location.refresh();
     }
 
     async function startVideoParent() {
