@@ -182,15 +182,15 @@ html {
 
 
     margin-right: 10px; /* Adjust margin between tiles as needed */
-    animation: scrollTiles 10s linear infinite;
 
 }
 
 
 #marquee {
 
-    overflow: hidden;
     white-space: nowrap;
+    animation: scrollTiles 10s linear infinite;
+
 
 }
 @keyframes scrollTiles {
@@ -213,3 +213,8 @@ html {
 }
 
 
+#marqueecontainer {
+    overflow: hidden;
+    width: 100%;
+
+}
