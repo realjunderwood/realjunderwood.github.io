@@ -117,11 +117,8 @@ ref={imgRef} />
             const data = canvasRef.current.toDataURL("image/png");
             myImg.ref.current.setAttribute("src",data);
 
-            try {
         face();
-            } catch(error) {
-                window.alert("Couldn't find a face. Try again.")
-            }
+         
 
     }
 
@@ -141,9 +138,13 @@ ref={imgRef} />
 async function face() {
 
     const input = myImg.ref.current;
-        
+        try {
     const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
     console.log(detectionWithExpressions);
+
+        }    catch(error) {
+            window.alert("Couldn't find a face. Try again.")
+        }
     const hapsadneutSum = detectionWithExpressions.expressions.happy + detectionWithExpressions.expressions.sad + detectionWithExpressions.expressions.neutral;
     const happy = detectionWithExpressions.expressions.happy / hapsadneutSum;
     const sad = detectionWithExpressions.expressions.sad / hapsadneutSum;
