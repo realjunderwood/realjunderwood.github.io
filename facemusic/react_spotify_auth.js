@@ -9,7 +9,6 @@ console.log("spotify_auth.js loaded");
 async function generateCodeChallenge(length=64) {
     // curState has just been set to 0.5
 
-    console.log("This is generate codechallenge");
 
     function generateRandomString(length) {
         const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-~';
@@ -37,7 +36,6 @@ async function generateCodeChallenge(length=64) {
     const codeVerifier  = generateRandomString(length);
     const hashed = await sha256(codeVerifier)
     const codeChallenge = base64encode(hashed);
-    console.log("codeChallenge: " + codeChallenge);
   
     window.localStorage.setItem('code_verifier', codeVerifier);
 
@@ -51,7 +49,6 @@ async function generateCodeChallenge(length=64) {
       }
       
       authUrl.search = new URLSearchParams(params).toString();
-      console.log("about to send to spotify")
       window.location.href = authUrl.toString()
 
       
@@ -60,7 +57,6 @@ async function generateCodeChallenge(length=64) {
 
 
 async function getToken(code) {
-    console.log("hey it's getToken with code " + code)
 
     let codeVerifier = localStorage.getItem('code_verifier');
 
@@ -78,14 +74,11 @@ async function getToken(code) {
         }),
     };
 
-    console.log("le payload is");
-    console.log(payload);
-
+    
     const body = await fetch("https://accounts.spotify.com/api/token", payload);
     const response = await body.json();
     await localStorage.setItem('access_token', response.access_token);
     await localStorage.setItem('refresh_token', response.refresh_token);
-    console.log("This is the end of gettoken i think)");
 }
 
 
@@ -122,7 +115,6 @@ async function getTopTracks(accessToken,offsetVal) {
     });
   
     const data = await response.json();
-    console.log(data);
     return(data.items);
   }
 
@@ -184,9 +176,6 @@ async function getTopTracks(accessToken,offsetVal) {
             
         })
     };
-
-    console.log("le payload is");
-    console.log(payload);
     
     const user = await getProfile(accessToken);
     const userID = user.id;
@@ -194,7 +183,6 @@ async function getTopTracks(accessToken,offsetVal) {
     const body = await fetch("https://api.spotify.com/v1/users/" + userID + "/playlists", payload);
     const response = await body.json();
     const newPlaylistID = response.id
-    console.log("Created a playlist with ID" + newPlaylistID);
 
 
     const payload2 = {
@@ -211,7 +199,6 @@ async function getTopTracks(accessToken,offsetVal) {
     };
     
     const addToPlaylist = await fetch("https://api.spotify.com/v1/playlists/" + newPlaylistID + "/tracks", payload2);
-    console.log(addToPlaylist);
     
 
     setTimeout(async function(){

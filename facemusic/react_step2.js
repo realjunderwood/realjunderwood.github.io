@@ -59,6 +59,9 @@ const Reactstep2 = ( {curState, setCurState }) => {
             tracksPool.current[i].valence = tracksPoolWithValence[i].valence;
         }
 
+        localStorage.setItem("tracksPool", JSON.stringify(tracksPool.current));
+
+
 
         setCurState(9); //Ready to display "start webcam" button
 
@@ -89,9 +92,9 @@ const Reactstep2 = ( {curState, setCurState }) => {
 { ( (curState == 8 || curState == 7 || curState == 6) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
 
 
-
+<div>
  <button id="logout" className="roundButton" onClick={logout}>Log out</button> 
-    
+ </div>
 
 </div>
 

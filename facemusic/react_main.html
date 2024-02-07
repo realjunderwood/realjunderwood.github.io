@@ -44,7 +44,6 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
   const App = () => {
-    console.log("const App within react_main.html ")
 
     const { useEffect, useState, useRef } = React;
     const postIntroRef = useRef(null);
@@ -64,7 +63,7 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
     localStorage.setItem('curState', curState.toString());
 
 
-  if (curState > 0 && !loaded) { //If this is our first loading of the 
+  if (curState > 0 && !loaded) { //If this is our first loading of the page and we are past curState 0, then make sure it scrolls to the right place
    postIntroRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
    //should this be through a ref?
@@ -92,8 +91,9 @@ const myBody = document.getElementsByTagName("body")[0]
 
 useEffect(() => { // Set loaded to true, but first check localstorage to see if user was previously further along
   
+
+// FUTURE DEVELOPMENT: make it pull up the exact stage you were just at if you refresh/leave the page on accident
   if (!loaded && ( curState == 7 || curState == 6)) { // If we just loaded the page and the curstate is one of these
-    console.log("it is now curstate " + curState);
     if (localStorage.getItem("access_token") !== undefined && localStorage.getItem("access_token") !== null) {
       // include a check here that the access_token isn't expired?
     localStorage.setItem("curState",3)
@@ -117,9 +117,6 @@ if (urlParams.get('error')) { // Spotify gave an error
       } else if (urlParams.get('code') && curState == 0) { // If there is a code URL param and curState is 0, then we are returning from Spotify ready to generate access token
 
         let code = urlParams.get('code');
-        console.log(code);
-        console.log("that was the code");
-        console.log("about to run gettoken and curstate is " + curState)      
 
         runGetToken(code);
       

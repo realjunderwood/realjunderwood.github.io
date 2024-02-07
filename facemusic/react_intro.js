@@ -36,7 +36,7 @@ const Reactintro = () => {
 
     <div className="introTextDiv" style={{marginTop:5+'vh',marginBottom:20+'vh'}}>
         {/* margin-bottom:30vh; */}
-        <h4>Scroll to try it out ↓</h4>
+        <h4>Keep going to try it out ↓</h4>
     </div>
 
 
