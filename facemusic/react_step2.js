@@ -1,3 +1,5 @@
+// Downloads all the tracks and has enable webcam button
+
 const Reactstep2 = ( {curState, setCurState }) => {
     
     const { useEffect, useRef, useState, useMemo } = React;
@@ -87,7 +89,8 @@ const Reactstep2 = ( {curState, setCurState }) => {
 { ( (curState == 8 || curState == 7 || curState == 6) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
 
 
- <button className="roundButton" onClick={logout}>Log out</button> 
+
+ <button id="logout" className="roundButton" onClick={logout}>Log out</button> 
     
 
 </div>

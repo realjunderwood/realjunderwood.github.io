@@ -205,3 +205,7 @@ html {
 #step2point2 {
     display:none;
 }
+
+#logout {
+    display:block;
+}

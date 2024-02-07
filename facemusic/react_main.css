@@ -78,7 +78,6 @@ html {
 }
 
 
-
 /* react_step1.js */
 
 #step1 {
@@ -106,32 +105,9 @@ html {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #videoPlusSnapButton {
     display:inline-block;
 }
-
-
-
-
-
-
-
-
-
 
 
 #videoElement {
@@ -161,8 +137,6 @@ html {
 }
 
 
-
-
 #canvasPlusHappiness {
     vertical-align:top;
     display:inline-block;
@@ -172,7 +146,6 @@ html {
     height:25px;
     font-size:25px;
 }
-
 
 
 .songrec {
@@ -194,7 +167,6 @@ html {
 
     white-space: nowrap;
     animation: scrollTiles 40s linear infinite;
-
 
 }
 
@@ -224,8 +196,6 @@ html {
 }
 
 
-
-
 #connectspotButton {
     background:#26ed6c;
     
@@ -236,5 +206,3 @@ html {
 #connectspotButton:active {
     background:#1bb551;
 }
-
-
