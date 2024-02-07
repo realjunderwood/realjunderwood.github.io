@@ -63,7 +63,7 @@ var newSong = 0;
 
 const audioRef = useRef(null);
 const audSnippet = (
-    <audio loop="true"
+    <audio loop={true}
     ref={audioRef}
     />
 )
