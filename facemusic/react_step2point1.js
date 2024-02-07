@@ -267,9 +267,10 @@ console.log(detectionWithExpressions);
     </div>
     <p>hidden image</p>
     {myImg}
-    <p>and now, songs</p>
-    { curState == 6 && <Reactsong myTracksPool={tracksPool.slice(0,15)} /> }
+  
 </div>
+<p>and now, songs</p>
+    { curState == 6 && <Reactsong myTracksPool={tracksPool.slice(0,15)} /> }
 </div>
 
 )
