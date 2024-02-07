@@ -1,6 +1,6 @@
 const Reactsong = ({ myTracksPool }) => {
 
-    console.log("hiii it's reactsong with trackspool" + tracksPool)
+    console.log("hiii it's reactsong with trackspool" + myTracksPool)
 
 
 function Song({ title, artist, albumCoverUrl, keyy }) {
@@ -15,7 +15,7 @@ function Song({ title, artist, albumCoverUrl, keyy }) {
 
   return (
     <div>
-      {tracksPool.map(song => (
+      {myTracksPool.map(song => (
         <Song
           title={song.name}
           albumCoverUrl={song.album.images[0].url}
