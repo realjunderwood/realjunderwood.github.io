@@ -193,14 +193,12 @@ return(tracksPool.current);
     return (
 
 <div id="step2">
-<p id="sucesssaccess">Successfully accessed Spotify.</p>
+{/* <p id="sucesssaccess">Successfully accessed Spotify.</p> */}
 
 {curState == 3 && <h1>Loading...</h1>}
 
 {curState == 9 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
-<p>tracksPoolDone {tracksPoolDone}</p>
-<p>Is it true? {tracksPoolDone === true}</p>
 { ( (curState == 8 || curState == 7 || curState == 6) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
 <p>p above is trrakspollroeal[0].name nevermind joke</p>
 
