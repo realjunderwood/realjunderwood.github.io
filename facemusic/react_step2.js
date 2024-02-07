@@ -1,5 +1,3 @@
-
-
 const Reactstep2 = ( {curState, setCurState }) => {
     
     const { useEffect, useRef, useState, useMemo } = React;
@@ -7,146 +5,74 @@ const Reactstep2 = ( {curState, setCurState }) => {
     accessToken = localStorage.getItem("access_token");
 
 
-    const [tracksPoolDone, setTracksPoolDone] = useState(false);
-
-
     const [loading, setLoading] = useState(() => {
-
-
         return true;
     });
 
-    console.log("about to call getmusic with access token " + accessToken)
-    if (curState == 3 && !tracksPoolDone) {
-        console.log("actually di dcall getmusic tho")
+    if (curState == 3) { 
         getMusic();
-        
-        //setTracksPoolDone(true);
-       // setLoading( false );
     }
 
-
-
-    console.log("about to instatniate trackspool as []")
     var tracksPool = useRef([]);
 
-    setTimeout(function(){
-        console.log("here is trackspool");
-        console.log(tracksPool.current);
-
-    },15000)
-
     const tracksPoolReal = useMemo(() => {
-            console.log("This is the memo thing apparently i just got called");
-            console.log("tracks pool  is length " + tracksPool.current.length)
-            console.log("tracksPool:")
-            console.log(tracksPool.current)
-
           return tracksPool.current;
-        }, [curState]);
+    }, [curState]);
 
 
     async function getMusic() {
-        
-        console.log("hi it's getmusic with accesstoken" + accessToken);
-        //document.getElementById("loading").style.display="block";
-        
+                
     
         const terms = ["short_term","medium_term","long_term"];
     
         for (let i = 0; i < 2; i++) { // Loop through twice: once to get top 50 songs, then again to get next 50 songs
-           // await getTopArtists(accessToken,49*i).then((value) => {
-                // To implement: add to tracksPool top 5 songs of all the top artists
-            //});
-    
             for (let k=0;k<terms.length;k++) { // Loop through short term, medium term, and long term top songs
-                console.log("abouta do a getTopTracks");
-                await getTopTracks(accessToken,49*i,terms[k]).then((value) => {
+                await getTopTracks(accessToken,49*i,terms[k]).then((value) => { // Defined inreact_spotify_auth.js
                     console.log(value)
                     for (let j=0;j<50;j++) {
-                        const alreadyInTracksPool = tracksPool.current.some(el => el.id === value[j].id || (el.artists[0].name === value[j].artists[0].name && el.name === value[j].name)); //Make sure we don't have duplicate songs. Duplicates have same track ID, or both same name and same artist
+                        const alreadyInTracksPool = tracksPool.current.some(el => el.id === value[j].id || (el.artists[0].name === value[j].artists[0].name && el.name === value[j].name));
+                        // ^ Make sure we don't have duplicate songs. Duplicates have same track ID, or both same name and same artist
                         if (!alreadyInTracksPool) {
                             tracksPool.current.push(value[j]);
                        }
                     }
                 });
             }
-        
         }
 
-
-
-
-
-        
+        //Next, get happiness scores for everything
         var tracksPoolWithValence = [];
         for (let j=0;j<tracksPool.current.length/50;j++) {
             let comSepList = "";
-            for (let i=j*50; i<Math.min(j*50+50,tracksPool.current.length); i++) {
+            for (let i=j*50; i<Math.min(j*50+50,tracksPool.current.length); i++) { // We have to do it in installments of 50 (Spotify API constraint)
                 comSepList += (i%50 == 0) ? tracksPool.current[i].id : "," + tracksPool.current[i].id; //append id to comSepList, with a comma preceding it if it's not the first element
             }
             let audFeatures = await getAudioFeatures(accessToken,comSepList);
             audFeatures.forEach(function(val){
                 tracksPoolWithValence.push(val);
             });
-        
         }
 
-        for (let i=0; i<tracksPool.current.length;i++) { // For tracksPoolWithValence, pull names from tracksPool 
+        for (let i=0; i<tracksPool.current.length;i++) { // Basically, "merge" valence scores from tracksPoolWithValence into tracksPool
             tracksPool.current[i].valence = tracksPoolWithValence[i].valence;
         }
 
 
-       // localStorage.setItem("tracksPool",tracksPool);
-        // musicGotten = true;
-        // console.log(tracksPool);
-        // console.log("music obtained; that up there was tracksPool");
-        // console.log("is trackspoooldone true or false")
-        // console.log(tracksPoolDone);
-        // console.log(tracksPoolDone === true)
-        // setTracksPoolDone(true);
-        // console.log("now");
-        // console.log(tracksPoolDone);
-
-
-        
-        console.log(tracksPool.current);
-        console.log("that was tracksPool")
-
-        setCurState(9)
-        console.log("just set curstate to 9");
-return(tracksPool.current);
-
-
-
-
+        setCurState(9); //Ready to display "start webcam" button
 
 
     }
-
-
-
 
 
 
     function logout() {
         localStorage.clear();
         setCurState(0);
-        //window.location.reload();
     }
 
-    // if (curState == 2) {
-    //     startVideo();
-    // }
- 
-        // const myImg = document.getElementById("myImg");
-        // const canvas = document.getElementById("canvas");
-        // const context = canvas.getContext("2d");
-
-
     async function startVideoParent() {
-        setCurState(12); // try to ensure tracksPool gets updated inline
-        console.log("it was 12 right there..")
+        //setCurState(12); // try to ensure tracksPool gets updated inline
+        //console.log("it was 12 right there..")
 
         setCurState(8);
         console.log("about to startvideo");
