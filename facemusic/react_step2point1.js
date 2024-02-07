@@ -204,8 +204,9 @@ async function createPlaylistParent() {
     createPlaylistEtc(localStorage.getItem("access_token"),happinessCalcedWord + " " + emoticon,trackURIsToAddToPlaylist) // react_spotify_auth.js
 }
 
+if (curState ==8) {
 canvasRef.current.getContext("2d").drawImage(myImg.ref.current, 0, 0,500,375);
-
+}
 
 
     return (
