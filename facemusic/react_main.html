@@ -182,6 +182,8 @@ async function runGetToken(code) {
   console.log("hi");
   setCurState(2);
   await getToken(code);
+  setCurState(3);
+
       console.log("just ran gettoken onthe  code and now accesstoken is " + localStorage.getItem("access_token") + " mm and what is curstate" + curState);
 
       window.history.replaceState(null, '', window.location.pathname);
@@ -192,7 +194,7 @@ async function runGetToken(code) {
   
 
     async function sendToSpotify() {
-      setCurState(2)
+      setCurState(3)
     }
 
     return (
@@ -201,7 +203,7 @@ async function runGetToken(code) {
         <div id="postIntro" ref={postIntroRef}>
           { curState }
           { curState == 0 && <Reactstep1 curState={curState} setCurState={setCurState} /> }
-          { curState >= 2 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
+          { curState >= 3 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
           <button
           onClick={sendToSpotify}>hi</button>
         </div>
