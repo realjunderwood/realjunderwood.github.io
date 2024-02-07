@@ -291,12 +291,12 @@ emoticon = ":DD"
 </div>
 {/* Might this be better as a proper component? */}
 
-    { curState == 6 && <>
+    { curState == 6 && (<>
         <h1>Song recs</h1>
         <Reactsong myTracksPool={tracksPool.slice(0,15).concat(tracksPool.slice(0,15))} />
         <button className="roundButton" onClick={createPlaylistParent}>Click to add playlist to Spotify</button>
         <p><small><i>Don't worry: the playlist will be private by default</i></small></p> 
-    </>}
+    </>)}
 
 </div>
 
