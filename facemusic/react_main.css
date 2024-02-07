@@ -180,17 +180,22 @@ html {
     min-height:200px;
     margin:10px;
 
-
     margin-right: 10px; /* Adjust margin between tiles as needed */
 
 }
 
 
 #marquee {
+    position: absolute;
 
     white-space: nowrap;
     animation: scrollTiles 10s linear infinite;
 
+
+}
+
+#marqueecontainer {
+    position:relative
 
 }
 @keyframes scrollTiles {
