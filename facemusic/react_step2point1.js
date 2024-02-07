@@ -202,6 +202,7 @@ async function createPlaylistParent() {
     
     // Future work: Maybe access_token should be a param to the component rather than just getting from localstorage (probably would be better practice?)
     createPlaylistEtc(localStorage.getItem("access_token"),happinessCalcedWord + " " + emoticon,trackURIsToAddToPlaylist) // react_spotify_auth.js
+window.alert("Playlist created :)")
 }
 
 if (curState ==8) {
