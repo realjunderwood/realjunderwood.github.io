@@ -3,7 +3,7 @@ const Reactsong = ({ tracksPool }) => {
     console.log("hiii it's reactsong with trackspool" + tracksPool)
 
 
-function Song({ title, artist, albumCoverUr, keyy }) {
+function Song({ title, artist, albumCoverUrl, keyy }) {
   return (
     <div className="song" key={keyy}>
       <img class="songrecimg" src={albumCoverUrl} alt="Album Cover" />
