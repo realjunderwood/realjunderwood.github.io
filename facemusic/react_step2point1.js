@@ -58,10 +58,18 @@ var newSong = 0;
 
       }, []);
 
+
+const audioRef = useRef(null);
+const audSnippet = (
+    <audio loop="true"
+    ref={audioRef}
+    />
+)
+
+
+
       useEffect(() => {
         if (curState == 6) {
-        var audSnippet = new Audio();
-        audSnippet.loop = true;
         audSnippet.pause();
         let audPreviewUrlNull = true;
         let i = 0;
