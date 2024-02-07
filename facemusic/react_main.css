@@ -203,6 +203,7 @@ border-radius:15px;
 
 .songrectitle {
     margin:0;
+    overflow:hidden;
 }
 
 .songrecartist {
