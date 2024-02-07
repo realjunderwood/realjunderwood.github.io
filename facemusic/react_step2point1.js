@@ -191,6 +191,7 @@ console.log(detectionWithExpressions);
 
     console.log("trackspool sorted");
     console.log(tracksPool);
+    setCurState(6);
 
 }
 
@@ -235,7 +236,7 @@ console.log(detectionWithExpressions);
     <p>hidden image</p>
     {myImg}
     <p>and now, songs</p>
-    { curState == 7 && <Reactsong tracksPool={tracksPool.slice(15)} /> }
+    { curState == 6 && <Reactsong tracksPool={tracksPool.slice(15)} /> }
 </div>
 </div>
 

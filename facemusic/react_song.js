@@ -9,6 +9,7 @@ function Song({ title, artist, albumCoverUrl }) {
     </div>
   );
 }
+console.log("hiii it's reactsong with trackspool" + tracksPool)
 
   return (
     <div className="songrec">
