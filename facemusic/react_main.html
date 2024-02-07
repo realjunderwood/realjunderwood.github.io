@@ -143,7 +143,7 @@ useEffect(() => {
     console.log("this is me setting cur state to 2")
     setCurState(2);
     console.log("it is now curstate " + curState);
-    if (localStorage.getItem("access_token")) {
+    if (localStorage.getItem("access_token") !== undefined && localStorage.getItem("access_token") !== null) {
     localStorage.setItem("curState",2)
     } else {
       localStorage.setItem("curState",0)
