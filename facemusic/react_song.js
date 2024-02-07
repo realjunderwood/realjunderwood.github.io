@@ -2,8 +2,6 @@
 
 const Reactsong = ({ myTracksPool }) => {
 
-    console.log("hiii it's reactsong with trackspool" + myTracksPool)
-
 
 function Song({ title, artist, albumCoverUrl, keyy }) {
   return (
