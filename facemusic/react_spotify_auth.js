@@ -89,7 +89,7 @@ async function getToken(code) {
 
 
 const getRefreshToken = async () => {
-
+    console.log("Refreshtoken");
     // refresh token that has been previously stored
     const refreshToken = localStorage.getItem('refresh_token');
     const url = "https://accounts.spotify.com/api/token";
