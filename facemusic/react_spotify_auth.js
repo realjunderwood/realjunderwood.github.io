@@ -97,7 +97,10 @@ const getRefreshToken = async () => {
      const payload = {
        method: 'POST',
        headers: {
-         'Content-Type': 'application/x-www-form-urlencoded'
+         'Content-Type': 'application/x-www-form-urlencoded',
+         Authorization: 'Bearer ' + localStorage.getItem("access_token")
+
+
        },
        body: new URLSearchParams({
          grant_type: 'refresh_token',
