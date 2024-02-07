@@ -1,12 +1,11 @@
 const Reactstep1 = ( { curState, setCurState } ) => {
     async function connectSpot() {
 
+        generateCodeChallenge(); // Function in react_spotify_auth.js; takes user to Spotify.
 
-        generateCodeChallenge();
     }
     return (
         <div id="step1">
-            <p>This is step1 and teh cur state is { curState }</p>
             <button id="connectspotButton" className="roundButton" onClick={connectSpot}>Connect to Spotify to get started</button>
         </div>
     );
