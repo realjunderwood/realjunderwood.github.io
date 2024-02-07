@@ -239,11 +239,16 @@ canvasRef.current.getContext("2d").drawImage(myImg.ref.current, 0, 0,300,150);
 {/* Might this be better as a proper component? */}
 
     { curState == 6 && (<div>
+    <div>
         <h1>Songs you might be in the mood for</h1>
         <Reactsong myTracksPool={tracksPool.slice(0,15).concat(tracksPool.slice(0,15))} />
         <button className="roundButton" onClick={createPlaylistParent}>Add playlist to Spotify</button>
         <p><small><i>Don't worry: the playlist will be private by default</i></small></p> 
-    </div>)}
+    </div>
+    <p><b>How it works</b></p>
+    <p><small>FaceMusic uses the <a href="https://developer.spotify.com/documentation/web-api">Spotify API</a> as well as <a href="https://justadudewhohacks.github.io/face-api.js/docs/index.html">Face-API</a>, which is a client-side JavaScript API.</small></p>
+</div>
+    )}
 
 </div>
 
