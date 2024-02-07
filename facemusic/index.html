@@ -32,6 +32,15 @@
 <script type="text/babel">
 
 
+
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+  window.alert("This app does not work on mobile devices.");
+
+}
+
+
 const accessToken = localStorage.getItem("access_token");
 
 const clientId = 'b5ac45b92b3243668cdb8390ab51a04d';
