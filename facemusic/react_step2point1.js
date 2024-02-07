@@ -138,8 +138,9 @@ ref={imgRef} />
 async function face() {
 
     const input = myImg.ref.current;
+    var detectionWithExpressions;
         try {
-    const detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
+    detectionWithExpressions = await faceapi.detectSingleFace(input).withFaceExpressions();
     console.log(detectionWithExpressions);
 
         }    catch(error) {
