@@ -92,9 +92,9 @@ const getRefreshToken = async () => {
     console.log("Refreshtoken");
     // refresh token that has been previously stored
     const refreshToken = localStorage.getItem('refresh_token');
-    const url = "https://accounts.spotify.com/api/token";
+    const url06 = "https://accounts.spotify.com/api/token";
  
-     const payload = {
+     const payload06 = {
        method: 'POST',
        headers: {
          'Content-Type': 'application/x-www-form-urlencoded',
@@ -108,7 +108,9 @@ const getRefreshToken = async () => {
          client_id: clientId
        }),
      }
-     const body = await fetch(url, payload);
+     console.log("payload");
+     console.log(payload06);
+     const body = await fetch(url06, payload06);
      const response = await body.json();
  
      localStorage.setItem('access_token', response.accessToken);
