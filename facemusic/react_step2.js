@@ -200,7 +200,6 @@ return(tracksPool.current);
 {curState == 9 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
 { ( (curState == 8 || curState == 7 || curState == 6) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
-<p>p above is trrakspollroeal[0].name nevermind joke</p>
 
 {/* { (curState == 7 || curState == 6 )&& <Reactstep2point2 curState={curState} setCurState={setCurState} /> } */}
 
