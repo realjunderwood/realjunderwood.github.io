@@ -109,6 +109,7 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
 
+  const [loaded, setLoaded] = useState(false);
 
 
   useEffect(() => {
@@ -119,9 +120,12 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
     console.log("hmmm curstate is " + curState)
-  if (curState > 0 ) {
+  if (curState > 0 && !loaded) {
    postIntroRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
+   //should this be through a ref?
+   let introDiv = document.getElementById("intro");
+   introDiv.scrollTop = objDiv.scrollHeight;
   }
 
   }, [curState,postIntroRef]);
@@ -129,7 +133,6 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
 
 
-  const [loaded, setLoaded] = useState(false);
 
 
 useEffect(() => {
