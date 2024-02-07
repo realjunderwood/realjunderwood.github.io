@@ -193,12 +193,8 @@ html {
 
 }
 @keyframes scrollTiles {
-    0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-100% - 10px)); /* Adjust for margin-right */
-      }
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, 0); }
   }
 
 
