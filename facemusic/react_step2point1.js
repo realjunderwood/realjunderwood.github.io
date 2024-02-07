@@ -240,7 +240,7 @@ async function createPlaylistParent() {
     //    comSepTracksList += (i == 0) ? tracksPool[i].uri : "," + tracksPool[i].uri; //append id to comSepList, with a comma preceding it if it's not the first element
     //}
     let trackURIsToAddToPlaylist = [];
-    for (i=0; i<10; i++) {
+    for (let i=0; i<10; i++) {
         trackURIsToAddToPlaylist.push(tracksPool[i].uri);
     }
 
