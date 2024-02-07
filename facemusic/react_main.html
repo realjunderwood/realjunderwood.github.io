@@ -125,7 +125,7 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
 
    //should this be through a ref?
    let introDiv = document.getElementById("intro");
-   introDiv.scrollTop = objDiv.scrollHeight;
+   introDiv.scrollTop = introDiv.scrollHeight;
   }
 
   }, [curState,postIntroRef]);
