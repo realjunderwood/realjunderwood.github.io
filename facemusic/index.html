@@ -109,27 +109,25 @@ useEffect(() => { // Set loaded to true, but first check localstorage to see if 
   }
   
   if (!loaded && ( curState == 7 || curState == 6 || curState == 8 || curState == 9)) { // If we just loaded the page and the curstate is one of these
+    console.log("got here");
     if (localStorage.getItem("access_token") !== "undefined" && localStorage.getItem("access_token") !== null) {
-    console.log("localstorage curtime: " + localStorage.getItem("curTime"))
-    console.log("localstorage expires: " + localStorage.getItem("expiresIn"))
-    console.log("now / 1000 " + Date.now()/1000)
-    if (localStorage.getItem("curTime") + localStorage.getItem("expiresIn") > Math.floor(Date.now()/1000)) {
-        localStorage.clear();
-        localStorage.setItem("curState",0)
-        
-        //runGetRefreshToken();
-       // window.location.reload();
-    }
-    
-    
-    
-        // include a check here that the access_token isn't expired?
+      console.log("localstorage curtime: " + localStorage.getItem("curTime"))
+      console.log("localstorage expires: " + localStorage.getItem("expiresIn"))
+      console.log("now / 1000 " + Date.now()/1000)
+      if (localStorage.getItem("curTime") + localStorage.getItem("expiresIn") > Math.floor(Date.now()/1000)) {
+          localStorage.clear();
+          localStorage.setItem("curState",0)
+          
+          //runGetRefreshToken();
+        // window.location.reload();
+      }
+   // include a check here that the access_token isn't expired?
     localStorage.setItem("curState",3)
     } else {
       localStorage.setItem("curState",0)
 
     }
-    window.location.reload();
+   // window.location.reload();
 
 }
   setLoaded(true);
