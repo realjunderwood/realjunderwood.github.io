@@ -163,16 +163,17 @@ if (urlParams.get('error')) {
         console.log("an error was returned");
       } else if (urlParams.get('code')) {
          //setCurState(1);
-        console.log("looks like curStaet is 1!!!")
+        //console.log("looks like curStaet is 1!!!")
 
 
-        
+        if (curState == 0) {
         let code = urlParams.get('code');
         console.log(code);
         console.log("that was the code");
         console.log("about to run gettoken and curstate is " + curState)      
 
         runGetToken(code);
+        }
       
 }
 
