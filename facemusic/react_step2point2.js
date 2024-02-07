@@ -8,73 +8,7 @@ const Reactstep2point2 = () => {
 
 <div id="step2point2">
     <div id="songRecContainer">
-        <div className="songrec">
-            <p></p>
-            <p></p>
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-            
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-            
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-            
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-            
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-            
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-            
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-            
-        </div>
-        <div className="songrec">
-            <p></p>
-            <p></p>
-        </div>
+      
 
  
 
