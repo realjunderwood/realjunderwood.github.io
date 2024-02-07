@@ -5,6 +5,7 @@
     src: url("JakartaSans/ttf/PlusJakartaSans-Regular.ttf")
 }
 
+
 body {
     font-family: jakartaSans;
    /* padding-left:60px;
@@ -23,6 +24,9 @@ html {
     min-height:100vh;
 }
 
+#welcome {
+    text-align:center;
+}
 
 
 /* USED BY MULTIPLE COMPONENTS */
