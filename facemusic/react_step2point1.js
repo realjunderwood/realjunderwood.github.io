@@ -213,7 +213,7 @@ async function createPlaylistParent() {
         <div id="videoContainer">
             {videoElement}
         </div>
-        <button id="snappicButton" onClick={takepicParent}><h3 style={{display:'inline-block'}}>snap picture</h3><img src="camsvg.svg" id="camImg" /></button>
+        <button id="snappicButton" className="roundButton" onClick={takepicParent}><h3 style={{display:'inline-block'}}>snap picture</h3><img src="camsvg.svg" id="camImg" /></button>
     </div>
     <div id="canvasPlusHappiness">
     {theCanvas}
