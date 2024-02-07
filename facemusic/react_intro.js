@@ -29,7 +29,7 @@ const Reactintro = () => {
         <h1>First, we take a picture of your face.</h1>
     </div>
 
-    <div className="introTextDiv" style={{marginTop:5+'vh',marginBottom:30+'vh'}}>
+    <div className="introTextDiv" style={{marginTop:5+'vh'}}>
         {/* margin-bottom:30vh; */}
         <h1>Then, based on songs and artists you like, we'll make a playlist that matches your detected mood.</h1>
     </div>
