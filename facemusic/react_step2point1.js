@@ -232,6 +232,7 @@ canvasRef.current.getContext("2d").drawImage(myImg.ref.current, 0, 0,300,150);
     {theCanvas}
     <div id="howyourelooking">
         { curState == 6 && <p>You're looking  <span id="happiness">{happinessCalcedWord}</span>.</p> }
+        { curState == 7 && <small>FaceMusic will not work unless your face is clearly visible in the frame.</small>}
     </div>
     {myImg}
   
