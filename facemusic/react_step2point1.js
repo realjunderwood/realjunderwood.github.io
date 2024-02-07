@@ -205,7 +205,9 @@ async function createPlaylistParent() {
 }
 
 if (curState ==8) {
+    setTimeout(function(){
 canvasRef.current.getContext("2d").drawImage(myImg.ref.current, 0, 0,500,375);
+    },1000);
 }
 
 
