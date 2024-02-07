@@ -168,18 +168,18 @@ if (urlParams.get('error')) {
 
         
         let code = urlParams.get('code');
-console.log(code);
-console.log("that was the code");
-console.log("about to run gettoken")      
+        console.log(code);
+        console.log("that was the code");
+        console.log("about to run gettoken and curstate is " + curState)      
 
-runGetToken(code);
+        runGetToken(code);
       
 }
 
 async function runGetToken(code) {
   console.log("hi");
   await getToken(code);
-      console.log("just ran gettoken onthe  code and now accesstoken is " + localStorage.getItem("access_token"));
+      console.log("just ran gettoken onthe  code and now accesstoken is " + localStorage.getItem("access_token") + " mm and what is curstate" + curState);
 
         console.log("Here is where eventually i will replace href and then setcurstate =2")
       window.history.replaceState(null, '', window.location.pathname);
