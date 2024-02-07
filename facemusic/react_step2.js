@@ -195,7 +195,7 @@ return(tracksPool.current);
 <div id="step2">
 <p id="sucesssaccess">Successfully accessed Spotify.</p>
 
-{curState == 3 && <p>loading</p>}
+{curState == 3 && <h1>Loading...</h1>}
 
 {curState == 9 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
