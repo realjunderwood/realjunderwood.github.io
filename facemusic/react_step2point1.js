@@ -98,7 +98,7 @@ var happinessCalced = 0;
 const myImg = (
 <img
 id="myImg"
-src="clickSnapPicture.png"
+src="assets/clickSnapPicture.png"
 ref={imgRef} />
 );
 
@@ -227,7 +227,7 @@ canvasRef.current.getContext("2d").drawImage(myImg.ref.current, 0, 0,300,150);
         <div id="videoContainer">
             {videoElement}
         </div>
-        <button id="snappicButton" className="roundButton" onClick={takepicParent}><h3 style={{display:'inline-block'}}>snap picture</h3><img src="camsvg.svg" id="camImg" /></button>
+        <button id="snappicButton" className="roundButton" onClick={takepicParent}><h3 style={{display:'inline-block'}}>snap picture</h3><img src="assets/camsvg.svg" id="camImg" /></button>
     </div>
     <div id="canvasPlusHappiness">
     {theCanvas}
