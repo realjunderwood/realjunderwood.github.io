@@ -158,7 +158,7 @@ async function face() {
     }
 
     happinessCalced = happy + 0.5*neutral + constant;
-    if (happinessCalced<0.2) {
+    if (happinessCalced<0.2) { //happinessCalced to happinessCalcedWord mappings
         setHappinessCalcedWord("very sad");
     } else if (happinessCalced<0.42) {
         setHappinessCalcedWord("fairly sad");
@@ -190,7 +190,7 @@ async function createPlaylistParent() {
     for (let i=0; i<15; i++) {
         trackURIsToAddToPlaylist.push(tracksPool[i].uri);
     }
-    let emoticon = "";
+    let emoticon = ""; //happinessCalcedWord => emoticon mappings for playlist title
     if (happinessCalcedWord == "very sad")  {
         emoticon = ":,("
     } else if (happinessCalcedWord == "fairly sad")  {
