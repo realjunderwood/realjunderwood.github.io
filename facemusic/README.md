@@ -1,3 +1,7 @@
+FaceMusic 🙂🎵
+
+---
+
 We like to listen to music that matches our mood. But it's hard to remember all the songs you like, and how they sound. Plus, figuring out whether you are happy or sad requires a lot of emotional intelligence.
 
 FaceMusic solves this problem. First, it takes a picture of your face to determine your mood. Then, pulling from songs you like, it makes a playlist that matches your detected mood.
