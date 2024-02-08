@@ -105,6 +105,7 @@ useEffect(() => { // Set loaded to true, but first check localstorage to see if 
 
   if (!loaded && curState == 3 && (localStorage.getItem("access_token") === "undefined" || localStorage.getItem("access_token") === null)) {
     setCurState(0);
+    window.location.reload();
     
   }
   
@@ -117,12 +118,14 @@ useEffect(() => { // Set loaded to true, but first check localstorage to see if 
       if (localStorage.getItem("curTime") + localStorage.getItem("expiresIn") > Math.floor(Date.now()/1000)) {
           localStorage.clear();
           localStorage.setItem("curState",0)
+          window.location.reload();
+
           
           //runGetRefreshToken();
         // window.location.reload();
       }
    // include a check here that the access_token isn't expired?
-    localStorage.setItem("curState",3)
+    //localStorage.setItem("curState",3)
     } else {
       localStorage.setItem("curState",0)
 
