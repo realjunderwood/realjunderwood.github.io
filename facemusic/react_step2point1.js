@@ -35,6 +35,7 @@ var newSong = 0;
             console.log(err);
             console.log("Above: webcam error");
             window.alert("webcam error");
+            window.location.reload();
           }
         };
         if (curState == 8) {
