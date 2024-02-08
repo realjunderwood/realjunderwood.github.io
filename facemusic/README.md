@@ -2,7 +2,7 @@ We like to listen to music that matches our mood. But it's hard to remember all 
 
 FaceMusic solves this problem. First, it takes a picture of your face to determine your mood. Then, pulling from songs you like, it makes a playlist that matches your detected mood.
 
-Emotion detection is accomplished with [Face-API](https://justadudewhohacks.github.io/face-api.js/docs/index.html), which is a client-side JavaScript API. Face-API returns confidence scores between 0 and 1 for 7 different emotions, which are used to create a composite happiness score between 0 and 1.
+Emotion detection is accomplished with [Face-API](https://justadudewhohacks.github.io/face-api.js/docs/index.html), which is a client-side JavaScript API. Face-API identifies the largest face in the photograph and returns confidence scores between 0 and 1 for 7 different emotions, which are used to create a composite happiness score between 0 and 1.
 
 To get favorite songs, FaceMusic calls the [Spotify API](https://developer.spotify.com/documentation/web-api) to get a user's top 100 tracks over the past 4 weeks, the past 6 months, and all time, with duplicates removed (so the pool has between 100 and 300 tracks). The API is called again to get happiness scores (called "valence" scores by Spotify), which are between 0 and 1, for each song.
 
