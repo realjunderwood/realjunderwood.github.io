@@ -1,14 +1,6 @@
 console.log("spotify_auth.js loaded");
 
-
-
-
-
-// 
-
-async function generateCodeChallenge(length=64) {
-    // curState has just been set to 0.5
-
+async function generateCodeChallenge(length=64) { // Generate a codeChallenge and redirect the user to Spotify authorization
 
     function generateRandomString(length) {
         const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_.-~';
@@ -39,19 +31,17 @@ async function generateCodeChallenge(length=64) {
   
     window.localStorage.setItem('code_verifier', codeVerifier);
 
-    const params =  {
+    const params = {
         response_type: 'code',
         client_id: clientId,
         scope,
         code_challenge_method: 'S256',
         code_challenge: codeChallenge,
         redirect_uri: redirectUri,
-      }
+    }
       
-      authUrl.search = new URLSearchParams(params).toString();
-      window.location.href = authUrl.toString()
-
-      
+    authUrl.search = new URLSearchParams(params).toString();
+    window.location.href = authUrl.toString()
 
 }
 
@@ -73,7 +63,6 @@ async function getToken(code) {
             code_verifier: codeVerifier,
         }),
     };
-
     
     const body = await fetch("https://accounts.spotify.com/api/token", payload);
     const response = await body.json();
@@ -84,45 +73,29 @@ async function getToken(code) {
 
 }
 
-
-
-
-
 async function getRefreshToken() {
-    console.log("Refreshtoken");
-    // refresh token that has been previously stored
+    
     const refreshToken = localStorage.getItem('refresh_token');
     const url06 = "https://accounts.spotify.com/api/token";
  
-     const payload06 = {
+    const payload06 = {
        method: 'POST',
        headers: {
          'Content-Type': 'application/x-www-form-urlencoded',
          Authorization: 'Bearer ' + localStorage.getItem("access_token")
-
-
        },
        body: new URLSearchParams({
          grant_type: 'refresh_token',
          refresh_token: refreshToken,
          client_id: clientId
        }),
-     }
-     console.log("payload");
-     console.log(payload06);
-     const body = await fetch(url06, payload06);
-     const response = await body.json();
+    }
+    const body = await fetch(url06, payload06);
+    const response = await body.json();
  
-     localStorage.setItem('access_token', response.accessToken);
-     localStorage.setItem('refresh_token', response.refreshToken);
-   }
-
-
-
-
-
-
-
+    localStorage.setItem('access_token', response.accessToken);
+    localStorage.setItem('refresh_token', response.refreshToken);
+}
 
 async function getTopTracks(accessToken,offsetVal) {
   
@@ -131,34 +104,25 @@ async function getTopTracks(accessToken,offsetVal) {
     headers: {
         Authorization: 'Bearer ' + accessToken
       },
-      //mode: 'cors'
-
     });
-  
-
-
 
     const data = await response.json();
     return(data.items);
-  }
+    
+}
 
-
-
-
-  async function getTopArtists(accessToken,offsetVal) {
+async function getTopArtists(accessToken,offsetVal) {
   
     const response = await fetch('https://api.spotify.com/v1/me/top/artists?limit=50&offset=' + offsetVal, {
-    method:'GET',  
-    headers: {
-        Authorization: 'Bearer ' + accessToken
-      },
-      //mode: 'cors'
-
+        method:'GET',  
+        headers: {
+            Authorization: 'Bearer ' + accessToken
+        },
     });
   
     const data = await response.json();
     return(data.items);
-  }
+}
 
 
 
