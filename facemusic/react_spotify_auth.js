@@ -119,7 +119,6 @@ async function getTopTracks(accessToken,offsetVal,timerange) { // get top songs 
     headers: {
         Authorization: 'Bearer ' + accessToken
       },
-      //mode: 'cors'
 
     });
   
