@@ -89,11 +89,11 @@
                 setLoaded(true);
 
         //window.location.reload();
-      } else if (!loaded && curState > 3) { // They opened the page with access token still valid but curstate above 3. Reset it to 3 so we can reget the music (future development might be to store tracksPool in local storage?)
+      } else if (!loaded && curState >= 3) { // They opened the page with access token still valid but curstate above 3. Reset it to 3 so we can reget the music (future development might be to store tracksPool in local storage?)
                console.log("hsdfi");
 
         setLoaded(true);
-        setCurState(3);
+        setCurState(2);
         //window.location.reload();
       }
       
