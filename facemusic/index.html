@@ -82,7 +82,7 @@
       // This decision tree could be more clear / logical / efficient
 
       if (!loaded && curState >= 3 && ( localStorage.getItem("access_token") === "undefined" || localStorage.getItem("access_token") === null
-                                      || parseInt(localStorage.getItem("curTime")) + parseInt(localStorage.getItem("expiresIn")) > Math.floor(Date.now()/1000) ) ) { // Access_token doesn't exist, or is expired, yet curState is one that requires an access_token. Reset the whole app.
+                                      || parseInt(localStorage.getItem("curTime")) + parseInt(localStorage.getItem("expiresIn")) < Math.floor(Date.now()/1000) ) ) { // Access_token doesn't exist, or is expired, yet curState is one that requires an access_token. Reset the whole app.
        console.log("hi");
         localStorage.setItem("access_token",null);
         setCurState(0);
