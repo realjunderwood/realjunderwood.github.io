@@ -52,7 +52,7 @@
       return parseInt(localStorage.getItem('curState')) || 0;
     });
 
-    const [loaded, setLoaded] = useState(false); //loaded is false only on first load, while loading/constructing DOM
+    const [loaded, setLoaded] = useState(false); // loaded is false only on first load, while loading/constructing DOM
 
     useEffect(() => {
       // Update local storage whenever curState changes
@@ -82,8 +82,9 @@
       // This decision tree could be more clear / logical / efficient
 
       if (!loaded && curState >= 3 && ( localStorage.getItem("access_token") === "undefined" || localStorage.getItem("access_token") === null
-                                      || localStorage.getItem("curTime") + localStorage.getItem("expiresIn") > Math.floor(Date.now()/1000) ) ) { // Access_token doesn't exist, or is expired, yet curState is one that requires an access_token. Reset the whole app.
+                                      || parseInt(localStorage.getItem("curTime")) + parseInt(localStorage.getItem("expiresIn")) > Math.floor(Date.now()/1000) ) ) { // Access_token doesn't exist, or is expired, yet curState is one that requires an access_token. Reset the whole app.
        console.log("hi");
+        localStorage.setItem
         setCurState(0);
                 setLoaded(true);
 
