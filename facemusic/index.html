@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FaceMusic</title>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaceMusic</title>
+    <link rel="stylesheet" href="react_main.css">
+  </head>
+  <body>
 
-   <link rel="stylesheet" href="react_main.css">
+    <div id="root"></div>
 
-</head>
-<body>
-
-<div id="root"></div>
-
-
+<!-- REACT + BABEL -->
 <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
 <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
-
+    
 <!-- REACT COMPONENTS -->
 <script type="text/babel" src="react_intro.js"></script>
 <script type="text/babel" src="react_step1.js"></script>
@@ -27,29 +25,22 @@
 <!-- FUNCTIONAL/HELPER SCRIPTS -->
  <script src="models/face-api.min.js"></script> 
  <script src="react_spotify_auth.js"></script>
+    
+ <script type="text/babel">
 
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  if (isMobile) {
+    window.alert("This app does not work on mobile devices.");
+    window.location.reload();
+  }
 
-<script type="text/babel">
+  const accessToken = localStorage.getItem("access_token");
 
+  const clientId = 'b5ac45b92b3243668cdb8390ab51a04d';
+  const redirectUri = 'https://www.jamesunderwood.net/facemusic/';
 
-
-
-const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-if (isMobile) {
-  window.alert("This app does not work on mobile devices.");
-  window.location.reload();
-}
-
-
-const accessToken = localStorage.getItem("access_token");
-
-const clientId = 'b5ac45b92b3243668cdb8390ab51a04d';
-const redirectUri = 'https://www.jamesunderwood.net/facemusic/';
-
-const scope = 'user-top-read playlist-modify-private ugc-image-upload';
-const authUrl = new URL("https://accounts.spotify.com/authorize")
-
-
+  const scope = 'user-top-read playlist-modify-private ugc-image-upload';
+  const authUrl = new URL("https://accounts.spotify.com/authorize");
 
   const App = () => {
 
@@ -57,113 +48,73 @@ const authUrl = new URL("https://accounts.spotify.com/authorize")
     const postIntroRef = useRef(null);
 
     const [curState, setCurState] = useState(() => {
-    
       // Initialize state from local storage or use a default value
-    return parseInt(localStorage.getItem('curState')) || 0;
-  });
+      return parseInt(localStorage.getItem('curState')) || 0;
+    });
 
+    const [loaded, setLoaded] = useState(false); //loaded is false only on first load, while loading/constructing DOM
 
-  const [loaded, setLoaded] = useState(false); //loaded is false only on first load, while loading/constructing DOM
-
-
-  useEffect(() => {
-    // Update local storage whenever curState changes
-    localStorage.setItem('curState', curState.toString());
-
-
-  if (curState > 0 && !loaded) { //If this is our first loading of the page and we are past curState 0, then make sure it scrolls to the right place
-   postIntroRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
-
-   //should this be through a ref?
-   let introDiv = document.getElementById("intro");
-   introDiv.scrollTop = introDiv.scrollHeight;
-  }
-
-  }, [curState,postIntroRef]);
-
-
-useEffect(() => { //Forbid scrolling of the intro when postintro is still on screen / "anchoring" user
-const myBody = document.getElementsByTagName("body")[0]
-    myBody.addEventListener('scroll', function() {
-
-      
-      if (document.getElementById("intro").getBoundingClientRect().bottom >= document.documentElement.clientHeight) {
-        document.getElementById("intro").style.overflow = "scroll";
-      } else {
-        document.getElementById("intro").style.overflow = "hidden";
+    useEffect(() => {
+      // Update local storage whenever curState changes
+      localStorage.setItem('curState', curState.toString());
+      if (curState > 0 && !loaded) { //If this is our first loading of the page and we are past curState 0, then make sure it scrolls to the right place
+        postIntroRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        let introDiv = document.getElementById("intro"); // Should this be through a ref?
+        introDiv.scrollTop = introDiv.scrollHeight;
       }
-  });
+    }, [curState,postIntroRef]);
 
-}, []);
+    useEffect(() => { //Forbid scrolling of the intro when postintro is still on screen ("anchor" the user)
+    const myBody = document.getElementsByTagName("body")[0]
+        myBody.addEventListener('scroll', function() {
+          if (document.getElementById("intro").getBoundingClientRect().bottom >= document.documentElement.clientHeight) { // Returns true if intro is taking up the full page; false otherwise
+            document.getElementById("intro").style.overflow = "scroll";
+          } else {
+            document.getElementById("intro").style.overflow = "hidden";
+          }
+      });
+    }, []);
 
 
-useEffect(() => { // Set loaded to true, but first check localstorage to see if user was previously further along
+    useEffect(() => { // Set loaded to true, but first check localstorage to see if user was previously further along
   
 
-// FUTURE DEVELOPMENT: make it pull up the exact stage you were just at if you refresh/leave the page on accident
-// This decision tree could be more clear / logical / efficient
+      // FUTURE DEVELOPMENT: make it pull up the exact stage you were just at if you refresh/leave the page on accident
+      // This decision tree could be more clear / logical / efficient
 
-  if (!loaded && curState == 3 && (localStorage.getItem("access_token") === "undefined" || localStorage.getItem("access_token") === null)) {
-    setCurState(0);
-    window.location.reload();
-    
-  }
-  
-  if (!loaded && ( curState == 7 || curState == 6 || curState == 8 || curState == 9)) { // If we just loaded the page and the curstate is one of these
-    console.log("got here");
-    if (localStorage.getItem("access_token") !== "undefined" && localStorage.getItem("access_token") !== null) {
-      console.log("localstorage curtime: " + localStorage.getItem("curTime"))
-      console.log("localstorage expires: " + localStorage.getItem("expiresIn"))
-      console.log("now / 1000 " + Date.now()/1000)
-      if (localStorage.getItem("curTime") + localStorage.getItem("expiresIn") > Math.floor(Date.now()/1000)) {
-          localStorage.clear();
-          localStorage.setItem("curState",0)
-          window.location.reload();
-
-          
-          //runGetRefreshToken();
-        // window.location.reload();
+      if (!loaded && curState >= 3 && ( localStorage.getItem("access_token") === "undefined" || localStorage.getItem("access_token") === null
+                                      || localStorage.getItem("curTime") + localStorage.getItem("expiresIn") > Math.floor(Date.now()/1000) ) ) { // Access_token doesn't exist, or is expired, yet curState is one that requires an access_token. Reset the whole app.
+        setCurState(0);
+        setLoaded(true);
+        window.location.reload();
+      } else if (!loaded && curState > 3) { // They opened the page with access token still valid but curstate above 3. Reset it to 3 so we can reget the music (future development might be to store tracksPool in local storage?)
+        setCurState(3);
+        setLoaded(true);
+        window.location.reload();
       }
-   // include a check here that the access_token isn't expired?
-    //localStorage.setItem("curState",3)
-    } else {
-      localStorage.setItem("curState",0)
+    }, []);
 
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('error')) { // Spotify gave an error
+      // For future work: better error handling
+      console.log("an error was returned.");
+      localStorage.clear();
+      window.alert("An error was given; try refreshing.")
+    } else if (urlParams.get('code') && curState == 0) { // If there is a code URL param and curState is 0, then we are returning from Spotify ready to generate access token
+      let code = urlParams.get('code');
+      runGetToken(code);
     }
-   // window.location.reload();
 
-}
-  setLoaded(true);
-}, []);
+    async function runGetToken(code) {
+      setCurState(2);
+      await getToken(code);
+      setCurState(3);
+      window.history.replaceState(null, '', window.location.pathname); // Get rid of ?code=[long-alphanumeric-code] from the URL
+    }
 
-
-const urlParams = new URLSearchParams(window.location.search);
-if (urlParams.get('error')) { // Spotify gave an error
-  // For future work: better error handling
-        console.log("an error was returned.");
-        window.alert("An error was given; try refreshing.")
-        localStorage.clear();
-      } else if (urlParams.get('code') && curState == 0) { // If there is a code URL param and curState is 0, then we are returning from Spotify ready to generate access token
-
-        let code = urlParams.get('code');
-
-        runGetToken(code);
-      
-}
-
-async function runGetToken(code) {
-  setCurState(2);
-  await getToken(code);
-  setCurState(3);
-  window.history.replaceState(null, '', window.location.pathname); // Get rid of ?code=SDIOFIO90uSDF from the URL
-}
-
-
-async function runGetRefreshToken() {
-  await getRefreshToken();
-}
-  
-
+    async function runGetRefreshToken() {
+      await getRefreshToken();
+    }
 
     return (
       <div>
@@ -172,16 +123,15 @@ async function runGetRefreshToken() {
           <h1 id="welcome">Welcome to FaceMusic</h1>
           { curState == 0 && <Reactstep1 curState={curState} setCurState={setCurState} /> }
           { curState >= 3 && <Reactstep2 curState={curState} setCurState={setCurState} /> }
-         
         </div>
       </div>
     );
+    
   };
 
   ReactDOM.render(<App />, document.getElementById('root'));
-
   
-</script>
+ </script>
 
 </body>
 </html>
