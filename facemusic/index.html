@@ -77,7 +77,6 @@
 
 
     useEffect(() => { // Set loaded to true, but first check localstorage to see if user was previously further along
-  
 
       // FUTURE DEVELOPMENT: make it pull up the exact stage you were just at if you refresh/leave the page on accident
       // This decision tree could be more clear / logical / efficient
@@ -85,14 +84,15 @@
       if (!loaded && curState >= 3 && ( localStorage.getItem("access_token") === "undefined" || localStorage.getItem("access_token") === null
                                       || localStorage.getItem("curTime") + localStorage.getItem("expiresIn") > Math.floor(Date.now()/1000) ) ) { // Access_token doesn't exist, or is expired, yet curState is one that requires an access_token. Reset the whole app.
         setCurState(0);
-        setLoaded(true);
         window.location.reload();
       } else if (!loaded && curState > 3) { // They opened the page with access token still valid but curstate above 3. Reset it to 3 so we can reget the music (future development might be to store tracksPool in local storage?)
         setCurState(3);
-        setLoaded(true);
-        window.location.reload();
+        //window.location.reload();
       }
+      setLoaded(true);
+
     }, []);
+    
 
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('error')) { // Spotify gave an error
