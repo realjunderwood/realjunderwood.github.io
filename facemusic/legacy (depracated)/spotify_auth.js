@@ -1,4 +1,6 @@
-console.log("spotify_auth.js loaded");
+// Deprecated
+
+console.log("DEPRECATED spotify_auth.js loaded");
 
 
 
