@@ -1,4 +1,4 @@
-// Downloads all the tracks and has enable webcam button
+// Downloads all the tracks and has enable webcam button, but webcam interface is in react_step2point1.js
 
 const Reactstep2 = ( {curState, setCurState }) => {
     
@@ -6,12 +6,11 @@ const Reactstep2 = ( {curState, setCurState }) => {
     
     accessToken = localStorage.getItem("access_token");
 
-
     const [loading, setLoading] = useState(() => {
         return true;
     });
 
-    if (curState == 3) { 
+    if (curState == 3) { // just got Spotify auth => curState 3
         getMusic();
     }
 
@@ -25,9 +24,9 @@ const Reactstep2 = ( {curState, setCurState }) => {
     async function getMusic() {
                 
     
-        const terms = ["short_term","medium_term","long_term"];
+    const terms = ["short_term","medium_term","long_term"];
     
-        for (let i = 0; i < 2; i++) { // Loop through twice: once to get top 50 songs, then again to get next 50 songs
+    for (let i = 0; i < 2; i++) { // Loop through twice: once to get top 50 songs, then again to get next 50 songs
             for (let k=0;k<terms.length;k++) { // Loop through short term, medium term, and long term top songs
                 await getTopTracks(accessToken,49*i,terms[k]).then((value) => { // Defined inreact_spotify_auth.js
                     console.log(value)
@@ -40,7 +39,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
                     }
                 });
             }
-        }
+    }
 
         //Next, get happiness scores for everything
         var tracksPoolWithValence = [];
@@ -61,10 +60,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 
         localStorage.setItem("tracksPool", JSON.stringify(tracksPool.current));
 
-
-
         setCurState(9); //Ready to display "start webcam" button
-
 
     }
 
@@ -80,7 +76,6 @@ const Reactstep2 = ( {curState, setCurState }) => {
         setCurState(8);
     }
 
-    
     return (
 
 <div id="step2">
@@ -91,7 +86,6 @@ const Reactstep2 = ( {curState, setCurState }) => {
 {curState == 9 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
 { ( (curState == 8 || curState == 7 || curState == 6) ) && <Reactstep2point1 curState={curState} setCurState={setCurState}  tracksPool={tracksPoolReal} />  }
-
 
 <div id="logoutDiv">
  <button id="logout" className="roundButton" onClick={logout}>Log out</button> 
