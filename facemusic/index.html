@@ -85,7 +85,7 @@
                                       || localStorage.getItem("curTime") + localStorage.getItem("expiresIn") > Math.floor(Date.now()/1000) ) ) { // Access_token doesn't exist, or is expired, yet curState is one that requires an access_token. Reset the whole app.
         setLoaded(true);
         setCurState(0);
-        window.location.reload();
+        //window.location.reload();
       } else if (!loaded && curState > 3) { // They opened the page with access token still valid but curstate above 3. Reset it to 3 so we can reget the music (future development might be to store tracksPool in local storage?)
         setLoaded(true);
         setCurState(3);
