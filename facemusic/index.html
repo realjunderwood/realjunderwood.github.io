@@ -89,7 +89,7 @@
         setLoaded(true);
         //window.location.reload();
       } else if (!loaded && curState >= 3) { // They opened the page with access token still valid but curstate above 3. Reset it to 3 so we can reget the music (future development might be to store tracksPool in local storage?)
-        console.log("hizsdf");
+        console.log("Access token already set, setting curState to 3.");
         setCurState(3);
         //setLoaded(true);
         //window.location.reload();
