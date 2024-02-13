@@ -240,7 +240,8 @@ const Reactstep2point1 = ({ curState, setCurState, tracksPool }) => {
                 .slice(0, 15)
                 .concat(tracksPool.slice(0, 15))}
             />
-            {/* Create tiles for an array of top 15 songs -- .slice(0,15) -- and append the same list of top 15 songs to that because tile scrolling implementation relies on the tiles being duplicated /*}
+            {/* Create tiles for an array of top 15 songs -- .slice(0,15) -- and append the same list of top /*}
+            {/* 15 songs to that because tile scrolling implementation relies on the tiles being duplicated /*}
             <button className="roundButton" onClick={createPlaylistParent}>
               Add playlist to Spotify
             </button>
