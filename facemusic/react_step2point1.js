@@ -98,7 +98,7 @@ const Reactstep2point1 = ({ curState, setCurState, tracksPool }) => {
 
   function compareSongs(a, b) { // Comparison function for sorting the songs by how closely they match happiness level
     const aconst = (Math.random() - 0.5) / 5; // Add a random number between -0.1 and 0.1 for variance
-    if Math.abs ( (a.valence + aconst - happinessCalced) > Math.abs(b.valence - happinessCalced) ) {
+    if ( Math.abs(a.valence + aconst - happinessCalced) > Math.abs(b.valence - happinessCalced) ) {
       return 1;
     }
     if ( Math.abs(a.valence + aconst - happinessCalced) < Math.abs(b.valence - happinessCalced) ) {
