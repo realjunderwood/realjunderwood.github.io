@@ -244,10 +244,7 @@ const Reactstep2point1 = ({ curState, setCurState, tracksPool }) => {
           </div>
           <hr />
           <p>
-            <b>How it works</b>
-          </p>
-          <p>
-           <a href="https://github.com/realjunderwood/realjunderwood.github.io/blob/main/facemusic/README.md" target="_BLANK">How it works</a>
+           <b><a href="https://github.com/realjunderwood/realjunderwood.github.io/blob/main/facemusic/README.md" target="_BLANK">How it works</a><b>
           </p>
         </div>
       )}
