@@ -1,3 +1,4 @@
+// Deprecated
 
 videoElement = document.getElementById("videoElement");
 myImg = document.getElementById("myImg");
