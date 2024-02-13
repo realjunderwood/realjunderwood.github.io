@@ -41,12 +41,12 @@ async function generateCodeChallenge(length=64) { // Generate a codeChallenge an
     }
       
     authUrl.search = new URLSearchParams(params).toString();
-    window.location.href = authUrl.toString()
+    window.location.href = authUrl.toString() // Redirect the user to Spotify
 
 }
 
 
-async function getToken(code) {
+async function getToken(code) { // Get access token from the code given by Spotify
 
     let codeVerifier = localStorage.getItem('code_verifier');
 
@@ -73,7 +73,7 @@ async function getToken(code) {
 
 }
 
-async function getRefreshToken() {
+async function getRefreshToken() { // Refresh token after time is done
     
     const refreshToken = localStorage.getItem('refresh_token');
     const url06 = "https://accounts.spotify.com/api/token";
@@ -97,20 +97,7 @@ async function getRefreshToken() {
     localStorage.setItem('refresh_token', response.refreshToken);
 }
 
-async function getTopTracks(accessToken,offsetVal) {
-  
-    const response = await fetch('https://api.spotify.com/v1/me/top/artists?limit=50&offset=' + offsetVal, {
-    method:'GET',  
-    headers: {
-        Authorization: 'Bearer ' + accessToken
-      },
-    });
-
-    const data = await response.json();
-    return(data.items);
-    
-}
-
+// Never called, but could be useful in future for making a bigger tracks pool (get these artists top songs, for example)
 async function getTopArtists(accessToken,offsetVal) {
   
     const response = await fetch('https://api.spotify.com/v1/me/top/artists?limit=50&offset=' + offsetVal, {
@@ -125,8 +112,7 @@ async function getTopArtists(accessToken,offsetVal) {
 }
 
 
-
-  async function getTopTracks(accessToken,offsetVal,timerange) {
+async function getTopTracks(accessToken,offsetVal,timerange) { // get top songs within a top-range, with a certain offset value
   
     const response = await fetch('https://api.spotify.com/v1/me/top/tracks?limit=50&offset=' + offsetVal + "&time_range=" + timerange, {
     method:'GET',  
@@ -139,35 +125,25 @@ async function getTopArtists(accessToken,offsetVal) {
   
     const data = await response.json();
     return(data.items);
-  }
+}
 
-
-  async function getAudioFeatures(accessToken,comSepList) {
+async function getAudioFeatures(accessToken,comSepList) { // Get audio features -- including valence (happiness) -- of a list of comma separated list of songs (up to 50 songs)
+    
     const response = await fetch('https://api.spotify.com/v1/audio-features?ids=' + comSepList, {
     method:'GET',  
     headers: {
         Authorization: 'Bearer ' + accessToken
       },
-      //mode: 'cors'
 
     });
   
     const data = await response.json();
-
-
-
     return(data.audio_features);
 
+}
 
 
-
-
-
-
-  }
-
-
-  async function createPlaylistEtc(accessToken,howFeeling,uriArray) {
+async function createPlaylistEtc(accessToken,howFeeling,uriArray) { // Create a playlist titled "Feeling ${howFeeling}" and add uriArray songs; also add snapshot photo 
 
     const payload = {
         method: 'POST',
@@ -190,7 +166,6 @@ async function getTopArtists(accessToken,offsetVal) {
     const response = await body.json();
     const newPlaylistID = response.id
 
-
     const payload2 = {
         method: 'POST',
         headers: {
@@ -198,19 +173,14 @@ async function getTopArtists(accessToken,offsetVal) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          
-           // uris:comSepTracks
-           uris:uriArray
+            uris:uriArray
         })
     };
     
     const addToPlaylist = await fetch("https://api.spotify.com/v1/playlists/" + newPlaylistID + "/tracks", payload2);
-    
 
-    setTimeout(async function(){
+    setTimeout(async function(){ // Delay 500 ms before setting image of playlist: async function / await should make this unnecessary, but just make sure Spotify has time to fully "create" the new playlist
     const jpegUrl = canvas.toDataURL("image/jpeg").slice(23); 
-    //const sampleImage = "/9j/2wCEABoZGSccJz4lJT5CLy8vQkc9Ozs9R0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0cBHCcnMyYzPSYmPUc9Mj1HR0dEREdHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR0dHR//dAAQAAf/uAA5BZG9iZQBkwAAAAAH/wAARCAABAAEDACIAAREBAhEB/8QASwABAQAAAAAAAAAAAAAAAAAAAAYBAQAAAAAAAAAAAAAAAAAAAAAQAQAAAAAAAAAAAAAAAAAAAAARAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwAAARECEQA/AJgAH//Z";
-
   
     const uploadImage = await fetch('https://api.spotify.com/v1/playlists/' + newPlaylistID + "/images", {
       method: "PUT",  
@@ -227,7 +197,7 @@ async function getTopArtists(accessToken,offsetVal) {
 
 }
 
-async function getProfile(accessToken) {
+async function getProfile(accessToken) { // Helper function for createPlaylistEtc, which needs the current user's user ID.
   
   const response = await fetch('https://api.spotify.com/v1/me', {
     headers: {
