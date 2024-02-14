@@ -208,6 +208,11 @@ html {
 
 #footer {
 	position: absolute;
-	bottom: 0;
+	bottom: 10px;
 	margin-left:100px;
+}
+
+#footer p {
+margin: 0;
+	
 }
