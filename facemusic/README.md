@@ -4,13 +4,13 @@ www.jamesunderwood.net/facemusic
 
 ---
 
-> index.html
-  > react.intro.js
-  > react_step1.js
-  > react_step2.js
-    > react_step2point1.js
-      > react_song.js
-> react_spotify_auth.js
+* index.html
+  * react.intro.js
+  * react_step1.js
+  * react_step2.js
+    * react_step2point1.js
+      * react_song.js
+* react_spotify_auth.js
 
 ---
 
