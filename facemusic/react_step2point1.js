@@ -189,6 +189,12 @@ const Reactstep2point1 = ({ curState, setCurState, tracksPool }) => {
     window.alert("Playlist created :)");
   }
 
+  if (curState ==8) {
+    setTimeout(function(){ // Ideally this would be a separate state
+canvasRef.current.getContext("2d").drawImage(myImg.ref.current, 0, 0,300,150);
+    },800);
+}
+
   return (
     <div id="step2point1">
       {audSnippet}
