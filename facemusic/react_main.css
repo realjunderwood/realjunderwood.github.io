@@ -205,3 +205,8 @@ html {
 #havingtrouble {
     font-size:12px;
 }
+
+#footer {
+	position: absolute;
+	bottom: 0;
+}
