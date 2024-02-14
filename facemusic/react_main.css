@@ -209,4 +209,5 @@ html {
 #footer {
 	position: absolute;
 	bottom: 0;
+	margin-left:100px;
 }
