@@ -190,8 +190,8 @@ const Reactstep2point1 = ({ curState, setCurState, tracksPool }) => {
   }
 
   if (curState ==8) {
-    setTimeout(function(){ // Ideally this would be a separate state
-canvasRef.current.getContext("2d").drawImage(myImg.ref.current, 0, 0,300,150);
+    setTimeout(function(){ // Ideally this would be a separate state, not a setTimeout
+      canvasRef.current.getContext("2d").drawImage(myImg.ref.current, 0, 0,300,150);
     },800);
 }
 
