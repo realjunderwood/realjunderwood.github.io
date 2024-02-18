@@ -8,7 +8,7 @@ const Reactstep1 = ( { curState, setCurState } ) => {
     return (
         <div id="step1">
             <button id="connectspotButton" className="roundButton" onClick={connectSpot}>Connect to Spotify to get started</button>
-        <p id="disclaimerr">Note: Spotify currently marks this app as in "developer mode," meaning I have to give enter beta testers into Spotify's developer portal. If you're not able to connect your account, you can send me the email address associated with your Spotify account and I'll add you ASAP.</p>
+        <p id="disclaimerr"><em>Note:</em> Spotify currently marks this app as in "developer mode," meaning I have to enter beta testers into Spotify's developer portal. If you're not able to connect your account, you can send me <em>the email address associated with your Spotify account</em> and I'll add you ASAP.</p>
         </div>
     );
   };
