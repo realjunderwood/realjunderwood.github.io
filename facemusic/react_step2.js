@@ -81,7 +81,7 @@ const Reactstep2 = ( {curState, setCurState }) => {
 <div id="step2">
 {/* <p id="sucesssaccess">Successfully accessed Spotify.</p> */}
 
-{curState == 3 && <h1>Loading...</h1><p>Note: Spotify currently marks this app as in "developer mode," meaning I have to enter beta testers into Spotify's developer portal. If you're not able to connect your account, you can send me the email address associated with your Spotify account and I'll add you ASAP.</p>}
+{curState == 3 && <div><h1>Loading...</h1><p>Note: Spotify currently marks this app as in "developer mode," meaning I have to enter beta testers into Spotify's developer portal. If you're not able to connect your account, you can send me the email address associated with your Spotify account and I'll add you ASAP.</p></div>}
 
 {curState == 9 && <button className="roundButton" onClick={startVideoParent} id="webcamButton">Click to enable webcam</button>}
 
