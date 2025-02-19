@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automatic Pen Plotter Project</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css"
+    />
+    <style>
+      body {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        margin: 40px; /* Increased margin for the whole page */
+        background-color: #f4f4f4;
+        color: #333;
+        display: flex; /* Use flexbox for layout */
+        justify-content: space-between; /* Space between text and slideshow */
+      }
+      h1 {
+        /* text-align: center; */
+        color: #2c3e50;
+        width: 60%; /* Set width for text section */
+      }
+      p {
+        line-height: 1.6;
+        margin: 10px 0;
+      }
+      .slideshow {
+        width: 45%; /* Decreased width of the slideshow */
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      }
+      .slideshow img,
+      .slideshow video {
+        width: 100%;
+        height: auto;
+      }
+      .slick-dots {
+        bottom: 10px;
+      }
+      .slick-dots li button:before {
+        font-size: 12px;
+        color: #2c3e50;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Automatic Pen Plotter Project</h1>
+      <p>
+        <span style="font-weight: bold">📝 Note:</span> Both this write-up and
+        the project itself are works in progress.
+      </p>
+      <p>
+        This page documents an automatic pen plotter I designed, programmed, and
+        built over summer 2024. The plotter is driven by an Arduino Uno
+        connected to two NEMA-17 stepper motors. I wrote custom firmware that
+        interprets
+        <a href="https://en.wikipedia.org/wiki/G-code">G-Code</a> (the standard
+        for pen plotters) to control the motors and draw with the pen.
+      </p>
+      <p>
+        Kinematically, the plotter leverages
+        <a href="https://en.wikipedia.org/wiki/CoreXY">CoreXY</a>, in which two
+        drive belts are used to provide cartesian motion on the xy-plane. Motion
+        is given as such:
+      </p>
+      <img src="media/corexy.svg" alt="CoreXY" />
+    </div>
+
+    <div class="slideshow">
+      <div>
+        <video controls autoplay muted loop>
+          <source src="media/mov.mov" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div><img src="media/image1.jpeg" alt="Image 1" /></div>
+      <div><img src="media/image2.png" alt="Image 2" /></div>
+      <div><img src="media/image3.png" alt="Image 3" /></div>
+      <!-- Add more images or videos as needed -->
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $(".slideshow").slick({
+          dots: true,
+          infinite: true,
+          speed: 500,
+          fade: true,
+          cssEase: "linear",
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 4000,
+          pauseOnHover: false,
+          pauseOnFocus: false,
+        });
+      });
+    </script>
+  </body>
+</html>
