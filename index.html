@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>James Underwood</title>
+    <link rel="stylesheet" href="newmain.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header-section">
+        <img
+          src="/newassets/headshot.jpeg"
+          alt="James Underwood"
+          class="headshot"
+        />
+        <div class="header-text">
+          <h1>James Underwood</h1>
+          <p>
+            Hey! I'm a junior at Dartmouth College studying computer science and
+            engineering.
+          </p>
+        </div>
+      </div>
+
+      <div class="buttons-container">
+        <a
+          href="https://github.com/realjunderwood"
+          class="bigbutton"
+          target="_BLANK"
+          >GitHub</a
+        >
+        <a
+          href="https://www.linkedin.com/in/jamescunderwood/"
+          class="bigbutton"
+          target="_BLANK"
+          >LinkedIn</a
+        >
+      </div>
+
+      <h2 class="heading">Projects</h2>
+      <div class="projects-container" id="projects-container">
+        <!-- Projects will be dynamically generated here -->
+      </div>
+      <dialog
+        id="project-modal"
+        aria-labelledby="project-modal-title"
+        aria-describedby="project-modal-body"
+      >
+        <button
+          type="button"
+          class="modal-close"
+          aria-label="Close project details"
+          data-close
+        >
+          &times;
+        </button>
+        <article class="modal-content">
+          <img
+            id="project-modal-image"
+            data-modal-image
+            style="
+              width: 100%;
+              height: 200px;
+              object-fit: cover;
+              margin-bottom: 16px;
+              border-radius: 4px;
+            "
+          />
+          <h3 id="project-modal-title" data-modal-title></h3>
+          <p id="project-modal-body" data-modal-body></p>
+          <p class="modal-tech" data-modal-tech></p>
+        </article>
+      </dialog>
+      <h2 class="heading">Publications & talks</h2>
+
+      <ul>
+        <li>
+          Hearon, L., Johnson, L., <strong>Underwood, J.</strong>, et al.
+          <a href="https://www.biorxiv.org/content/10.1101/2025.06.13.659554v1"
+            >Buzzdetect: an open-source deep learning tool for automated
+            bioacoustic pollinator monitoring.</a
+          >
+          bioRxiv preprint. doi.org:10.1101/2025.06.13.659554
+        </li>
+        <li>
+          <strong>James Underwood</strong>, et al.
+          <a href="/newassets/ESA talk.pdf"
+            >Spatiotemporal analysis of <i>Apis mellifera</i> foraging in a
+            <i>Brassica juncea</i> field using bioacoustics.</a
+          >
+          Presented at Entomological Society of America Eastern Branch meeting,
+          Harrisburg, PA, March 2025
+        </li>
+      </ul>
+      <h2 class="heading">Contact</h2>
+      <p>Email: <code>jcunderwood [at] protonmail [dot] com</code></p>
+    </div>
+    <script>
+      const projectsData = {
+        projects: [
+          {
+            id: "shelfquest",
+            title: "ShelfQuest",
+            body: "Software to allow libraries to map their collections for patron wayfinding",
+            tech: "Stack: MERN hosted on a DigitalOcean Droplet",
+            image: "/newassets/sq.png",
+          },
+          {
+            id: "penplotter",
+            title: "PenPlotter",
+            body: "Built a pen plotter using 3D printed parts with bespoke control software and hardware integration.",
+            tech: "Stack: C++, Arduino",
+            image: "/newassets/plotter.png",
+          },
+          {
+            id: "buzzdetect",
+            title: "buzzdetect",
+            body: "An open-source deep learning tool for automated bioacoustic pollinator monitoring.",
+            tech: "Stack: Python, TensorFlow",
+            image: "/newassets/buzz.png",
+          },
+          {
+            id: "webdcr",
+            title: "WebDCR website",
+            body: "Building a website for Dartmouth College Radio (WebDCR) with a focus on fast, accessible publication workflows.",
+            tech: "Stack: Jekyll, Alpine.JS",
+            image: "/newassets/webdcr.png",
+          },
+          {
+            id: "energy-kiosk",
+            title: "Dartmouth Energy Kiosk",
+            body: "Built an interactive kiosk displaying campus energy usage, installed in Dartmouth's Irving Sustainability Center.",
+            tech: "Stack: React, D3",
+            image: "/newassets/kiosk.png",
+          },
+          {
+            id: "tiny-search",
+            title: "Tiny Search Engine",
+            body: "Built a simple search engine in C, including indexer and crawler components for introductory information retrieval research.",
+            tech: "Stack: C",
+            image: "/newassets/tse.png",
+          },
+        ],
+        publications: [
+          {
+            title:
+              "buzzdetect: an open-source deep learning tool for automated bioacoustic pollinator monitoring",
+            url: "https://www.biorxiv.org/content/10.1101/2025.06.13.659554v1",
+            venue: "bioRxiv preprint, 2025",
+          },
+          {
+            title:
+              "Spatiotemporal analysis of <i>Apis mellifera</i> foraging in a <i>Brassica juncea</i> field using bioacoustics",
+            url: "",
+            venue: "talk, 2025",
+          },
+        ],
+        profile: {
+          name: "James Underwood",
+          bio: "Hey! I'm a junior at Dartmouth College studying computer science and engineering. I'm experienced in C/C++, Python, Java, NodeJS, and full-stack web development.",
+          email: "jcunderwood [at] protonmail [dot] com",
+          links: {
+            github: "https://github.com/realjunderwood",
+            linkedin: "https://www.linkedin.com/in/jamescunderwood/",
+            resume: "https://www.linkedin.com/in/jamescunderwood/",
+          },
+        },
+      };
+
+      function renderProjects() {
+        const container = document.getElementById("projects-container");
+        if (!container) return;
+
+        container.innerHTML = projectsData.projects
+          .map(
+            (project) => `
+          <div class="projecttile" data-project-id="${project.id}">
+            <div class="project-image" style="background-image: url('${project.image}'); background-size: cover; background-position: center;"></div>
+            <div class="project-content">
+              <h3>${project.title}</h3>
+              <p>${project.body}</p>
+            </div>
+          </div>
+        `
+          )
+          .join("");
+      }
+
+      (function () {
+        renderProjects();
+
+        const dialog = document.getElementById("project-modal");
+        if (!dialog || typeof dialog.showModal !== "function") {
+          return;
+        }
+
+        const titleEl = dialog.querySelector("[data-modal-title]");
+        const bodyEl = dialog.querySelector("[data-modal-body]");
+        const techEl = dialog.querySelector("[data-modal-tech]");
+        const imageEl = dialog.querySelector("[data-modal-image]");
+        const closeButton = dialog.querySelector("[data-close]");
+
+        document.addEventListener("click", (event) => {
+          const tile = event.target.closest(".projecttile");
+          if (!tile) return;
+
+          const projectId = tile.dataset.projectId;
+          const project = projectsData.projects.find((p) => p.id === projectId);
+          if (!project) return;
+
+          if (titleEl) {
+            titleEl.textContent = project.title || "";
+          }
+          if (bodyEl) {
+            bodyEl.textContent = project.body || "";
+          }
+          if (techEl) {
+            if (project.tech) {
+              techEl.textContent = project.tech;
+              techEl.hidden = false;
+            } else {
+              techEl.hidden = true;
+            }
+          }
+          if (imageEl) {
+            imageEl.src = project.image || "";
+          }
+          document.body.style.overflow = "hidden";
+          dialog.showModal();
+        });
+
+        function closeDialog() {
+          document.body.style.overflow = "";
+          dialog.close();
+        }
+
+        if (closeButton) {
+          closeButton.addEventListener("click", closeDialog);
+        }
+
+        dialog.addEventListener("click", (event) => {
+          if (event.target === dialog) {
+            closeDialog();
+          }
+        });
+
+        dialog.addEventListener("close", () => {
+          document.body.style.overflow = "";
+        });
+
+        dialog.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") {
+            event.preventDefault();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

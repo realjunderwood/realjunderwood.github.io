@@ -1,0 +1,141 @@
+.heading {
+  letter-spacing: -1.5px;
+}
+
+body {
+  font-family: "Helvetica";
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 10vh;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.header-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.headshot {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid black;
+  flex-shrink: 0;
+}
+
+.header-text {
+  flex: 1;
+}
+
+a {
+  color: black;
+  margin: 1px;
+}
+a:hover {
+  /* border: 1px solid black; */
+  background-color: #0000ff;
+  color: white;
+  /* margin: 0; */
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+}
+
+.projecttile {
+  border: 1px solid black;
+  padding: 0;
+  flex: 1 1 300px;
+  min-width: 280px;
+  max-width: 400px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.projecttile:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+  width: 100%;
+  height: 150px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid black;
+}
+
+.project-content {
+  padding: 15px;
+}
+
+.buttons-container {
+  margin: 30px 0;
+}
+
+.bigbutton {
+  padding: 15px;
+  border: 1px solid black;
+  border-radius: 50%;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  margin: 1px;
+}
+
+.bigbutton:hover {
+  border: 1px solid #0000ff;
+}
+
+#project-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 32px 28px 24px;
+  max-width: 520px;
+  width: min(90vw, 520px);
+  box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+  margin: 0;
+}
+
+#project-modal::backdrop {
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.modal-close:hover {
+  color: #0000ff;
+}
+
+.modal-content > h3 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.modal-tech {
+  margin-top: 16px;
+  font-style: italic;
+  color: #333;
+}
