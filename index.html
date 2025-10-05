@@ -69,6 +69,7 @@
           <h3 id="project-modal-title" data-modal-title></h3>
           <p id="project-modal-body" data-modal-body></p>
           <p class="modal-tech" data-modal-tech></p>
+          <p class="modal-github" data-modal-github></p>
         </article>
       </dialog>
       <h2 class="heading">Publications & talks</h2>
@@ -104,6 +105,7 @@
             body: "Software to allow libraries to map their collections for patron wayfinding",
             tech: "Stack: MERN hosted on a DigitalOcean Droplet",
             image: "/newassets/sq.png",
+            github: "https://shelfquest.app",
           },
           {
             id: "penplotter",
@@ -118,6 +120,7 @@
             body: "An open-source deep learning tool for automated bioacoustic pollinator monitoring.",
             tech: "Stack: Python, TensorFlow",
             image: "/newassets/buzz.png",
+            github: "https://github.com/OSU-Bee-Lab/buzzdetect",
           },
           {
             id: "webdcr",
@@ -139,6 +142,7 @@
             body: "Built a simple search engine in C, including indexer and crawler components for introductory information retrieval research.",
             tech: "Stack: C",
             image: "/newassets/tse.png",
+            github: "https://github.com/CS50DartmouthWI25/lab4-realjunderwood",
           },
         ],
         publications: [
@@ -198,6 +202,7 @@
         const bodyEl = dialog.querySelector("[data-modal-body]");
         const techEl = dialog.querySelector("[data-modal-tech]");
         const imageEl = dialog.querySelector("[data-modal-image]");
+        const githubEl = dialog.querySelector("[data-modal-github]");
         const closeButton = dialog.querySelector("[data-close]");
 
         document.addEventListener("click", (event) => {
@@ -220,6 +225,14 @@
               techEl.hidden = false;
             } else {
               techEl.hidden = true;
+            }
+          }
+          if (githubEl) {
+            if (project.github) {
+              githubEl.innerHTML = `<a href="${project.github}" target="_blank" style="color: #0066cc; text-decoration: none;">View Project →</a>`;
+              githubEl.hidden = false;
+            } else {
+              githubEl.hidden = true;
             }
           }
           if (imageEl) {
