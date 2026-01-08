@@ -9,15 +9,14 @@
     <div class="container">
       <div class="header-section">
         <img
-          src="/newassets/headshot.jpeg"
+          src="newassets/headshot.jpeg"
           alt="James Underwood"
           class="headshot"
         />
         <div class="header-text">
           <h1>James Underwood</h1>
           <p>
-            Hey! I'm a junior at Dartmouth College studying computer science and
-            engineering.
+            Hey! I'm a junior at Dartmouth College studying computer science.
           </p>
         </div>
       </div>
@@ -41,37 +40,6 @@
       <div class="projects-container" id="projects-container">
         <!-- Projects will be dynamically generated here -->
       </div>
-      <dialog
-        id="project-modal"
-        aria-labelledby="project-modal-title"
-        aria-describedby="project-modal-body"
-      >
-        <button
-          type="button"
-          class="modal-close"
-          aria-label="Close project details"
-          data-close
-        >
-          &times;
-        </button>
-        <article class="modal-content">
-          <img
-            id="project-modal-image"
-            data-modal-image
-            style="
-              width: 100%;
-              height: 200px;
-              object-fit: cover;
-              margin-bottom: 16px;
-              border-radius: 4px;
-            "
-          />
-          <h3 id="project-modal-title" data-modal-title></h3>
-          <p id="project-modal-body" data-modal-body></p>
-          <p class="modal-tech" data-modal-tech></p>
-          <p class="modal-github" data-modal-github></p>
-        </article>
-      </dialog>
       <h2 class="heading">Publications & talks</h2>
 
       <ul>
@@ -87,7 +55,7 @@
         </li>
         <li>
           <strong>James Underwood</strong>, et al.
-          <a href="/newassets/ESA talk.pdf" target="_BLANK"
+          <a href="newassets/ESA talk.pdf" target="_BLANK"
             >Spatiotemporal analysis of <i>Apis mellifera</i> foraging in a
             <i>Brassica juncea</i> field using bioacoustics.</a
           >
@@ -105,46 +73,53 @@
             id: "shelfquest",
             title: "ShelfQuest",
             body: "Software to allow libraries to map their collections for patron wayfinding; currently in use at a mid-sized New England public library.",
-            tech: "Stack: MERN hosted on a DigitalOcean Droplet",
-            image: "/newassets/sq.png",
+            tech: "MERN",
+            image: "newassets/sq.png",
             github: "https://shelfquest.app",
-          },
-          {
-            id: "penplotter",
-            title: "PenPlotter",
-            body: "Built a pen plotter using 3D printed parts with bespoke control software and hardware integration.",
-            tech: "Stack: C++, Arduino",
-            image: "/newassets/plotter.png",
           },
           {
             id: "buzzdetect",
             title: "buzzdetect",
             body: "An open-source deep learning tool for automated bioacoustic pollinator monitoring.",
-            tech: "Stack: Python, TensorFlow",
-            image: "/newassets/buzz.png",
+            tech: "Python, TensorFlow",
+            image: "newassets/buzz.png",
             github: "https://github.com/OSU-Bee-Lab/buzzdetect",
           },
           {
             id: "webdcr",
             title: "WebDCR website",
             body: "Built a new website for Dartmouth College Radio (WebDCR) from the ground up. Launching Jan 16, 2026.",
-            tech: "Stack: Jekyll, Alpine.JS",
-            image: "/newassets/webdcr.png",
+            tech: "Jekyll, Alpine.JS",
+            image: "newassets/webdcr.png",
+            github: "https://webdcr.github.io",
           },
           {
             id: "energy-kiosk",
             title: "Dartmouth Energy Kiosk",
             body: "Built an interactive kiosk displaying campus energy usage, installed in Dartmouth's Irving Sustainability Center.",
-            tech: "Stack: React, D3",
-            image: "/newassets/kiosk.png",
+            tech: "React, D3",
+            image: "newassets/kiosk.png",
+            github: "https://energykiosk.dalilab.app/",
           },
           {
             id: "tiny-search",
             title: "Tiny Search Engine",
             body: "Built a simple search engine in C, including indexer and crawler components for introductory information retrieval research.",
-            tech: "Stack: C",
-            image: "/newassets/tse.png",
-            github: "https://github.com/CS50DartmouthWI25/lab4-realjunderwood",
+            tech: "C",
+            image: "newassets/tse.png",
+          },
+          {
+            id: "video-call",
+            title: "Video call",
+            body: "Built a video call app over UDP with end-to-end encryption via Diffie–Hellman key exchange.",
+            image: "newassets/video.png",
+          },
+          {
+            id: "penplotter",
+            title: "PenPlotter",
+            body: "Built a pen plotter using 3D printed parts with bespoke control software and hardware integration.",
+            tech: "C++, Arduino",
+            image: "newassets/plotter.png",
           },
         ],
         publications: [
@@ -163,7 +138,7 @@
         ],
         profile: {
           name: "James Underwood",
-          bio: "Hey! I'm a junior at Dartmouth College studying computer science and engineering. I'm experienced in C/C++, Python, Java, NodeJS, and full-stack web development.",
+          bio: "Hey! I'm a junior at Dartmouth College studying computer science. I'm experienced in C/C++, Python, Java, NodeJS, and full-stack web development.",
           email: "jcunderwood [at] protonmail [dot] com",
           links: {
             github: "https://github.com/realjunderwood",
@@ -173,102 +148,50 @@
         },
       };
 
+      function buildTechLine(project) {
+        if (!project.tech) return "";
+        return `<p class="project-tech">${project.tech}</p>`;
+      }
+
+      function buildProjectLinks(project) {
+        if (!project.github) return "";
+
+        const label = (project.linkLabel || "Visit project").trim();
+        return `
+          <div class="project-links">
+            <a href="${project.github}" target="_blank" rel="noopener noreferrer">
+              <span class="project-link-label">${label}</span>
+              <span class="project-link-arrow" aria-hidden="true">→</span>
+            </a>
+          </div>
+        `;
+      }
+
       function renderProjects() {
         const container = document.getElementById("projects-container");
         if (!container) return;
 
         container.innerHTML = projectsData.projects
-          .map(
-            (project) => `
-          <div class="projecttile" data-project-id="${project.id}">
-            <div class="project-image" style="background-image: url('${project.image}'); background-size: cover; background-position: center;"></div>
-            <div class="project-content">
-              <h3>${project.title}</h3>
-              <p>${project.body}</p>
-            </div>
-          </div>
-        `
-          )
+          .map((project) => {
+            const inlineStyle = project.image
+              ? `background-image: url('${project.image}');`
+              : "";
+            return `
+              <article class="projecttile">
+                <div class="project-image" style="${inlineStyle}"></div>
+                <div class="project-content">
+                  <h3>${project.title}</h3>
+                  <p class="project-body">${project.body}</p>
+                  ${buildTechLine(project)}
+                  ${buildProjectLinks(project)}
+                </div>
+              </article>
+            `;
+          })
           .join("");
       }
 
-      (function () {
-        renderProjects();
-
-        const dialog = document.getElementById("project-modal");
-        if (!dialog || typeof dialog.showModal !== "function") {
-          return;
-        }
-
-        const titleEl = dialog.querySelector("[data-modal-title]");
-        const bodyEl = dialog.querySelector("[data-modal-body]");
-        const techEl = dialog.querySelector("[data-modal-tech]");
-        const imageEl = dialog.querySelector("[data-modal-image]");
-        const githubEl = dialog.querySelector("[data-modal-github]");
-        const closeButton = dialog.querySelector("[data-close]");
-
-        document.addEventListener("click", (event) => {
-          const tile = event.target.closest(".projecttile");
-          if (!tile) return;
-
-          const projectId = tile.dataset.projectId;
-          const project = projectsData.projects.find((p) => p.id === projectId);
-          if (!project) return;
-
-          if (titleEl) {
-            titleEl.textContent = project.title || "";
-          }
-          if (bodyEl) {
-            bodyEl.textContent = project.body || "";
-          }
-          if (techEl) {
-            if (project.tech) {
-              techEl.textContent = project.tech;
-              techEl.hidden = false;
-            } else {
-              techEl.hidden = true;
-            }
-          }
-          if (githubEl) {
-            if (project.github) {
-              githubEl.innerHTML = `<a href="${project.github}" target="_blank">View Project →</a>`;
-              githubEl.hidden = false;
-            } else {
-              githubEl.hidden = true;
-            }
-          }
-          if (imageEl) {
-            imageEl.src = project.image || "";
-          }
-          document.body.style.overflow = "hidden";
-          dialog.showModal();
-        });
-
-        function closeDialog() {
-          document.body.style.overflow = "";
-          dialog.close();
-        }
-
-        if (closeButton) {
-          closeButton.addEventListener("click", closeDialog);
-        }
-
-        dialog.addEventListener("click", (event) => {
-          if (event.target === dialog) {
-            closeDialog();
-          }
-        });
-
-        dialog.addEventListener("close", () => {
-          document.body.style.overflow = "";
-        });
-
-        dialog.addEventListener("keydown", (event) => {
-          if (event.key === "Escape") {
-            event.preventDefault();
-          }
-        });
-      })();
+      renderProjects();
     </script>
   </body>
 </html>
