@@ -24,7 +24,7 @@ if ($_SESSION["authenticated"] !== true) {
 
 
 function highlight_word( $content, $word ) {
-    $replace = '<span style="background-color: #0000ff;">' . strtoupper($word) . '</span>'; // create replacement
+    $replace = '<span style="background-color: yellow;">' . strtoupper($word) . '</span>'; // create replacement
     $content = str_ireplace( $word, $replace, $content ); // replace content
 
     return $content; // return highlighted data

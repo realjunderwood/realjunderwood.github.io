@@ -149,3 +149,14 @@ a:hover {
 .bigbutton:hover {
   border: 1px solid #0000ff;
 }
+
+::selection {
+  background-color: #0000ff;
+  color: #fff;
+}
+
+::-moz-selection {
+  background-color: #0000ff;
+  color: #fff;
+}
+
