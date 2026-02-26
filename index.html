@@ -80,9 +80,10 @@
           {
             id: "buzzdetect",
             title: "buzzdetect",
-            body: "Bee bioacoustics CNN.",
+            body: "Bee bioacoustics.",
             tech: "Python, TensorFlow",
             image: "newassets/buzz.png",
+            imageFit: "cover",
             github: "https://github.com/OSU-Bee-Lab/buzzdetect",
           },
           {
@@ -176,9 +177,13 @@
             const inlineStyle = project.image
               ? `background-image: url('${project.image}');`
               : "";
+            const imageClasses = ["project-image"];
+            if (project.imageFit === "cover") {
+              imageClasses.push("project-image--cover");
+            }
             return `
               <article class="projecttile">
-                <div class="project-image" style="${inlineStyle}"></div>
+                <div class="${imageClasses.join(" ")}" style="${inlineStyle}"></div>
                 <div class="project-content">
                   <h3>${project.title}</h3>
                   <p class="project-body">${project.body}</p>

@@ -75,6 +75,10 @@ a:hover {
   background-position: center;
 }
 
+.project-image--cover {
+  background-size: cover;
+}
+
 .project-content {
   padding: 15px;
   display: flex;
@@ -159,4 +163,3 @@ a:hover {
   background-color: #0000ff;
   color: #fff;
 }
-
